@@ -1,0 +1,81 @@
+/* Typography */
+.blog-title {
+    font-size: 32px;
+    line-height: 1.2;
+    color: #222;
+    margin: 1rem;
+   }
+   
+   .blog-section {
+    /* display: grid;
+    grid-template-columns: auto auto; */
+    gap: 2rem;
+    margin: 2rem;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+   }
+   
+   .blog-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+    width:100%;
+   
+   }
+   
+   .divider {
+    width: 100%;
+    height: 2px;
+    background-color: #e0e0e0;
+    margin: 30px 0;
+   }
+   .blog-text{
+    width: 70%;
+    text-align: justify;
+   }
+   /* Image Styles */
+   .blog-image-con {
+  
+    max-width: 100%;
+ 
+    width:600px;
+   
+   }
+   
+   .blog-image {
+   
+   width: 100%;
+   height: 300px;
+   }
+   
+   /* Responsive Styles */
+   @media screen and (max-width: 426px) {
+    .blog-title {
+       font-size: 24px;
+    }
+   
+    .blog-text {
+       font-size: 16px;
+    }
+    /* .blog-section{
+        display: block;
+    } */
+    .blog-image{
+        width: 100%;
+    }
+    .blog-image-con{
+        width: 100%;
+    }
+    .blog-text{
+        width: 100%;
+    }
+    .blog-section {
+        gap: 2rem;
+        margin: 2rem;
+        margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+       }
+   }

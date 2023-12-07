@@ -1,0 +1,154 @@
+.fg-bgcontainer {
+  /* background-color: aliceblue; */
+  /* background-image: url(forgot-back.png); */
+  /* height: 100vh; */
+  width: 100vw;
+  display: flex;
+  margin-top: 3%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  /* background-color: white; */
+}
+.backgr-45 {
+  background-image:url( 'https://s3-alpha-sig.figma.com/img/0b0d/7354/18892239591f7ff7d30eae83d691fae2?Expires=1702252800&Signature=eBL55hSN2SghABudycoLTHwrCaBcYH2uj0VP7NSkXb~NGImxMpZ4KgbksshEPToK0uE5b0ipRyIRC2R8vtqfEqEvxtbrwhw9DizoXPaXftQTwWlfbo~DKcV6sQQdqPP0fvnlxi0aFPF77EJMBFi9LEdObGuKzWVe3DQPUNnC~9NG59EiNNEyb56bp~-JNBAQXxeqUP2hZh2nTiTYpxExvUXIu8HhFl29SATtpMOWhkPH0cyHwTkNQxXx7-NnW~Pc9tfKsa2IOlkZ8V58PXRQX72odCwsbR~-yrd9ROZiH6WEAz3T1CTf3~JBh7VKs2Osz-4BIt-2zeXA3hjQRoHzCQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
+  padding: 2rem;
+  border-radius: 20px;
+  width: 35%;
+  margin-bottom: 50px;
+  margin-top: -11px;
+  margin-right: 290px;
+  height:391px;
+ 
+  /* background-color: red; */
+}
+.fg-cardcontainer {
+  /* background-color: #ffffff; */
+  padding: 30px;
+  margin: 20px;
+  /* height: 60vh; */
+  width: 80%;
+  height: 395px;
+  /* width: "100%"; */
+  border-radius: 20px;
+  background-color: white;
+  color: black;
+  margin-left: 50%;
+  margin-top: -32px;
+  
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+.fg-field {
+  margin-bottom: 20px;
+  
+}
+.fgheadername {
+  text-align: center;
+  color: black;
+}
+/* label{
+  color:white;
+} */
+.fgpara {
+  margin-bottom: 40px;
+  color: rgb(117, 115, 115);
+  font-weight: bold;
+  text-align: center;
+}
+.fg-field {
+  align-items: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.fieldcontainer{
+  max-width: "100%";
+}
+.fg-input-field input {
+  width: 95%;
+  padding: 10px;
+  border: none; /* Remove the border */
+  border-bottom: 1px solid #3d48e3; /* Add a bottom border for the line effect */
+  background-color: transparent; /* Make the background transparent */
+  outline: none
+}
+.fg-button-field button {
+  width: 100%;
+  padding: 10px;
+  background-color: #111133;
+  
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.fg-button-field button :hover{
+  background-color: white;
+  color: black;
+}
+.backtologin {
+  
+  
+  margin-top: 30px;
+
+}
+.or-line {
+  color: black;
+  /* margin-left: 190px; */
+  margin-top: 30px;
+}
+
+
+/* Styles for smaller screens */
+@media (max-width: 768px) {
+  .fg-bgcontainer {
+    flex-direction: column;
+  }
+
+  .fg-cardcontainer {
+    padding: 15px; /* Adjusted padding for smaller screens */
+  }
+
+  .fg-input-field input {
+    padding: 8px;
+  }
+
+  .fg-button-field button {
+    padding: 8px;
+  }
+  
+    .backtologin,
+    .or-line {
+      margin-top: 20px;
+      margin-left: 80px; /* Adjusted margin-top for better spacing on medium-sized screens */
+    }
+  }
+
+
+
+
+
+/* Styles for even smaller screens (e.g., smartphones) */
+@media (max-width: 480px) {
+  .fgheadername {
+    font-size: 24px;
+  }
+
+  .fgpara {
+    margin-bottom: 15px; /* Reduced margin for better spacing */
+  }
+
+  .fg-input-field input {
+    padding: 6px; /* Reduced padding for smaller screens */
+  }
+
+  .fg-button-field button {
+    padding: 6px; /* Reduced padding for smaller screens */
+  }
+  .backtologin,
+  .or-line {
+    margin-top: 15px;
+    color: red; /* Reduced margin for better spacing on smaller screens */
+  }
+}

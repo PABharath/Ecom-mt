@@ -1,0 +1,340 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Set font-family to match if available */
+  }
+  
+  .navbar {
+    background: whitesmoke;
+    padding: px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .logo img {
+    width: 100px;
+  }
+  
+  .left-side {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-items {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0 30px;
+    width: auto; /* Change the width to auto to allow items to expand */
+  }
+  
+  
+  .nav-item {
+    margin-right: 20px;
+    cursor: pointer;
+    color: black;
+    padding: 0 5px;
+    font-size: 18px;
+    text-decoration: none !important;
+    position: relative; /* Added for positioning sub-menu */
+  }
+  
+  .nav-item a {
+    text-decoration: none !important;
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 12.5px;
+    border-radius: 4px;
+    margin-left: -3%;
+  }
+  
+  .search-box input {
+    border: none;
+    outline: none;
+    width: 210px;
+    height: 13px;
+    margin-right: 5px;
+    font-size: 12px;
+  }
+  
+  .search-icon {
+    color: black;
+    cursor: pointer;
+  }
+  
+  .menu-icons {
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+  }
+  
+  .menu-icon {
+    color: black;
+    font-size: 20px;
+    margin-left: 50px;
+    cursor: pointer;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  ul.sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1;
+    flex-direction: row; /* Change direction to row */
+    margin-top: 0; /* Remove margin-top */
+  
+  
+    li {
+      margin-right: 100px; /* Add margin-right to create space between menu items */
+  
+      a {
+        color: #333;
+        text-decoration: none;
+        transition: color 0.3s ease;
+  
+        &:hover {
+          color: #007bff;
+        }
+      }
+    }
+  }
+  /* Adjust the width of the auto dropdown */
+  .sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    z-index: 1;
+    list-style: none;
+    flex-direction: row; /* Change direction to row */
+    margin-top: 0; /* Remove margin-top */
+    min-width: 300px; /* Adjust the minimum width as needed */
+  }
+  
+  .sub-sub-menu {
+    list-style: none !important;
+    /* ... other styles ... */
+    min-width: 300px; /* Adjust the minimum width as needed */
+  }
+  /* Change background and text color on hover */
+  .sub-sub-menu a {
+    display: inline-block;
+    color: black !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Added background-color transition */
+    margin-right: 20px;
+    padding: 5px 0; /* Add padding for better click area */
+  }
+  
+  .sub-sub-menu a:hover {
+    color: #007bff; /* Change text color on hover */
+    background-color: #f5f5f5; /* Change background color on hover */
+  }
+  
+  
+  /* Show sub-menu on hover */
+  .nav-item:hover ul.sub-menu {
+    display: flex;
+  }
+  .cart-count {
+    position: relative;
+  left: 5px;
+    /* top: 1px; */
+    color: black;
+  }
+  /* Media Queries */
+  
+  @media (max-width: 768px) {
+    
+    .navbar {
+      background: whitesmoke;
+      padding: 2px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      /* width: 100%;
+      width: fixed;
+      position: fixed; */
+    }
+    
+  
+    .nav-items {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      background-color: #fff;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+  
+    .nav-items.show {
+      display: flex;
+    }
+  
+    .search-box {
+      display: none;
+    }
+  
+    .burger-menu {
+      display: block;
+      cursor: pointer;
+    }
+  
+    /* Burger menu styles */
+    .burger-menu.open .bar1,
+    .burger-menu.open .bar2,
+    .burger-menu.open .bar3 {
+      background-color: #fff;
+    }
+  
+    .bar1,
+    .bar2,
+    .bar3 {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+  }
+  
+  /* Sub-menu styles */
+  
+  .sub-sub-menu a {
+    display: inline-block; /* Display as inline block to keep them in one line */
+    color: black !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease;
+    margin-right: 20px; /* Add spacing between menu items */
+  }
+  
+  .sub-sub-menu a:last-child {
+    margin-right: 0; /* Remove margin from the last item */
+  }
+  
+  
+  .nav-item.categories {
+    margin-right: 20px;
+    cursor: pointer;
+    color: black;
+    padding: 0 25px; /* Increase the padding to expand the clickable area */
+    font-size: 18px;
+    text-decoration: none !important;
+    position: relative; /* Added for positioning sub-menu */
+  }
+  
+  /* Your existing styles */
+  
+  .menu-icon {
+    color: black;
+    font-size: 20px;
+    margin-left: 50px;
+    cursor: pointer;
+    position: relative; /* Needed for absolute positioning */
+  }
+  
+  .menu-icon::before {
+    content: attr(title); /* Use the title attribute as content */
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 14px;
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+  
+  .menu-icon:hover::before {
+    display: block;
+  }
+  .navbar.menu-open .menu-icons,
+  .navbar.menu-open .search-box {
+    display: none; /* Hide menu icons and search box when menu is open */
+  }
+  
+  .navbar.menu-open .nav-items {
+    display: flex;
+  }
+  
+  /* Adjust the position of the navigation items */
+  .navbar.menu-open .nav-items {
+    position: absolute;
+    top: 60px; /* Adjust the top position as needed */
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 1;
+  }
+  .tooltip-container {
+    position: relative;
+  }
+  
+  .tooltip {
+    position: absolute;
+    top: 110%; /* Increase the distance from the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white; /* Set the background color to white */
+    color: #333; /* Set the text color */
+    padding: 14px 18px; /* Adjust padding for a larger tooltip */
+    border-radius: 8px; /* Increase border-radius for a rounder shape */
+    font-size: 16px; /* Increase font size for better visibility */
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: opacity 0.2s;
+  }
+  
+  .menu-icon:hover + .tooltip {
+    opacity: 1; /* Increase opacity for better visibility */
+  }
+  /* Tooltip styles for cart icon */
+  .cart-tooltip .tooltip-container {
+    position: relative;
+  }
+  
+  
+  
+  .cart-tooltip .menu-icon:hover + .tooltip {
+    opacity: 1; /* Increase opacity for better visibility */
+  }
+  
+  .tooltip-container{
+    margin-left: -10%;
+  }

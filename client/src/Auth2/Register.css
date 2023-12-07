@@ -1,0 +1,128 @@
+
+.span1{
+  color:#000000;
+  font-weight: bold;
+  
+}
+.span1:hover{
+  color:#05ed01;
+  
+}
+
+.bgRegistercontainer1{
+  background-image: url(https://s3-alpha-sig.figma.com/img/0b0d/7354/18892239591f7ff7d30eae83d691fae2?Expires=1702252800&Signature=eBL55hSN2SghABudycoLTHwrCaBcYH2uj0VP7NSkXb~NGImxMpZ4KgbksshEPToK0uE5b0ipRyIRC2R8vtqfEqEvxtbrwhw9DizoXPaXftQTwWlfbo~DKcV6sQQdqPP0fvnlxi0aFPF77EJMBFi9LEdObGuKzWVe3DQPUNnC~9NG59EiNNEyb56bp~-JNBAQXxeqUP2hZh2nTiTYpxExvUXIu8HhFl29SATtpMOWhkPH0cyHwTkNQxXx7-NnW~Pc9tfKsa2IOlkZ8V58PXRQX72odCwsbR~-yrd9ROZiH6WEAz3T1CTf3~JBh7VKs2Osz-4BIt-2zeXA3hjQRoHzCQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
+  width: 50%;
+  margin: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;  
+  border-radius: 1rem;
+  padding: 1px;
+  overflow: hidden;
+  box-sizing: border-box;
+  
+}
+.forms1{
+  width: 60%;
+  padding:1rem;
+  border-radius: 1rem;
+  background-color: white;
+  margin-left: 35%;
+
+  border-left: 1px black solid;
+}
+.Headername1 {
+  color:black;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.field1 {
+  margin-bottom: 20px;
+}
+.input-field1 input {
+  width: 85%;
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  display: inline;
+  outline: none;
+}
+
+.password1 {
+  position: relative;
+}
+
+.password1 .eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.form-link1 {
+  margin: 1rem;
+  text-align: center;
+  width: 100%;
+  
+}
+.button-field1 button {
+  
+  padding: 10px;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  background-color: #272343;
+}
+.button-field1 button:hover{
+
+background-color: #000000;
+}
+.para1{
+  text-align: center;
+}
+.section3,
+.section4 {
+  flex: 1; /* Allow the sections to grow and take equal space */
+  padding: 14px; /* Add some spacing around the content within each section */
+  /*  border: 1px solid #ccc; / / Optional: Add a border for visual separation */
+  box-sizing: border-box; /* Optional: Include padding and border in the section's total width */
+}
+.section4 {
+  padding: 16px;
+}
+
+
+.icon2v{
+  float: right;
+  margin-right: 1rem;
+  padding: 0px;
+}
+
+
+@media only screen and (min-width: 600px){
+  .googlecontainer-register{
+    margin-left: 1rem;
+  }
+}
+
+@media only screen and (min-width: 768px){
+  .googlecontainer-register{
+    margin-left: 3rem;
+  }
+}
+
+@media only screen and (min-width: 1100px){
+  .googlecontainer-register{
+    margin-left: 6rem;
+  }
+}
+
+
+@media only screen and (min-width: 1350px){
+  .googlecontainer-register{
+    margin-left: 8rem;
+  }
+}

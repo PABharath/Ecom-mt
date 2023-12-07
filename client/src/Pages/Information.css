@@ -1,0 +1,32 @@
+.footer-details {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer-details h1, .footer-details h2, .footer-details h3 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .footer-details p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .footer-details ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .footer-details li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-details hr {
+    margin: 20px 0;
+  }
+  
+ 

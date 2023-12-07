@@ -1,0 +1,82 @@
+.popup-container {
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    position: relative;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 30px;
+    border: 1px solid #bbbbbb;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  /* Media Query for smaller screens */
+  @media (max-width: 768px) {
+    .popup-container {
+      width: 90%;
+      max-width: 400px;
+      margin: 30px auto;
+      padding: 15px;
+    }
+  }
+  /* ... (rest of your CSS) */
+
+.form-label {
+    font-family: 'Open Sans';
+    font-size: 24px;
+    font-weight: 600;
+    padding: 8px;
+    border-radius: 22px;
+    display: inline-block;
+    margin-bottom: 15px;
+    background-color: #bbbbbb;
+  }
+  
+  .form-subtitle {
+    padding-right: 320px;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  /* Rest of your existing CSS */
+  
+  /* Media Query for smaller screens */
+  @media (max-width: 768px) {
+    .popup-container {
+      width: 90%;
+      max-width: 400px;
+      margin: 30px auto;
+      padding: 15px;
+    }
+    .form-label {
+      font-size: 20px;
+      padding: 5px;
+      border-radius: 18px;
+      margin-bottom: 10px;
+    }
+    .form-subtitle {
+      padding-right: 280px;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    /* Additional styles for smaller screens */
+  }
+  

@@ -1,0 +1,188 @@
+.product-form1 {
+   /* margin: 1% auto; */
+   /* padding: 1%; */
+   /* box-sizing: border-box 5px; */
+   /* border-radius: 5px; */
+   width: 100%;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  .c1{
+   text-align: center;
+   font-size: 2rem;
+   /* text-shadow: 1.5px 1.5px 1.5px red; */
+  }
+  .product-form1 form {
+   display: grid;
+   grid-template-columns: auto auto auto;
+   gap: 1rem;
+   border: 1px solid black;
+   padding: 1em;
+   border-radius: 3px;
+  }
+  .textarea1000{
+   height: 30px;
+  }  
+  .product-form1 form label {
+   font-weight: bold;
+   margin-bottom: 1px;
+  }
+  .product-form1 {
+   width: 100%;
+   max-width: 1200px;
+ }
+  
+  .product-form1 form input[type="text"],
+  .product-form1 form textarea {
+   width: 100%;
+   padding: 8px;
+   box-sizing: border-box;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   font-size: 14px;
+   margin-top: 1%;
+  }
+  .productimages1000{
+   margin-top: 2%;
+  }
+  .product-form1 form input[type="number"] {
+   width: 100%;
+   padding: 8px;
+   box-sizing: border-box;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   font-size: 14px;
+   margin-top: 1%;
+  }
+  
+  .product-form1 form button {
+   width: 50%;
+   padding: 0;
+   background-color: #007bff;
+   color: white;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   height: 35px;
+  }
+  
+  .product-form1 form button:disabled {
+   background-color: #6c757d;
+   cursor: not-allowed;
+  }
+
+
+
+  /* Mobile Devices */
+@media only screen and (max-width: 480px) {
+   .product-form {
+      width: 100%;
+      margin: 0 auto;
+      font-size: 30px;
+   }
+   .product-form form{
+   grid-template-columns: auto ;
+
+   }
+  
+   .product-form1 input,
+   .product-form1 textarea {
+      width: 100%;
+      margin-bottom: 15px;
+   }
+  
+   .product-form1 button {
+      width: 100%;
+   }
+   
+  /* .product-form1 form input[type="text"],
+  .product-form1 form textarea {
+   width: 100%;
+   padding: 8px;
+   box-sizing: border-box;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   font-size: 14px;
+   margin-top: 1%;
+  }
+  .productimages1000{
+   margin-top: 2%;
+  }
+  .product-form1 form input[type="number"] {
+   width: 100%;
+   padding: 8px;
+   box-sizing: border-box;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   font-size: 14px;
+   margin-top: 1%;
+  } */
+  }
+  
+  /* Tablets */
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+   .product-form1 {
+      width: 100%;
+      margin: 0 auto;
+   }
+   .product-form1 form{
+       grid-template-columns: auto;
+   
+       }
+  
+   .product-form1 input,
+   .product-form1 textarea {
+      width: 100%;
+      margin-bottom: 15px;
+   }
+  
+   .product-form1 button {
+      width: 100%;
+   }
+  }
+  
+  /* Desktops */
+  @media only screen and (min-width: 769px) and (max-width: 1024px) {
+   .product-form1 {
+      width: 100%;
+      margin: 0 auto;
+   }
+   .product-form1 form{
+       grid-template-columns: auto auto;
+   
+       }
+   .product-form1 input,
+   .product-form1 textarea {
+      width: 100%;
+      margin-bottom: 15px;
+   }
+  
+   .product-form1 button {
+      width: 100%;
+   }
+  }
+  
+  /* Large Desktops */
+  @media only screen and (min-width: 1025px) {
+   .product-form1 {
+      width: 100%;
+      margin: 0 auto;
+   }
+  
+   .product-form1 input,
+   .product-form1 textarea {
+      width: 100%;
+      margin-bottom: 15px;
+   }
+  
+   .product-form1 button {
+      width: 100%;
+   }
+  }
+
+  .productform-category{
+   padding: .3rem;
+   margin: .2rem;
+  }
+  .productform-choosefile{
+   padding: .5rem;
+  }

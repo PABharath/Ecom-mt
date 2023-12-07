@@ -1,0 +1,181 @@
+ .fgv-bg1{
+  background-image: url('https://s3-alpha-sig.figma.com/img/0b0d/7354/18892239591f7ff7d30eae83d691fae2?Expires=1702252800&Signature=eBL55hSN2SghABudycoLTHwrCaBcYH2uj0VP7NSkXb~NGImxMpZ4KgbksshEPToK0uE5b0ipRyIRC2R8vtqfEqEvxtbrwhw9DizoXPaXftQTwWlfbo~DKcV6sQQdqPP0fvnlxi0aFPF77EJMBFi9LEdObGuKzWVe3DQPUNnC~9NG59EiNNEyb56bp~-JNBAQXxeqUP2hZh2nTiTYpxExvUXIu8HhFl29SATtpMOWhkPH0cyHwTkNQxXx7-NnW~Pc9tfKsa2IOlkZ8V58PXRQX72odCwsbR~-yrd9ROZiH6WEAz3T1CTf3~JBh7VKs2Osz-4BIt-2zeXA3hjQRoHzCQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
+  /* height: 55vh; */
+   width: 35%;
+  /* width: 100%;  */
+  /* margin-left: 50%; */
+  border-radius: 15px;
+  /* margin-left: 20%; */
+  /* padding: 2.5rem; */
+  margin-top: 8%;
+  margin-bottom: 8%;
+
+  
+} 
+
+
+
+
+.fgv-bgcontainer {
+  /* background-image: url(forgot-back.png); */
+  
+
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* margin: auto;
+  margin-bottom: -8.8%;
+  margin-top: -8.8%; */
+  /* border-radius: 20px; */
+  /* margin: auto; */
+ margin: auto;
+ margin-top: -1.5%;
+ 
+  
+}
+
+.fgv-cardcontainer {
+  padding: 2rem;
+  /* margin: 20px; */
+  /* height: 55vh; */
+  width: 70%;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-left: 40%;
+ position: relative;
+ /* top: -12.2%;
+
+ top: -1%; */
+
+  /* margin-top: 2.5%; */
+  /* margin-bottom: 7%; */
+}
+
+
+.fgvpara{
+  color: rgb(142, 142, 142);
+}
+
+.fgv-field {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.fgv-input-field input {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid rgb(165, 163, 163); 
+  border-radius: 0px;
+  transition: border-color 0.3s ease-in-out;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  outline-width: 0px;
+  
+}
+.fgv-input-field{
+  display: flex;
+  align-items: center;
+}
+
+ .icon1{
+  display: inline-block;
+  cursor: pointer;               
+  margin-left: 83%;               
+  margin-top: -20px;               
+}
+
+.input1{
+  padding: 1em;
+  margin-right: 1%;
+  border-left: transparent;
+  border-right: transparent;
+  border-top: transparent;
+  border: 1px solid rgb(10, 9, 9);
+} 
+
+.fgv-input-field input:focus {
+  /* border-color: #8e44ad; */
+  border-color: grey;
+}
+
+.fgv-button-field button {
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #111133;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.fgv-button-field button:hover {
+  background-color:#9b8bf4;
+}
+
+.fgv-message {
+  color: #e74c3c;
+  margin-top: 10px;
+}
+
+/* Styles for smaller screens */
+@media (max-width: 768px) {
+  .fgv-bg1 {
+    width: 40%; /* Adjust width for better fit on smaller screens */
+    margin: auto;
+  }
+
+  .fgv-cardcontainer {
+    width: 80%;
+    margin-left: 20%;
+    margin-top: 0; /* Adjust top margin for better spacing */
+  }
+
+  .fgvpara {
+    font-size: 14px; /* Adjust font size for better readability */
+  }
+
+  .fgv-input-field input {
+    width: 70%;
+    margin-right: 0; /* Remove margin for better fit */
+  }
+
+  .fgv-button-field button {
+    width: 100%;
+    padding: 8px 15px; /* Adjust button padding */
+  }
+
+  .icon1 {
+    margin-left: 80%; /* Adjust margin for icon position */
+  }
+}
+
+/* Styles for even smaller screens (e.g., smartphones) */
+@media (max-width: 480px) {
+  .fgv-bg1 {
+    width: 70%;
+    height: 55vh; /* Further adjust width for smaller screens */
+  }
+
+  .fgv-cardcontainer {
+    padding: 15px;
+    height: 55vh; /* Adjust padding for better spacing */
+  }
+
+  .fgvheadername {
+    font-size: 20px; /* Further reduce font size for smaller screens */
+  }
+
+  .fgv-input-field input {
+    padding: 8px;
+  }
+
+  .fgv-button-field button {
+    padding: 6px 12px; /* Adjust button padding */
+  }
+}
+
