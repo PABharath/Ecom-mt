@@ -230,9 +230,7 @@ const IntegratedAddressPage = () => {
               </div>
             </div>
             <div className="buttons-container">
-              <button type="submit" className="add-address-button">
-                Add Address
-              </button>
+             
               <button
                 type="button"
                 onClick={() => setShowForm(false)}

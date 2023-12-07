@@ -173,7 +173,7 @@ const AddAddressPage = ({onClose, onSelectAddress}) => {
                 <input
                   type="text"
                   id="fullName"
-                  name="fullName"
+                  name="fullName" 
                   value={formData.fullName}
                   onChange={handleChange}
                   required
