@@ -1,19 +1,23 @@
 .footer-details {
-    padding: 20px;
-    max-width: 800px;
+    padding: 2rem;
+    max-width:1200px;
     margin: 0 auto;
-    font-family: Arial, sans-serif;
+    font-family:   "Roboto_Slab variant0", Tofu;
+   
+
   }
   
   .footer-details h1, .footer-details h2, .footer-details h3 {
     color: #333;
     margin-bottom: 10px;
+    font-family:  "Rowdies variant0", Tofu;
   }
   
   .footer-details p {
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
+    line-height: 1.7;
+     margin-bottom: 20px;
+     font-size: large;
+  } 
   
   .footer-details ul {
     list-style: disc;
@@ -23,6 +27,7 @@
   
   .footer-details li {
     margin-bottom: 10px;
+    
   }
   
   .footer-details hr {

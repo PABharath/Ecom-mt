@@ -17,85 +17,94 @@ const Information = () => {
         take all of the terms and conditions stated on this page.
       </p>
       <p>
-        The following terminology applies to these Terms and Conditions,
-        Privacy Statement and Disclaimer Notice and all Agreements: "Client",
-        "You" and "Your" refers to you, the person log on this website and
-        compliant to the Company's terms and conditions. "The Company",
-        "Ourselves", "We", "Our" and "Us", refers to our Company. "Party",
-        "Parties", or "Us", refers to both the Client and ourselves. All terms
-        refer to the offer, acceptance, and consideration of payment necessary
-        to undertake the process of our assistance to the Client in the most
-        appropriate manner for the express purpose of meeting the Client's
-        needs in respect of the provision of the Company's stated services, in
-        accordance with and subject to, prevailing law of Netherlands.
+      <h3>1. Sale and Purchase of Goods</h3>
+        Pure Sarees parent company  (“Seller”) hereby agrees to sell, and You (“Buyer”) hereby agree to purchase, 
+        goods of the description and quantity described on the checkout window (“Checkout”)  and incorporated 
+        herein by this reference (“Goods”) on the terms and conditions set forth in this Agreement.
       </p>
       <p>
-        Any use of the above terminology or other words in the singular,
-        plural, capitalization and/or he/she or they, are taken as
-        interchangeable and therefore as referring to the same.
+      <h3>2. Purchase Price</h3>
+       Buyer agrees to pay the Purchase Price of the Goods as posted on this website attached here to.
       </p>
-      <h3>Intellectual Property Rights</h3>
+      <h3> 3. Payment Terms </h3>
       <p>
-        Other than the content you own, under these terms, our Company and/or
-        its licensors own all the intellectual property rights and materials
-        contained in this website.
+       The total amount of the Purchase Price shall be payable in full by Buyer according to the payment 
+       due date stated at Checkout. In addition, Seller shall have the right to pursue any remedies available at law or as provided herein and 
+       shall be entitled to reimbursement from Buyer for Seller’s costs of collection, including attorney fees, legal fees and costs and disbursements, if any.
       </p>
-      <h3>Restrictions</h3>
+      <h3>4. Delivery</h3>
       <p>
-        You are specifically restricted from all of the following:
+       Unless otherwise agreed in writing, delivery shall be made in accordance with Seller’s 
+       shipping policy in effect on the date of shipment. Delivery dates provided by Seller are estimates only. 
+       Seller will make reasonable efforts to deliver in accordance with such dates; however, 
+       Seller will not be liable for failure to deliver as estimated. Unless otherwise agreed in writing by Seller, 
+       Goods shall be packaged according to Seller’s standards and practices.
       </p>
+      <h3>5. Customs, Duties, and Taxes </h3>
       <ul>
-        <li>Publishing any website material in any other media.</li>
-        <li>Selling, sublicensing, and/or otherwise commercializing any website material.</li>
-        <li>Publicly performing and/or showing any website material.</li>
-        <li>Using this website in any way that is or may be damaging to this website.</li>
-        <li>Using this website in any way that impacts user access to this website.</li>
-        <li>Using this website contrary to applicable laws and regulations.</li>
+        <li>The recipient is responsible for assuring that the product can be lawfully imported to the destination country. 
+          When ordering from puresarees.com, the recipient is the importer of record and must comply with all laws and 
+          regulations of the destination country.</li>
+        <li>Orders that are shipped to countries outside of India may be subject to import taxes, 
+          customs duties and fees levied by the destination country.</li>
+        <li>All our shipments are currently sent as Delivery Duty Paid. This means that you 
+          DO NOT need to pay any duty or taxes at the time of receiving your shipment.</li>
+        <li>In the exceptional circumstance that duty or taxes are levied on your parcel, 
+          please get in touch and we will help you resolve the matter.</li>
+        <li>Customs policies vary widely from country to country; the recipient should contact their local customs office in 
+          case of any formalities required. When customs clearance procedures are required, it can sometimes cause delays 
+          beyond our original delivery estimates. </li>
+        <li>If required, the recipient must submit social security number, tax ID or any such proof of address or business as 
+          required by their customs office to have the shipment cleared.</li>
       </ul>
-      <h3>User Account</h3>
+      <h3>6. Disclaimer of Warranty/Limitation of Liability </h3>
       <p>
-        When you create an account with us, you agree to provide accurate and
-        complete information. You are responsible for maintaining the
-        confidentiality of your account and password and for restricting access
-        to your computer. You agree to accept responsibility for all activities
-        that occur under your account or password. If you believe there has been
-        unauthorized use, you must notify us immediately.
+      Seller undertakes no responsibility for the quality of the Goods or that the Goods 
+      will be fit for any particular purpose for which Buyer may be buying the Goods, 
+      except as otherwise provided in this Agreement, and Seller disclaims all other 
+      warranties and conditions, express or implied.
       </p>
-      <h3>Third-Party Links</h3>
+      <h3>7. Colour Disclaimer</h3>
       <p>
-        Our website may contain links to third-party websites or services that
-        are not owned or controlled by us. We have no control over and assume
-        no responsibility for the content, privacy policies, or practices of any
-        third-party websites or services. You further acknowledge and agree that
-        we shall not be responsible or liable, directly or indirectly, for any
-        damage or loss caused or alleged to be caused by or in connection with
-        the use of or reliance on any such content, goods, or services available
-        on or through any such websites or services.
+      The colours of products you see on computer screen will vary slightly from 
+      those of the actual product. This is because of the difference in underlying 
+      technologies of computer monitors and fabric; monitors that are not properly 
+      calibrated also add to the difference in colours. In addition, the lighting 
+      used while taking photographs also factor in the final colour shown on the screen.  
       </p>
-      <h3>Use of Cookies</h3>
+      <h3>8. Price Disclaimer </h3>
 <p>
-  Our website uses cookies to enhance your browsing experience. Cookies are small
-  text files that are placed on your device to track usage patterns and gather
-  information about your preferences. By using our website, you consent to our
-  use of cookies in accordance with our Privacy Policy.
+While puresarees.com makes every effort to ensure that the products are described and
+ priced accurately, in the event that an item is deemed to be priced incorrectly, 
+ puresarees.com reserves the right to refuse the sale of that item. 
 </p>
 
-<h3>Limitation of Liability</h3>
+<h3>9. Force Majeure</h3>
 <p>
-  To the fullest extent permitted by applicable law, we shall not be liable for
-  any indirect, incidental, special, consequential, or punitive damages,
-  including but not limited to loss of profits, data, use, goodwill, or other
-  intangible losses. We shall not be liable for any damages, liabilities, or
-  losses arising from your use of or reliance on our website, content, products,
-  or services.
+Seller shall not be held responsible for any failure of performance to make timely 
+delivery of all or any part of the Goods in the event such failure was due, in whole 
+or in part, to federal, provincial or municipal action, statute, ordinance or regulation, 
+strike or other labor trouble, fire or other damage to or destruction of, in whole or in part, 
+the Goods or the manufacturing facility for the Goods, the lack of or inability to obtain raw materials, 
+labor, fuel, electrical power, water or supplies, or any other cause, act of God, contingency or circumstances
+ not subject to the reasonable control of Seller, which causes delays or hinders the manufacture or delivery 
+ of Goods. Seller shall determine in good faith the extent to which it can reasonably control a cause, 
+ contingency, or circumstance that affects the performance of its obligations.
 </p>
 
-<h3>Indemnification</h3>
+<h3>10. General</h3>
 <p>
-  You agree to indemnify and hold us harmless from any claim or demand,
-  including reasonable attorney's fees, made by any third party due to or
-  arising out of your breach of these Terms and Conditions or your violation of
-  any law or the rights of a third party.
+Buyer may not assign this Agreement without Seller’s written consent. Seller is the sole intended 
+beneficiary of this Agreement. If there is any inconsistency between this Agreement and any other 
+agreement included with or relating to the Goods, this Agreement shall govern. This Agreement may 
+not be modified, altered or amended without the written agreement of Seller. Any additional or 
+altered terms attached to any order submitted by Buyer shall be null and void, unless expressly 
+agreed to in writing by Seller. If any term of this Agreement is illegal or unenforceable, the 
+legality and enforceability of the remaining provisions shall not be affected or impaired. 
+This Agreement shall be interpreted under the laws of Delhi, India, without giving effect to 
+conflicts-of-law rules; and in the event of a dispute under this Agreement; Buyer submits to 
+the exclusive jurisdiction and venue of the jurisdiction of Delhi and hereby waives any objection 
+to such jurisdiction and venue.
 </p>
 
 <h3>Changes to Terms & Conditions</h3>
@@ -114,41 +123,55 @@ const Information = () => {
 <hr/>
 <h1>Privacy Policy</h1>
 <p>
-  Your privacy is important to us. It is our policy to respect your privacy
-  regarding any information we may collect from you across our website,
-  www.example.com, and other sites we own and operate.
+This privacy policy sets out how puresarees.com uses and protects any information that you give puresarees.com when you use this website.
+</p>
+<p>
+
+Puresarees.com is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be 
+identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement.
+</p>
+<p>Puresarees.com may change this policy from time to time by updating this page. You should check this page from time to time to ensure that you are happy with any changes.
+</p>
+
+<h3>What we collect</h3>
+<ul>
+
+
+<li>We may collect the following information:</li>
+
+<li>name and date of birth</li>
+<li>contact information including email address</li>
+<li>demographic information such as postcode, preferences and interests</li>
+<li>other information relevant to customer surveys and/or offers</li>
+
+</ul>
+<h3>Security</h3>
+<p>
+We are committed to ensuring that your information is secure. In order 
+to prevent unauthorised access or disclosure we have put in place suitable 
+physical, electronic and managerial procedures to safeguard and secure the 
+information we collect online.
 </p>
 
 <p>
-  We only ask for personal information when we truly need it to provide a
-  service to you. We collect it by fair and lawful means, with your knowledge
-  and consent. We also let you know why we’re collecting it and how it will be
-  used.
+Whenever you are asked to fill in a form on the website, look for the box 
+that you can click to indicate that you do not want the information to be 
+used by anybody for direct marketing purposes
 </p>
 
 <p>
-  We only retain collected information for as long as necessary to provide you
-  with your requested service. What data we store, we’ll protect within
-  commercially acceptable means to prevent loss and theft, as well as
-  unauthorized access, disclosure, copying, use, or modification.
+We will not sell, distribute or lease your personal information to third 
+parties unless we have your permission or are required by law to do so. 
+We may use your personal information to send you promotional information 
+about third parties which we think you may find interesting if you tell us 
+that you wish this to happen.
 </p>
 
 <p>
-  We don’t share any personally identifying information publicly or with
-  third-parties, except when required to by law.
-</p>
+If you believe that any information we are holding on you is incorrect or 
+incomplete, please write to or email us as soon as possible, at the above address.
+ We will promptly correct any information found to be incorrect.
 
-<p>
-  Our website may link to external sites that are not operated by us. Please be
-  aware that we have no control over the content and practices of these sites,
-  and cannot accept responsibility or liability for their respective privacy
-  policies.
-</p>
-
-<p>
-  You are free to refuse our request for your personal information, with the
-  understanding that we may be unable to provide you with some of your desired
-  services.
 </p>
 
 <p>
@@ -160,6 +183,12 @@ const Information = () => {
 
 <p>
   This policy is effective as of September 1, 2023.
+</p>
+<h3>Contacting Us</h3>
+<p>
+If there are any questions regarding this privacy policy you may contact us on Matrical@gmail.com.
+
+
 </p>
 <hr/>
 <h1>Help & Support</h1>
@@ -223,7 +252,7 @@ const Information = () => {
   To initiate a return, please follow these steps:
 </p>
 
-<ol>
+<ul>
   <li>Contact our customer support team by phone or email to inform them of
   your intention to return the item. Please provide your order number and
   a brief explanation of the reason for the return.</li>
@@ -232,7 +261,7 @@ const Information = () => {
   <li>Securely package the item in the original packaging and include the RMA
   number on the outside of the package.</li>
   <li>Ship the package to the address provided by our support team.</li>
-</ol>
+</ul>
 
 <h4>Refunds</h4>
 <p>
@@ -259,6 +288,46 @@ const Information = () => {
 <p>
   If you have any questions or need further assistance regarding our return
   policy, please don't hesitate to contact our customer support team.
+</p>
+<hr/>
+<h1>Explore More</h1><br/>
+<h3>1.Art Silk</h3>
+<p>
+Artificial silk or art silk is a synthetic material that resembles pure silk.  
+Just like pure silk sarees, art silk sarees are airy, super light and really 
+comfortable which makes them an ideal choice during the hot months of summer.  
+The actual material is usually made out of rayon, mercerized cotton and polyester, 
+but will vary depending on the type of silk being imitated. 
+</p>
+<h3>2.Cotton-silk</h3>
+<p>
+Cotton silk fabric is a blend of cotton and silk fibres, adding an extra layer 
+of luster to a regular cotton saree. A lightweight silky and comfortable weave, 
+cotton silk fabric has a soft hand-feel and a sturdy, silken drape.
+</p>
+<h3>3.Pure Silk</h3>
+<p>
+Pure Silk comes in so many varieties, we are unable to list all of them.  
+They include:  Konrad, Mysore, Uppada,Dharmavaram Silk Sarees, Kanjeevaram Silk, Chettinad, 
+Gadwal and Pochampally are best traditional beauties of South Indian silk sarees. Paithani Silk,  
+Raw Silk, Maheshwari Silk, Raigarh Kosa Silk, Ghicha Silk, Kashmiri Silk,  Dharmavaram Silk, Kota 
+Silk and  Tussar Silk to name a few.  These sarees are often collector's items and passed down to 
+generations for their beauty and value of pure silk. 
+
+
+</p>
+<h3>4.Kanchipuram Silk Sarees</h3>
+<p>
+Suppose you spot someone wearing a saree of golden threads with intricately woven traditional designs. 
+In that case, you know you’ve set your eyes on a Kanjivaram Silk Saree. 
+There are different types of wedding pattu sarees, out of which the Kanchipuram Silk Saree always stands out.
+</p>
+<p>
+This distinctive-looking Kanchipuram Saree represents a versatile array of designs that are 
+‘All-Things-South-Indian,’ like temples, temple borders, and much more
+</p>
+<p>
+Delicate patterns made with gold threads give Kanjivaram Silk Sarees a very different glow.
 </p>
     </div>
   );

@@ -43,6 +43,7 @@ const ContactUs =()=> {
  
     return (
       <div className="total">
+        
         <h1 className="head">Contact Us</h1>
 
         <div className="contact-container">
@@ -51,7 +52,7 @@ const ContactUs =()=> {
           <form
             action="#"
             method="POST"
-            className="contact-form"
+            className="contact-form1"
             
             onSubmit={handleSubmit}
           >
@@ -115,11 +116,13 @@ const ContactUs =()=> {
               Submit
             </button>
           </form>
-     
+          
 
-          <iframe
+         
+        </div>
+        <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.770356786728!2d77.51560167379478!3d12.922475987388404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3e21c103985b%3A0x7af7b0258b8258fa!2sMatrical%20Technologies!5e0!3m2!1sen!2sin!4v1682603452282!5m2!1sen!2sin"
-            width="35%"
+            width="100%"
             height="429.5px"
             className="i1"
             style={{ border: "0",borderRadius:'8px',  marginLeft:'0px',boxShadow:'0 0 20px grey' }}
@@ -128,7 +131,6 @@ const ContactUs =()=> {
             referrerPolicy="no-referrer-when-downgrade"
             title="mapMT"     
           />
-        </div>
       </div>
     );
   }
