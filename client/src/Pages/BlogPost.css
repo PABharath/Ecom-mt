@@ -4,6 +4,10 @@
     line-height: 1.2;
     color: #222;
     margin: 1rem;
+    padding: 10px;
+   }
+   .blog-container{
+    font-family: "Roboto_Slab variant0", Tofu;;
    }
    
    .blog-section {
@@ -17,12 +21,13 @@
    }
    
    .blog-text {
-    font-size: 18px;
-    line-height: 1.6;
+    font-size: 20px;
+    line-height: 1.8;
     color: #333;
     margin-bottom: 20px;
     width:100%;
-   
+    padding: 0px 10px 10px 10px;
+
    }
    
    .divider {
