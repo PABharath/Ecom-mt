@@ -62,11 +62,15 @@ body {
   margin-left: 35rem;
 }
 .product-name{
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   margin-top: 10%;
 }
-
+.imagee{
+  height: 350px;
+  width:50vw;
+  margin-top: 10%;
+}
 .product-price {
   font-size: 18px;
   color: #007bff;
