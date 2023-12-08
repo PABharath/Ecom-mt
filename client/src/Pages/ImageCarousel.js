@@ -1,9 +1,9 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import image1 from "../Assets/banner1.jpg";
-import image2 from "../Assets/banner2.jpg";
-import image3 from "../Assets/banner3.jpg";
+import image1 from "../Assets/banner11.png";
+import image2 from "../Assets/banner12.webp";
+import image3 from "../Assets/banner13.jpg";
 import image4 from "../Assets/banner4.jpg";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "./ImageCarousel.css";

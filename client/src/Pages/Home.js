@@ -65,7 +65,7 @@ function Home() {
             <Link to="/products/64d5af52e78160215db31931">
               {" "}
               {/* Replace "/products/productId" with the actual path to the product details page */}
-              <img src={require("../Assets/box-image1.jpg")} alt="Product 1" />
+              <img  className="img890"  src={require("../Assets/ban_promo_26.jpg")} alt="Product 1" />
               {/* <button className="buy-now-box-button1">Buy Now </button> */}
             </Link>
           </div>
@@ -73,11 +73,30 @@ function Home() {
           <div className="image-container">
           <Link to="/products/64d5afade78160215db31933">
               {" "}
-            <img src={require("../Assets/box-image2.jpg")} alt="Product 2" />
+            <img  className="img890"  src={require("../Assets/box-image6.jpg")} alt="Product 2" />
             {/* <button className="buy-now-box-button2">Buy Now </button> */}
             </Link>
           </div>
-        </div>
+          </div>
+          <div className="image-container-wrapper">
+          <div className="image-container1">
+          <Link to="/products/64d5afade78160215db31933">
+              {" "}
+            <img  className="img890"  src={require("../Assets/box-image22.jpg")} alt="Product 3" />
+            {/* <button className="buy-now-box-button2">Buy Now </button> */}
+            </Link>
+          </div>
+
+          <div className="image-container1">
+          <Link to="/products/64d5afade78160215db31933">
+              {" "}
+            <img className="img890" src={require("../Assets/box-image23.jpg")} alt="Product 4" />
+            {/* <button className="buy-now-box-button2">Buy Now </button> */}
+            </Link>
+          </div>
+
+          </div>
+        
         {/* <div className="review-boxes">
           {reviews.map((review) => (
             <div key={review._id} className="review-box">
