@@ -1,3 +1,5 @@
+
+
 .footer-container {
   background-color:Black;
   color: #fff;
@@ -25,6 +27,7 @@
   font-size: 18px;
   margin-bottom: 10px;
   color: #f39304;
+  font-family: "Roboto_Slab variant0", Tofu;
 }
 
 .footer-section ul {
@@ -35,6 +38,7 @@
 .footer-section ul li {
   margin-bottom: 5px;
   color: white;
+  font-family: "Roboto_Slab variant0", Tofu;
 }
 
 .social-media-icons {
