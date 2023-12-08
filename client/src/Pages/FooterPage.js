@@ -21,8 +21,8 @@ const Footer = () => {
         <div className="footer-section">
         <Link to="/Shop" onClick={scrollToTop}><h3>SHOP</h3>
           <ul><li>
-            <li>Wedding</li>
-            <li>Casual</li>
+            <li>Powerloom Sarees</li>
+            <li>Handloom Sarees</li>
             <li>Video Shopping</li>
             </li>
           </ul></Link>

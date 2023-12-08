@@ -1,6 +1,6 @@
 .shop-page {
     padding: 20px;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     font-family: Arial, sans-serif;
   }
@@ -12,16 +12,20 @@
   
   .shop-page .category {
     margin-bottom: 30px;
+    font-family: "Roboto_Slab variant0", Tofu;
+    
   }
   
   .shop-page h3 {
-    color: #555;
+    color: #302f2f;
     margin-bottom: 10px;
+    font-size:21px;
   }
   
   .shop-page p {
-    line-height: 1.6;
-    color: #777;
+    line-height: 1.8;
+    color: #4d4c4c;
+    font-size: 18px;
   }
   
   /* Add additional styles as needed */
