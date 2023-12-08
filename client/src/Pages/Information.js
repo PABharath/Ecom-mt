@@ -11,14 +11,14 @@ const Information = () => {
       <h1>Terms & Conditions</h1>
       <p>
         Welcome to our website! These terms and conditions outline the rules and
-        regulations for the use of our website, located at www.example.com.
+        regulations for the use of our website, located at www.Matrical.com.
         By accessing this website, we assume you accept these terms and
         conditions. Do not continue to use our website if you do not agree to
         take all of the terms and conditions stated on this page.
       </p>
       <p>
       <h3>1. Sale and Purchase of Goods</h3>
-        Pure Sarees parent company  (“Seller”) hereby agrees to sell, and You (“Buyer”) hereby agree to purchase, 
+        Matrical parent company  (“Seller”) hereby agrees to sell, and You (“Buyer”) hereby agree to purchase, 
         goods of the description and quantity described on the checkout window (“Checkout”)  and incorporated 
         herein by this reference (“Goods”) on the terms and conditions set forth in this Agreement.
       </p>
@@ -76,7 +76,7 @@ const Information = () => {
 <p>
 While puresarees.com makes every effort to ensure that the products are described and
  priced accurately, in the event that an item is deemed to be priced incorrectly, 
- puresarees.com reserves the right to refuse the sale of that item. 
+ Matrical.com reserves the right to refuse the sale of that item. 
 </p>
 
 <h3>9. Force Majeure</h3>
@@ -118,7 +118,7 @@ to such jurisdiction and venue.
 <h3>Contact Us</h3>
 <p>
   If you have any questions or concerns regarding these Terms and Conditions,
-  please contact us at info@example.com.
+  please contact us at Matrical@example.com.
 </p>
 <hr/>
 <h1>Privacy Policy</h1>
@@ -127,10 +127,10 @@ This privacy policy sets out how puresarees.com uses and protects any informatio
 </p>
 <p>
 
-Puresarees.com is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be 
+Matrical.com is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be 
 identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement.
 </p>
-<p>Puresarees.com may change this policy from time to time by updating this page. You should check this page from time to time to ensure that you are happy with any changes.
+<p>Matrical.com may change this policy from time to time by updating this page. You should check this page from time to time to ensure that you are happy with any changes.
 </p>
 
 <h3>What we collect</h3>
@@ -178,11 +178,11 @@ incomplete, please write to or email us as soon as possible, at the above addres
   Your continued use of our website will be regarded as acceptance of our
   practices around privacy and personal information. If you have any questions
   about how we handle user data and personal information, feel free to contact
-  us at privacy@example.com.
+  us at Matrical@example.com.
 </p>
 
 <p>
-  This policy is effective as of September 1, 2023.
+  This policy is effective as of December 1, 2023.
 </p>
 <h3>Contacting Us</h3>
 <p>
@@ -209,13 +209,13 @@ If there are any questions regarding this privacy policy you may contact us on M
 </p>
 
 <ul>
-  <li>Phone: [Phone Number]</li>
-  <li>Email: support@example.com</li>
+  <li>Phone: [+91-9654871231]</li>
+  <li>Email: Matrical@example.com</li>
   <li>Live Chat: Available on our website during business hours</li>
 </ul>
 
 <p>
-  Our support team is available [Days and Hours of Operation], and we strive to
+  Our support team is available [Monday to Saturday in Bussiness hours of Operation], and we strive to
   respond to all inquiries promptly. We value your feedback and are committed to
   ensuring your experience with our website is as smooth and enjoyable as
   possible.
@@ -237,7 +237,7 @@ If there are any questions regarding this privacy policy you may contact us on M
 <p>
   We want you to be completely satisfied with your purchase from our website.
   If for any reason you are not happy with your order, you can initiate a return
-  within [Number of Days] days of receiving your items.
+  within [Seven Days] days of receiving your items.
 </p>
 
 <h4>Conditions for Returns</h4>
@@ -267,7 +267,7 @@ If there are any questions regarding this privacy policy you may contact us on M
 <p>
   Once we receive your returned item and inspect it, we will process your
   refund. The refund will be issued to the original payment method used
-  for the purchase. Please allow [Number of Days] days for the refund to
+  for the purchase. Please allow [3 to 7 working days] days for the refund to
   reflect in your account.
 </p>
 
