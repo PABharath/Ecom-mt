@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import './ProductForm.css'
+import "./ProductForm.css";
 
 const ProductForm = () => {
   const [formData, setFormData] = useState({
@@ -41,7 +41,6 @@ const ProductForm = () => {
       [name]: [value], // Wrap the value in an array
     }));
   };
-  
 
   const handleImageChange = (e) => {
     setFormData((prevFormData) => ({
@@ -90,7 +89,7 @@ const ProductForm = () => {
             "Content-Type": "multipart/form-data",
           },
         }
-      );      
+      );
 
       console.log(response);
       setError("");
@@ -105,9 +104,12 @@ const ProductForm = () => {
 
   return (
     <div className="product-form1">
-    <h1 className="c1">Add Product</h1>
-    <form onSubmit={handleSubmit} style={{borderRadius:'10px',marginBottom:'1%'}}>
-      <div>
+      <h1 className="c1">Add Product</h1>
+      <form
+        onSubmit={handleSubmit}
+        style={{ borderRadius: "10px", marginBottom: "1%" }}
+      >
+        <div>
           <label>Product Name:</label>
           <input
             type="text"
@@ -118,7 +120,7 @@ const ProductForm = () => {
           />
         </div>
         <div>
-          <label>Category:</label>  <br/>
+          <label>Category:</label> <br />
           <select
             name="category"
             value={formData.category}
@@ -127,9 +129,13 @@ const ProductForm = () => {
             className="productform-category"
           >
             <option value="">Select Category</option>
-            <option value="Men">Men</option>
-            <option value="Women">Women</option>
-            <option value="Kids">Kids</option>
+            <option value="Kanjeevaram">Kanjeevaram Silk Sarees</option>
+            <option value="Mysore">Mysore Silk Sarees</option>
+            <option value="Chettinad">Chettinad Sarees</option>
+            <option value="Kasavu">Kasavu Sarees</option>
+            <option value="Gadwal">Gadwal Sarees</option>
+            <option value="Dharamavaram">Dharamavaram Sarees</option>
+            <option value="Pochampally">Pochampally Sarees</option>
           </select>
         </div>
         <div>
