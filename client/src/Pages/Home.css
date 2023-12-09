@@ -217,6 +217,8 @@
     color: white;
     font-size: 16px;
     font-weight: 500;
+    padding-right: 40px;
+    /* margin-left: 3px; */
   }
   
   .telegram-button {
@@ -226,7 +228,7 @@
     background-color: #EDA415;
     border: none;
     cursor: pointer;
-    margin-left: 37%;
+    margin-left: 2%;
   }
   /* .telegram-icon{
     margin-left: 10px;
