@@ -169,7 +169,7 @@ const ProductForm = () => {
           />
         </div>
         <div>
-          <label>Occasion:</label>
+          <label className="lab">Occasion:</label>
           <input
             type="text"
             name="occasion"
