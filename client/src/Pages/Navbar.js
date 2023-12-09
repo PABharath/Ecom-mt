@@ -72,7 +72,7 @@ function Navbar() {
         <FaBars />
       </button>
 
-      <h3>E-Commerce</h3>
+      <h3><a href="/" style={{color:'black'}}>E-Commerce</a></h3>
     </div>
 
 
