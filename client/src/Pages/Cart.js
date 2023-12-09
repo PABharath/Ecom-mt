@@ -3,6 +3,7 @@ import "./Cart.css";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "./CreateContext";
 
 export const calculateTotal = (cartItems) => {
@@ -131,20 +132,24 @@ const usderSubmit=(e)=>{
                       <div className="row">
                       <div className="product-info">
                         <div className="product-image-box">
-            
-                        {item.productImages && item.productImages.length > 0 ? (
-                              <div className="image-with-description">
+                          
+                          <div className="image-with-description">
+                            {console.log("Image URL:", item.productImages)}
+                            {item.productImages.map((image, index) => (
+                              <div key={index}>
+                                {console.log("Image URL:", image)}
                                 <img
                                   className="imagee-cart"
-                                  src={`http://127.0.0.1:5555/api/uploads/${item.productImages[0]}`}
-                                  alt={`Product ${item.productId}`}
+                                  src={`http://127.0.0.1:5555/api/uploads/${image}`}
+                                  alt={`Product ${index}`}
                                   width="100"
                                   height="100"
                                 />
+                               
                               </div>
-                            ) : (
-                              <p>No image available</p>
-                            )}
+                            
+                            ))}
+                          </div>
                           <h6 className="name" >{item.productName}</h6>
                         </div>
                       </div>
