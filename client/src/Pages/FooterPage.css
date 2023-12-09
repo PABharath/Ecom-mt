@@ -13,9 +13,11 @@
 font-weight: 1000;
 }
 .list45 {
-  font-weight: 800;
+  /* font-weight: 800; */
+  font-size: larger;
   line-height: 190%;
-  word-spacing: 29%;
+  /* word-spacing: 29%; */
+  font-family:   "Roboto_Slab variant0", Tofu;
 }
 .footer-wrapper {
   display: flex;
