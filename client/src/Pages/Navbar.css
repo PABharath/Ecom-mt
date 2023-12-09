@@ -164,13 +164,12 @@ a{
 
 	.navvik a {
 		font-size: 1rem;
-=======
 	.dropdown {
 	  position: relative;
 	  display: inline-block;
->>>>>>> c18e3b479793ea723c9f450e54d672c6116f6c9f
+
 	}
-	
+}
 	.dropdown-content {
 	  display: none;
 	  position: absolute;
