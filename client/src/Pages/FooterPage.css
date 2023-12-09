@@ -4,8 +4,9 @@
 .footer-container {
   background-color: black;
   color: #fff;
-  padding: 15px 0;
+  padding: 2rem;
   text-align: center; /* Center-align all content */
+  width: 100%;
 }
 
 
@@ -13,7 +14,7 @@
 font-weight: 1000;
 }
 .list45 {
-  font-weight: 800;
+  font-size: large;
   line-height: 190%;
   word-spacing: 29%;
 }
@@ -26,7 +27,7 @@ font-weight: 1000;
 }
 
 .footer-section {
-  flex: 1 1 250px;
+  /* flex: 1 1 250px; */
   margin-bottom: 20px;
   padding: 0 10px;
   box-sizing: border-box;

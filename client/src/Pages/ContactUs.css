@@ -1,5 +1,5 @@
- /* Making the website responsive */
- @media screen and (max-width: 768px ) {
+/* Making the website responsive */
+@media screen and (max-width: 768px ) {
    .total {
       padding: 20px;
    }
@@ -73,7 +73,7 @@
   
   .contact-container {
    display: flex;
-   justify-content: space-evenly;
+   justify-content: space-around;
    width: 90%;
    margin: 0 auto;
    transition: all 2s;
@@ -93,13 +93,13 @@
    border-radius: 10px;
    
    box-shadow: 0px 0px 20px grey;
-   transition: all 1s;
+   transition: all 1ms;
    
   }
   .contact-form1:hover{
    background-color: white;
    color: black;
-   transform: scale(1.1);
+   transform: scale(1.02);
    
   }
  
@@ -169,13 +169,13 @@
    background-position: center;
    box-shadow: 0px 0px 20px grey;
    border-radius: 10px;
-   margin-bottom: 1.5%;
-   transition: all 1s;
+   margin-bottom: 1.7%;
+   transition: all 1ms;
   }
   .c1:hover{
    background-color: white;
    color: black;
-   transform: scale(1.1);
+   transform: scale(1.02);
   }
 
   .c1 p{
