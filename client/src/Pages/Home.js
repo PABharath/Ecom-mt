@@ -6,6 +6,9 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 import { FaTruck, FaMoneyBillAlt, FaStar, FaTags } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 function Home() {
@@ -18,6 +21,22 @@ function Home() {
   //     setReviews(response.data);
   //   });
   // }, []);
+
+  
+  const handleTelegramButtonClick = () => {
+    // You can perform any action related to the Telegram button click here
+
+    // Show a success toast notification
+    toast.success('Subscribed successfully!', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
   return (
     <div className="home-main-body">
@@ -104,7 +123,7 @@ function Home() {
             </div>
           ))}
         </div> */}
-        <div className="mail-box">
+  <div className="mail-box">
           <div className="subscribe-mail">
             <div className="mail-id">
               <input
@@ -112,14 +131,21 @@ function Home() {
                 className="email-input"
                 placeholder="Email Address"
               />
-              <button className="telegram-button">
-                <FaTelegramPlane  className='telegram-icon' style={{ fontSize: "34px", color: "white" }} />
+              <button
+                className="telegram-button"
+                onClick={handleTelegramButtonClick}
+              >
+                <FaTelegramPlane
+                  className="telegram-icon"
+                  style={{ fontSize: "34px", color: "white" }}
+                />
               </button>
             </div>
             <div className="subscribe-text">Subscribe newsletter</div>
           </div>
         </div>
       </section>
+      <ToastContainer position="top-center" autoClose={3000} />
     </div>
   );
 }
