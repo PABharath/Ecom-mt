@@ -41,7 +41,7 @@ const Footer = () => {
         <Link to="/ContactUs" onClick={scrollToTop}><h3 className='text12765'>CONTACT US</h3>
         
           <ul><li>
-            <li className='list45'>PhoneNumber</li>
+            <li className='list45'>Phone Number</li>
            
             <li className='list45'>Email</li>
           
