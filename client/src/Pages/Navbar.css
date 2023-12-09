@@ -80,11 +80,11 @@ a{
 	  z-index: 100;
   }
   
-<<<<<<< HEAD
+
  
   .extra{
 	font-size: 15px;
-=======
+  }
   .navvik a {
 	  margin: 0 1rem;
 	  color: black;
@@ -93,7 +93,7 @@ a{
   
   .navvik a:hover {
 	  color: rgb(4, 4, 60);
->>>>>>> c18e3b479793ea723c9f450e54d672c6116f6c9f
+
   }
   
   .headervik .nav-btn {
@@ -135,7 +135,7 @@ a{
 
 	}
 	
-<<<<<<< HEAD
+ HEAD
 
 	.headervik nav {
 		position: fixed;
