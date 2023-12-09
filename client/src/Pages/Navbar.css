@@ -13,7 +13,7 @@ a{
 .search-box input {
   border: none;
   outline: none;
-  margin-right: 5px;
+  width: 200px;
 }
 
 .search-icon {
@@ -56,19 +56,28 @@ a{
 *{
 	margin: 0px;
 	padding: 0px;
+	
 	box-sizing: border-box;
+}
+
+.headervikleft{
+	align-items: center;
+	display: flex;
 }
 .headervik {
 	display: flex;
-	justify-content: space-between;
 	width: 100%;
-	padding: 1rem;
+	padding-left: 0px;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: .5rem 0rem;
 	color: black;
 	background: whitesmoke;
 	position: sticky;
 	top: 0;
-	z-index: 100;
 	
+	z-index: 100;
 }
 
 .navvik a {
@@ -84,20 +93,16 @@ a{
 .headervik .nav-btn {
 	padding: 5px;
 	cursor: pointer;
-	background: transparent;
 	border: none;
 	outline: none;
 	color: black;
 	visibility: hidden;
+	background: transparent;
 	opacity: 0;
 	font-size: 1.8rem;
 }
 
-.headervik,
-.navvik {
-	display: flex;
-	align-items: center;
-}
+
 
 .navvik-right{
 	display: flex;

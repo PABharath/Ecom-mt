@@ -67,11 +67,14 @@ function Navbar() {
 
   return (
     <header className="headervik">
-      <button className="nav-btn" onClick={showNavbar}>
+    <div className="headervikleft">
+    <button className="nav-btn" onClick={showNavbar}>
         <FaBars />
       </button>
 
       <h3>E-Commerce</h3>
+    </div>
+
 
       <nav className="navvik" ref={navRef}>
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
