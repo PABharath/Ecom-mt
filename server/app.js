@@ -8,6 +8,7 @@ const addProductRoutes = require('./routes/addProductRoutes');
 const addressRoutes = require('./routes/addressRoutes');
 const forgotRoutes = require('./routes/forgotRoutes');
 const contactRoutes = require('./routes/contactRoutes');
+const emailRoutes = require('./routes/emailRoutes');
 
 const app = express();
 app.use(cors());
@@ -46,6 +47,9 @@ app.use('/api', forgotRoutes);
 
 // use the Contact us
 app.use('/contact', contactRoutes);
+
+// use the mail
+app.use('/email', emailRoutes);
 
 const PORT = process.env.PORT || 5555;
 app.listen(PORT, () => {
