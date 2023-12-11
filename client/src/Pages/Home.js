@@ -34,8 +34,18 @@ function Home() {
     try {
       console.log('Email:', email); 
       
-      const response = await axios.post('http://localhost:2/insert', email);
-      alert('Login succesfull')
+      const response = await axios.post('http://localhost:5555/login', email);
+      // alert('Login succesfull')
+      toast.success('Subscribed successfully!', {
+        position: "top-right",
+        autoClose: 3000,
+        // hideProgressBar: false,
+        // closeOnClick: true,
+        // pauseOnHover: true,
+        // draggable: true,
+        // progress: undefined,
+        
+      });
       if (response.data.success) {
       
         window.alert('Login successful!');
@@ -68,15 +78,7 @@ function Home() {
 
   // const handleTelegramButtonClick = () => {
    
-  //   toast.success('Subscribed successfully!', {
-  //     position: "top-right",
-  //     autoClose: 3000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //   });
+   
   // };
 
   return (
