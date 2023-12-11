@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Cart.css";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,6 +22,39 @@ export const calculateTotal = (cartItems) => {
 };
 
 function Cart() {
+
+  // const [couponcode,setCoupondata]=useState('')
+  // const [couponData,setCoupondata]=useState({
+  //   couponcode:'',
+  // })
+  const [inputValue, setInputValue] = useState('');
+
+  // const usderChange=(e)=>{
+  //   const {name,value}=e.target;
+  //   setCoupondata({
+  //     ...couponData,
+  //   [name]: value});
+  // }
+//   const usderChange=(e)=>{
+//     const {name,value}=e.target;
+//     setCoupondata({
+//       ...couponData,
+//     [name]: value});
+//   }
+//  const usderSubmit=(e)=>{
+//   e.preventDefault();
+//   alert('Applied 100 discount')
+//  }
+const usderSubmit=(e)=>{
+  e.preventDefault();
+  if(inputValue==='NEW100'){
+    alert('coupon applied succesfully')
+  }
+  else{
+    alert('error')
+  }
+}
+  
   const { cartItems, removeFromCart, handleDecrement, handleIncrement } =
     useContext(CartContext);
 
@@ -49,14 +82,22 @@ function Cart() {
       0
     );
   };
-
+  const coponapply=()=>{
+    const discount=100;
+    if(inputValue==='NEW100'){
+      return discount;
+    }
+    else{
+      return 0;
+    }
+  }
   const calculateDelivery = () => {
     const subtotal = calculateSubtotal();
     return subtotal >= 500 ? 0 : 50;
   };
 
   const calculateTotal = () => {
-    return calculateSubtotal() + calculateDelivery();
+    return calculateSubtotal() + calculateDelivery() -coponapply();
   };
   console.log("Cart Items:", cartItems);
 
@@ -166,6 +207,7 @@ function Cart() {
         </form>
         {/* Additional table for cart total */}
         <div className="cart-total-table">
+          <form>
           <table className="table">
             <thead>
               <tr>
@@ -182,13 +224,19 @@ function Cart() {
                 <td>₹{calculateDelivery()}</td>
               </tr>
               <tr>
-                <td>
-                  <input
-                    type="text"
-                    placeholder="Enter coupon code"
-                    className="coupon-input"
-                  />
+              
+               <td >
+               <input 
+               className="coupon-inputvik"
+        type="text" 
+        name="inputValue"
+        value={inputValue} 
+        placeholder="Coupon code"
+        onChange={e => setInputValue(e.target.value)}
+      />
+                  <button className=" buttoncoupn" onClick={usderSubmit}>Apply</button>
                 </td>
+             
               </tr>
               <tr>
                 <td>Total Amount</td>
@@ -196,6 +244,7 @@ function Cart() {
               </tr>
             </tbody>
           </table>
+          </form>
         </div>
       </main>
     </div>
