@@ -144,8 +144,7 @@ const usderSubmit=(e)=>{
                                   alt={`Product ${index}`}
                                   width="100"
                                   height="100"
-                                />
-                               
+                                />                               
                               </div>
                             
                             ))}
