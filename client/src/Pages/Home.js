@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import axios from "axios";
 import ImageCarousel from "./ImageCarousel";
 import ProductList from "./ProductList";
@@ -12,31 +12,72 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function Home() {
-  const [reviews, setReviews] = useState([]);
-
-  // useEffect(() => {
-  //   // Make an API call to fetch all reviews
-  //   axios.get("http://localhost:5035/reviews").then((response) => {
-  //     // Set the fetched reviews in state
-  //     setReviews(response.data);
-  //   });
-  // }, []);
-
   
-  const handleTelegramButtonClick = () => {
-    // You can perform any action related to the Telegram button click here
+  const [email, Setemail] = useState({
+    Email: '',
+   });
 
-    // Show a success toast notification
-    toast.success('Subscribed successfully!', {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
+ 
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    Setemail({
+      ...email,
+      [name]: value,
     });
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      console.log('Email:', email); 
+      
+      const response = await axios.post('http://localhost:2/insert', email);
+      alert('Login succesfull')
+      if (response.data.success) {
+      
+        window.alert('Login successful!');
+
+     
+      
+      } else {
+      
+        Setemail(response.data.error);
+      }
+    } catch (err) {
+        console.error('Error:', err.response.data); 
+      
+        if (err.response.data.message) {
+        
+          window.alert(err.response.data.message);
+        } else {
+         
+          window.alert('An error occurred');
+        }
+      }
+    }
+
+
+
+
+
+
+
+
+  // const handleTelegramButtonClick = () => {
+   
+  //   toast.success('Subscribed successfully!', {
+  //     position: "top-right",
+  //     autoClose: 3000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //   });
+  // };
 
   return (
     <div className="home-main-body">
@@ -128,12 +169,14 @@ function Home() {
             <div className="mail-id">
               <input
                 type="text"
+                name="Email"
+                onChange={handleChange}
                 className="email-input"
                 placeholder="Email Address"
               />
               <button
                 className="telegram-button"
-                onClick={handleTelegramButtonClick}
+                onClick={handleSubmit}
               >
                 <FaTelegramPlane
                   className="telegram-icon"
