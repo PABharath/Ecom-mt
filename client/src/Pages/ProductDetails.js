@@ -144,7 +144,7 @@ const ProductDetails = () => {
                       src={`http://127.0.0.1:5555/api/uploads/${image}`}
                       alt={`Product ${index}`}
                       width="500"
-                      height="500"
+                      height="800"
                       
                     />
                   </div>
@@ -155,6 +155,7 @@ const ProductDetails = () => {
             )}
           </div>
           <div className="product-pricing-box">
+            <div className="next">
             <p className="product-name">{productDetails.productName}</p>
             <div className="price-container">
               <p className="product-price">
@@ -212,20 +213,22 @@ const ProductDetails = () => {
               </Link>
             </div>
           </div>
+          </div>
 
           <hr className="hr-1" />
           <div className="name-2">
-            <h2>{productDetails.productName}</h2>
+            <h2 className="high">{productDetails.productName}</h2>
+            &nbsp;&nbsp;
             <hr />
           </div>
           <div className="prod-info">
             <h3>Product Information</h3>
-            <p>{productDetails.productDescription}</p>
+            <p className="pra">{productDetails.productDescription}</p>
           </div>
           <hr />
 
           <div className="sp-info">
-            <h3>SPECIFIC INFORMATION</h3>
+            <h3 className="specific">SPECIFIC INFORMATION</h3>
             <div className="info-columns">
               <div className="left-column">
                 <div className="row">

@@ -9,6 +9,7 @@ const addressRoutes = require('./routes/addressRoutes');
 const forgotRoutes = require('./routes/forgotRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const emailRoutes = require('./routes/emailRoutes');
+const searchRoutes = require('./routes/searchRoutes');
 
 const app = express();
 app.use(cors());
@@ -26,8 +27,14 @@ mongoose.connect(`${uri}/${dbName}`, { useNewUrlParser: true, useUnifiedTopology
     console.error('MongoDB connection error:', error);
   });
 
+  mongoose.connection.on('error', (error) => {
+    console.error('MongoDB connection error:', error);
+  });
+  
+
 // Serve uploaded images
 app.use('/api/uploads', express.static('uploads'));
+app.use('/api/search', searchRoutes);
 
 // Use the auth routes
 app.use('/auth', authRoutes);

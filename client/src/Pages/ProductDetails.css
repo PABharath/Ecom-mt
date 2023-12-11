@@ -20,8 +20,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: -2%;
+  
 }
-
+.nam{
+  margin-left: 1%;
+  margin-top: -2%;
+}
+.prod-info{
+  margin-top: 1%;
+}
+.next{
+  line-height: 45px;
+  width: 50%;
+  font-size: 15px;
+}
 .carousel-root {
   margin: 0 10px; /* Adjust the value as needed */
 }
@@ -65,6 +78,10 @@ body {
   font-size: 20px;
   font-weight: 700;
   margin-top: 10%;
+}
+.specific{
+  margin-top: -1%;
+  font-size: 15px;
 }
 .imagee{
   height: 350px;
@@ -252,12 +269,20 @@ body {
   align-items: baseline;
   margin-bottom: 10px;
 }
-
+.pra{
+  font-size: 15px;
+  margin-top: 1%;
+  text-align: justify;
+  width: 96%;
+  line-height: 30px;
+  margin-left: 2%;
+}
 .info-columns .heading {
   width: 30%;
   font-size: 16px;
   color: black;
   font-weight: bold;
+  margin-top: 3%;
 }
 
 .info-columns .colon {
@@ -382,6 +407,7 @@ body {
   .product-name{    
     font-size: 10px;
     font-weight: 700;
+  
   }
 .product-price {
   font-size: 15px;   
@@ -436,6 +462,14 @@ body {
 
   
 }
+.pra{
+  font-size: 13px;
+  margin-top: 1%;
+  text-align: justify;
+  width: 96%;
+  line-height: 30px;
+  margin-left: 2%;
+}
 .buy-now-button{
   background-color: #272343;
   height: 9vh;
@@ -448,6 +482,7 @@ body {
   border: 1px solid #e0e0e0;
   background-color: #f8f8f8;
   border-radius: 5px;
+  margin-top: 5%;
 }
 .spee{
   font-size: 15px;
@@ -504,5 +539,19 @@ body {
 .buttons{
   display: flex;
   flex-direction: column;
+}
+.product-name{
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 30%;
+}
+.imagee{
+  height: 350px;
+  width:50vw;
+  margin-top: 10%;
+}
+.specific{
+  margin-top: 5%;        
+  font-size: 15px;
 }
 }

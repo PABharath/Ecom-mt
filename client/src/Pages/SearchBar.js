@@ -8,26 +8,26 @@ const SearchBar = () => {
   const [searchValue, setSearchValue] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
-  const handleInputChange = (event) => {
-    setSearchValue(event.target.value);
-    setSearchResults([]);
-  };
-
-  const handleSearch = async () => {
-    console.log('Searching...');
-    if (searchValue.length >= 3) {
+  useEffect(() => {
+    const fetchSearchResults = async () => {
       try {
         const response = await axios.get(`/api/search?query=${searchValue}`);
         setSearchResults(response.data);
       } catch (error) {
         console.error('Error searching:', error);
       }
+    };
+
+    // Only trigger the API call if searchValue is not empty
+    if (searchValue.trim() !== '') {
+      fetchSearchResults();
     } else {
-      setSearchResults([]); // Clear search results when search value is less than 3 characters
+      setSearchResults([]);
     }
-  };
-  const handleSearchIconClick = () => {
-    handleSearch(searchValue);
+  }, [searchValue]);
+
+  const handleInputChange = (event) => {
+    setSearchValue(event.target.value);
   };
 
   return (
@@ -38,11 +38,9 @@ const SearchBar = () => {
         value={searchValue}
         onChange={handleInputChange}
       />
-      <FontAwesomeIcon
-        icon={faSearch}
-        className="search-icon"
-        onClick={handleSearchIconClick}
-      />
+      <FontAwesomeIcon icon={faSearch} className="search-icon" />
+
+      {/* Display suggestions in real-time */}
       {searchResults.length > 0 && (
         <ul className="search-results">
           {searchResults.map((result) => (
