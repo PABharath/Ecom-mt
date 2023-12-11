@@ -71,12 +71,7 @@
   align-items: center;
   margin-top: 20px;
 }
-.name{
 
-
-  
-
-}
 
 .btn {
   background-color: #007bff;
@@ -135,6 +130,11 @@
   margin: .2rem;
   border: none;
   border-radius: .5rem;
+  color: white;
+}
+.Couponalert{
+  color: gray;
+  font-size: 12px;
 }
 .cart-table th {
   background-color: #E2F4FF; /* Set background color */

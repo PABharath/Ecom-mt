@@ -241,6 +241,7 @@ const usderSubmit=(e)=>{
         onChange={e => setInputValue(e.target.value)}
       />
                   <button className=" buttoncoupn" onClick={usderSubmit}>Apply</button>
+                  {inputValue === 'NEW100' && <p className="Couponalert">Coupon NEW100 Applied and discount 100/-</p>}
                 </td>
              
               </tr>
