@@ -1,11 +1,10 @@
-const nodemailer = require('nodemailer');
+const mongoose = require('mongoose');
 
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'bharathkumar2981@gmail.com',
-        pass: 'geke picf dasx hpgx'
-    }
+const emailSchema = new mongoose.Schema({ 
+  Email: String,
 });
 
-module.exports = transporter;
+const Email = mongoose.model('Email', emailSchema);
+
+module.exports = Email;
+

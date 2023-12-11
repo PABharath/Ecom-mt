@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import "./Cart.css";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "./CreateContext";
 
 export const calculateTotal = (cartItems) => {
@@ -66,7 +66,9 @@ const usderSubmit=(e)=>{
     if (isCartEmpty) {
       alert("Please add a product to the cart to continue.");
     } else {
-      navigate("/IntegratedAddressPage", { state: { totalAmount: calculateTotal() } }); // Navigate with state
+      navigate("/IntegratedAddressPage", {
+        state: { totalAmount: calculateTotal() },
+      }); // Navigate with state
     }
   };
 
@@ -105,105 +107,109 @@ const usderSubmit=(e)=>{
     <div className="App">
       <main className="main-container">
         <form className="product-form">
-          
-              <table className="cart-table">
-                <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Subtotal</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cartItems.length === 0 ? (
-                    <tr>
-                      <td colSpan="4">No products in Cart!</td>
-                    </tr>
-                  ) : (
-                    cartItems.map((item) => (
-                      <tr key={item.productId}>
-                        <td colSpan="1">
-                          <div className="product-info">
-                            <div className="product-image-box">
-                              <h6>{item.productName}</h6>
+          <table className="cart-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cartItems.length === 0 ? (
+                <tr>
+                  <td colSpan="4">No products in Cart!</td>
+                </tr>
+              ) : (
+                cartItems.map((item) => (
+                  <tr key={item.productId}>
+                    <td colSpan="1">
+                      <div className="row">
+                      <div className="product-info">
+                        <div className="product-image-box">
+            
+                        {item.productImages && item.productImages.length > 0 ? (
                               <div className="image-with-description">
-                                {console.log("Image URL:", item.productImages)}
                                 <img
-                                  src={item.productImages}
-                                  alt={item.productName}
-                                  className="product-image"
+                                  className="imagee-cart"
+                                  src={`http://127.0.0.1:5555/api/uploads/${item.productImages[0]}`}
+                                  alt={`Product ${item.productId}`}
+                                  width="100"
+                                  height="100"
                                 />
                               </div>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <center>
-                            <b>₹ {item.sp}</b>
-                          </center>
-                        </td>
-                        <td className="quantity-box">
-                          <button
-                            type="button"
-                            className="bt"
-                            onClick={() => handleDecrement(item.productId)}
-                          >
-                            -
-                          </button>
-                          <span>{item.quantity}</span>
-                          <button
-                            type="button"
-                            className="bt"
-                            onClick={() => handleIncrement(item.productId)}
-                          >
-                            +
-                          </button>
-                        </td>
-                        <td>
-                          <div
-                            style={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                              alignItems: "center",
-                            }}
-                          >
-                            <b>₹{item.sp * item.quantity}</b>
-                            <button
-                              type="button"
-                              onClick={() =>
-                                handleRemoveProduct(item.productId)
-                              }
-                              className="remove-icon"
-                            >
-                              <FontAwesomeIcon icon={faTrashAlt} />
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                    ))
-                  )}
-                </tbody>
-                <tfoot>
-                  <td colSpan="4">
-                    <div className="custom-footer">
-                      <Link to="../ProductList">
-                        <button type="submit" className="btn btn-primary">
-                          Continue Shopping
-                        </button>
-                      </Link>
+                            ) : (
+                              <p>No image available</p>
+                            )}
+                          <h6 className="name" >{item.productName}</h6>
+                        </div>
+                      </div>
+                      </div>
+                    </td>
+                    <td>
+                      <center>
+                        <b>₹ {item.sp}</b>
+                      </center>
+                    </td>
+                    <td className="quantity-box">
                       <button
-                        className="cart-next-button"
-                        disabled={isCartEmpty}
-                        onClick={handleNextClick}
+                        type="button"
+                        className="bt"
+                        onClick={() => handleDecrement(item.productId)}
                       >
-                        Next
+                        -
                       </button>
-                    </div>
-                  </td>
-                </tfoot>
-              </table>
-           
+                      <span>{item.quantity}</span>
+                      <button
+                        type="button"
+                        className="bt"
+                        onClick={() => handleIncrement(item.productId)}
+                      >
+                        +
+                      </button>
+                    </td>
+                    <td>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                        }}
+                      >
+                        <b>₹{item.sp * item.quantity}</b>
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveProduct(item.productId)}
+                          className="remove-icon"
+                        >
+                          <FontAwesomeIcon icon={faTrashAlt} />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+            <tfoot>
+              <td colSpan="4">
+                <div className="custom-footer">
+                  <Link to="../ProductList">
+                    <button type="submit" className="btn btn-primary">
+                      Continue Shopping
+                    </button>
+                  </Link>
+                  <button
+                    className="cart-next-button"
+                    disabled={isCartEmpty}
+                    onClick={handleNextClick}
+                  >
+                    Next
+                  </button>
+                </div>
+              </td>
+            </tfoot>
+          </table>
         </form>
         {/* Additional table for cart total */}
         <div className="cart-total-table">

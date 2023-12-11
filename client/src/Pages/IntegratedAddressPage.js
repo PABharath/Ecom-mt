@@ -238,6 +238,13 @@ const IntegratedAddressPage = () => {
               >
                 Cancel
               </button>
+              <button
+                type="button"
+                onClick={handleSubmit}
+                className="cancel-button"
+              >
+               Save
+              </button>
             </div>
           </form>
         </div>

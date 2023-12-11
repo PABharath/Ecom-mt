@@ -56,7 +56,7 @@ app.use('/api', forgotRoutes);
 app.use('/contact', contactRoutes);
 
 // use the mail
-app.use('/', emailRoutes);
+app.use('/login', emailRoutes);
 
 const PORT = process.env.PORT || 5555;
 app.listen(PORT, () => {
