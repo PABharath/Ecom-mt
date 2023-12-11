@@ -101,6 +101,9 @@ const usderSubmit=(e)=>{
   const calculateTotal = () => {
     return calculateSubtotal() + calculateDelivery() -coponapply();
   };
+  const calculateTotal1 = () => {
+    return calculateSubtotal() + calculateDelivery() ;
+  };
   console.log("Cart Items:", cartItems);
 
   return (
@@ -230,6 +233,10 @@ const usderSubmit=(e)=>{
                 <td>₹{calculateDelivery()}</td>
               </tr>
               <tr>
+                <td>Total Amount</td>
+                <td>₹{calculateTotal1()}</td>
+              </tr>
+              <tr>
               
                <td >
                <input 
@@ -246,7 +253,7 @@ const usderSubmit=(e)=>{
              
               </tr>
               <tr>
-                <td>Total Amount</td>
+                <td>Final Bill</td>
                 <td>₹{calculateTotal()}</td>
               </tr>
             </tbody>
