@@ -88,22 +88,19 @@ function Cart() {
                       <div className="product-info">
                         <div className="product-image-box">
             
-                          <div className="image-with-description">
-                            {console.log("Image URL:", item.productImages)}
-                            {item.productImages.map((image, index) => (
-                              <div key={index}>
-                                {console.log("Image URL:", image)}
+                        {item.productImages && item.productImages.length > 0 ? (
+                              <div className="image-with-description">
                                 <img
                                   className="imagee-cart"
-                                  src={`http://127.0.0.1:5555/api/uploads/${image}`}
-                                  alt={`Product ${index}`}
+                                  src={`http://127.0.0.1:5555/api/uploads/${item.productImages[0]}`}
+                                  alt={`Product ${item.productId}`}
                                   width="100"
                                   height="100"
-                                />                               
+                                />
                               </div>
-                            
-                            ))}
-                          </div>
+                            ) : (
+                              <p>No image available</p>
+                            )}
                           <h6 className="name" >{item.productName}</h6>
                         </div>
                       </div>
