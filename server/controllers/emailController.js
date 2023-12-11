@@ -1,25 +1,17 @@
-const transporter = require('../models/emailModel');
+const Email = require('../models/emailModel');
 
-const sendEmail = async (req, res) => {
-    const { to, subject, text } = req.body;
+exports.insertEmail = async (req, res) => {
+  const { Email: userEmail } = req.body;
 
-    const mailOptions = {
-        from: 'bharathkumar2981@gmail.com',
-        to: to,
-        subject: subject,
-        text: text
-    };
+  try {
+    const newEmail = new Email({ Email: userEmail });
+    await newEmail.save();
+    console.log('Successfully logged in', newEmail._id);
 
-    try {
-        const info = await transporter.sendMail(mailOptions);
-        console.log('Email sent: ' + info.response);
-        res.status(200).json({ message: 'Email sent successfully!' });
-    } catch (error) {
-        console.error('Error sending email:', error);
-        res.status(500).json({ message: 'Failed to send email!' });
-    }
+    res.status(201).json({ message: 'Login successful.' });
+  } catch (error) {
+    console.error('Not logged in', error);
+    res.status(500).json({ error: 'Failed to login' });
+  }
 };
 
-module.exports = {
-    sendEmail
-};

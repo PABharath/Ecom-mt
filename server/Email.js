@@ -23,25 +23,25 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-const loginSchema = new mongoose.Schema({ 
+const emailSchema = new mongoose.Schema({ 
   Email:String,
  });
 
-const Login = mongoose.model('email', loginSchema);
+const email = mongoose.model('email', emailSchema);
 
 app.post('/insert', async (req, res) => {
   const {Email } = req.body;
 
   try {
-    const login = new Login({
+    const email = new email({
       Email,
       
     });
 
 
 
-    await login.save();
-    console.log('Successfully logged in', login._id);
+    await email.save();
+    console.log('Successfully logged in', email._id);
 
     res.status(201).json({ message: 'Login successfully.' });
   } catch (error) {
@@ -54,5 +54,5 @@ app.post('/insert', async (req, res) => {
 
 
 app.listen(2, () => {
-  console.log('Backend server is running on http://localhost:2');
+  console.log('Backend server is running on http://localhost:5555');
 });
