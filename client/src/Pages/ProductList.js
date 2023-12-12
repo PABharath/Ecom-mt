@@ -13,6 +13,7 @@ const ProductList = () => {
   const { addToCart } = useCart();
 
   useEffect(() => {
+    console.log("Component mounted");
     fetchProducts();
   }, []);
 
@@ -30,10 +31,25 @@ const ProductList = () => {
 
   const handleAddToCart = (event, product) => {
     event.preventDefault();
-    addToCart(product); // Add the product to the cart using addToCart function
+  
+    // Check if the user is authenticated
+    const token = localStorage.getItem("token");
+  
+    if (!token) {
+      // If not authenticated, redirect to the login page
+      toast.error("Please login to add items to the cart.");
+      // Redirect to the login page
+      window.location.href = "/login";
+      return;
+    }
+  
+    // If authenticated, proceed with adding to cart
+    addToCart(product);
     console.log("Adding to cart:", product);
     toast.success("Added to Cart!"); // Display the toast notification
   };
+  
+  
 
   return (
     <div className={styles.productList}>

@@ -70,18 +70,41 @@ const ProductDetails = () => {
 
   const handleAddToCart = (event, product) => {
     event.preventDefault();
-    addToCart(product); // Add the product to the cart using addToCart function
+
+    // Check if the user is authenticated
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      // If not authenticated, redirect to the login page
+      toast.error("Please login to add items to the cart.");
+      // Redirect to the login page
+      window.location.href = "/login";
+      return;
+    }
+
+    // If authenticated, proceed with adding to cart
+    addToCart(product);
     console.log("Adding to cart:", product);
-  
-    // Display a toast message indicating that the product was added to the cart
-    toast.success("Added to Cart!");
+    toast.success("Added to Cart!"); // Display the toast notification
     setShowAddToCartToast(true);
   };
-  
 
   const handleBuyNow = (event, product) => {
     event.preventDefault();
-    addToCart(product); // Add the product to the cart using addToCart function
+
+    // Check if the user is authenticated
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      // If not authenticated, redirect to the login page
+      toast.error("Please login to proceed with the purchase.");
+      // Redirect to the login page
+      window.location.href = "/login";
+      return;
+    }
+
+    // If authenticated, proceed with adding to cart and navigating to the Cart page
+    addToCart(product);
     console.log("Adding to cart:", product);
     navigate("/Cart"); // Navigate to the Cart page
   };
