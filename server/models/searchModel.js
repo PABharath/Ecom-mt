@@ -1,33 +1,33 @@
 const { MongoClient } = require('mongodb');
 
-class SearchModel {
-  constructor() {
-    this.uri = 'mongodb://127.0.0.1:27017';
-    this.dbName = 'Ecommerce-mvc';
-  }
+const uri = 'mongodb://127.0.0.1:27017';
+const dbName = 'Ecommerce';
 
-  async connect() {
-    this.client = new MongoClient(this.uri);
-    await this.client.connect();
-    this.db = this.client.db(this.dbName);
-    this.collection = this.db.collection('products');
-  }
+const connectToDatabase = async () => {
+  const client = new MongoClient(uri);
+  await client.connect();
+  return client.db(dbName);
+};
 
-  async searchProducts(query) {
-    return this.collection
+const searchProducts = async (query) => {
+  try {
+    const db = await connectToDatabase();
+    const collection = db.collection('products');
+
+    const searchResults = await collection
       .find({
         $or: [
           { productName: { $regex: query, $options: 'i' } },
           { category: { $regex: query, $options: 'i' } },
-          // add other fields you want to search here
         ],
       })
       .toArray();
-  }
 
-  async closeConnection() {
-    await this.client.close();
+    return searchResults;
+  } catch (error) {
+    console.error('Error searching products:', error);
+    throw new Error('Internal server error');
   }
-}
+};
 
-module.exports = SearchModel;
+module.exports = { searchProducts };
