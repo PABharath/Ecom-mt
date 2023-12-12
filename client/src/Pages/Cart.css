@@ -71,12 +71,7 @@
   align-items: center;
   margin-top: 20px;
 }
-.name{
 
-
-  
-
-}
 
 .btn {
   background-color: #007bff;
@@ -123,25 +118,23 @@
   font-weight: 700; /* Font weight */
   text-align: center; /* Center align text */
 }
-
-.coupon-input {
-  width: 100%;
-  padding: 15px;
-  border: 1px solid #ced4da;
-  border-radius: 10px;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  margin-bottom: 10px; /* Add some spacing below the input */
-  align-items: center;
-  justify-content: center;
-  padding-right: 25px;
-  margin-left: 20px;
-  
+.coupon-inputvik{
+  padding: .5rem;
+  margin: .2rem;
+  border-radius: .5rem;
+  border:1px gray solid;
 }
-
-.coupon-input:focus {
-  border-color: #80bdff;
-  outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+.buttoncoupn{
+  background-color:#28a745;
+  padding: .5rem 1rem;
+  margin: .2rem;
+  border: none;
+  border-radius: .5rem;
+  color: white;
+}
+.Couponalert{
+  color: gray;
+  font-size: 12px;
 }
 .cart-table th {
   background-color: #E2F4FF; /* Set background color */
