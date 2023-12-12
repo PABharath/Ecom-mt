@@ -1,45 +1,42 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const cors = require('cors');
-const { MongoClient } = require('mongodb');
 
 const app = express();
+const PORT = 5555;
+
+// Enable CORS for all routes
 app.use(cors());
 app.use(express.json());
 
-const port = 5055;
-const uri = 'mongodb://127.0.0.1:27017';
-const dbName = 'Ecommerce';
+// MongoDB connection (replace 'your_database_url' with your MongoDB URL)
+mongoose.connect('mongodb://localhost:27017', { useNewUrlParser: true, useUnifiedTopology: true });
 
-const connectToDatabase = async () => {
-  const client = new MongoClient(uri);
-  await client.connect();
-  return client.db(dbName);
-};
+// Product schema
+const productSchema = new mongoose.Schema({
+  productName: String,
+  // Add other fields as needed
+});
 
-app.get('/api/search', async (req, res) => {
+const Product = mongoose.model('Product', productSchema);
+
+// Search endpoint
+app.get('/search', async (req, res) => {
   const { query } = req.query;
 
   try {
-    const db = await connectToDatabase();
-    const collection = db.collection('products');
-
-    const searchResults = await collection
-      .find({
-        $or: [
-          { productName: { $regex: query, $options: 'i' } },
-          { category: { $regex: query, $options: 'i' } },
-        ],
-      })
-      .toArray();
+    const searchResults = await Product.find({
+      productName: { $regex: new RegExp(query, 'i') },
+    });
 
     res.json(searchResults);
   } catch (error) {
-    console.error('Error searching products:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
-
-app.listen(port, () => {
-  console.log(`Server is running on http://127.0.0.1:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
+

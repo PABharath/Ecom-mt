@@ -47,13 +47,13 @@ const Login = () => {
         // Set the user data using the login function
         login({ token, email });
         
-        setMessage('Login successful');
+        window.alert('Login successful');
         setTimeout(() => {
           setMessage('');
           navigate('/'); // Navigate to Home page after successful login
         }, 3000);
       } else {
-        setMessage('Invalid credentials'); // Display "Invalid credentials" for non-200 response status
+        window.alert('Invalid credentials'); // Display "Invalid credentials" for non-200 response status
       }
     } catch (error) {
       if (error.response && error.response.data && error.response.data.error) {
@@ -65,6 +65,7 @@ const Login = () => {
       }
     }
   };
+
 
   return (
     <div className='overflow'>
