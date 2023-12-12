@@ -6,6 +6,8 @@ import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -74,19 +76,32 @@ const Register = () => {
 
   const navigate = useNavigate();
 
+
+
+
+
+
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isEmailValid) {
       setErrorMessage('Invalid email address');
+      toast.error('Invalid email address');
     } else if (!isNameValid) {
       setErrorMessage('Please enter your name');
+      toast.error('Please enter your name');
     } else if (!isPhoneNumberValid) {
       setErrorMessage('Invalid phone number');
+      toast.error('Invalid phone number');
     } else if (!isPasswordValid.isValid) {
       setErrorMessage(`Password must include ${isPasswordValid.requirements.join(', ')}`);
+      toast.error(`Password must include ${isPasswordValid.requirements.join(', ')}`);
     } else if (password !== confirmPassword) {
       setErrorMessage('Passwords do not match');
-    }  else {
+      toast.error('Passwords do not match');
+    } else {
       try {
         const response = await axios.post('http://localhost:5555/user/register', {
           username: name,
@@ -95,19 +110,50 @@ const Register = () => {
           password,
         });
         if (response.status === 201) {
-          setErrorMessage('Registration successful');
-          setTimeout(() => {
-            setErrorMessage('');
-          }, 3000);
-          navigate('/login');
+          toast.success('Registration successful');
+          // ... (other code for successful registration)
         } else {
-          setErrorMessage('Unknown error occurred');
+          window.alert('Unknown error occurred');
         }
       } catch (error) {
-        setErrorMessage('User already exists');
+        toast.error('User already exists');
       }
     }
-  };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   if (!isEmailValid) {
+  //     setErrorMessage('Invalid email address');
+  //   } else if (!isNameValid) {
+  //     setErrorMessage('Please enter your name');
+  //   } else if (!isPhoneNumberValid) {
+  //     setErrorMessage('Invalid phone number');
+  //   } else if (!isPasswordValid.isValid) {
+  //     setErrorMessage(`Password must include ${isPasswordValid.requirements.join(', ')}`);
+  //   } else if (password !== confirmPassword) {
+  //     setErrorMessage('Passwords do not match');
+  //   }  else {
+  //     try {
+  //       const response = await axios.post('http://localhost:5555/user/register', {
+  //         username: name,
+  //         email,
+  //         contact: phoneNumber,
+  //         password,
+  //       });
+  //       if (response.status === 201) {
+  //         window.alert('Registration successful');
+  //         setTimeout(() => {
+  //           setErrorMessage('');
+  //         }, 3000);
+  //         navigate('/login');
+  //       } else {
+  //       window.alert('Unknown error occurred');
+  //       }
+  //     } catch (error) {
+  //      window.alert('User already exists');
+  //     }
+  //   }
+  // };
 
 
   
@@ -245,8 +291,10 @@ const Register = () => {
        
       </form>
      </div>
+    <ToastContainer position="top-center" autoClose={3000} />
     </div>
   );
 };
+}
 
 export default Register;

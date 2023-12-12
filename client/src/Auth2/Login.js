@@ -8,6 +8,9 @@ import jwt_decode from 'jwt-decode';
 import useAuth from './useAuth'; // Import the useAuth hook
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -43,16 +46,27 @@ const Login = () => {
         // Set the token when login is successful
         const token = response.data.token;
         localStorage.setItem('token', token);
-        
+  
         // Set the user data using the login function
         login({ token, email });
         
         window.alert('Login successful');
+  
+        // Display success toast on successful login
+        toast.success('Login successful');
+  
+        // Clear the state
+        setEmail('');
+        setPassword('');
+        setMessage('');
+  
+        // Navigate to Home page after successful login
         setTimeout(() => {
-          setMessage('');
-          navigate('/'); // Navigate to Home page after successful login
+          navigate('/');
         }, 3000);
       } else {
+        // Display error toast for invalid credentials
+        toast.error('Login failed. Invalid credentials');
         window.alert('Invalid credentials'); // Display "Invalid credentials" for non-200 response status
       }
     } catch (error) {
@@ -65,6 +79,7 @@ const Login = () => {
       }
     }
   };
+    
 
 
   return (

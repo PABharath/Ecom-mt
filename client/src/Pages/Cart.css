@@ -71,6 +71,12 @@
   align-items: center;
   margin-top: 20px;
 }
+.name{
+
+
+  
+
+}
 
 
 .btn {
@@ -206,7 +212,6 @@
   border: 1px solid #dee2e6;
 }
 .imagee-cart{
-  height:8vh;
-  width: 5vw;
-  margin-left: -1%;
+  height:10vh;
+  width: 8vw;
 }
