@@ -11,14 +11,13 @@ const SearchBar = () => {
   useEffect(() => {
     const fetchSearchResults = async () => {
       try {
-        const response = await axios.get(`/api/search?query=${searchValue}`);
+        const response = await axios.get(`http://localhost:5555/search?query=${searchValue}`);
         setSearchResults(response.data);
       } catch (error) {
-        console.error('Error searching:', error);
+        console.error('Error fetching search results:', error);
       }
     };
 
-    // Only trigger the API call if searchValue is not empty
     if (searchValue.trim() !== '') {
       fetchSearchResults();
     } else {

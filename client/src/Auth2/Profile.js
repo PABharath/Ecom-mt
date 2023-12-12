@@ -27,7 +27,7 @@ const Profile = () => {
   const handleLogout = () => {
     logout();
     navigate('/login'); // Navigate to the login page after logout
-  };
+  }; 
 
   if (!profile) {
     return <p>Loading...</p>;
