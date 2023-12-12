@@ -3,7 +3,6 @@ import "./Cart.css";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useNavigate } from "react-router-dom";
-import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "./CreateContext";
 
 export const calculateTotal = (cartItems) => {
