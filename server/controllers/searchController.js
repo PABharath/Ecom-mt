@@ -1,27 +1,14 @@
+const searchModel = require('../models/searchModel');
+
 const searchProducts = async (req, res) => {
-    const { query } = req.query;
-    let searchModel;
-  
-    try {
-      searchModel = new SearchModel();
-      await searchModel.connect();
-  
-      const searchResults = await searchModel.searchProducts(query);
-  
-      if (searchResults !== undefined) {
-        res.json(searchResults);
-      } else {
-        res.status(500).json({ error: 'Internal server error' });
-      }
-    } catch (error) {
-      console.error('Error searching products:', error);
-      res.status(500).json({ error: 'Internal server error' });
-    } finally {
-      if (searchModel) {
-        await searchModel.closeConnection();
-      }
-    }
-  };
-  
-  module.exports = { searchProducts };
-  
+  const { query } = req.query;
+
+  try {
+    const searchResults = await searchModel.searchProducts(query);
+    res.json(searchResults);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+module.exports = { searchProducts };
