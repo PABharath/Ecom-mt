@@ -35,6 +35,9 @@ const Login = () => {
       }
     }
   };
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -169,7 +172,6 @@ const Login = () => {
         </div>
       </section>
     </div>
-    <ToastContainer position="top-center" autoClose={3000} />
     </div>
   );
 };

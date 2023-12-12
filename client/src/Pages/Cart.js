@@ -129,10 +129,10 @@ const usderSubmit=(e)=>{
                   <tr key={item.productId}>
                     <td colSpan="1">
                       <div className="row">
-                      <div className="product-info">
-                        <div className="product-image-box">
-            
-                        {item.productImages && item.productImages.length > 0 ? (
+                        <div className="product-info">
+                          <div className="product-image-box">
+                            {item.productImages &&
+                            item.productImages.length > 0 ? (
                               <div className="image-with-description">
                                 <img
                                   className="imagee-cart"
@@ -145,9 +145,9 @@ const usderSubmit=(e)=>{
                             ) : (
                               <p>No image available</p>
                             )}
-                          <h6 className="name" >{item.productName}</h6>
+                            <h6 className="name">{item.productName}</h6>
+                          </div>
                         </div>
-                      </div>
                       </div>
                     </td>
                     <td>
