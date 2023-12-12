@@ -256,7 +256,7 @@ const IntegratedAddressPage = () => {
           >
             Add New Delivery Address
           </button>
-        </div>
+        </div>   
       )}
 
       <button
