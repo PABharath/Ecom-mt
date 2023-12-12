@@ -278,6 +278,8 @@ import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -349,16 +351,16 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isEmailValid) {
-      setErrorMessage('Invalid email address');
+      toast.error('Invalid email address', { position: 'top-center', autoClose: 3000 });
     } else if (!isNameValid) {
-      setErrorMessage('Please enter your name');
+      toast.error('Please enter your name', { position: 'top-center', autoClose: 3000 });
     } else if (!isPhoneNumberValid) {
-      setErrorMessage('Invalid phone number');
+      toast.error('Invalid phone number', { position: 'top-center', autoClose: 3000 });
     } else if (!isPasswordValid.isValid) {
-      setErrorMessage(`Password must include ${isPasswordValid.requirements.join(', ')}`);
+      toast.error(`Password must include ${isPasswordValid.requirements.join(', ')}`, { position: 'top-center', autoClose: 3000 });
     } else if (password !== confirmPassword) {
-      setErrorMessage('Passwords do not match');
-    }  else {
+      toast.error('Passwords do not match', { position: 'top-center', autoClose: 3000 });
+    } else {
       try {
         const response = await axios.post('http://localhost:5555/user/register', {
           username: name,
@@ -367,26 +369,25 @@ const Register = () => {
           password,
         });
         if (response.status === 201) {
-          setErrorMessage('Registration successful');
+          // Display success message using toast.success
+          toast.success('Registration successful', { position: 'top-center', autoClose: 3000 });
+
           setTimeout(() => {
             setErrorMessage('');
           }, 3000);
+
+          // Redirect to login page
           navigate('/login');
         } else {
-          setErrorMessage('Unknown error occurred');
+          // Display unknown error message using toast.error
+          toast.error('Unknown error occurred', { position: 'top-center', autoClose: 3000 });
         }
       } catch (error) {
-        setErrorMessage('User already exists');
+        // Display user already exists message using toast.error
+        toast.error('User already exists', { position: 'top-center', autoClose: 3000 });
       }
     }
   };
-
-
-  
-
-
-
-
 
 
   return (
@@ -517,6 +518,8 @@ const Register = () => {
        
       </form>
      </div>
+     <ToastContainer position="top-center" autoClose={3000} />
+
     </div>
   );
 };

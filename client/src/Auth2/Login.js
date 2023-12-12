@@ -32,58 +32,47 @@ const Login = () => {
       }
     }
   };
-   const handleSubmit = async (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Your login logic
-
-      // Display success message
-      toast.success('Login successful', { position: 'top-center', autoClose: 3000 });
-
-      // Rest of your logic
+      const response = await axios.post("http://127.0.0.1:5555/auth/login", {
+        email,
+        password,
+      });
+  
+      if (response.status === 200) {
+        const token = response.data.token;
+        localStorage.setItem("token", token);
+  
+        // Display success message using toast.success
+        toast.success('Login successful', { position: 'top-center', autoClose: 3000 });
+  
+        // Set the user data using the login function
+        login({ token, email });
+  
+        // Navigate to Home page after successful login
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
+      } else {
+        // Display error message for non-200 response status using toast.error
+        toast.error('Invalid credentials', { position: 'top-center', autoClose: 3000 });
+      }
     } catch (error) {
-      // Your error handling logic
-
-      // Display error message
-      toast.error('An error occurred', { position: 'top-center', autoClose: 3000 });
+      if (error.response && error.response.data && error.response.data.error) {
+        // Display specific error message from the server using toast.error
+        toast.error(error.response.data.error, { position: 'top-center', autoClose: 3000 });
+      } else {
+        console.error("Error occurred during login:", error);
+  
+        // Display a more generic error message for other errors using toast.error
+        toast.error('An error occurred', { position: 'top-center', autoClose: 3000 });
+  
+        console.log(error); // Log the error object to the console for debugging
+      }
     }
   };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await axios.post("http://127.0.0.1:5555/auth/login", {
-  //       email,
-  //       password,
-  //     });
-  //     if (response.status === 200) {
-  //       // Set the token when login is successful
-  //       const token = response.data.token;
-  //       localStorage.setItem("token", token);
-
-  //       // Set the user data using the login function
-  //       login({ token, email });
-
-  //       setMessage("Login successful");
-  //       setTimeout(() => {
-  //         setMessage("");
-  //         navigate("/"); // Navigate to Home page after successful login
-  //       }, 3000);
-  //     } else {
-  //       setMessage("Invalid credentials"); // Display "Invalid credentials" for non-200 response status
-  //     }
-  //   } catch (error) {
-  //     if (error.response && error.response.data && error.response.data.error) {
-  //       setMessage(error.response.data.error); // Display the specific error message from the server
-  //     } else {
-  //       console.error("Error occurred during login:", error);
-  //       setMessage("An error occurred"); // Display a more generic message for any other errors
-  //       console.log(error); // Log the error object to the console for debugging
-  //     }
-  //   }
-  // };
-
-
   
 
   return (
