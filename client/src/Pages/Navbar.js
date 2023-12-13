@@ -41,7 +41,7 @@ function Navbar() {
     setCategoryFilter(category);
     toggleDropdown();
     // Navigate to the products page with the selected category
-    navigate(`/products/category/${category}`);
+    navigate(`/${category}`);
   };
 
   useEffect(() => {
@@ -83,17 +83,17 @@ function Navbar() {
 
         <a href="/">Home</a>
 
-        <Link to="/ProductList">
+        <Link >
           <div className="dropdown">
             <button className="dropbtn">Sarees</button>
             <div className="dropdown-content">
-              <a href="#" onClick={() => handleCategoryClick("Kanjeevaram")} className="extra">Kanjivaram Silk Sarees</a>
-              <a href="#" onClick={() => handleCategoryClick("Mysore")} className="extra">Mysore Silk Sarees</a>
-              <a href="#" onClick={() => handleCategoryClick("Chettinad")} className="extra">Chettinad Sarees</a>
-              <a href="#" onClick={() => handleCategoryClick("Kasavu")} className="extra">Kasavu Sarees</a>
-              <a href="#" onClick={() => handleCategoryClick("Gadwal")} className="extra">Gadwal Sarees</a>
-              <a href="#" onClick={() => handleCategoryClick("Dharamavaram")} className="extra">Dharamavaram Sarees</a>
-              <a href="#" onClick={() => handleCategoryClick("Pochampally")} className="extra">Pochampally Sarees</a>
+              <Link to="/Kanjeevaram" onClick={() => handleCategoryClick("Kanjeevaram")} className="extra">Kanjivaram Silk Sarees</Link>
+              <Link onClick={() => handleCategoryClick("Mysore")} className="extra">Mysore Silk Sarees</Link>
+              <Link to="/ProductList" onClick={() => handleCategoryClick("Chettinad")} className="extra">Chettinad Sarees</Link>
+              <Link onClick={() => handleCategoryClick("Kasavu")} className="extra">Kasavu Sarees</Link>
+              <Link onClick={() => handleCategoryClick("Gadwal")} className="extra">Gadwal Sarees</Link>
+              <Link onClick={() => handleCategoryClick("Dharamavaram")} className="extra">Dharamavaram Sarees</Link>
+              <Link onClick={() => handleCategoryClick("Pochampally")} className="extra">Pochampally Sarees</Link>
             </div>
           </div>
         </Link>
