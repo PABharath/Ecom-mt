@@ -44,6 +44,11 @@ function Navbar() {
     navigate(`/products/category/${category}`);
   };
 
+  const handleSearch = (value) => {
+    // Handle the search value, for now, let's navigate to a search results page
+    navigate(`/search?query=${value}`);
+  };
+
   useEffect(() => {
     fetchProductsByCategory();
   }, [categoryFilter]);
@@ -102,7 +107,7 @@ function Navbar() {
         <a href="/ContactUs">Contact us</a>
       </nav>
 
-      <SearchBar className="nav-searchbarvik" />
+      <SearchBar className="nav-searchbarvik" onSearch={handleSearch} />
       <div className="navvik-right">
         <Link to="/ProductForm">
           <FontAwesomeIcon icon={faPlus} className="menu-icon" />
