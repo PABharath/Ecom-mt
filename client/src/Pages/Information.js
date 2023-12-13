@@ -329,6 +329,15 @@ This distinctive-looking Kanchipuram Saree represents a versatile array of desig
 <p>
 Delicate patterns made with gold threads give Kanjivaram Silk Sarees a very different glow.
 </p>
+<h3>5.Dharmavaram Silk Sarees</h3>
+<p>
+Dharmavaram sarees also feature a solid colour, a contrasting border and a broad pallu with 
+gold zari detailing at its edges.</p>
+<p>
+Most Dharmavaram silks are made from genuine south silk. You can test the genuineness of 
+the silk by burning one strand of thread. If it burns like hair without leaving a residue, 
+it is genuine silk.
+</p>
     </div>
   );
 };
