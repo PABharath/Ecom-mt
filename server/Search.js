@@ -16,7 +16,7 @@ const connectToDatabase = async () => {
   return client.db(dbName);
 };
 
-app.get('/api/search', async (req, res) => {
+app.get('/', async (req, res) => {
   const { query } = req.query;
 
   try {

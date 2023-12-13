@@ -10,6 +10,7 @@ const forgotRoutes = require('./routes/forgotRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const emailRoutes = require('./routes/emailRoutes');
 const searchRoutes = require('./routes/searchRoutes');
+const reviewsRoutes = require('./routes/reviewsRoutes');
 
 const app = express();
 app.use(cors());
