@@ -29,12 +29,12 @@ const ProductList = () => {
   };
   
 
-  const handleAddToCart = (event, product) => {
+  const handleAddToCart = async (event, product) => {
     event.preventDefault();
-  
+
     // Check if the user is authenticated
     const token = localStorage.getItem("token");
-  
+    console.log("Token:", token);
     if (!token) {
       // If not authenticated, redirect to the login page
       toast.error("Please login to add items to the cart.");
@@ -42,11 +42,33 @@ const ProductList = () => {
       window.location.href = "/login";
       return;
     }
-  
-    // If authenticated, proceed with adding to cart
-    addToCart(product);
-    console.log("Adding to cart:", product);
-    toast.success("Added to Cart!"); // Display the toast notification
+
+    try {
+      // Make a POST request to save the product to the user's collection
+      const response = await axios.post(
+        "http://localhost:5555/api/users/cart",
+        { productId: product._id },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log("Product ID:", product._id);
+      // Check if the request was successful
+      if (response.status === 200) {
+        addToCart(product);
+        console.log("Adding to cart:", product);
+        toast.success("Added to Cart!"); // Display the toast notification
+      } else {
+        // Handle other response statuses if needed
+        toast.error("Failed to add to cart. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error adding to cart:", error.message);
+      console.log("Error details:", error.response);
+      toast.error("Failed to add to cart. Please try again.");
+    }
   };
   
   

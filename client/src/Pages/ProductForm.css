@@ -6,11 +6,21 @@
    width: 100%;
    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
-  .c1{
+  .z1{
    text-align: center;
    font-size: 2rem;
+   height: 40px;
+   width: 23%;
+   border-radius: 15px;
+   background-color: #ccc;
+   color: black;
+   box-shadow: 0 0 10px grey;
+   transition: all 1s;
    /* text-shadow: 1.5px 1.5px 1.5px red; */
-  }
+   } 
+   .z1:hover{
+      transform: scale(1.05);
+   }
   .product-form1 form {
    display: grid;
    grid-template-columns: auto auto auto;

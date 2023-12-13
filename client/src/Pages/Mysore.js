@@ -9,10 +9,10 @@ import { useCart } from "./CreateContext"; // Import the custom hook
 import { toast } from "react-toastify";
 import { scrollToTop } from "./scrollUtils";
 
-const Kanjeevaram = () => {
+const Mysore = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [searchTerm,setSearchTerm]=useState('');
   // Use the custom hook to get cart context
   const { addToCart } = useCart();
 
@@ -52,38 +52,26 @@ const Kanjeevaram = () => {
     console.log("Adding to cart:", product);
     toast.success("Added to Cart!"); // Display the toast notification
   };
-  
-  
+  const handleSearchChange =(e1)=>{
+    setSearchTerm(e1.target.value);
+  };
+
+
+  const filterData=products.filter(
+    (product)=>
+    product.category.includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className={styles.productList}>
-        <div className={styles.filterSection}>
-  <label>Filter by Category:</label>
-  <select
-    value={selectedCategory}
-    onChange={(e) => setSelectedCategory(e.target.value)}
-  >
-    <option value="">All Categories</option>
-    {/* Add options dynamically based on available categories */}
-    {Array.from(new Set(products.map((product) => product.category))).map((category) => (
-      <option key={category} value={category}>
-        {category}
-      </option>
-    ))}
-  </select>
-</div>
-
-
-
+        <div>
+            <input type="text" value={searchTerm} onChange={handleSearchChange} />
+        </div>
       {loading ? (
         <p>Loading...</p>
       ) : (
         <div className={styles.productContainer}>
-          {products
-    .filter((product) =>
-      selectedCategory ? product.category === selectedCategory : true
-    )
-    .map((product) => (
+          {products.map((product) => (
             <div key={product._id} className={styles.productBox}>
               <Link
                 to={`/products/${product._id}`}
@@ -95,7 +83,7 @@ const Kanjeevaram = () => {
                   alt={product.productName}
                 />
                 <div className={styles.productName}>{product.productName}</div>
-                <div className={styles.category}>{product.category} </div>
+                <div className={styles.category}>{product.category}</div>
 
                 <div className={styles.addContainer}>
                   <div className={styles.productPrice}>₹{product.sp}</div>
@@ -118,5 +106,5 @@ const Kanjeevaram = () => {
   );
 };
 
-export default Kanjeevaram;
+export default Mysore;
 
