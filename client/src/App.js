@@ -28,6 +28,7 @@ import { AuthProvider } from "./Auth2/AuthProvider";
 import useAuth from './Auth2/useAuth';
 import Information from "./Pages/Information";
 import Shop from "./Pages/Shop";
+import Kanjeevaram from "./Pages/Kanjeevaram";
 
 const App = () => {
   return (
@@ -67,7 +68,7 @@ const App = () => {
               <Route path="/orders" element={<Orders />} />
               <Route path="/ContactUs" element={<ContactUs />} />
               <Route path="/Information" element={<Information />} />
-              <Route path="/Shop" element={<Shop />} />
+              <Route path="/Kanjeevaram" element={<Kanjeevaram />} />
             </Routes>
             <Footer />
           </CartProvider>

@@ -1,9 +1,8 @@
-// searchRoutes.js
 const express = require('express');
-const { searchProducts } = require('../controllers/searchController');
-
 const router = express.Router();
+const searchController = require('../controllers/searchController');
 
-router.get('/', searchProducts);  // Check if this route is correct
+router.get('/', searchController.searchProducts);
 
 module.exports = router;
+

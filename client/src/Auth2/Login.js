@@ -8,6 +8,8 @@ import jwt_decode from "jwt-decode";
 import useAuth from "./useAuth"; // Import the useAuth hook
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -38,32 +40,40 @@ const Login = () => {
         email,
         password,
       });
+  
       if (response.status === 200) {
-        // Set the token when login is successful
         const token = response.data.token;
         localStorage.setItem("token", token);
-
+  
+        // Display success message using toast.success
+        toast.success('Login successful', { position: 'top-center', autoClose: 3000 });
+  
         // Set the user data using the login function
         login({ token, email });
-
-        setMessage("Login successful");
+  
+        // Navigate to Home page after successful login
         setTimeout(() => {
-          setMessage("");
-          navigate("/"); // Navigate to Home page after successful login
+          navigate("/");
         }, 3000);
       } else {
-        setMessage("Invalid credentials"); // Display "Invalid credentials" for non-200 response status
+        // Display error message for non-200 response status using toast.error
+        toast.error('Invalid credentials', { position: 'top-center', autoClose: 3000 });
       }
     } catch (error) {
       if (error.response && error.response.data && error.response.data.error) {
-        setMessage(error.response.data.error); // Display the specific error message from the server
+        // Display specific error message from the server using toast.error
+        toast.error(error.response.data.error, { position: 'top-center', autoClose: 3000 });
       } else {
         console.error("Error occurred during login:", error);
-        setMessage("An error occurred"); // Display a more generic message for any other errors
+  
+        // Display a more generic error message for other errors using toast.error
+        toast.error('An error occurred', { position: 'top-center', autoClose: 3000 });
+  
         console.log(error); // Log the error object to the console for debugging
       }
     }
   };
+  
 
   return (
     <div className="overflow">
@@ -161,6 +171,7 @@ const Login = () => {
           </div>
         </section>
       </div>
+      <ToastContainer position="top-center" autoClose={3000} />
     </div>
   );
 };

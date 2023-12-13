@@ -218,7 +218,8 @@
     font-size: 16px;
     font-weight: 500;
     padding-right: 40px;
-    /* margin-left: 3px; */
+    border: none;
+    outline:0px;
   }
   
   .telegram-button {
@@ -303,7 +304,7 @@
     flex-direction: column;
     width: auto;
     margin-left: 20px;
-    margin-top: -32%;
+    margin-top: -20%;
   }
   
   .homesection1 div {

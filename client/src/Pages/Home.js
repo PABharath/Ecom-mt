@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function Home() {
   
-  const [email, Setemail] = useState({
+  const [email, setEmail] = useState({
     Email: '',
    });
 
@@ -22,7 +22,7 @@ function Home() {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    Setemail({
+    setEmail({
       ...email,
       [name]: value,
     });
@@ -30,37 +30,30 @@ function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
-      console.log('Email:', email); 
-      
+      console.log('Email:', email);
       const response = await axios.post('http://localhost:5555/login', email);
-      // alert('Login succesfull')
+  
       toast.success('Subscribed successfully!', {
         position: "top-right",
         autoClose: 3000,
-        // hideProgressBar: false,
-        // closeOnClick: true,
-        // pauseOnHover: true,
-        // draggable: true,
-        // progress: undefined,
-        
       });
+  
       if (response.data.success) {
-      
+       
         window.alert('Login successful!');
 
-     
-      
+   
       } else {
-      
-        Setemail(response.data.error);
+       
+        setEmail(response.data.error);
       }
     } catch (err) {
         console.error('Error:', err.response.data); 
       
         if (err.response.data.message) {
-        
+          
           window.alert(err.response.data.message);
         } else {
          
@@ -68,18 +61,8 @@ function Home() {
         }
       }
     }
-
-
-
-
-
-
-
-
-  // const handleTelegramButtonClick = () => {
    
-   
-  // };
+
 
   return (
     <div className="home-main-body">
@@ -190,7 +173,7 @@ function Home() {
           </div>
         </div>
       </section>
-      <ToastContainer position="top-center" autoClose={3000} />
+      {/* <ToastContainer position="top-center" autoClose={3000} /> */}
     </div>
   );
 }
