@@ -1,0 +1,31 @@
+.Dropdown-vik{
+    position: relative;
+    display: inline-block;
+}
+.Dropbtn-vik{
+    padding: .5rem;
+    background-color: black;
+    color: white;
+    border: none;
+
+}
+
+/* 
+.dropdown-content-vik{
+    display: none;
+    position: absolute;
+    z-index: 2;
+} */
+
+
+.dropdown-content-vik button{
+    padding: .5rem;
+    /* display: block; */
+   
+    width: 7rem;
+}
+
+/* 
+.Dropdown-vik:hover .dropdown-content-vik{
+    display: block;
+} */

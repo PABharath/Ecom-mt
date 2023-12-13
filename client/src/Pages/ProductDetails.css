@@ -190,9 +190,10 @@ body {
   top:20px;
 }
 
-.review-form {
-  margin-top: 20px;
+.review-form { 
+   margin-top: 20px;
   padding: 20px;
+  /* height: vh; */
   border: 1px solid #e0e0e0;
   background-color: #f8f8f8;
   border-radius: 5px;
@@ -204,7 +205,7 @@ body {
 }
 
 .review-form textarea {
-  width: 50%;
+  width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   resize: vertical;
@@ -221,7 +222,19 @@ body {
   font-size: 16px;
   padding: 10px 20px;
   border-radius: 5px;
+  margin-left: 10%;
 }
+.review-formbuttons{
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-left: 50%;
+}
+
 
 .star-rating {
   display: flex;
@@ -384,6 +397,7 @@ body {
   align-items: center;
   margin-right: 10px;
   cursor: pointer;
+  
 }
 
 .like-icon,
@@ -519,7 +533,7 @@ body {
 }
 
 .review-form textarea {
-  width: 100%;
+  width:100%;
   padding: 10px;
   margin-bottom: 10px;
   resize: vertical;

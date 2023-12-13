@@ -44,6 +44,11 @@ function Navbar() {
     navigate(`/${category}`);
   };
 
+  const handleSearch = (value) => {
+    // Handle the search value, for now, let's navigate to a search results page
+    navigate(`/search?query=${value}`);
+  };
+
   useEffect(() => {
     fetchProductsByCategory();
   }, [categoryFilter]);
@@ -83,18 +88,18 @@ function Navbar() {
 
         <a href="/">Home</a>
 
-        <Link >
+        <Link to='/Kasavu' >
           <div className="dropdown">
             <button className="dropbtn">Sarees</button>
-            <div className="dropdown-content">
+            {/* <div className="dropdown-content">
               <Link to="/Kanjeevaram" onClick={() => handleCategoryClick("Kanjeevaram")} className="extra">Kanjivaram Silk Sarees</Link>
-              <Link onClick={() => handleCategoryClick("Mysore")} className="extra">Mysore Silk Sarees</Link>
+              <Link to='/Mysore' onClick={() => handleCategoryClick("Mysore")} className="extra">Mysore Silk Sarees</Link>
               <Link to="/ProductList" onClick={() => handleCategoryClick("Chettinad")} className="extra">Chettinad Sarees</Link>
-              <Link onClick={() => handleCategoryClick("Kasavu")} className="extra">Kasavu Sarees</Link>
-              <Link onClick={() => handleCategoryClick("Gadwal")} className="extra">Gadwal Sarees</Link>
+              <Link to='/Kasavu' onClick={() => handleCategoryClick("Kasavu")} className="extra">Kasavu Sarees</Link>
+              <Link  onClick={() => handleCategoryClick("Gadwal")} className="extra">Gadwal Sarees</Link>
               <Link onClick={() => handleCategoryClick("Dharamavaram")} className="extra">Dharamavaram Sarees</Link>
               <Link onClick={() => handleCategoryClick("Pochampally")} className="extra">Pochampally Sarees</Link>
-            </div>
+            </div> */}
           </div>
         </Link>
 
@@ -102,7 +107,7 @@ function Navbar() {
         <a href="/ContactUs">Contact us</a>
       </nav>
 
-      <SearchBar className="nav-searchbarvik" />
+      <SearchBar className="nav-searchbarvik" onSearch={handleSearch} />
       <div className="navvik-right">
         <Link to="/ProductForm">
           <FontAwesomeIcon icon={faPlus} className="menu-icon" />
