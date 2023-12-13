@@ -24,12 +24,16 @@ exports.registerUser = async (req, res) => {
   }
 };
 
+// controllers/userController.js
 exports.getUserProfile = async (req, res) => {
   try {
-    const userId = req.user.id; // Assuming you have a user ID in the request object
+    const userId = req.user.id;
 
-    // Fetch user details from the "users" collection based on the user ID
-    const user = await User.findById(userId);
+    // Fetch user details from the "users" collection and populate additional data
+    const user = await User.findById(userId)
+      .populate('cart', 'productName') // Add fields you want to populate for 'Product' documents
+      .populate('wishlist', 'productName')
+      .populate('reviews', 'comment');
 
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
@@ -39,5 +43,34 @@ exports.getUserProfile = async (req, res) => {
   } catch (error) {
     console.error('Error fetching user profile:', error);
     res.status(500).json({ error: 'Failed to fetch user profile' });
+  }
+};
+
+// New function to add a product to the user's cart
+exports.addToCart = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const { productId } = req.body;
+
+    // Fetch the user based on the user ID
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Check if the product already exists in the cart
+    if (!user.cart.includes(productId)) {
+      // If not, add the product to the cart
+      user.cart.push(productId);
+      await user.save();
+      return res.status(200).json({ message: 'Product added to cart successfully' });
+    } else {
+      // If the product already exists in the cart, you may want to handle this case accordingly
+      return res.status(400).json({ error: 'Product already exists in the cart' });
+    }
+  } catch (error) {
+    console.error('Error adding to cart:', error);
+    res.status(500).json({ error: 'Failed to add to cart' });
   }
 };
