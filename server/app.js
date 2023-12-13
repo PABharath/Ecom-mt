@@ -10,6 +10,7 @@ const forgotRoutes = require('./routes/forgotRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const emailRoutes = require('./routes/emailRoutes');
 const searchRoutes = require('./routes/searchRoutes');
+const reviewsRoutes = require('./routes/reviewsRoutes');
 
 const app = express();
 app.use(cors());
@@ -57,6 +58,8 @@ app.use('/contact', contactRoutes);
 
 // use the mail
 app.use('/login', emailRoutes);
+
+app.use(reviewsRoutes);
 
 const PORT = process.env.PORT || 5555;
 app.listen(PORT, () => {
