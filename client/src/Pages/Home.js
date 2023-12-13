@@ -97,7 +97,7 @@ function Home() {
         <div className="best-sellers-container">
           <div className="best-sellers-text">Best Sellers</div>
           <div className="browse-all-container">
-            <Link to="/ProductList">
+            <Link to="/Kasavu">
               <button className="browse-all-button">Browse all &gt;</button>
             </Link>
           </div>
