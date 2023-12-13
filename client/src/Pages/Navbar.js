@@ -83,18 +83,18 @@ function Navbar() {
 
         <a href="/">Home</a>
 
-        <Link >
+        <Link to='/Kasavu' >
           <div className="dropdown">
             <button className="dropbtn">Sarees</button>
-            <div className="dropdown-content">
+            {/* <div className="dropdown-content">
               <Link to="/Kanjeevaram" onClick={() => handleCategoryClick("Kanjeevaram")} className="extra">Kanjivaram Silk Sarees</Link>
-              <Link onClick={() => handleCategoryClick("Mysore")} className="extra">Mysore Silk Sarees</Link>
+              <Link to='/Mysore' onClick={() => handleCategoryClick("Mysore")} className="extra">Mysore Silk Sarees</Link>
               <Link to="/ProductList" onClick={() => handleCategoryClick("Chettinad")} className="extra">Chettinad Sarees</Link>
-              <Link onClick={() => handleCategoryClick("Kasavu")} className="extra">Kasavu Sarees</Link>
-              <Link onClick={() => handleCategoryClick("Gadwal")} className="extra">Gadwal Sarees</Link>
+              <Link to='/Kasavu' onClick={() => handleCategoryClick("Kasavu")} className="extra">Kasavu Sarees</Link>
+              <Link  onClick={() => handleCategoryClick("Gadwal")} className="extra">Gadwal Sarees</Link>
               <Link onClick={() => handleCategoryClick("Dharamavaram")} className="extra">Dharamavaram Sarees</Link>
               <Link onClick={() => handleCategoryClick("Pochampally")} className="extra">Pochampally Sarees</Link>
-            </div>
+            </div> */}
           </div>
         </Link>
 

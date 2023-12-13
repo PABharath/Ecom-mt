@@ -38,7 +38,7 @@ app.use('/api/search', searchRoutes);
 
 // Use the auth routes
 app.use('/auth', authRoutes);
-app.use('/user', userRoutes);
+app.use('/api', userRoutes);
 
 // Use the product routes
 app.use('/api', productRoutes);
@@ -57,6 +57,12 @@ app.use('/contact', contactRoutes);
 
 // use the mail
 app.use('/login', emailRoutes);
+
+// Example of a default route
+app.get('/', (req, res) => {
+  res.send('Hello, this is the default route!');
+});
+
 
 const PORT = process.env.PORT || 5555;
 app.listen(PORT, () => {

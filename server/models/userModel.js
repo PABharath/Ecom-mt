@@ -6,12 +6,17 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
+    unique: true,
   },
   contact: String,
   address: String,
   password: String,
-  resetToken: String, // Add a field to store the reset token
-  resetTokenExpiration: Date, // Add a field to store the reset token expiration date
+  resetToken: String,
+  resetTokenExpiration: Date,
+  // Additional user-related data
+  cart: [{ product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' }, quantity: Number }],  
+  wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
+  reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
 });
 
 const User = mongoose.model('User', userSchema);
