@@ -28,9 +28,8 @@ import { AuthProvider } from "./Auth2/AuthProvider";
 import useAuth from './Auth2/useAuth';
 import Information from "./Pages/Information";
 import Shop from "./Pages/Shop";
-import Kanjeevaram from "./Pages/Kanjeevaram";
-import Mysore from "./Pages/Mysore";
-import Kasavu from "./Pages/Kasavu";
+import SareesCategories from "./Pages/SareesCategories";
+
 
 const App = () => {
   return (
@@ -72,10 +71,8 @@ const App = () => {
               <Route path="/ContactUs" element={<ContactUs />} />
               <Route path="/Information" element={<Information />} />
               <Route path="/shop" element={<Shop />} />
-              <Route path="/Kanjeevaram" element={<Kanjeevaram />} />
-              <Route path="/Mysore" element={<Mysore />} />
-              <Route path="/Kasavu" element={<Kasavu/>} />
-
+              <Route path="/SareesCategories" element={<SareesCategories />} />
+              
             </Routes>
             <Footer />
           </CartProvider>
