@@ -1,3 +1,5 @@
+// server.js
+
 const express = require('express');
 const cors = require('cors');
 const { MongoClient } = require('mongodb');
@@ -16,7 +18,7 @@ const connectToDatabase = async () => {
   return client.db(dbName);
 };
 
-app.get('/', async (req, res) => {
+app.get('/search', async (req, res) => {
   const { query } = req.query;
 
   try {
@@ -26,8 +28,8 @@ app.get('/', async (req, res) => {
     const searchResults = await collection
       .find({
         $or: [
-          { productName: { $regex: query, $options: 'i' } },
-          { category: { $regex: query, $options: 'i' } },
+          { productName: { $regex: new RegExp(query, 'i') } },
+          { category: { $regex: new RegExp(query, 'i') } },
         ],
       })
       .toArray();
