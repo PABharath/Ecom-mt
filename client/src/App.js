@@ -29,9 +29,6 @@ import useAuth from './Auth2/useAuth';
 import Information from "./Pages/Information";
 import Shop from "./Pages/Shop";
 
-import Kanjeevaram from "./Pages/Kanjeevaram";
-import Mysore from "./Pages/Mysore";
-import Kasavu from "./Pages/Kasavu";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import SareesCategories from "./Pages/SareesCategories";
