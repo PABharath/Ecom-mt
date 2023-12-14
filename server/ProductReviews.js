@@ -1,4 +1,4 @@
-const express = require('express');
+  const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -43,7 +43,7 @@ app.post('/reviews', async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Internal server error' });
   }
-});z
+});
 
 app.post('/reviews/:reviewId/:action', async (req, res) => {
   const { reviewId, action } = req.params;

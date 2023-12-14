@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
-const productRoutes = require('./routes/productRoutes'); // Import productRoutes
+const productRoutes = require('./routes/productRoutes'); 
 const addProductRoutes = require('./routes/addProductRoutes');
 const addressRoutes = require('./routes/addressRoutes');
 const forgotRoutes = require('./routes/forgotRoutes');
@@ -11,6 +11,8 @@ const contactRoutes = require('./routes/contactRoutes');
 const emailRoutes = require('./routes/emailRoutes');
 const searchRoutes = require('./routes/searchRoutes');
 const paymentRoutes = require('./routes/paymentRoutes');
+const reviewsRoutes = require('./routes/reviewsRoutes');
+
 
 
 const app = express();
@@ -59,6 +61,8 @@ app.use('/contact', contactRoutes);
 
 // use the mail
 app.use('/login', emailRoutes);
+
+app.use('/api', reviewsRoutes);
 
 // Example of a default route
 app.get('/', (req, res) => {
