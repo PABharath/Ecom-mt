@@ -123,7 +123,7 @@ const SareesCategories2 = () => {
             type="range"
             min="1000"
             max="2500" // Adjust the maximum value based on your product price range
-            step="500"
+            step="200"
             value={maxPrice}
             onChange={handleMaxPriceChange}
           />
