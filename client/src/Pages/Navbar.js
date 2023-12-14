@@ -99,7 +99,7 @@ function Navbar() {
 
         <a href="/">Home</a>
 
-        <Link to='/Kasavu' >
+        <Link to='/SareesCategories2' >
           <div className="dropdown">
             <button className="dropbtn">Sarees</button>
             {/* <div className="dropdown-content">

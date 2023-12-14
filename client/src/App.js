@@ -28,11 +28,16 @@ import { AuthProvider } from "./Auth2/AuthProvider";
 import useAuth from './Auth2/useAuth';
 import Information from "./Pages/Information";
 import Shop from "./Pages/Shop";
+
 import Kanjeevaram from "./Pages/Kanjeevaram";
 import Mysore from "./Pages/Mysore";
 import Kasavu from "./Pages/Kasavu";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import SareesCategories from "./Pages/SareesCategories";
+import SareesCategories2 from "./Pages/SareesCategories2";
+
+
 
 const App = () => {
   return (
@@ -73,10 +78,11 @@ const App = () => {
               <Route path="/orders" element={<Orders />} />
               <Route path="/ContactUs" element={<ContactUs />} />
               <Route path="/Information" element={<Information />} />
-              <Route path="/Kanjeevaram" element={<Kanjeevaram />} />
-              <Route path="/Mysore" element={<Mysore />} />
-              <Route path="/Kasavu" element={<Kasavu/>} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/SareesCategories" element={<SareesCategories />} />
+              <Route path="/SareesCategories2" element={<SareesCategories2 />} />
 
+              
             </Routes>
             <Footer />
           </CartProvider>
