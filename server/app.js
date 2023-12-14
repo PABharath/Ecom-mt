@@ -10,7 +10,8 @@ const forgotRoutes = require('./routes/forgotRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const emailRoutes = require('./routes/emailRoutes');
 const searchRoutes = require('./routes/searchRoutes');
-const reviewsRoutes = require('./routes/reviewsRoutes');
+const paymentRoutes = require('./routes/paymentRoutes');
+
 
 const app = express();
 app.use(cors());
@@ -63,6 +64,9 @@ app.use('/login', emailRoutes);
 app.get('/', (req, res) => {
   res.send('Hello, this is the default route!');
 });
+
+// Use the payment routes
+app.use('/api/payment', paymentRoutes);
 
 
 const PORT = process.env.PORT || 5555;

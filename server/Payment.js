@@ -6,21 +6,17 @@ import cors from "cors";
 
 const app = express();
 
-// Load environment variables
-import { config } from "dotenv";
-config({ path: "./config/config.env" });
-
 // Connect to the database
 const connectDB = async () => {
-  const { connection } = await mongoose.connect(process.env.MONGO_URI);
+  const { connection } = await mongoose.connect("mongodb://127.0.0.1:27017/Ecommerce-mvc");
   console.log(`Mongodb is connected with ${connection.host}`);
 };
 connectDB();
 
 // Create a Razorpay instance
 const instance = new Razorpay({
-  key_id: process.env.RAZORPAY_API_KEY,
-  key_secret: process.env.RAZORPAY_APT_SECRET,
+  key_id: "rzp_test_7ffWepXdK0WViE",
+  key_secret: "Wo5E8UZyqCuGvnnin5TOvSzI",
 });
 
 app.use(cors());
@@ -47,7 +43,7 @@ const Payment = mongoose.model("Payment", paymentSchema);
 
 // Routes
 app.get("/api/getkey", (req, res) =>
-  res.status(200).json({ key: process.env.RAZORPAY_API_KEY })
+  res.status(200).json({ key: "rzp_test_7ffWepXdK0WViE" })
 );
 
 app.post("/api/checkout", async (req, res) => {
@@ -70,7 +66,7 @@ app.post("/api/paymentverification", async (req, res) => {
   const body = razorpay_order_id + "|" + razorpay_payment_id;
 
   const expectedSignature = crypto
-    .createHmac("sha256", process.env.RAZORPAY_APT_SECRET)
+    .createHmac("sha256", "Wo5E8UZyqCuGvnnin5TOvSzI")
     .update(body.toString())
     .digest("hex");
 

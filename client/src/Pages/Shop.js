@@ -117,6 +117,36 @@ const Shop = () => {
             This casual one minute saree will make your day brighter as the comfort and stylish personality is nothing compared 
             to an unstitched saree.
             </p>
+            <br/>
+            <hr/>
+            <br/>
+            <h2>Video Shopping</h2>
+            <br/>
+            <p>
+            Video shopping is a contemporary phenomenon that has gained momentum in the retail industry. 
+            Matrical, a brand synonymous with ethnic elegance, has seamlessly integrated video shopping into 
+            its repertoire, bringing the essence of its physical stores directly to the screens of its customers. 
+            This trend combines the convenience of online shopping with the personalized touch of an in-store experience.
+            </p>
+            <br/>
+            <h4 style={{fontWeight:'bold'}}>Real-Time Assistance for Sarees:</h4>
+            <br/>
+            <p>
+              <i>https://www.instagram.com/reel/Cv9rZMatrical/</i><br/>
+            Video shopping at Matrical offers customers more than just a visual tour of the collection. 
+            It provides real-time assistance, ensuring that shoppers can connect with knowledgeable sales representatives 
+            who guide them through the diverse range of products. Whether a customer is searching for the perfect designer 
+            Sarees for a wedding or a saree for a special occasion, the expertise offered through video shopping enhances 
+            the overall shopping experience.
+            </p>
+            <br/>
+            <p>
+            We at Matrical, showcase you with a different variety in ethnic wear that will make you fall in love with. 
+            Be it pretty pinks or delightful oranges or sunshine yellows or pure whites or vibrant red, there’s just every colour 
+            outfit in trending styles. From traditional to contemporary styles, we got them all for you to choose from. 
+            Bring on the festivities with joy, elegance and grace without the all-new festive collection only at www.Matrical.com. 
+            To those who are new to Matrical online shopping, we offer free shipping and cash on delivery service worldwide.
+            </p>
       </section>
     </div>
   );
