@@ -73,9 +73,8 @@ const SareesCategories = () => {
 
 <div className={styles.filterButtons}>
 <div className="Dropdown-vik">
-    <button className="Dropbtn-vik">Select Categories</button>
     <div className="dropdown-content-vik">
-
+      
       <button onClick={() => handleCategorySelect(null)}>All</button>
       <button onClick={() => handleCategorySelect("Kanjeevaram")}>Kanjeevaram</button>
       <button onClick={() => handleCategorySelect("Mysore")}>Mysore</button>

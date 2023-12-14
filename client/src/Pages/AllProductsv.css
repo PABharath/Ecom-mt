@@ -1,3 +1,7 @@
+*{
+    animation: fadeIn 1s ease-in-out;
+}
+
 .Dropdown-vik{
     position: relative;
     display: inline-block;
@@ -29,7 +33,7 @@
 }
 
 .dropdown-content-vik{
-    margin: .5rem;
+    margin: 1rem;
     display: flex;
     flex-grow: 1;
     flex-direction: row;
