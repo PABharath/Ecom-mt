@@ -13,8 +13,6 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 
 
-
-
 const ProductDetails = () => {
   const [productDetails, setProductDetails] = useState({});
   const [rating, setRating] = useState(-1);
@@ -39,7 +37,7 @@ const ProductDetails = () => {
 
   const fetchReviewData = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:5555/reviews?productId=${productId}`);
+      const response = await fetch(`http://127.0.0.1:5555/api/reviews?productId=${productId}`);
       const data = await response.json();
       setReviews(data); // Update the state with fetched data
   
@@ -138,7 +136,7 @@ const ProductDetails = () => {
     };
   
     try {
-      const response = await axios.post('http://127.0.0.1:5555/reviews', formData);
+      const response = await axios.post('http://127.0.0.1:5555/api/reviews', formData);
       console.log('Review successfully submitted');
       // Add the new review to the current reviews state 
       setReviews([...reviews, response.data]);
@@ -152,7 +150,7 @@ const ProductDetails = () => {
 
   const handleLikeDislike = async (reviewId, action) => {
     try {
-      const response = await axios.post(`http://127.0.0.1:5555/reviews/${reviewId}/${action}`);
+      const response = await axios.post(`http://127.0.0.1:5555/api/reviews/${reviewId}/${action}`);
       console.log("Updated review response:", response.data);
       const updatedReviews = reviews.map(review =>
         review._id === reviewId ? response.data : review
@@ -248,7 +246,7 @@ const ProductDetails = () => {
 
 </div>
 
-            <div className="product-savings">
+            <div className="product-savings"> 
               You Saved:{" "}
               <span className="savings-amount">
                 ₹ {productDetails.mrp - productDetails.sp}
