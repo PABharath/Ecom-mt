@@ -1,23 +1,7 @@
-.Dropdown-vik{
-    position: relative;
-    display: inline-block;
-}
-.Dropbtn-vik{
-    padding: .5rem;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: .5rem;
-    margin: .3rem;
-
+*{
+    animation: fadeIn 1s ease-in-out;
 }
 
-/* 
-.dropdown-content-vik{
-    display: none;
-    position: absolute;
-    z-index: 2;
-} */
 
 
 .dropdown-content-vik button{
@@ -29,7 +13,7 @@
 }
 
 .dropdown-content-vik{
-    margin: .5rem;
+    margin: 1rem;
     display: flex;
     flex-grow: 1;
     flex-direction: row;
@@ -87,4 +71,21 @@
    .dropdown-content-vik button:active {
     box-shadow: #D6D6E7 0 3px 7px inset;
     transform: translateY(2px);
+   }
+
+
+
+   .priceFilter-vik input{
+    padding: .3rem;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid gray;
+   }
+   .priceFilter-vik{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    gap: 1rem;
+    margin: 1rem;
    }
