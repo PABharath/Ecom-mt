@@ -75,7 +75,7 @@ const Kasavu = () => {
 <div className="Dropdown-vik">
     <button className="Dropbtn-vik">Select Categories</button>
     <div className="dropdown-content-vik">
-        
+
       <button onClick={() => handleCategorySelect(null)}>All</button>
       <button onClick={() => handleCategorySelect("Kanjeevaram")}>Kanjeevaram</button>
       <button onClick={() => handleCategorySelect("Mysore")}>Mysore</button>
@@ -106,6 +106,8 @@ const Kasavu = () => {
                   alt={product.productName}
                 />
                 <div className={styles.productName}>{product.productName}</div>
+                <div className={styles.category}>{product.category}</div>
+
                 <div className={styles.addContainer}>
                   <div className={styles.productPrice}>₹{product.sp}</div>
                   <Link to="/cart" onClick={scrollToTop}>

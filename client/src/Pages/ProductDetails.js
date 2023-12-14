@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Modal from 'react-modal';
 import { FaStar ,FaThumbsUp, FaThumbsDown} from "react-icons/fa";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
@@ -8,6 +9,9 @@ import "./ProductDetails.css";
 import { useCart } from "./CreateContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
+
 
 
 
@@ -22,25 +26,33 @@ const ProductDetails = () => {
   const { addToCart } = useCart();
   const [showAllReviews, setShowAllReviews] = useState(false);
   const [showAddToCartToast, setShowAddToCartToast] = useState(false);
-
+  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
   
   // Use the custom hook to get cart context
   
 
   useEffect(() => {
     fetchProductDetails();
-    // fetchReviewData();
+    fetchReviewData();
   }, []);
 
-  // const fetchReviewData = async () => {
-  //   try {
-  //     const response = await fetch(`http://127.0.0.1:5035/reviews?productId=${productId}`);
-  //     const data = await response.json();
-  //     setReviews(data); // Update the state with fetched data
-  //   } catch (error) {
-  //     console.error("Error fetching review data:", error);
-  //   }
-  // };
+
+  const fetchReviewData = async () => {
+    try {
+      const response = await fetch(`http://127.0.0.1:5555/reviews?productId=${productId}`);
+      const data = await response.json();
+      setReviews(data); // Update the state with fetched data
+  
+      // Calculate total ratings and reviews
+      const totalRatings = data.reduce((sum, review) => sum + review.starRating, 0);
+      const totalReviews = data.length;
+  
+      // Update the reviewData state
+      setReviewData({ ratings: totalRatings, reviews: totalReviews });
+    } catch (error) {
+      console.error("Error fetching review data:", error);
+    }
+  };
   
   const fetchProductDetails = async () => {
     try {
@@ -109,46 +121,70 @@ const ProductDetails = () => {
     navigate("/Cart"); // Navigate to the Cart page
   };
 
-  // const handleSubmitReview = async (event) => {
-  //   event.preventDefault();
+  const handleSubmitReview = async (event) => {
+    event.preventDefault();
   
-  //   if (rating === -1) {
-  //     toast.error("Please select a star rating before submitting the review.");
-  //     return;
-  //   }
+    if (rating === -1) {
+      toast.error("Please select a star rating before submitting the review.");
+      return;
+    }
   
-  //   const reviewText = event.target.reviewText.value;
-  //   const formData = {
-  //     productId: productId, // Add productId to the formData
-  //     starRating: rating,
-  //     comment: reviewText,
-  //     username: 'JohnDoe',
-  //   };
+    const reviewText = event.target.reviewText.value;
+    const formData = {
+      productId: productId, // Add productId to the formData
+      starRating: rating,
+      comment: reviewText,
+      username: 'JohnDoe',
+    };
   
-  //   try {
-  //     const response = await axios.post('http://127.0.0.1:5035/reviews', formData);
-  //     console.log('Review successfully submitted');
-  //     // Add the new review to the current reviews state
-  //     setReviews([...reviews, response.data]);
-  //   } catch (error) {
-  //     console.error('Error submitting review:', error);
-  //   }
-  // };
+    try {
+      const response = await axios.post('http://127.0.0.1:5555/reviews', formData);
+      console.log('Review successfully submitted');
+      // Add the new review to the current reviews state 
+      setReviews([...reviews, response.data]);
+      toast.success("Review successfully submitted!"); // Display the toast notification
+    } catch (error) {
+      console.error('Error submitting review:', error);
+    }
+  };
+  
   
 
-  // const handleLikeDislike = async (reviewId, action) => {
-  //   try {
-  //     const response = await axios.post(`http://127.0.0.1:5035/reviews/${reviewId}/${action}`);
-  //     console.log("Updated review response:", response.data);
-  //     const updatedReviews = reviews.map(review =>
-  //       review._id === reviewId ? response.data : review
-  //     );
-  //     setReviews(updatedReviews);
-  //   } catch (error) {
-  //     console.error("Error updating like/dislike:", error);
-  //   }
-  // };
+  const handleLikeDislike = async (reviewId, action) => {
+    try {
+      const response = await axios.post(`http://127.0.0.1:5555/reviews/${reviewId}/${action}`);
+      console.log("Updated review response:", response.data);
+      const updatedReviews = reviews.map(review =>
+        review._id === reviewId ? response.data : review
+      );
+      setReviews(updatedReviews);
+    } catch (error) {
+      console.error("Error updating like/dislike:", error);
+    }
+  };
   
+  const openReviewModal = () => {
+    setIsReviewModalOpen(true);
+  };
+
+  const closeReviewModal = () => {
+    setIsReviewModalOpen(false);
+  };
+
+  const customModalStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      width: '50%', // Set the width of the modal
+      maxHeight: '100vh', // Set the maximum height of the modal
+      overflow: 'auto', // Enable scrolling if the content overflows
+    },
+  };
+
 
   return (
     <div>
@@ -205,10 +241,12 @@ const ProductDetails = () => {
                   : "In Stock"}
               </span>
             </p>
+       
             <div className="ratings-reviews">
-              <p className="product-ratings">{reviewData.ratings} Ratings &</p>
-              <p className="product-reviews">{reviewData.reviews} Reviews</p>
-            </div>
+  <p className="product-ratings">{reviews.length > 0 ? (reviewData.ratings / reviews.length).toFixed(2) : 'N/A'} Ratings &</p>
+  <p className="product-reviews">{reviewData.reviews} Reviews</p>
+
+</div>
 
             <div className="product-savings">
               You Saved:{" "}
@@ -312,30 +350,42 @@ const ProductDetails = () => {
 
           <hr />
           <div className="review-box">
-            <h3>Write a Review</h3>
-            <form className="review-form" /*onSubmit={handleSubmitReview}*/>
-  {/* Review form inputs */}
-  <textarea name="reviewText" placeholder="Write your review..." />
-  <div className="star-rating">
-    {Array.from({ length: 5 }).map((_, index) => (
-      <label key={index}>
-        <input
-          type="radio"
-          name="rating"
-          value={index + 1}
-          onChange={() => setRating(index + 1)}
-        />
-        <FaStar
-          className="star"
-          color={index < rating ? "#ffc107" : "#e4e5e9"}
-        />
-      </label>
-    ))}
-  </div>
-  <button type="submit" disabled={rating === -1}>Submit</button>
-</form>
+        <button  className=""onClick={openReviewModal}>Write a Review</button>
+        <Modal
+          isOpen={isReviewModalOpen}
+          onRequestClose={closeReviewModal}
+          contentLabel="Review Modal"
+          style={customModalStyles}
+        >
+          <form className="review-form" onSubmit={handleSubmitReview}>
+            {/* Review form inputs */}
+            <textarea name="reviewText" placeholder="Write your review..." />
+            <div className="star-rating">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <label key={index}>
+                  <input
+                    type="radio"
+                    name="rating"
+                    value={index + 1}
+                    onChange={() => setRating(index + 1)}
+                  />
+                  <FaStar
+                    className="star"
+                    color={index < rating ? "#ffc107" : "#e4e5e9"}
+                  />
+                </label>
+              ))}
+            </div>
+            <button type="submit" disabled={rating === -1}>
+              Submit 
+            </button>
+            <button type="button" className=".review-formbuttons" onClick={closeReviewModal}>
+              Close Modal
+            </button>
+          </form>
+        </Modal>
+      </div>
 
-          </div>
           <hr />
           <div className="reviews-section">
         <h3>Reviews</h3>
@@ -357,14 +407,14 @@ const ProductDetails = () => {
               <div className="like-dislike-button">
   <FaThumbsUp
     className="like-icon"
-    /*onClick={() => handleLikeDislike(review._id, "like")}*/
+    onClick={() => handleLikeDislike(review._id, "like")}
   />
   <span className="like-dislike-count">{review.likes}</span>
 </div>
 <div className="like-dislike-button">
   <FaThumbsDown
     className="dislike-icon"
-    /*onClick={() => handleLikeDislike(review._id, "dislike")}*/
+    onClick={() => handleLikeDislike(review._id, "dislike")}
   />
   <span className="like-dislike-count">{review.dislikes}</span>
 </div>
@@ -382,10 +432,10 @@ const ProductDetails = () => {
           </button>
         )}
       </div>
-
         </div>
       )}
        {showAddToCartToast &&<ToastContainer position="top-center" autoClose={3000} />}
+       
     </div>
   );
 };

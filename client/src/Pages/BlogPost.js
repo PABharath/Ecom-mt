@@ -354,7 +354,7 @@ const BlogPost = () => {
   <div className='blog-image-con'>
   <img className="blog-image" src={bg17} alt="Time and Thread" />
 </div></div>
-
+<hr/>
 <h2 className="blog-title">Type of New Dawn for Tradition</h2>
 
 

@@ -104,7 +104,10 @@ const ProductForm = () => {
 
   return (
     <div className="product-form1">
-      <h1 className="c1">Add Product</h1>
+      <br/>
+      
+      <h1 className="z1">Add Product</h1>
+      <br/>
       <form
         onSubmit={handleSubmit}
         style={{ borderRadius: "10px", marginBottom: "1%" }}

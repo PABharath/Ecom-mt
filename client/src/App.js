@@ -53,6 +53,7 @@ const App = () => {
               <Route path="/ProductList" element={<ProductList />} />
               <Route path="/products/:productId" element={<ProductDetails />} />
               <Route path="/Cart" element={<Cart />} />
+              <Route path="/Shop" element={<Shop />} />
               {/* <Route path="/Addaddress" element={<AddAddressPage/>} /> */}
               <Route
                 path="/IntegratedAddressPage"
@@ -70,6 +71,7 @@ const App = () => {
               <Route path="/orders" element={<Orders />} />
               <Route path="/ContactUs" element={<ContactUs />} />
               <Route path="/Information" element={<Information />} />
+              <Route path="/shop" element={<Shop />} />
               <Route path="/Kanjeevaram" element={<Kanjeevaram />} />
               <Route path="/Mysore" element={<Mysore />} />
               <Route path="/Kasavu" element={<Kasavu/>} />

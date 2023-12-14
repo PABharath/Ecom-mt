@@ -34,14 +34,14 @@ const Login = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault();  
     try {
       const response = await axios.post("http://127.0.0.1:5555/auth/login", {
         email,
         password,
       });
   
-      if (response.status === 200) {
+      if (response.status === 200) {  
         const token = response.data.token;
         localStorage.setItem("token", token);
   
@@ -49,7 +49,7 @@ const Login = () => {
         toast.success('Login successful', { position: 'top-center', autoClose: 3000 });
   
         // Set the user data using the login function
-        login({ token, email });
+        login({ token, email }); 
   
         // Navigate to Home page after successful login
         setTimeout(() => {
@@ -87,7 +87,7 @@ const Login = () => {
                   {/* Input fields for email and password */}
                   <div className="loginfield1 logininput-field1">
                     <input
-                      type="email"
+                      type="email"   
                       name="email" // Add name attribute for form submission
                       placeholder="Email"
                       className="input1"
