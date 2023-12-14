@@ -16,6 +16,12 @@ import axios from "axios";
 import { CartContext } from "./CreateContext";
 import useAuth from "../Auth2/useAuth";
 import SearchBar from "./SearchBar";
+import Button from 'react-bootstrap/Button';
+import Overlay from 'react-bootstrap/Overlay';
+import Tooltip from 'react-bootstrap/Tooltip';
+import { LuImagePlus } from "react-icons/lu";
+import { PiSignOutBold } from "react-icons/pi";
+import { FaUserCircle } from "react-icons/fa";
 
 
 function Navbar() {
@@ -32,6 +38,11 @@ function Navbar() {
 
   const [showDropdown, setShowDropdown] = useState(false);
   const [categoryFilter, setCategoryFilter] = useState(null);
+
+ 
+
+    const [show, setShow] = useState(false);
+    const target = useRef(null);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -77,7 +88,7 @@ function Navbar() {
         <FaBars />
       </button>
 
-      <h3><a href="/" style={{color:'black'}}>E-Commerce</a></h3>
+      <h3><a href="/" style={{color:'black',textDecoration:'none'}}>E-Commerce</a></h3>
     </div>
 
 
@@ -134,6 +145,33 @@ function Navbar() {
             <FontAwesomeIcon icon={faUser} className="menu-icon" />
           </Link>
         )}
+
+          <Button  ref={target} style={{backgroundColor:'rgb(206, 202, 202)',color:'black',border:'none'}}  onClick={() => setShow(!show)}>
+           
+        <FaUserCircle style={{fontSize:'1.3rem' , marginTop:'-1rem',marginLeft:'-0.8rem'}}/>
+    
+      </Button>
+      
+      <Overlay target={target.current} show={show}   placement="bottom">
+        {(props) => (
+          
+          <Tooltip id="overlay-example"  {...props}>
+            <div >
+            <h4>Profile</h4>
+            <FaUserCircle style={{fontSize:'2rem'}}/><br/>
+             <b>Username:</b><br/>
+           <input type="text" placeholder="Username"/><br/><br/>
+                      
+              
+             <button className="bg-button1">logout</button><br/><br/>
+             <button className="bg-button2"><PiSignOutBold/>Profile</button> 
+              <br/>
+            </div>
+          </Tooltip>
+          
+        )}
+      </Overlay>
+       
       </div>
     </header>
   );
