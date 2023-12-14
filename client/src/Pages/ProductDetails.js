@@ -241,10 +241,7 @@ const ProductDetails = () => {
                   : "In Stock"}
               </span>
             </p>
-            {/* <div className="ratings-reviews">
-              <p className="product-ratings">{reviewData.ratings} Ratings &</p>
-              <p className="product-reviews">{reviewData.reviews} Reviews</p>
-            </div> */}
+       
             <div className="ratings-reviews">
   <p className="product-ratings">{reviews.length > 0 ? (reviewData.ratings / reviews.length).toFixed(2) : 'N/A'} Ratings &</p>
   <p className="product-reviews">{reviewData.reviews} Reviews</p>
@@ -353,7 +350,7 @@ const ProductDetails = () => {
 
           <hr />
           <div className="review-box">
-        <button onClick={openReviewModal}>Write a Review</button>
+        <button  className=""onClick={openReviewModal}>Write a Review</button>
         <Modal
           isOpen={isReviewModalOpen}
           onRequestClose={closeReviewModal}
