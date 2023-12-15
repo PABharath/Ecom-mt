@@ -17,6 +17,7 @@ import bg14 from '../Assets/bg14.jpg';
 import bg15 from '../Assets/bg15.jpeg';
 import bg16 from '../Assets/bg16.jpeg';
 import bg17 from '../Assets/bg17.jpeg';
+import bg18 from '../Assets/bg18.jpg';
 
 const BlogPost = () => {
   return (
@@ -126,7 +127,7 @@ const BlogPost = () => {
    The digital landscape becomes a canvas on which the sarees come alive, giving you an immersive shopping experience.
   </p></div>
   <div className='blog-image-con'>
-  <img className="blog-image" src={bg5} alt="Time and Thread" />
+  <img className="blog-image" src={bg18} alt="Time and Thread" />
 </div></div>
 
 <hr className="divider" />

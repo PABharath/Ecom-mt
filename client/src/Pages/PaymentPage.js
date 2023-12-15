@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import './Payment.css';
@@ -12,7 +12,7 @@ const PaymentPage = () => {
   const navigate = useNavigate();
   const { cartItems } = useCart();
 
-  const [order, setOrder] = useState(null);
+  // const [order, setOrder] = useState(null);
   const totalAmount = location.state ? location.state.totalAmount : 0;
 
   const handlePaymentSuccess = async (paymentResponse) => {
@@ -38,10 +38,10 @@ const PaymentPage = () => {
     }
   };
 
-  const handlePaymentError = (error) => {
-    console.error("Payment error:", error);
-    // Handle the payment error, display an error message, etc.
-  };
+  // const handlePaymentError = (error) => {
+  //   console.error("Payment error:", error);
+  //   // Handle the payment error, display an error message, etc.
+  // };
 
   const handleOrderCreation = async () => {
     try {
