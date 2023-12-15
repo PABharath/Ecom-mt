@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useRef, useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
@@ -11,10 +12,33 @@ import useAuth from '../Auth2/useAuth';
 import { IoSearchOutline } from "react-icons/io5";
 
 import './Navbar.css';
+=======
+import React, { useState, useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faShoppingCart,faBell,faUser,faPlus,} from "@fortawesome/free-solid-svg-icons";
+import { useRef } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+import "./Navbar.css";
+import axios from "axios";
+import { CartContext } from "./CreateContext";
+import useAuth from "../Auth2/useAuth";
+import SearchBar from "./SearchBar";
+import Button from 'react-bootstrap/Button';
+import Overlay from 'react-bootstrap/Overlay';
+import Tooltip from 'react-bootstrap/Tooltip';
+import { PiSignOutBold } from "react-icons/pi";
+import { FaUserCircle } from "react-icons/fa";
+>>>>>>> d50f3ed8aa616ae524e0ab131c9ef5fdf456ff1b
 
 function Navbar({ onSearch }) {
   const navRef = useRef();
   const { user } = useAuth();
+<<<<<<< HEAD
+=======
+  // const [isMenuOpen, setMenuOpen] = useState(false);
+  // const [searchValue, setSearchValue] = useState("");
+>>>>>>> d50f3ed8aa616ae524e0ab131c9ef5fdf456ff1b
   const navigate = useNavigate();
 
   const [searchValue, setSearchValue] = useState('');
@@ -30,16 +54,28 @@ function Navbar({ onSearch }) {
     setShowDropdown(!showDropdown);
   };
 
+<<<<<<< HEAD
+  // const handleCategoryClick = (category) => {
+  //   setCategoryFilter(category);
+  //   toggleDropdown();
+  //   // Navigate to the products page with the selected category
+  //   navigate(`/${category}`);
+  // };
+=======
   const handleCategoryClick = (category) => {
     setCategoryFilter(category);
     setShowDropdown(!showDropdown);
     navigate(`/${category}`);
   };
+<<<<<<< HEAD
   const handleSearch = () => {
     console.log('Search query:', searchQuery);
     onSearch(searchQuery, categoryFilter);
   };
     
+=======
+>>>>>>> 99d301bbd4ec645af37184694300347ed595ed78
+>>>>>>> d50f3ed8aa616ae524e0ab131c9ef5fdf456ff1b
 
   const handleInputChange = (event) => {
     setSearchValue(event.target.value);
