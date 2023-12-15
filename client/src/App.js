@@ -32,6 +32,7 @@ import SareesCategories from "./Pages/SareesCategories";
 import SareesCategories2 from "./Pages/SareesCategories2";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import "animate.css/animate.min.css";
 
 const App = () => {
   return (
@@ -39,7 +40,6 @@ const App = () => {
       <AuthProvider>
         <Router>
           <CartProvider>
-            <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/Login" element={<Login />} />
