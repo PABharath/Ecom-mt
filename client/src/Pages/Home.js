@@ -1,24 +1,29 @@
-import React, { useState} from "react";
+import React, { useState, useEffect} from "react";
 import axios from "axios";
 import ImageCarousel from "./ImageCarousel";
 import ProductList from "./ProductList";
 import "./Home.css";
+// import { CiSearch } from "react-icons/ci";
+import Navbar from "../Pages/Navbar";
 import { Link } from "react-router-dom";
 import { FaTruck, FaMoneyBillAlt, FaStar, FaTags } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-
 function Home() {
+
+  const [filteredPatients, setFilteredPatients] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+const [patients, setPatients] = useState([]);
   
   const [email, setEmail] = useState({
     Email: '',
    });
 
+   const [searchValue, setSearchValue] = useState('');
+   const [searchResults, setSearchResults] = useState([]);
  
-
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -27,6 +32,13 @@ function Home() {
       [name]: value,
     });
   };
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+  useEffect(() => {
+    // Fetch initial search results (optional)
+    handleSearch(searchValue);
+  }, [searchValue]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -65,6 +77,8 @@ function Home() {
 
 
   return (
+    <>
+    <Navbar onSearch={handleSearch}/>
     <div className="home-main-body">
       <section>
         <ImageCarousel />
@@ -103,7 +117,8 @@ function Home() {
           </div>
         </div>
         <div className="productContainer1">
-          <ProductList />
+        <ProductList searchQuery={searchQuery} />
+
         </div>
         <div className="image-container-wrapper">
           <div className="image-container">
@@ -175,6 +190,7 @@ function Home() {
       </section>
       {/* <ToastContainer position="top-center" autoClose={3000} /> */}
     </div>
+    </>
   );
 }
 

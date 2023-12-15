@@ -15,18 +15,17 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import { PiSignOutBold } from "react-icons/pi";
 import { FaUserCircle } from "react-icons/fa";
 
-
-function Navbar() {
+function Navbar({ onSearch }) {
   const navRef = useRef();
   const { user } = useAuth();
   // const [isMenuOpen, setMenuOpen] = useState(false);
   // const [searchValue, setSearchValue] = useState("");
   const navigate = useNavigate();
+
+
+
   const { cartItems } = useContext(CartContext);
-  const totalQuantity = cartItems.reduce(
-    (total, item) => total + item.quantity,
-    0
-  );
+  const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   const [showDropdown, setShowDropdown] = useState(false);
   const [categoryFilter, setCategoryFilter] = useState(null);
@@ -40,33 +39,24 @@ function Navbar() {
     setShowDropdown(!showDropdown);
   };
 
+<<<<<<< HEAD
   // const handleCategoryClick = (category) => {
   //   setCategoryFilter(category);
   //   toggleDropdown();
   //   // Navigate to the products page with the selected category
   //   navigate(`/${category}`);
   // };
+=======
+  const handleCategoryClick = (category) => {
+    setCategoryFilter(category);
+    setShowDropdown(!showDropdown);
+    navigate(`/${category}`);
+  };
+>>>>>>> 99d301bbd4ec645af37184694300347ed595ed78
 
   const handleSearch = (value) => {
     // Handle the search value, for now, let's navigate to a search results page
     navigate(`/search?query=${value}`);
-  };
-
-  useEffect(() => {
-    fetchProductsByCategory();
-  }, [categoryFilter]);
-
-  const fetchProductsByCategory = () => {
-    if (categoryFilter !== null) {
-      axios
-        .get(`http://localhost:5555/api/products?category=${categoryFilter}`)
-        .then((response) => {
-          console.log(`Products fetched for category ${categoryFilter}:`, response.data);
-        })
-        .catch((error) => {
-          console.error(`Error fetching products for category ${categoryFilter}:`, error);
-        });
-    }
   };
 
   const showNavbar = () => {
@@ -75,42 +65,35 @@ function Navbar() {
 
   return (
     <header className="headervik">
-    <div className="headervikleft">
-    <button className="nav-btn" onClick={showNavbar}>
-        <FaBars />
-      </button>
+      <div className="headervikleft">
+        <button className="nav-btn" onClick={showNavbar}>
+          <FaBars />
+        </button>
 
-      <h3><a href="/" style={{color:'black',textDecoration:'none'}}>E-Commerce</a></h3>
-    </div>
-
+        <h3>
+          <a href="/" style={{ color: 'black' }}>
+            E-Commerce
+          </a>
+        </h3>
+      </div>
 
       <nav className="navvik" ref={navRef}>
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
           <FaTimes />
         </button>
-
         <a href="/">Home</a>
 
-        <Link to='/SareesCategories2' >
+        <Link to="/Kasavu">
           <div className="dropdown">
-            <button className="dropbtn" style={{fontWeight:'600'}}>Sarees</button>
-            {/* <div className="dropdown-content">
-              <Link to="/Kanjeevaram" onClick={() => handleCategoryClick("Kanjeevaram")} className="extra">Kanjivaram Silk Sarees</Link>
-              <Link to='/Mysore' onClick={() => handleCategoryClick("Mysore")} className="extra">Mysore Silk Sarees</Link>
-              <Link to="/ProductList" onClick={() => handleCategoryClick("Chettinad")} className="extra">Chettinad Sarees</Link>
-              <Link to='/Kasavu' onClick={() => handleCategoryClick("Kasavu")} className="extra">Kasavu Sarees</Link>
-              <Link  onClick={() => handleCategoryClick("Gadwal")} className="extra">Gadwal Sarees</Link>
-              <Link onClick={() => handleCategoryClick("Dharamavaram")} className="extra">Dharamavaram Sarees</Link>
-              <Link onClick={() => handleCategoryClick("Pochampally")} className="extra">Pochampally Sarees</Link>
-            </div> */}
+            <button className="dropbtn">Sarees</button>
           </div>
         </Link>
-
         <a href="/BlogPost">Blog</a>
         <a href="/ContactUs">Contact us</a>
       </nav>
 
       <SearchBar className="nav-searchbarvik" onSearch={handleSearch} />
+
       <div className="navvik-right">
         <Link to="/ProductForm">
           <FontAwesomeIcon icon={faPlus} className="menu-icon" />
