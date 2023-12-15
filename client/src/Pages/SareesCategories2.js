@@ -6,14 +6,28 @@ import { useCart } from "./CreateContext";
 import { toast } from "react-toastify";
 import { scrollToTop } from "./scrollUtils";
 import "./AllProductsv.css";
+import Navbar from "./Navbar";
 
 const SareesCategories2 = () => {
+
+  const [searchTerm, setSearchTerm] = useState("");
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [minPrice, setMinPrice] = useState(""); // Add state for minimum price
   const [maxPrice, setMaxPrice] = useState(""); // Add state for maximum price
   const { addToCart } = useCart();
+
+
+
+
+  const handleSearch = (query, category) => {
+    // Implement your search logic here
+    // For example, you can filter products based on the search query and category
+    setSearchTerm(category);
+    // You can use the query and category in your filtering logic
+    // Fetch or filter products based on the search term and category
+  };
 
   useEffect(() => {
     console.log("Component mounted");
@@ -83,9 +97,10 @@ const SareesCategories2 = () => {
   
 
   return (
+    
     <div className={styles.productList}>
 
-
+<Navbar onSearch={handleSearch} />
 
 
 
@@ -177,4 +192,3 @@ const SareesCategories2 = () => {
 };
 
 export default SareesCategories2;
-
