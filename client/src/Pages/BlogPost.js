@@ -25,7 +25,7 @@ const BlogPost = () => {
 
       <div className="blog-section">
        
-        <div className='circle'>
+        <div className='blog-image-con'>
         <img className="blog-image" src={bg1} alt="Time and Thread" />
       </div>
       <div className='blog-text'>
