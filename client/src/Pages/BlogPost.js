@@ -169,8 +169,7 @@ const BlogPost = () => {
   <img className="blog-image" src={bg5} alt="Time and Thread" />
   </AnimationOnScroll>
 
-  <img className="blog-image" src={bg18} alt="Time and Thread" />
-
+  
 </div></div>
 
 <hr className="divider" />
