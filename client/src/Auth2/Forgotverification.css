@@ -66,15 +66,16 @@
 }
 
 .fgv-input-field input {
-  width: 95%;
-  padding: 10px;
+  width: 100%;
+  padding: 5px;
   border: 1px solid rgb(165, 163, 163); 
   border-radius: 0px;
   transition: border-color 0.3s ease-in-out;
-  border-top: transparent;
+  /* border-top: transparent;
   border-left: transparent;
   border-right: transparent;
-  outline-width: 0px;
+  outline-width: 0px; */
+  border-radius: 5px;
   
 }
 .fgv-input-field{
@@ -86,7 +87,7 @@
   display: inline-block;
   cursor: pointer;               
   margin-left: 83%;               
-  margin-top: -20px;               
+  margin-top: -30px;               
 }
 
 .input1{

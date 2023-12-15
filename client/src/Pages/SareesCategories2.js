@@ -1,34 +1,44 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./ProductList.module.css";
-import { useCart } from "./CreateContext"; // Import the custom hook
+import { useCart } from "./CreateContext";
 import { toast } from "react-toastify";
 import { scrollToTop } from "./scrollUtils";
-import './AllProductsv.css'
-const Kasavu = () => {
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [selectedCategory, setSelectedCategory] = useState(null); // Add selectedCategory state
-    const { addToCart } = useCart();
+import "./AllProductsv.css";
+
+const SareesCategories2 = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [minPrice, setMinPrice] = useState(""); // Add state for minimum price
+  const [maxPrice, setMaxPrice] = useState(""); // Add state for maximum price
+  const { addToCart } = useCart();
 
   useEffect(() => {
     console.log("Component mounted");
     fetchProducts();
-  }, []);
+  }, [selectedCategory, minPrice, maxPrice]);
 
   const fetchProducts = async () => {
     try {
       const response = await axios.get("http://localhost:5555/api/products");
-  
+
       // If a category is selected, filter products by that category
-      const filteredProducts = selectedCategory
+      let filteredProducts = selectedCategory
         ? response.data.filter((product) =>
             product.category.includes(selectedCategory)
           )
         : response.data;
-  
+
+      // Filter products by price range
+      if (minPrice !== "" && maxPrice !== "") {
+        filteredProducts = filteredProducts.filter(
+          (product) =>
+            product.sp >= parseInt(minPrice) && product.sp <= parseInt(maxPrice)
+        );
+      }
+
       setProducts(filteredProducts);
       setLoading(false);
     } catch (error) {
@@ -39,29 +49,37 @@ const Kasavu = () => {
 
   const handleAddToCart = (event, product) => {
     event.preventDefault();
-  
-    // Check if the user is authenticated
+
     const token = localStorage.getItem("token");
-  
+
     if (!token) {
-      // If not authenticated, redirect to the login page
       toast.error("Please login to add items to the cart.");
-      // Redirect to the login page
       window.location.href = "/login";
       return;
     }
-  
-    // If authenticated, proceed with adding to cart
+
     addToCart(product);
     console.log("Adding to cart:", product);
-    toast.success("Added to Cart!"); // Display the toast notification
+    toast.success("Added to Cart!");
   };
-  
+
   const handleCategorySelect = (category) => {
-    // Set the selected category and fetch products based on the category
     setSelectedCategory(category);
+  };
+
+  const handleMinPriceChange = (event) => {
+    setMinPrice(event.target.value);
+  };
+
+  const handleMaxPriceChange = (event) => {
+    setMaxPrice(event.target.value);
+  };
+
+  const handleFilterByPrice = () => {
     fetchProducts();
   };
+
+  
   
 
   return (
@@ -71,11 +89,10 @@ const Kasavu = () => {
 
 
 
-<div className={styles.filterButtons}>
+<aside>
 <div className="Dropdown-vik">
-    <button className="Dropbtn-vik">Select Categories</button>
     <div className="dropdown-content-vik">
-
+      
       <button onClick={() => handleCategorySelect(null)}>All</button>
       <button onClick={() => handleCategorySelect("Kanjeevaram")}>Kanjeevaram</button>
       <button onClick={() => handleCategorySelect("Mysore")}>Mysore</button>
@@ -87,7 +104,37 @@ const Kasavu = () => {
 
     </div>
 </div>
-</div>
+
+
+<div className="priceFilter-vik">
+          <label htmlFor="">Filter By Price:</label>
+          <span>Min Price: {minPrice}</span>
+          <input
+            type="range"
+            min="500"
+            max="1000" // Adjust the maximum value based on your product price range
+            step="100"
+            value={minPrice}
+            onChange={handleMinPriceChange}
+          />
+           <span>Max Price: {maxPrice}</span>
+          <input
+            type="range"
+            min="1000"
+            max="2500" // Adjust the maximum value based on your product price range
+            step="200"
+            value={maxPrice}
+            onChange={handleMaxPriceChange}
+          />
+          <div>
+          
+           
+          </div>
+          {/* Uncomment the line below if you want to trigger the filter on slider change */}
+          {/* <button onClick={handleFilterByPrice}>Filter</button> */}
+        </div>
+
+</aside>
 
 
       {loading ? (
@@ -129,5 +176,5 @@ const Kasavu = () => {
   );
 };
 
-export default Kasavu;
+export default SareesCategories2;
 

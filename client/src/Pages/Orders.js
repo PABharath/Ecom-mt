@@ -1,14 +1,59 @@
-import React from 'react';
-// import logo from '../Assets/logo.jpeg';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
+const Orders = () => {
+  const [orders, setOrders] = useState([]);
 
-const Orders= () => {
+  useEffect(() => {
+    fetchOrders();
+  }, []);
+
+  const fetchOrders = async () => {
+    try {
+      // const response = await axios.get('http://localhost:5555/api/get-orders');
+      const response = await axios.get('http://localhost:5555/get-orders');
+
+      const data = response.data.orders;
+
+      const ordersWithProducts = await Promise.all(
+        data.map(async (order) => {
+          // const productResponse = await axios.get(`/api/get-order-details/${order.orderId}`);
+          const productResponse = await axios.get(`/api/get-order-details/${order.orderId}`);
+
+          const orderWithProducts = { ...order, products: productResponse.data.products };
+          return orderWithProducts;
+        })
+      );
+
+      setOrders(ordersWithProducts);
+    } catch (error) {
+      console.error('Error fetching orders:', error);
+    }
+  };
+  
   return (
     <div>
       <div style={styles.container}>
         <h1>Your Orders</h1>
+        <ul>
+          {orders.map((order) => (
+            <li key={order._id}>
+              <p>Order ID: {order.orderId}</p>
+              <p>Total Amount: {order.totalAmount}</p>
+              <p>Products:</p>
+              <ul>
+                {order.products.map((product) => (
+                  <li key={product._id.$oid}>
+                    <p>Product ID: {product.productId.$oid}</p>
+                    <p>Product Name: {product.productName}</p>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
 
-        <table className="order-table" style={styles.table}>
+         <table className="order-table" style={styles.table}>
           <thead>
             <tr>
               <th style={styles.th}>ORDER PLACED</th>
@@ -20,17 +65,17 @@ const Orders= () => {
           </thead>
           <tbody>
             <tr>
-              <td style={styles.td}>30 June 2023</td>
-              <td style={styles.td}>Rs. 16,955</td>
-              <td style={styles.td}>Address</td>
-              <td style={styles.td}>404-7936199-63966352</td>
+              <td style={styles.td}></td>
+              <td style={styles.td}></td>
+              <td style={styles.td}></td>
+              <td style={styles.td}></td>
               <td style={styles.td}>
               <a style={styles.a} href="/invoice">View Invoice</a>
 
               </td>
             </tr>
           </tbody>
-        </table>
+        </table> 
 
 
         <div style={styles.deliveryInfoContainer}>
@@ -112,6 +157,7 @@ const styles = {
   deliveryInfoContainer: {
     display: 'flex',
     // alignItems: 'left',
+     // alignItems: 'left',
     marginLeft: '-350px',
   },
   image: {
