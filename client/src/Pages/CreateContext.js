@@ -1,6 +1,6 @@
+// CreateContext.js
 import React, { createContext, useState, useContext } from "react";
 
-// Create a context
 export const CartContext = createContext();
 
 // Custom hook to use the cart context
@@ -26,34 +26,38 @@ export const CartProvider = ({ children }) => {
       );
       setCartItems(updatedCartItems);
     } else {
-      setCartItems([...cartItems, { productId: product._id, quantity: 1, ...product }]);
+      setCartItems([
+        ...cartItems,
+        { productId: product._id, quantity: 1, ...product },
+      ]);
     }
   };
 
   // Function to decrement product quantity in the cart
-const handleDecrement = (productId) => {
-  const updatedCartItems = cartItems.map((item) =>
-    item.productId === productId
-      ? { ...item, quantity: Math.max(item.quantity - 1, 1) }
-      : item
-  );
-  setCartItems(updatedCartItems);
-};
+  const handleDecrement = (productId) => {
+    const updatedCartItems = cartItems.map((item) =>
+      item.productId === productId
+        ? { ...item, quantity: Math.max(item.quantity - 1, 1) }
+        : item
+    );
+    setCartItems(updatedCartItems);
+  };
 
-// Function to increment product quantity in the cart
-const handleIncrement = (productId) => {
-  const updatedCartItems = cartItems.map((item) =>
-    item.productId === productId
-      ? { ...item, quantity: item.quantity + 1 }
-      : item
-  );
-  setCartItems(updatedCartItems);
-};
-
+  // Function to increment product quantity in the cart
+  const handleIncrement = (productId) => {
+    const updatedCartItems = cartItems.map((item) =>
+      item.productId === productId
+        ? { ...item, quantity: item.quantity + 1 }
+        : item
+    );
+    setCartItems(updatedCartItems);
+  };
 
   // Function to remove a product from the cart
   const removeFromCart = (productId) => {
-    const updatedCartItems = cartItems.filter((item) => item.productId !== productId);
+    const updatedCartItems = cartItems.filter(
+      (item) => item.productId !== productId
+    );
     setCartItems(updatedCartItems);
   };
 
@@ -70,8 +74,8 @@ const handleIncrement = (productId) => {
         addToCart,
         removeFromCart,
         clearCart,
-        handleDecrement, 
-      handleIncrement, 
+        handleDecrement,
+        handleIncrement,
       }}
     >
       {children}

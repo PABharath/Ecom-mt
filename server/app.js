@@ -12,6 +12,8 @@ const emailRoutes = require('./routes/emailRoutes');
 const searchRoutes = require('./routes/searchRoutes');
 const paymentRoutes = require('./routes/paymentRoutes');
 const reviewsRoutes = require('./routes/reviewsRoutes');
+const orderRoutes = require("./routes/orderRoutes");
+
 
 
 
@@ -71,6 +73,8 @@ app.get('/', (req, res) => {
 
 // Use the payment routes
 app.use('/api/payment', paymentRoutes);
+
+app.use("/api", orderRoutes);
 
 
 const PORT = process.env.PORT || 5555;
