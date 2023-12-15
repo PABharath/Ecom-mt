@@ -1,141 +1,181 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState} from "react";
+import axios from "axios";
+import ImageCarousel from "./ImageCarousel";
+import ProductList from "./ProductList";
+import "./Home.css";
+import { Link } from "react-router-dom";
+import { FaTruck, FaMoneyBillAlt, FaStar, FaTags } from "react-icons/fa";
+import { FaTelegramPlane } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const Orders = () => {
-  const [orders, setOrders] = useState([]);
 
-  useEffect(() => {
-    fetchOrders();
-  }, []);
 
-  const fetchOrders = async () => {
-    try {
-      const response = await axios.get('/api/get-orders');
-      const data = response.data.orders;
+function Home() {
+  
+  const [email, setEmail] = useState({
+    Email: '',
+   });
 
-      const ordersWithProducts = await Promise.all(
-        data.map(async (order) => {
-          const productResponse = await axios.get(`/api/get-order-details/${order.orderId}`);
-          const orderWithProducts = { ...order, products: productResponse.data.products };
-          return orderWithProducts;
-        })
-      );
+ 
 
-      setOrders(ordersWithProducts);
-    } catch (error) {
-      console.error('Error fetching orders:', error);
-    }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setEmail({
+      ...email,
+      [name]: value,
+    });
   };
 
-  return (
-    <div>
-      <div style={styles.container}>
-        <h1>Your Orders</h1>
-        <table className="order-table" style={styles.table}>
-          <thead>
-            <tr>
-              <th style={styles.th}>ORDER PLACED</th>
-              <th style={styles.th}>TOTAL</th>
-              <th style={styles.th}>SHIP TO</th>
-              <th style={styles.th}>Order ID</th>
-              <th style={styles.th}>View Order Details</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((order) => (
-              <tr key={order._id}>
-                <td style={styles.td}>{order.formattedOrderDate}</td>
-                <td style={styles.td}>{order.totalAmount}</td>
-                <td style={styles.td}> {/* Add the ship to information here if available */}</td>
-                <td style={styles.td}>{order.orderId}</td>
-                <td style={styles.td}>
-                  <a style={styles.a} href="/invoice">View Invoice</a>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    try {
+      console.log('Email:', email);
+      const response = await axios.post('http://localhost:5555/login', email);
+  
+      toast.success('Subscribed successfully!', {
+        position: "top-right",
+        autoClose: 3000,
+      });
+  
+      if (response.data.success) {
+       
+        window.alert('Login successful!');
 
-        {/* The rest of your component */}
-      </div>
+   
+      } else {
+       
+        setEmail(response.data.error);
+      }
+    } catch (err) {
+        console.error('Error:', err.response.data); 
+      
+        if (err.response.data.message) {
+          
+          window.alert(err.response.data.message);
+        } else {
+         
+          window.alert('An error occurred');
+        }
+      }
+    }
+   
+
+
+  return (
+    <div className="home-main-body">
+      <section>
+        <ImageCarousel />
+        <div className="homesection1">
+          <div className="section-items">
+            <FaTruck className="home-icon" />
+            <div className="section-text">
+              <span className="multiline">Free Shipping</span>
+            </div>
+          </div>
+          <div className="section-items">
+            <FaMoneyBillAlt className="home-icon" />
+            <div className="section-text">
+              <span className="multiline">Cash On Delivery</span>
+            </div>
+          </div>
+          <div className="section-items">
+            <FaStar className="home-icon" />
+            <div className="section-text">
+              <span className="multiline">Best Quality</span>
+            </div>
+          </div>
+          <div className="section-items">
+            <FaTags className="home-icon" />
+            <div className="section-text">
+              <span className="multiline">Best Discount</span>
+            </div>
+          </div>
+        </div>
+        <div className="best-sellers-container">
+          <div className="best-sellers-text">Best Sellers</div>
+          <div className="browse-all-container">
+            <Link to="/Kasavu">
+              <button className="browse-all-button">Browse all &gt;</button>
+            </Link>
+          </div>
+        </div>
+        <div className="productContainer1">
+          <ProductList />
+        </div>
+        <div className="image-container-wrapper">
+          <div className="image-container">
+            <Link to="/products/64d5af52e78160215db31931">
+              {" "}
+              {/* Replace "/products/productId" with the actual path to the product details page */}
+              <img  className="img890"  src={require("../Assets/ban_promo_26.jpg")} alt="Product 1" />
+              {/* <button className="buy-now-box-button1">Buy Now </button> */}
+            </Link>
+          </div>
+
+          <div className="image-container">
+          <Link to="/products/64d5afade78160215db31933">
+              {" "}
+            <img  className="img890"  src={require("../Assets/box-image6.jpg")} alt="Product 2" />
+            {/* <button className="buy-now-box-button2">Buy Now </button> */}
+            </Link>
+          </div>
+          </div>
+          <div className="image-container-wrapper">
+          <div className="image-container1">
+          <Link to="/products/64d5afade78160215db31933">
+              {" "}
+            <img  className="img890"  src={require("../Assets/box-image22.jpg")} alt="Product 3" />
+            {/* <button className="buy-now-box-button2">Buy Now </button> */}
+            </Link>
+          </div>
+
+          <div className="image-container1">
+          <Link to="/products/64d5afade78160215db31933">
+              {" "}
+            <img className="img890" src={require("../Assets/box-image23.jpg")} alt="Product 4" />
+            {/* <button className="buy-now-box-button2">Buy Now </button> */}
+            </Link>
+          </div>
+
+          </div>
+        
+        {/* <div className="review-boxes">
+          {reviews.map((review) => (
+            <div key={review._id} className="review-box">
+              <div className="review-text">{review.comment}</div>
+            </div>
+          ))}
+        </div> */}
+  <div className="mail-box">
+          <div className="subscribe-mail">
+            <div className="mail-id">
+              <input
+                type="text"
+                name="Email"
+                onChange={handleChange}
+                className="email-input"
+                placeholder="Email Address"
+              />
+              <button
+                className="telegram-button"
+                onClick={handleSubmit}
+              >
+                <FaTelegramPlane
+                  className="telegram-icon"
+                  style={{ fontSize: "34px", color: "white" }}
+                />
+              </button>
+            </div>
+            <div className="subscribe-text">Subscribe newsletter</div>
+          </div>
+        </div>
+      </section>
+      {/* <ToastContainer position="top-center" autoClose={3000} /> */}
     </div>
   );
-};
+}
 
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: '20px',
-    border: '3px solid black',
-    borderRadius: '4px',
-    boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
-    maxWidth: '900px',
-    margin: '0 auto',
-  },
-  table: {
-    borderCollapse: 'collapse',
-    width: '100%',
-    borderRadius: '4px',
-
-  },
-  th: {
-    backgroundColor: 'lightcyan',
-    padding: '20px',
-    textAlign: 'left',
-    borderRadius: '10px',
-    
-
-
-  },
-  td: {
-    backgroundColor: 'lightcyan',
-    padding: '20px',
-    textAlign: 'left',
-    border: '1px solid #ccc',
-    // borderRadius: '24px',
-
-  },
-  yellowButton: {
-    backgroundColor: 'gold',
-    // padding: '10px 20px',
-    margin: '5px',
-    border: 'none',
-    borderRadius: '4px',
-    color: 'black',
-    
-    cursor: 'pointer',
-  },
-  blueButton: {
-    backgroundColor: 'black',
-    // padding: '10px 20px',
-    margin: '5px',
-    border: 'none',
-    borderRadius: '4px',
-    color: 'white',
-    cursor: 'pointer',
-  },
-  deliveryInfoContainer: {
-    display: 'flex',
-    // alignItems: 'left',
-    marginLeft: '-350px',
-  },
-  image: {
-    width: '150px',
-    height: '150px',
-    marginLeft: '-10px',
-  },
-  deliveryDetails: {
-    // marginLeft: '350px',
-  },
-  a:{
-color:'blue',
-  },
-  button:{
-    display: 'flex',
-
-  },
-};
-
-export default Orders;
+export default Home;

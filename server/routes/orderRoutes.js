@@ -11,6 +11,8 @@ router.post('/create-order', orderController.createOrder);
 router.get('/get-orders', orderController.getOrders);
 
 // Get order details route
+// router.get('/get-order-details/:orderId', orderController.getOrderDetails);
 router.get('/get-order-details/:orderId', orderController.getOrderDetails);
+
 
 module.exports = router;

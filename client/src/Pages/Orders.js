@@ -10,12 +10,16 @@ const Orders = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await axios.get('http://localhost:5555/api/get-orders');
+      // const response = await axios.get('http://localhost:5555/api/get-orders');
+      const response = await axios.get('http://localhost:5555/get-orders');
+
       const data = response.data.orders;
 
       const ordersWithProducts = await Promise.all(
         data.map(async (order) => {
+          // const productResponse = await axios.get(`/api/get-order-details/${order.orderId}`);
           const productResponse = await axios.get(`/api/get-order-details/${order.orderId}`);
+
           const orderWithProducts = { ...order, products: productResponse.data.products };
           return orderWithProducts;
         })
