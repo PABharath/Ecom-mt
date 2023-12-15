@@ -1,16 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSearch,
-  faShoppingCart,
-  faBell,
-  faUser,
-  faPlus,
-} from "@fortawesome/free-solid-svg-icons";
+import {faShoppingCart,faBell,faUser,faPlus,} from "@fortawesome/free-solid-svg-icons";
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import nasalogo from "../Assets/nasalogo.png";
 import "./Navbar.css";
 import axios from "axios";
 import { CartContext } from "./CreateContext";
@@ -19,7 +12,6 @@ import SearchBar from "./SearchBar";
 import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip';
-import { LuImagePlus } from "react-icons/lu";
 import { PiSignOutBold } from "react-icons/pi";
 import { FaUserCircle } from "react-icons/fa";
 
@@ -27,8 +19,8 @@ import { FaUserCircle } from "react-icons/fa";
 function Navbar() {
   const navRef = useRef();
   const { user } = useAuth();
-  const [isMenuOpen, setMenuOpen] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
+  // const [isMenuOpen, setMenuOpen] = useState(false);
+  // const [searchValue, setSearchValue] = useState("");
   const navigate = useNavigate();
   const { cartItems } = useContext(CartContext);
   const totalQuantity = cartItems.reduce(
@@ -48,12 +40,12 @@ function Navbar() {
     setShowDropdown(!showDropdown);
   };
 
-  const handleCategoryClick = (category) => {
-    setCategoryFilter(category);
-    toggleDropdown();
-    // Navigate to the products page with the selected category
-    navigate(`/${category}`);
-  };
+  // const handleCategoryClick = (category) => {
+  //   setCategoryFilter(category);
+  //   toggleDropdown();
+  //   // Navigate to the products page with the selected category
+  //   navigate(`/${category}`);
+  // };
 
   const handleSearch = (value) => {
     // Handle the search value, for now, let's navigate to a search results page

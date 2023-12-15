@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import './Payment.css';
@@ -70,7 +70,7 @@ const PaymentPage = () => {
         const options = {
           key: "rzp_test_7ffWepXdK0WViE",
           amount: totalAmount * 100,
-          name: "Your Company Name",
+          name: "Matrical Technologies",
           description: "Payment for Your Products",
           handler: handlePaymentSuccess,
           prefill: {

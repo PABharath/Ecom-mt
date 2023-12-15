@@ -6,7 +6,7 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 import { FaTruck, FaMoneyBillAlt, FaStar, FaTags } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -97,7 +97,7 @@ function Home() {
         <div className="best-sellers-container">
           <div className="best-sellers-text">Best Sellers</div>
           <div className="browse-all-container">
-            <Link to="/Kasavu">
+            <Link to="/SareesCategories2">
               <button className="browse-all-button">Browse all &gt;</button>
             </Link>
           </div>
