@@ -1,6 +1,5 @@
 // models/orderModel.js
-
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
   productId: {
@@ -12,7 +11,6 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // Add other fields as needed
 });
 
 const orderSchema = new mongoose.Schema({
@@ -31,55 +29,30 @@ const orderSchema = new mongoose.Schema({
   expectedDeliveryDate: {
     type: Date,
   },
-  products: [productSchema], // Array of products in the order
-  // Add other fields as needed
+  products: [productSchema],
 });
 
-// Middleware to generate unique orderId and set dates before saving
-orderSchema.pre("save", async function (next) {
-  if (!this.orderId) {
-    const currentDate = new Date();
-    const formattedDate = currentDate.getFullYear().toString().slice(-2) +
-      (currentDate.getMonth() + 1).toString().padStart(2, "0") +
-      currentDate.getDate().toString().padStart(2, "0");
-
-    const generatedOrderId = `OrderId${formattedDate}${Math.floor(1000000000 + Math.random() * 9000000000)}`;
-    
-    // Ensure that the generated orderId is unique
-    const existingOrder = await this.constructor.findOne({ orderId: generatedOrderId });
-    if (existingOrder) {
-      // If not unique, regenerate the orderId
-      return this.pre("save", next);
-    }
-
-    this.orderId = generatedOrderId;
-  }
-
-  // Set the expected delivery date to 7 days from the order date
-  const deliveryDate = new Date(this.orderDate);
-  deliveryDate.setDate(deliveryDate.getDate() + 7);
-  this.expectedDeliveryDate = deliveryDate;
-
+orderSchema.pre('save', async function (next) {
+  // Your pre-save middleware logic here
   next();
 });
 
-// Virtuals for formatted dates
-orderSchema.virtual("formattedOrderDate").get(function () {
-  return this.orderDate.toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
+orderSchema.virtual('formattedOrderDate').get(function () {
+  return this.orderDate.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
   });
 });
 
-orderSchema.virtual("formattedExpectedDeliveryDate").get(function () {
-  return this.expectedDeliveryDate.toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
+orderSchema.virtual('formattedExpectedDeliveryDate').get(function () {
+  return this.expectedDeliveryDate.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
   });
 });
 
-const Order = mongoose.model("Order", orderSchema);
+const Order = mongoose.model('Order', orderSchema);
 
 module.exports = Order;
