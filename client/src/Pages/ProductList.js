@@ -6,29 +6,42 @@ import { useCart } from "./CreateContext"; // Import the custom hook
 import { toast } from "react-toastify";
 import { scrollToTop } from "./scrollUtils";
 
-const ProductList = () => {
+const ProductList = ({ searchQuery }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   // Use the custom hook to get cart context
   const { addToCart } = useCart();
+  // const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    console.log("Component mounted");
+    console.log("Component mounted with searchQuery:", searchQuery);
     fetchProducts();
-  }, []);
+  }, [searchQuery]);
 
   const fetchProducts = async () => {
     try {
       const response = await axios.get("http://localhost:5555/api/products");
-      setProducts(response.data);
+      console.log("API response:", response.data);
+      const filteredProducts = filterProducts(response.data, searchQuery);
+      console.log("Filtered products:", filteredProducts);
+      setProducts(filteredProducts);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching products:", error.message);
       console.log("Error details:", error.response);
     }
   };
+  const filterProducts = (allProducts, query) => {
+    if (!query) {
+      return allProducts; // Return all products if no search query
+    }
+    const lowercasedQuery = query.toLowerCase();
+    return allProducts.filter(
+      (product) =>
+        product.productName.toLowerCase().includes(lowercasedQuery)
+    );
+  };
   
-
   const handleAddToCart = async (event, product) => {
     event.preventDefault();
 

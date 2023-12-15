@@ -15,6 +15,39 @@ a{
 	outline: none;
 	width: 250px;
   }
+
+  .search-container321{
+	display: flex;
+	align-items: center;
+  }
+  .weyh {
+	position: relative;
+	top: -.6rem;
+	margin-bottom: -9%;
+	
+	background-color: white;
+	color: black;
+	border-left: transparent;
+	border-top: transparent;
+	border-right: transparent;
+	border-bottom: transparent;
+  }
+  
+  .search-input {
+	padding: 8px 12px; /* Adjust the padding to increase the input size */
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-right: 8px;
+	width: 250px; /* Adjust the width as needed */
+  }
+  
+  .search-icon {
+	background-color: #f8f8f8;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 8px;
+	cursor: pointer;
+  }
   
   .search-icon {
 	color: black;

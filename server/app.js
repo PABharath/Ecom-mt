@@ -1,3 +1,4 @@
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -11,7 +12,6 @@ const contactRoutes = require('./routes/contactRoutes');
 const emailRoutes = require('./routes/emailRoutes');
 const searchRoutes = require('./routes/searchRoutes');
 const paymentRoutes = require('./routes/paymentRoutes');
-
 
 const app = express();
 app.use(cors());
