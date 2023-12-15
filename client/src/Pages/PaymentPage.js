@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useContext} from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import './Payment.css';
@@ -12,7 +12,7 @@ const PaymentPage = () => {
   const navigate = useNavigate();
   const { cartItems } = useCart();
 
-  // const [order, setOrder] = useState(null);
+  const [order, setOrder] = useState(null);
   const totalAmount = location.state ? location.state.totalAmount : 0;
 
   const handlePaymentSuccess = async (paymentResponse) => {
@@ -38,11 +38,31 @@ const PaymentPage = () => {
     }
   };
 
-  // const handlePaymentError = (error) => {
-  //   console.error("Payment error:", error);
-  //   // Handle the payment error, display an error message, etc.
-  // };
+   const handlePaymentError = (error) => {
+    console.error("Payment error:", error);
+     // Handle the payment error, display an error message, etc.
+   };
 
+  // const handleOrderCreation = async () => {
+  //   try {
+  //     const response = await axios.post(
+  //       "http://localhost:5555/api/create-order",
+  //       { totalAmount: totalAmount, products: cartItems }
+  //     );
+  
+  //     const orderId = response.data.order._id;
+  
+  //     // Show a popup or perform any action to inform the user about the order creation
+  //     toast.success(`Order created successfully! Order ID: ${orderId}`, {
+  //       position: "top-center",
+  //       autoClose: 3000,
+  //     });
+  //   } catch (error) {
+  //     console.error("Error creating order:", error.response || error.message);
+  //     // Handle the error, display an error message, etc.
+  //   }
+  // };
+  
   const handleOrderCreation = async () => {
     try {
       const response = await axios.post(
@@ -52,7 +72,10 @@ const PaymentPage = () => {
 
       const orderId = response.data.order._id;
 
-      // Show a popup or perform any action to inform the user about the order creation
+      // Log to the console for debugging purposes
+      console.log("Order created successfully! Order ID:", orderId);
+
+      // Show a toast to inform the user about the order creation
       toast.success(`Order created successfully! Order ID: ${orderId}`, {
         position: "top-center",
         autoClose: 3000,
@@ -62,7 +85,6 @@ const PaymentPage = () => {
       // Handle the error, display an error message, etc.
     }
   };
-
   const openRazorpayModal = () => {
     console.log("Button clicked.");
     if (window.Razorpay) {
@@ -110,6 +132,9 @@ const PaymentPage = () => {
         <button className="create" onClick={handleOrderCreation}>
           Create Order
         </button>
+        {/* <button className="create" onClick={() => handleOrderCreation()}>
+  Create Order
+</button> */}
       </div>
       {<ToastContainer position="top-center" autoClose={3000} />}
     </center>

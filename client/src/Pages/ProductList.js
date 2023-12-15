@@ -42,7 +42,7 @@ const ProductList = () => {
       window.location.href = "/login";
       return;
     }
-
+     
     try {
       // Make a POST request to save the product to the user's collection
       const response = await axios.post(
@@ -95,11 +95,11 @@ const ProductList = () => {
                   <div className={styles.productPrice}>₹{product.sp}</div>
                   <Link to="/cart" onClick={scrollToTop}>
                     {" "}
-                    <button
+                    <button 
                       className={styles.addButton}
                       onClick={(event) => handleAddToCart(event, product)}
                     >
-                      Add
+                      ADD TO CART
                     </button>
                   </Link>
                 </div>
