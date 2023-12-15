@@ -28,12 +28,8 @@ import { AuthProvider } from "./Auth2/AuthProvider";
 import useAuth from './Auth2/useAuth';
 import Information from "./Pages/Information";
 import Shop from "./Pages/Shop";
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
 import SareesCategories from "./Pages/SareesCategories";
 import SareesCategories2 from "./Pages/SareesCategories2";
-
 
 
 const App = () => {
@@ -78,7 +74,6 @@ const App = () => {
               <Route path="/shop" element={<Shop />} />
               <Route path="/SareesCategories" element={<SareesCategories />} />
               <Route path="/SareesCategories2" element={<SareesCategories2 />} />
-
               
             </Routes>
             <Footer />
