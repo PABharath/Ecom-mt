@@ -148,7 +148,7 @@ function Navbar() {
 
           <Button  ref={target} style={{backgroundColor:'rgb(206, 202, 202)',color:'black',border:'none'}}  onClick={() => setShow(!show)}>
            
-        <FaUserCircle style={{fontSize:'1.3rem' , marginTop:'-1rem',marginLeft:'-0.8rem'}}/>
+        <FaUserCircle style={{fontSize:'1.2rem' , marginTop:'-1rem',marginLeft:'-0.8rem'}}/>
     
       </Button>
       

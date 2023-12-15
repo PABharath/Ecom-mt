@@ -165,6 +165,7 @@ a{
 		text-align: center;
 		background-color: white !important;
 		border-radius: var(--bs-tooltip-border-radius);
+		box-shadow: 0px 0px 20px grey;
 	}
 
 	.bg-button1{

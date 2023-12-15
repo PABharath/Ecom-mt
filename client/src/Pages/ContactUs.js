@@ -116,13 +116,13 @@ const ContactUs =()=> {
             </button>
           </form>
             <div className="c1">
-              <h4>Contact Us</h4>
+              <h4 style={{fontWeight:'bold'}}>Contact Us</h4>
               <p>Need some help regarding an order, or if you just want enquire about a product, 
                 you can write to us on Matrical@gmail.com. 
                  We will try to respond as promptly as we can.</p> 
                 <p>If you are a blogger, stylist or if you just want to say hello, 
                   you can contact us on <span style={{color:'blue'}}>matrical@gmail.com, <br/>or call us at +91 9871054806</span></p>
-                  <h5>Visit Us at</h5>
+                  <h5 style={{fontWeight:'bold'}}>Visit Us at</h5>
                   <p>Matrical Techonologies, Sec 78 Bengaluru Karnataka 500096</p>
                   <p>Enquiry: wwww.matrical.com<br/>Location: Bengaluru RR nagar</p>
                   {/* <p>Location : Bengaluru RRnagar</p> */}
