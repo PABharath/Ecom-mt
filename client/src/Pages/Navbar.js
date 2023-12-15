@@ -101,7 +101,7 @@ function Navbar() {
 
         <Link to='/SareesCategories2' >
           <div className="dropdown">
-            <button className="dropbtn" style={{fontWeight:'700'}}>Sarees</button>
+            <button className="dropbtn" style={{fontWeight:'600'}}>Sarees</button>
             {/* <div className="dropdown-content">
               <Link to="/Kanjeevaram" onClick={() => handleCategoryClick("Kanjeevaram")} className="extra">Kanjivaram Silk Sarees</Link>
               <Link to='/Mysore' onClick={() => handleCategoryClick("Mysore")} className="extra">Mysore Silk Sarees</Link>

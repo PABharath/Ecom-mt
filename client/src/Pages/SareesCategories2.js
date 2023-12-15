@@ -92,7 +92,6 @@ const SareesCategories2 = () => {
 <aside>
 <div className="Dropdown-vik">
     <div className="dropdown-content-vik">
-    <label htmlFor=""> Filter By Category : </label>
       
       <button onClick={() => handleCategorySelect(null)}>All</button>
       <button onClick={() => handleCategorySelect("Kanjeevaram")}>Kanjeevaram</button>
