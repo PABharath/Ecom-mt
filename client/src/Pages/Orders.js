@@ -157,6 +157,7 @@ const styles = {
   deliveryInfoContainer: {
     display: 'flex',
     // alignItems: 'left',
+     // alignItems: 'left',
     marginLeft: '-350px',
   },
   image: {

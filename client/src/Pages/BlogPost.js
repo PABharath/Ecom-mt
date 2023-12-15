@@ -17,7 +17,11 @@ import bg14 from '../Assets/bg14.jpg';
 import bg15 from '../Assets/bg15.jpeg';
 import bg16 from '../Assets/bg16.jpeg';
 import bg17 from '../Assets/bg17.jpeg';
+
 import { AnimationOnScroll } from 'react-animation-on-scroll';
+
+import bg18 from '../Assets/bg18.jpg';
+
 
 const BlogPost = () => {
   return (
@@ -159,10 +163,14 @@ const BlogPost = () => {
   </p>
   </AnimationOnScroll></div>
   <div className='blog-image-con'>
+
   <AnimationOnScroll  animateIn="animate__flipInX">
           
   <img className="blog-image" src={bg5} alt="Time and Thread" />
   </AnimationOnScroll>
+
+  <img className="blog-image" src={bg18} alt="Time and Thread" />
+
 </div></div>
 
 <hr className="divider" />
