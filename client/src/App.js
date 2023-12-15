@@ -30,7 +30,8 @@ import Information from "./Pages/Information";
 import Shop from "./Pages/Shop";
 import SareesCategories from "./Pages/SareesCategories";
 import SareesCategories2 from "./Pages/SareesCategories2";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 
 const App = () => {
   return (
