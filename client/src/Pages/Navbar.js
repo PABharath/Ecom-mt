@@ -12,6 +12,13 @@ import { IoSearchOutline } from "react-icons/io5";
 
 import './Navbar.css';
 
+import Button from 'react-bootstrap/Button';
+import Overlay from 'react-bootstrap/Overlay';
+import Tooltip from 'react-bootstrap/Tooltip';
+import { LuImagePlus } from "react-icons/lu";
+import { PiSignOutBold } from "react-icons/pi";
+import { FaUserCircle } from "react-icons/fa";
+
 function Navbar({ onSearch }) {
   const navRef = useRef();
   const { user } = useAuth();
@@ -25,6 +32,8 @@ function Navbar({ onSearch }) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [categoryFilter, setCategoryFilter] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
+  const [show, setShow] = useState(false);
+    const target = useRef(null);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -136,6 +145,32 @@ function Navbar({ onSearch }) {
             <FontAwesomeIcon icon={faUser} className="menu-icon" />
           </Link>
         )}
+
+<Button  ref={target} style={{backgroundColor:'rgb(206, 202, 202)',color:'black',border:'none'}}  onClick={() => setShow(!show)}>
+           
+           <FaUserCircle style={{fontSize:'1.2rem' , marginTop:'-1rem',marginLeft:'-0.8rem'}}/>
+       
+         </Button>
+         
+         <Overlay target={target.current} show={show}   placement="bottom">
+           {(props) => (
+             
+             <Tooltip id="overlay-example"  {...props}>
+               <div >
+               <h4>Profile</h4>
+               <FaUserCircle style={{fontSize:'2rem'}}/><br/>
+                <b>Username:</b><br/>
+              <input type="text" placeholder="Username"/><br/><br/>
+                         
+                 
+                <button className="bg-button1">logout</button><br/><br/>
+                <button className="bg-button2"><PiSignOutBold/>Profile</button> 
+                 <br/>
+               </div>
+             </Tooltip>
+             
+           )}
+         </Overlay>
       </div>
     </header>
   );

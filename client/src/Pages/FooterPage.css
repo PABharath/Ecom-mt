@@ -2,7 +2,7 @@
 
 /* Common styles for all screen sizes */
 .footer-container {
-  background-color: black;
+  background-color:#8eab92;
   color: #fff;
   padding: 2rem;
   text-align: center; /* Center-align all content */
@@ -41,7 +41,7 @@ font-weight: 1000;
 .footer-section h3 {
   font-size: 18px;
   margin-bottom: 10px;
-  color: #f39304;
+  color: #ffffff;
 }
 
 .footer-section ul {
@@ -63,6 +63,7 @@ font-weight: 1000;
 .social-media-icons {
   list-style: none;
   padding: 0;
+  display: flex;
   /* display: flex; */
   justify-content: center;
   /* Center-align social media icons */
