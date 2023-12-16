@@ -65,7 +65,7 @@ const [patients, setPatients] = useState([]);
         console.error('Error:', err.response.data); 
       
         if (err.response.data.message) {
-          
+        
           window.alert(err.response.data.message);
         } else {
          
@@ -82,39 +82,61 @@ const [patients, setPatients] = useState([]);
     <div className="home-main-body">
       <section>
         <ImageCarousel />
-        <div className="homesection1">
-          <div className="section-items">
-            <FaTruck className="home-icon" />
-            <div className="section-text">
-              <span className="multiline">Free Shipping</span>
-            </div>
-          </div>
-          <div className="section-items">
-            <FaMoneyBillAlt className="home-icon" />
-            <div className="section-text">
-              <span className="multiline">Cash On Delivery</span>
-            </div>
-          </div>
-          <div className="section-items">
-            <FaStar className="home-icon" />
-            <div className="section-text">
-              <span className="multiline">Best Quality</span>
-            </div>
-          </div>
-          <div className="section-items">
-            <FaTags className="home-icon" />
-            <div className="section-text">
-              <span className="multiline">Best Discount</span>
-            </div>
-          </div>
+        
+        <div className=" icons">
+            <div className="first-icon">
+            <FaTruck className="fatruck" />
+            <span className="free">Free Shipping</span>
+            <div className="on">On order over ₹1500</div>
+            
+      </div>
+      <div className="first-icon">
+            <FaMoneyBillAlt className="money" />
+            <span className="cash">Cash On Delivery</span>
+            <div className="on">100% money back guarantee</div>
+            
+      </div>
+      <div className="first-icon">
+            <FaStar className="best" />
+            <span className="quality">Best Quality</span>
+           <div className="on">Offer special bonuses with gift</div>
+            
+      </div>
+      <div className="first-icon">
+            <FaTags className="discount" />
+            <span className="price">Best Discount</span>
+            <div className="on">With Reasonable Prices</div>
+            
+      </div>
+
         </div>
-        <div className="best-sellers-container">
-          <div className="best-sellers-text">Best Sellers</div>
+
+         <div>
+          
+
+        <div>
+
+          <div>
+          <div className="top">Top Product</div>
+          <div className="middle">
+          <div >
+          <button className="Featured">Latest</button>
+           
+            </div>
+          <div> 
+          <button className="Featureds">Featured</button>
+            </div>
+          <div>
+            <button className="Sellers"> Best Sellers</button></div>
+          </div>
+          </div>
+          {/* <div className="best-sellers-text">Best Sellers</div> */}
           <div className="browse-all-container">
             <Link to="/SareesCategories2">
               <button className="browse-all-button">Browse all &gt;</button>
             </Link>
           </div>
+        </div>
         </div>
         <div className="productContainer1">
         <ProductList searchQuery={searchQuery} />
