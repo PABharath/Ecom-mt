@@ -153,9 +153,7 @@ function Home() {
           <div className="subscribe-mail">
           <div className="subscribe-text">
              
-             {/* <GoMail style={{color:'#8eab92'}} /> &nbsp;&nbsp; */}
-      
-             {/* <h2>News Settler</h2> */}
+        
              <strong style={{fontSize:'25px',marginLeft:'2px',cursor:'pointer'}}><GoMail style={{color:'#8eab92',marginTop:'-5px'}}  />&nbsp;&nbsp;News Settler</strong>
            <p style={{fontSize:'large' ,marginLeft:'40px'}}>Get free 20% discount for all products on your first order.</p>
            </div>
