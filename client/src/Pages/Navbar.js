@@ -39,20 +39,11 @@ function Navbar({ onSearch }) {
     setShowDropdown(!showDropdown);
   };
 
-<<<<<<< HEAD
-  // const handleCategoryClick = (category) => {
-  //   setCategoryFilter(category);
-  //   toggleDropdown();
-  //   // Navigate to the products page with the selected category
-  //   navigate(`/${category}`);
-  // };
-=======
   const handleCategoryClick = (category) => {
     setCategoryFilter(category);
     setShowDropdown(!showDropdown);
     navigate(`/${category}`);
   };
->>>>>>> 99d301bbd4ec645af37184694300347ed595ed78
 
   const handleSearch = (value) => {
     // Handle the search value, for now, let's navigate to a search results page
@@ -83,7 +74,7 @@ function Navbar({ onSearch }) {
         </button>
         <a href="/">Home</a>
 
-        <Link to="/Kasavu">
+        <Link to="/SareesCategories2">
           <div className="dropdown">
             <button className="dropbtn">Sarees</button>
           </div>

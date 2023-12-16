@@ -1,6 +1,6 @@
-<<<<<<< HEAD
+
 import React, { useState,  } from 'react';
-=======
+
 // // SearchBar.jsx
 
 // import React, { useState } from 'react';
@@ -66,8 +66,7 @@ import React, { useState,  } from 'react';
 // SearchBar.jsx
 // SearchBar.jsx
 
-import React, { useState } from 'react';
->>>>>>> 97c3c5c5398ceb4c6ad00ae7e39768f866851103
+
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
