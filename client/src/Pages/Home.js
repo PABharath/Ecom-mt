@@ -10,12 +10,9 @@ import { FaTruck, FaMoneyBillAlt, FaStar, FaTags } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-<<<<<<< HEAD
 import Navbar2 from "./Navbar2";
-=======
 import { GoMail } from "react-icons/go";
 
->>>>>>> 1aa8d571cca5246110a009fdc833966221e44904
 
 function Home() {
 
