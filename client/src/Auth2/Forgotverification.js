@@ -4,6 +4,7 @@ import "./Forgotverification.css";
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import Navbar2 from "../Pages/Navbar2";
 
 
 function Forgotverification() {
@@ -67,6 +68,8 @@ function Forgotverification() {
 
   return (
     
+   <div>
+    <Navbar2/>
     <div className="fgv-bgcontainer">
       <div className="fgv-bg1">
       <div className="fgv-cardcontainer">
@@ -138,6 +141,7 @@ function Forgotverification() {
       </div>
     </div>
     </div>
+   </div>
   );
 }
 

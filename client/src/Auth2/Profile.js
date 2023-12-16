@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import useAuth from './useAuth';
+import Navbar2 from '../Pages/Navbar2';
 
 const Profile = () => {
   const { user, logout } = useAuth();
@@ -32,6 +33,8 @@ const Profile = () => {
 
   return (
     <div>
+      <Navbar2/>
+      <div>
       <h2>Welcome, {profile.username}!</h2>
       <p>Username: {profile.username}</p>
       <p>Email: {profile.email}</p>
@@ -72,6 +75,7 @@ const Profile = () => {
       )}
 
       <button onClick={handleLogout}>Logout</button>
+    </div>
     </div>
   );
 };

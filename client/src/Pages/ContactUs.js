@@ -1,6 +1,7 @@
 import React, { useState  } from "react";
 import axios from "axios";
 import "./ContactUs.css";
+import Navbar2 from "./Navbar2";
 
 const ContactUs =()=> {
   
@@ -42,7 +43,9 @@ const ContactUs =()=> {
   
  
     return (
-      <div className="total">
+      <div>
+        <Navbar2/>
+        <div className="total">
         
         <h1 className="head">Contact Us</h1>
 
@@ -142,6 +145,7 @@ const ContactUs =()=> {
             referrerPolicy="no-referrer-when-downgrade"
             title="mapMT"     
           />
+      </div>
       </div>
     );
   }

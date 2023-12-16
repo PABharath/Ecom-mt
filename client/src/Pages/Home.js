@@ -10,6 +10,7 @@ import { FaTruck, FaMoneyBillAlt, FaStar, FaTags } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Navbar2 from "./Navbar2";
 
 function Home() {
 
@@ -78,7 +79,7 @@ const [patients, setPatients] = useState([]);
 
   return (
     <>
-    <Navbar onSearch={handleSearch}/>
+    {/* <Navbar2 onSearch={handleSearch}/> */}
     <div className="home-main-body">
       <section>
         <ImageCarousel />

@@ -1,8 +1,11 @@
 import React from "react";
 import "./Forgotnewpassword.css";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import Navbar2 from "../Pages/Navbar2";
 function Forgotnewpassword() {
   return (
+   <div>
+    <Navbar2/>
     <div class="fgnp-bgcontainer">
       <div class="fgnp-cardcontainer">
         <div class="fgnparrow">
@@ -21,6 +24,7 @@ function Forgotnewpassword() {
         </div>
       </div>
     </div>
+   </div>
   );
 }
 

@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { scrollToTop } from "./scrollUtils";
 import "./AllProductsv.css";
 import Navbar from "./Navbar";
+import Navbar2 from "./Navbar2";
 
 const SareesCategories2 = () => {
 
@@ -98,7 +99,7 @@ const SareesCategories2 = () => {
   return (
     <>
     
-<Navbar onSearch={handleSearch} />
+<Navbar2 onSearch={handleSearch} />
 
 
     <div className='Product-List-convik'>

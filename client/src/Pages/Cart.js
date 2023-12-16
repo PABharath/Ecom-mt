@@ -4,6 +4,7 @@ import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "./CreateContext";
+import Navbar2 from "./Navbar2";
 
 export const calculateTotal = (cartItems) => {
   const calculateSubtotal = () => {
@@ -107,7 +108,9 @@ const usderSubmit=(e)=>{
   console.log("Cart Items:", cartItems);
 
   return (
-    <div className="App">
+  <div>
+    <Navbar2/>
+      <div className="App">
       <main className="main-container">
         <form className="product-form">
           <table className="cart-table">
@@ -262,6 +265,7 @@ const usderSubmit=(e)=>{
         </div>
       </main>
     </div>
+  </div>
   );
 }
 

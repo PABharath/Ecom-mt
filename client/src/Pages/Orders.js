@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Navbar2 from './Navbar2';
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -33,6 +34,7 @@ const Orders = () => {
   
   return (
     <div>
+      <Navbar2/>
       <div style={styles.container}>
         <h1>Your Orders</h1>
         <ul>

@@ -6,6 +6,7 @@ import blue from '../Assets/blue.jpg';
 import { useCart } from "./CreateContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Navbar2 from "./Navbar2";
 
 const PaymentPage = () => {
   const location = useLocation();
@@ -117,7 +118,9 @@ const PaymentPage = () => {
   };
 
   return (
-    <center>
+    <div>
+      <Navbar2/>
+      <center>
       <div className="payment-page">
         <h2 className="summary">Payment Summary</h2>
         <img className="Raro" src={blue} alt="Blue" />
@@ -138,6 +141,7 @@ const PaymentPage = () => {
       </div>
       {<ToastContainer position="top-center" autoClose={3000} />}
     </center>
+    </div>
   );
 };
 

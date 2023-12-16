@@ -10,6 +10,7 @@ import { useCart } from "./CreateContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import Navbar2 from "./Navbar2";
 
 
 
@@ -186,6 +187,8 @@ const ProductDetails = () => {
 
   return (
     <div>
+      <Navbar2/>
+      <div>
       {error ? (
         <p>{error}</p>
       ) : (
@@ -436,6 +439,7 @@ const ProductDetails = () => {
       )}
        {showAddToCartToast &&<ToastContainer position="top-center" autoClose={3000} />}
        
+    </div>
     </div>
   );
 };

@@ -1,9 +1,12 @@
 import React from 'react';
 import './Shop.css';
+import Navbar2 from './Navbar2';
 
 
 const Shop = () => {
   return (
+  <div>
+    <Navbar2/>
     <div className="shop-page">
       <h1>Sarees</h1>
       <section className="category">
@@ -149,6 +152,7 @@ const Shop = () => {
             </p>
       </section>
     </div>
+  </div>
   );
 };
 

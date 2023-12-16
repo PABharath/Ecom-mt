@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import Navbar2 from "../Pages/Navbar2";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -76,7 +77,9 @@ const Login = () => {
   
 
   return (
-    <div className="overflow">
+   <div>
+    <Navbar2/>
+     <div className="overflow">
       <div className="loginbgcontainer1">
         <section className="logincontainer1 loginforms1">
           <div className="logincontainer2">
@@ -173,6 +176,7 @@ const Login = () => {
       </div>
       <ToastContainer position="top-center" autoClose={3000} />
     </div>
+   </div>
   );
 };
 

@@ -39,10 +39,13 @@ const App = () => {
     <div>
       <AuthProvider>
         <Router>
+         
           <CartProvider>
             <Routes>
+              
             <Route path="/Navbar2" element={<Navbar2 />} />
 
+            
               <Route path="/" element={<Home />} />
               <Route path="/Login" element={<Login />} />
               <Route path="/Register" element={<Register />} />
