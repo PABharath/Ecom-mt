@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import Navbar2 from '../Pages/Navbar2';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -119,6 +120,8 @@ const Register = () => {
 
 
   return (
+  <div>
+    <Navbar2/>
     <div className="bgRegistercontainermain">
      <div className='bgRegistercontainer1' >
      <form className=" forms1" onSubmit={handleSubmit}>
@@ -249,6 +252,7 @@ const Register = () => {
      <ToastContainer position="top-center" autoClose={3000} />
 
     </div>
+  </div>
   );
 };
 

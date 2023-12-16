@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AddAddressPage from './AddAddressPage';
+import Navbar2 from './Navbar2';
 
 const AddressView = ({ onAddressSelection }) => {
   const [error, setError] = useState(null);
@@ -44,7 +45,9 @@ useEffect(() => {
     return <div>Loading...</div>;
   } else {
     return (
-      <div style={{ display: 'flex', gap: '20px' }}>
+     <div>
+     <Navbar2/>
+       <div style={{ display: 'flex', gap: '20px' }}>
         <div>
           <div style={{ display: 'flex', gap: '20px', position: 'relative', left: '400px', top: '25px' }}>
             {/* <button onClick={handleShowPopup}>Add Address</button> */}
@@ -89,6 +92,7 @@ useEffect(() => {
           </div>
         )}
       </div>
+     </div>
     );
   }
 };

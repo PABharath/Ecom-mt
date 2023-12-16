@@ -32,14 +32,20 @@ import SareesCategories2 from "./Pages/SareesCategories2";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import "animate.css/animate.min.css";
+import Navbar2 from "./Pages/Navbar2";
 
 const App = () => {
   return (
     <div>
       <AuthProvider>
         <Router>
+         
           <CartProvider>
             <Routes>
+              
+            <Route path="/Navbar2" element={<Navbar2 />} />
+
+            
               <Route path="/" element={<Home />} />
               <Route path="/Login" element={<Login />} />
               <Route path="/Register" element={<Register />} />

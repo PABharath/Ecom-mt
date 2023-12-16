@@ -10,6 +10,9 @@ import { FaTruck, FaMoneyBillAlt, FaStar, FaTags } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Navbar2 from "./Navbar2";
+import { GoMail } from "react-icons/go";
+
 
 function Home() {
 
@@ -78,7 +81,7 @@ const [patients, setPatients] = useState([]);
 
   return (
     <>
-    <Navbar onSearch={handleSearch}/>
+    <Navbar2 onSearch={handleSearch}/>
     <div className="home-main-body">
       <section>
         <ImageCarousel />
@@ -189,25 +192,28 @@ const [patients, setPatients] = useState([]);
         </div> */}
   <div className="mail-box">
           <div className="subscribe-mail">
+          <div className="subscribe-text">
+             
+        
+             <strong style={{fontSize:'25px',marginLeft:'2px',cursor:'pointer'}}><GoMail style={{color:'#8eab92',marginTop:'-5px'}}  />&nbsp;&nbsp;News Settler</strong>
+           <p style={{fontSize:'large' ,marginLeft:'40px'}}>Get free 20% discount for all products on your first order.</p>
+           </div>
             <div className="mail-id">
               <input
                 type="text"
                 name="Email"
                 onChange={handleChange}
                 className="email-input"
-                placeholder="Email Address"
+                placeholder="Enter your mail"
               />
               <button
                 className="telegram-button"
                 onClick={handleSubmit}
-              >
-                <FaTelegramPlane
-                  className="telegram-icon"
-                  style={{ fontSize: "34px", color: "white" }}
-                />
+              >Subscribe
               </button>
+              
             </div>
-            <div className="subscribe-text">Subscribe newsletter</div>
+           
           </div>
         </div>
       </section>
