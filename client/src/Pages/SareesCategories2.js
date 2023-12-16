@@ -1,19 +1,32 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import styles from "./ProductList.module.css";
 import { useCart } from "./CreateContext";
 import { toast } from "react-toastify";
 import { scrollToTop } from "./scrollUtils";
 import "./AllProductsv.css";
+import Navbar from "./Navbar";
 
 const SareesCategories2 = () => {
+
+  const [searchTerm, setSearchTerm] = useState("");
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [minPrice, setMinPrice] = useState(""); // Add state for minimum price
   const [maxPrice, setMaxPrice] = useState(""); // Add state for maximum price
   const { addToCart } = useCart();
+
+
+
+
+  const handleSearch = (query, category) => {
+    // Implement your search logic here
+    // For example, you can filter products based on the search query and category
+    setSearchTerm(category);
+    // You can use the query and category in your filtering logic
+    // Fetch or filter products based on the search term and category
+  };
 
   useEffect(() => {
     console.log("Component mounted");
@@ -83,13 +96,15 @@ const SareesCategories2 = () => {
   
 
   return (
-    <div className={styles.productList}>
+    <>
+    
+<Navbar onSearch={handleSearch} />
 
 
+    <div className='Product-List-convik'>
 
 
-
-<aside>
+<aside className="productsidevik">
 <div className="Dropdown-vik">
     <div className="dropdown-content-vik">
       
@@ -140,30 +155,30 @@ const SareesCategories2 = () => {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className={styles.productContainer}>
+        <div className='product-convik'>
           {products.map((product) => (
-            <div key={product._id} className={styles.productBox}>
+            <div key={product._id} className='productboxvik'>
               <Link
                 to={`/products/${product._id}`}
-                className={styles.productLink} onClick={scrollToTop}
+                className='product-linkvik' onClick={scrollToTop}
               >
                 <img
-                  className={styles.productImage}
+                  className='product-imgvik'
                   src={`http://127.0.0.1:5555/api/uploads/${product.productImages[0]}`}
                   alt={product.productName}
                 />
-                <div className={styles.productName}>{product.productName}</div>
-                <div className={styles.category}>{product.category}</div>
+                <div className='productnamevik'>{product.productName}</div>
+                <div className='productcatvik'>{product.category}</div>
 
-                <div className={styles.addContainer}>
-                  <div className={styles.productPrice}>₹{product.sp}</div>
+                <div className='productaddconvik'>
+                  <div className='productpricevik'>₹{product.sp}</div>
                   <Link to="/cart" onClick={scrollToTop}>
                     {" "}
-                    <button
-                      className={styles.addButton}
+                    <button 
+                      className='productaddbutvik'
                       onClick={(event) => handleAddToCart(event, product)}
                     >
-                      Add
+                      ADD
                     </button>
                   </Link>
                 </div>
@@ -173,8 +188,8 @@ const SareesCategories2 = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 
 export default SareesCategories2;
-

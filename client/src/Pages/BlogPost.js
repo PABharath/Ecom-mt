@@ -48,7 +48,7 @@ const BlogPost = () => {
           technology and innovation, the saree and textiles industry too is experiencing a remarkable transformation through
           ecommerce platforms.
         </p>
-</AnimationOnScroll>
+    </AnimationOnScroll>
 
 
         </div>
@@ -166,7 +166,7 @@ const BlogPost = () => {
 
   <AnimationOnScroll  animateIn="animate__flipInX">
           
-  <img className="blog-image" src={bg5} alt="Time and Thread" />
+  <img className="blog-image" src={bg18} alt="Time and Thread" />
   </AnimationOnScroll>
 
   

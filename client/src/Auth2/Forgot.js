@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Forgot.css";
 import { Link } from "react-router-dom"; 
-import { AiOutlineArrowLeft } from "react-icons/ai";
+// import { AiOutlineArrowLeft } from "react-icons/ai";
 
 const Forgot = () => {
   const [email, setEmail] = useState("");

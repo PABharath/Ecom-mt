@@ -10,7 +10,7 @@ import { CartContext } from './CreateContext';
 import useAuth from '../Auth2/useAuth';
 import { IoSearchOutline } from "react-icons/io5";
 
-import './Navbar.css';
+
 
 import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
@@ -19,8 +19,15 @@ import { LuImagePlus } from "react-icons/lu";
 import { PiSignOutBold } from "react-icons/pi";
 import { FaUserCircle } from "react-icons/fa";
 
-function Navbar({ onSearch }) {
-  const navRef = useRef();
+
+
+
+import './Navbar2.css'
+ 
+const Navbar2 = (onSearch) => {
+const [click, setClick] = useState(false)
+const handleClick = () => setClick(!click)
+const navRef = useRef();
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -57,71 +64,45 @@ function Navbar({ onSearch }) {
   const showNavbar = () => {
     navRef.current.classList.toggle('responsive_nav');
   };
-
-  return (
-    <header className="headervik">
-      <div className="headervikleft">
-        <button className="nav-btn" onClick={showNavbar}>
-          <FaBars />
-        </button>
-        <h3>
-          <a href="/" style={{ color: 'black' }}>
-            E-Commerce
-          </a>
-        </h3>
-      </div>
-
-      <nav className="navvik" ref={navRef}>
-        <button className="nav-btn nav-close-btn" onClick={showNavbar}>
-          <FaTimes />
-        </button>
-        <a href="/">Home</a>
-        <Link to="/SareesCategories2">
-          <div className="dropdown">
-            <button className="dropbtn" onClick={toggleDropdown}>
-              Sarees
-            </button>
-          </div>
-        </Link>
-        <a href="/BlogPost">Blog</a>
-        <a href="/ContactUs">Contact us</a>
-      </nav>
-
-      <div className="search-container321">
-              <input
+ 
+ 
+    return (
+        <div className='headervik'>
+             <a href='/' className='logovik' >E-Saree</a>
+            <div className='containervik'>
+               
+                <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+                    <li>
+                        <a href='/'>Home</a>
+                    </li>
+                    <li>
+                        <a href='/SareesCategories2'>Sarees</a>
+                    </li>
+                    <li>
+                        <a href='/BlogPast'>Blog</a>
+                    </li>
+                    <li>
+                        <a href='/ContactUs'>Contact Us</a>
+                    </li>
+                    <li className='nav-searchbarvik'>
+                    <input
                 type="text"
                 placeholder="Search patients"
-                className="search-bar-doc1"
+              
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                style={{
-                  width:"250px",
-                  height:"37px",
-                  // fontFamily: "Inria Serif",
-                  marginRight: "0px",
-                  borderRight:'transparent',
-                  borderLeft:"transparent",
-                  borderTop:'transparent',
-                  borderBottom:'transparent',
-                  outlineWidth:'0px'
-                   }}
+               
               />
-              <div className="searching321Button"><br/>
-              <button 
-                  onClick={handleSearch}
-                  className="weyh"
-                  // style={{
-                  //   color: "white",
-                  //   background: "#3E6EA8",
-                  //   border: "none",
-                  //     }}
-                >
-                <IoSearchOutline style={{height:'37px',width:'23px'}}/>
+             
+                <button 
+                  onClick={handleSearch} >
+                <IoSearchOutline/>
                 </button>
-              </div>
-            </div>
+             
+                    </li>
 
-      <div className="navvik-right">
+                    <li>
+                    <div className="navvik-right">
         <Link to="/ProductForm">
           <FontAwesomeIcon icon={faPlus} className="menu-icon" />
         </Link>
@@ -132,7 +113,7 @@ function Navbar({ onSearch }) {
         </Link>
 
         <div className="tooltip-container">
-          <FontAwesomeIcon icon={faBell} className="menu-icon" />
+          <FontAwesomeIcon icon={faBell} style={{color:'white'}} className="menu-icon" />
           <div className="tooltip">No new notifications.. Stay tuned for more!!</div>
         </div>
 
@@ -146,7 +127,7 @@ function Navbar({ onSearch }) {
           </Link>
         )}
 
-<Button  ref={target} style={{backgroundColor:'rgb(206, 202, 202)',color:'black',border:'none'}}  onClick={() => setShow(!show)}>
+<Button  ref={target} style={{backgroundColor:'#8eab92',color:'white',border:'none'}}  onClick={() => setShow(!show)}>
            
            <FaUserCircle style={{fontSize:'1.2rem' , marginTop:'-1rem',marginLeft:'-0.8rem'}}/>
        
@@ -172,8 +153,23 @@ function Navbar({ onSearch }) {
            )}
          </Overlay>
       </div>
-    </header>
-  );
-}
 
-export default Navbar;
+
+                    </li>
+                    
+
+
+
+
+                </ul>
+                
+                <div className='hamburger' onClick={handleClick}>
+                    {click ? (<FaTimes size={20} style={{color: '#333'}}/>) : (<FaBars size={20} style={{color: '#333'}} />)}
+                     
+                </div>
+            </div>
+        </div>
+    )
+}
+ 
+export default Navbar2

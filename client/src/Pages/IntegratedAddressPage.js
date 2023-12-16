@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useNavigate,useLocation, Link} from "react-router-dom";
+import { useNavigate,useLocation} from "react-router-dom";
 import AddressView from "./AddressView";
 import { Country, State } from "country-state-city";
 import "./IntegratedAddressPage.css";
@@ -16,7 +16,7 @@ const IntegratedAddressPage = () => {
   const [states, setStates] = useState([]);
   const [isDefaultAddress, setIsDefaultAddress] = useState(false);
 
-  const { cartItems } = useContext(CartContext);
+  // const { cartItems } = useContext(CartContext);
   // const totalAmount = calculateTotal(cartItems);
 
   const location = useLocation();
