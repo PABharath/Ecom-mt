@@ -81,7 +81,7 @@ const [patients, setPatients] = useState([]);
 
   return (
     <>
-    {/* <Navbar2 onSearch={handleSearch}/> */}
+    <Navbar2 onSearch={handleSearch}/>
     <div className="home-main-body">
       <section>
         <ImageCarousel />
