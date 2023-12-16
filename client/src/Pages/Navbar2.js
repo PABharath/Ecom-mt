@@ -164,7 +164,7 @@ const navRef = useRef();
                 </ul>
                 
                 <div className='hamburger' onClick={handleClick}>
-                    {click ? (<FaTimes size={20} style={{color: '#333'}}/>) : (<FaBars size={20} style={{color: '#333'}} />)}
+                    {click ? (<FaTimes size={20} style={{color: 'white',marginTop:'-1rem'}}/>) : (<FaBars size={20} style={{color: 'white',marginTop:'-1rem'}} />)}
                      
                 </div>
             </div>
