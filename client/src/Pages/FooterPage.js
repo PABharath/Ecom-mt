@@ -119,7 +119,7 @@ Location</li>
       </div>
       <div className="footer-bottom"><hr/>
       <br/>
-        <p>&copy; 2023 Your Ecommerce Store. All rights reserved.</p>
+        <p>&copy; 2023 Matrical Technologies. All rights reserved.</p>
       </div>
     </div>
   );
