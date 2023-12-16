@@ -18,10 +18,14 @@ font-weight: 1000;
 
   /* font-weight: 800; */
   font-size: larger;
+  vertical-align: top;
 
   line-height: 190%;
   /* word-spacing: 29%; */
   font-family:   "Roboto_Slab variant0", Tofu;
+}
+.list45:hover {
+  color: #292827; /* Change the color on hover */
 }
 .footer-wrapper {
   display: flex;
@@ -36,12 +40,20 @@ font-weight: 1000;
   margin-bottom: 20px;
   padding: 0 10px;
   box-sizing: border-box;
+  align-items: flex-start;
+}
+.list1{
+ color: #8eab92;
+}
+.list1:hover{
+  background-color: black;
 }
 
 .footer-section h3 {
-  font-size: 18px;
+  font-size: 22px;
   margin-bottom: 10px;
   color: #ffffff;
+  text-align: left;
 }
 
 .footer-section ul {
@@ -52,7 +64,10 @@ font-weight: 1000;
 .footer-section ul li {
   margin-bottom: 5px;
   color: white;
+  text-align: left;
+  font-size: 22px;
 }
+
 
 /* Remove blue underlines from links */
 .footer-section a {
@@ -68,6 +83,22 @@ font-weight: 1000;
   justify-content: center;
   /* Center-align social media icons */
 }
+.social-media-icons a:hover i,
+.payment-icons i:hover {
+  color: #31302d; /* Change the color on hover */
+  transform: scale(1.2); /* Optionally, scale the icon on hover */
+}
+
+
+
+hr {
+  margin: 1rem 0;
+  color: inherit;
+  /* border: 0; */
+  border-top: 5px solid white;
+
+  opacity: .35;
+}
 
 .social-media-icons li {
   margin-right: 15px;
@@ -77,7 +108,8 @@ font-weight: 1000;
 .social-media-icons li a {
   color: white;
   line-height: 80%; 
-  text-decoration: none; /* Remove blue underlines from social media links */
+  text-decoration: none;
+  font-size: 2rem; /* Remove blue underlines from social media links */
 }
 
 .footer-bottom {
