@@ -84,6 +84,7 @@ const [patients, setPatients] = useState([]);
         <ImageCarousel />
         
         <div className=" icons">
+          
             <div className="first-icon">
             <FaTruck className="fatruck" />
             <span className="free">Free Shipping</span>
