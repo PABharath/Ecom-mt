@@ -126,6 +126,9 @@
   .menu-icon:hover + .tooltip {
 	opacity: 1; /* Increase opacity for better visibility */
   }
+  .menu-icon{
+    color: white;
+  }
    
   :root {
 	  --mainColor: #29335c;
