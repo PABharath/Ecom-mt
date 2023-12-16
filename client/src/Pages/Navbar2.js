@@ -79,7 +79,7 @@ const navRef = useRef();
                         <a href='/SareesCategories2'>Sarees</a>
                     </li>
                     <li>
-                        <a href='/BlogPast'>Blog</a>
+                        <a href='/BlogPost'>Blog</a>
                     </li>
                     <li>
                         <a href='/ContactUs'>Contact Us</a>
