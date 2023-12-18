@@ -65,16 +65,16 @@ const Navbar2 = (onSearch) => {
               Home
             </Nav.Link>
            
-            <Nav.Link as={NavLink} to="/about" className={styles.navLink}>
+            <Nav.Link as={NavLink} to="/SareesCategories2" className={styles.navLink}>
               Saree
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/about" className={styles.navLink}>
+            <Nav.Link as={NavLink} to="/BlogPost" className={styles.navLink}>
               Blog
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/about" className={styles.navLink}>
+            <Nav.Link as={NavLink} to="/ContactUs" className={styles.navLink}>
               Contact Us
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/contact" className={styles.navLink}>
+            <Nav.Link as={NavLink}  className={styles.navLink}>
 
             <input
                 type="text"
@@ -95,7 +95,7 @@ const Navbar2 = (onSearch) => {
 
 
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/about" className={styles.navLink}>
+            <Nav.Link as={NavLink}  className={styles.navLink}>
 
 
                  <div className="navvik-right">
