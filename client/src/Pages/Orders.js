@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./Orders.css"; // Import the CSS file
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -10,170 +11,96 @@ const Orders = () => {
 
   const fetchOrders = async () => {
     try {
-      // const response = await axios.get('http://localhost:5555/api/get-orders');
-      const response = await axios.get('http://localhost:5555/get-orders');
+      const response = await axios.get("http://localhost:5555/api/orders");
 
       const data = response.data.orders;
 
-      const ordersWithProducts = await Promise.all(
-        data.map(async (order) => {
-          // const productResponse = await axios.get(`/api/get-order-details/${order.orderId}`);
-          const productResponse = await axios.get(`/api/get-order-details/${order.orderId}`);
+      const ordersWithFormattedData = data.map((order) => {
+        return {
+          orderId: order.orderId,
+          orderDate: new Date(order.orderDate).toLocaleDateString(),
+          totalAmount: order.totalAmount,
+          products: order.products.map((product) => {
+            return {
+              productName: product.productName,
+              // Add other product properties you want to display
+            };
+          }),
+        };
+      });
 
-          const orderWithProducts = { ...order, products: productResponse.data.products };
-          return orderWithProducts;
-        })
-      );
-
-      setOrders(ordersWithProducts);
+      setOrders(ordersWithFormattedData);
     } catch (error) {
-      console.error('Error fetching orders:', error);
+      console.error("Error fetching orders:", error);
     }
   };
-  
+
   return (
-    <div>
-      <div style={styles.container}>
+    <div className="ecom-container">
+      <div className="ecom-main-container">
         <h1>Your Orders</h1>
-        <ul>
-          {orders.map((order) => (
-            <li key={order._id}>
-              <p>Order ID: {order.orderId}</p>
-              <p>Total Amount: {order.totalAmount}</p>
-              <p>Products:</p>
-              <ul>
-                {order.products.map((product) => (
-                  <li key={product._id.$oid}>
-                    <p>Product ID: {product.productId.$oid}</p>
-                    <p>Product Name: {product.productName}</p>
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
+        {orders.map((order) => (
+          <div key={order.orderId} className="order-table-container">
+            <h3>Order ID: {order.orderId}</h3>
+            <table className="ecom-order-table">
+              <thead>
+                <tr>
+                  <th>ORDER PLACED</th>
+                  <th>TOTAL</th>
+                  <th>SHIP TO</th>
+                  <th>View Order Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{order.orderDate}</td>
+                  <td>₹{order.totalAmount}</td>
+                  <td>available</td>
+                  <td>
+                    <a
+                      className="ecom-link"
+                      href={`/order-details/${order.orderId}`}
+                    >
+                      View Order Details
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-         <table className="order-table" style={styles.table}>
-          <thead>
-            <tr>
-              <th style={styles.th}>ORDER PLACED</th>
-              <th style={styles.th}>TOTAL</th>
-              <th style={styles.th}>SHIP TO</th>
-              <th style={styles.th}>Order ID</th>
-              <th style={styles.th}>View Order Details</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style={styles.td}></td>
-              <td style={styles.td}></td>
-              <td style={styles.td}></td>
-              <td style={styles.td}></td>
-              <td style={styles.td}>
-              <a style={styles.a} href="/invoice">View Invoice</a>
-
-              </td>
-            </tr>
-          </tbody>
-        </table> 
-
-
-        <div style={styles.deliveryInfoContainer}>
-          <div className="image-box">
-            {/* <img src={logo} alt="Product Image" style={styles.image} /> */}
+            <div className="ecom-delivery-info-container">
+              <div className="ecom-image-box">
+                {/* Assuming product image URL is available in the first product */}
+                <img
+                  src={`http://127.0.0.1:5555/api/uploads/${order.products[0]?.productImages[0]}`}
+                  alt="Product Image"
+                  className="ecom-image"
+                />
+              </div>
+              <div className="ecom-delivery-details">
+                <p>
+                  Delivery By {new Date(order.orderDate).toLocaleDateString()}
+                </p>
+                {order.products && order.products.length > 0 ? (
+                  order.products.map((product) => (
+                    <p key={product.productName}>{product.productName}</p>
+                  ))
+                ) : (
+                  <p>No products in this order</p>
+                )}
+                <div className="ecom-buttons">
+                  <button className="ecom-view-items-btn">View Your Item</button>
+                  <button className="ecom-delivery-status-btn">
+                    Delivery Status
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="delivery-details" style={styles.deliveryDetails}>
-            <p>Delivery By 5th July 2023</p>
-            <p>Taranga Kanchi Silk Brocade Green Saree</p>
-          
-          <div className="buttons" style={styles.button}>
-            <button className="view-items-btn" style={styles.yellowButton}>
-              View Your Item
-            </button>
-            <button className="delivery-status-btn" style={styles.blueButton}>
-              Delivery Status
-            </button>
-          </div></div>
-        </div>
+        ))}
       </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: '20px',
-    border: '3px solid black',
-    borderRadius: '4px',
-    boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
-    maxWidth: '900px',
-    margin: '0 auto',
-  },
-  table: {
-    borderCollapse: 'collapse',
-    width: '100%',
-    borderRadius: '4px',
-
-  },
-  th: {
-    backgroundColor: 'lightcyan',
-    padding: '20px',
-    textAlign: 'left',
-    borderRadius: '10px',
-    
-
-
-  },
-  td: {
-    backgroundColor: 'lightcyan',
-    padding: '20px',
-    textAlign: 'left',
-    border: '1px solid #ccc',
-    // borderRadius: '24px',
-
-  },
-  yellowButton: {
-    backgroundColor: 'gold',
-    // padding: '10px 20px',
-    margin: '5px',
-    border: 'none',
-    borderRadius: '4px',
-    color: 'black',
-    
-    cursor: 'pointer',
-  },
-  blueButton: {
-    backgroundColor: 'black',
-    // padding: '10px 20px',
-    margin: '5px',
-    border: 'none',
-    borderRadius: '4px',
-    color: 'white',
-    cursor: 'pointer',
-  },
-  deliveryInfoContainer: {
-    display: 'flex',
-    // alignItems: 'left',
-    marginLeft: '-350px',
-  },
-  image: {
-    width: '150px',
-    height: '150px',
-    marginLeft: '-10px',
-  },
-  deliveryDetails: {
-    // marginLeft: '350px',
-  },
-  a:{
-color:'blue',
-  },
-  button:{
-    display: 'flex',
-
-  },
 };
 
 export default Orders;

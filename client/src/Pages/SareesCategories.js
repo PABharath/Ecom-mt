@@ -16,7 +16,7 @@ const SareesCategories = () => {
   useEffect(() => {
     console.log("Component mounted");
     fetchProducts();
-  }, []);
+  } );
 
   const fetchProducts = async () => {
     try {
@@ -66,7 +66,6 @@ const SareesCategories = () => {
 
   return (
     <div className={styles.productList}>
-
 
 
 

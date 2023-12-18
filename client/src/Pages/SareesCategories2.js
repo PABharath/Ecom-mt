@@ -15,6 +15,7 @@ const SareesCategories2 = () => {
   const [maxPrice, setMaxPrice] = useState(""); // Add state for maximum price
   const { addToCart } = useCart();
 
+   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     console.log("Component mounted");
     fetchProducts();
@@ -75,9 +76,9 @@ const SareesCategories2 = () => {
     setMaxPrice(event.target.value);
   };
 
-  const handleFilterByPrice = () => {
-    fetchProducts();
-  };
+  // const handleFilterByPrice = () => {
+  //   fetchProducts();
+  // };
 
   
   

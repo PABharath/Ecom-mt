@@ -1,51 +1,48 @@
-// controllers/orderController.js
+const Order = require("../models/orderModel");
 
-const Order = require('../models/orderModel');
-
-// Create order
-exports.createOrder = async (req, res) => {
+const createOrder = async (req, res) => {
   try {
-    const { totalAmount, products } = req.body;
+    const { cartItems, totalAmount } = req.body;
 
-    const order = new Order({
+    // Generate a 5-digit orderId
+    const orderId = generateOrderId();
+
+    // Calculate expected delivery date (10 days from now)
+    const expectedDeliveryDate = new Date();
+    expectedDeliveryDate.setDate(expectedDeliveryDate.getDate() + 10);
+
+    const newOrder = new Order({
+      orderId,
+      products: cartItems,
       totalAmount,
-      products,
+      expectedDeliveryDate,
     });
 
-    const savedOrder = await order.save();
+    const savedOrder = await newOrder.save();
 
     res.json({ order: savedOrder });
   } catch (error) {
-    console.error('Error creating order:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error("Error creating order:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
-// Get all orders
-exports.getOrders = async (req, res) => {
+const generateOrderId = () => {
+  // Generate a 5-digit serial incremental orderId
+  const randomSerial = Math.floor(10000 + Math.random() * 90000);
+  return `ODR${randomSerial}`;
+};
+
+// Fetch all orders
+const getOrders = async (req, res) => {
   try {
-    const orders = await Order.find();
+    const orders = await Order.find().sort({ orderDate: -1 });
+
     res.json({ orders });
   } catch (error) {
-    console.error('Error fetching orders:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error("Error fetching orders:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
-// Get order details by order ID
-exports.getOrderDetails = async (req, res) => {
-  try {
-    const { orderId } = req.params;
-
-    const order = await Order.findOne({ orderId });
-
-    if (!order) {
-      return res.status(404).json({ error: 'Order not found' });
-    }
-
-    res.json({ products: order.products });
-  } catch (error) {
-    console.error('Error fetching order details:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-};
+module.exports = { createOrder, getOrders };
