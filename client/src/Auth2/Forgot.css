@@ -19,7 +19,7 @@
   margin-bottom: 50px;
   margin-top: -11px;
   margin-right: 290px;
-  height:391px;
+  height:398px;
  
   /* background-color: red; */
 }
@@ -29,7 +29,7 @@
   margin: 20px;
   /* height: 60vh; */
   width: 80%;
-  height: 395px;
+  height: 400px;
   /* width: "100%"; */
   border-radius: 20px;
   background-color: white;
@@ -90,13 +90,13 @@
 .backtologin {
   
   
-  margin-top: 30px;
+  
 
 }
 .or-line {
   color: black;
   /* margin-left: 190px; */
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 
