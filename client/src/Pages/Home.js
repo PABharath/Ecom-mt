@@ -1,24 +1,32 @@
-import React, { useState} from "react";
+import React, { useState, useEffect} from "react";
 import axios from "axios";
 import ImageCarousel from "./ImageCarousel";
 import ProductList from "./ProductList";
 import "./Home.css";
+// import { CiSearch } from "react-icons/ci";
+import Navbar from "../Pages/Navbar";
 import { Link } from "react-router-dom";
 import { FaTruck, FaMoneyBillAlt, FaStar, FaTags } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import Navbar2 from "./Navbar2";
+import { GoMail } from "react-icons/go";
 
 
 function Home() {
+
+  const [filteredPatients, setFilteredPatients] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+const [patients, setPatients] = useState([]);
   
   const [email, setEmail] = useState({
     Email: '',
    });
 
+   const [searchValue, setSearchValue] = useState('');
+   const [searchResults, setSearchResults] = useState([]);
  
-
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -27,6 +35,13 @@ function Home() {
       [name]: value,
     });
   };
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+  useEffect(() => {
+    // Fetch initial search results (optional)
+    handleSearch(searchValue);
+  }, [searchValue]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,7 +68,7 @@ function Home() {
         console.error('Error:', err.response.data); 
       
         if (err.response.data.message) {
-          
+        
           window.alert(err.response.data.message);
         } else {
          
@@ -65,45 +80,71 @@ function Home() {
 
 
   return (
+    <>
+    <Navbar2 onSearch={handleSearch}/>
     <div className="home-main-body">
       <section>
         <ImageCarousel />
-        <div className="homesection1">
-          <div className="section-items">
-            <FaTruck className="home-icon" />
-            <div className="section-text">
-              <span className="multiline">Free Shipping</span>
-            </div>
-          </div>
-          <div className="section-items">
-            <FaMoneyBillAlt className="home-icon" />
-            <div className="section-text">
-              <span className="multiline">Cash On Delivery</span>
-            </div>
-          </div>
-          <div className="section-items">
-            <FaStar className="home-icon" />
-            <div className="section-text">
-              <span className="multiline">Best Quality</span>
-            </div>
-          </div>
-          <div className="section-items">
-            <FaTags className="home-icon" />
-            <div className="section-text">
-              <span className="multiline">Best Discount</span>
-            </div>
-          </div>
+        
+        <div className=" icons">
+          
+            <div className="first-icon">
+            <FaTruck className="fatruck" />
+            <span className="free">Free Shipping</span>
+            <div className="on">On order over ₹1500</div>
+            
+      </div>
+      <div className="first-icon">
+            <FaMoneyBillAlt className="money" />
+            <span className="cash">Cash On Delivery</span>
+            <div className="on">100% money back guarantee</div>
+            
+      </div>
+      <div className="first-icon">
+            <FaStar className="best" />
+            <span className="quality">Best Quality</span>
+           <div className="on">Offer special bonuses with gift</div>
+            
+      </div>
+      <div className="first-icon">
+            <FaTags className="discount" />
+            <span className="price">Best Discount</span>
+            <div className="on">With Reasonable Prices</div>
+            
+      </div>
+
         </div>
-        <div className="best-sellers-container">
-          <div className="best-sellers-text">Best Sellers</div>
+
+         <div>
+          
+
+        <div>
+
+          <div>
+          <div className="top">Top Product</div>
+          <div className="middle">
+          <div >
+          <button className="Featured">Latest</button>
+           
+            </div>
+          <div> 
+          <button className="Featureds">Featured</button>
+            </div>
+          <div>
+            <button className="Sellers"> Best Sellers</button></div>
+          </div>
+          </div>
+          {/* <div className="best-sellers-text">Best Sellers</div> */}
           <div className="browse-all-container">
-            <Link to="/Kasavu">
+            <Link to="/SareesCategories2">
               <button className="browse-all-button">Browse all &gt;</button>
             </Link>
           </div>
         </div>
+        </div>
         <div className="productContainer1">
-          <ProductList />
+        <ProductList searchQuery={searchQuery} />
+
         </div>
         <div className="image-container-wrapper">
           <div className="image-container">
@@ -151,30 +192,34 @@ function Home() {
         </div> */}
   <div className="mail-box">
           <div className="subscribe-mail">
+          <div className="subscribe-text">
+             
+        
+             <strong style={{fontSize:'25px',marginLeft:'2px',cursor:'pointer'}}><GoMail style={{color:'#8eab92',marginTop:'-5px'}}  />&nbsp;&nbsp;News Settler</strong>
+           <p style={{fontSize:'large' ,marginLeft:'40px'}}>Get free 20% discount for all products on your first order.</p>
+           </div>
             <div className="mail-id">
               <input
                 type="text"
                 name="Email"
                 onChange={handleChange}
                 className="email-input"
-                placeholder="Email Address"
+                placeholder="Enter your mail"
               />
               <button
                 className="telegram-button"
                 onClick={handleSubmit}
-              >
-                <FaTelegramPlane
-                  className="telegram-icon"
-                  style={{ fontSize: "34px", color: "white" }}
-                />
+              >Subscribe
               </button>
+              
             </div>
-            <div className="subscribe-text">Subscribe newsletter</div>
+           
           </div>
         </div>
       </section>
       {/* <ToastContainer position="top-center" autoClose={3000} /> */}
     </div>
+    </>
   );
 }
 

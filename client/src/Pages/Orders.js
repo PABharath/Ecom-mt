@@ -36,8 +36,8 @@ const Orders = () => {
   };
 
   return (
-    <div className="ecom-container">
-      <div className="ecom-main-container">
+    <div>
+      <div style={styles.container}>
         <h1>Your Orders</h1>
         {orders.map((order) => (
           <div key={order.orderId} className="order-table-container">
@@ -101,6 +101,82 @@ const Orders = () => {
       </div>
     </div>
   );
+};
+
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '20px',
+    border: '3px solid black',
+    borderRadius: '4px',
+    boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+    maxWidth: '900px',
+    margin: '0 auto',
+  },
+  table: {
+    borderCollapse: 'collapse',
+    width: '100%',
+    borderRadius: '4px',
+
+  },
+  th: {
+    backgroundColor: 'lightcyan',
+    padding: '20px',
+    textAlign: 'left',
+    borderRadius: '10px',
+    
+
+
+  },
+  td: {
+    backgroundColor: 'lightcyan',
+    padding: '20px',
+    textAlign: 'left',
+    border: '1px solid #ccc',
+    // borderRadius: '24px',
+
+  },
+  yellowButton: {
+    backgroundColor: 'gold',
+    // padding: '10px 20px',
+    margin: '5px',
+    border: 'none',
+    borderRadius: '4px',
+    color: 'black',
+    
+    cursor: 'pointer',
+  },
+  blueButton: {
+    backgroundColor: 'black',
+    // padding: '10px 20px',
+    margin: '5px',
+    border: 'none',
+    borderRadius: '4px',
+    color: 'white',
+    cursor: 'pointer',
+  },
+  deliveryInfoContainer: {
+    display: 'flex',
+    // alignItems: 'left',
+    marginLeft: '-350px',
+  },
+  image: {
+    width: '150px',
+    height: '150px',
+    marginLeft: '-10px',
+  },
+  deliveryDetails: {
+    // marginLeft: '350px',
+  },
+  a:{
+color:'blue',
+  },
+  button:{
+    display: 'flex',
+
+  },
 };
 
 export default Orders;

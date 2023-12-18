@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./Forgot.css";
 import { Link } from "react-router-dom"; 
-import { AiOutlineArrowLeft } from "react-icons/ai";
+import Navbar2 from "../Pages/Navbar2";
+// import { AiOutlineArrowLeft } from "react-icons/ai";
 
 const Forgot = () => {
   const [email, setEmail] = useState("");
@@ -62,6 +63,8 @@ const Forgot = () => {
   };
 
   return (
+   <div>
+    <Navbar2/>
     <div className="fg-bgcontainer">
       <div className="backgr-45">
       <div className="fg-cardcontainer">
@@ -125,6 +128,7 @@ const Forgot = () => {
       </div>
     </div>
     </div>
+   </div>
   );
 };
 

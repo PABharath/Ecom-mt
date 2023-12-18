@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./ProductForm.css";
+import Navbar2 from "./Navbar2";
 
 const ProductForm = () => {
   const [formData, setFormData] = useState({
@@ -103,7 +104,9 @@ const ProductForm = () => {
   };
 
   return (
-    <div className="product-form1">
+   <div>
+    <Navbar2/>
+     <div className="product-form1">
       <br/>
       
       <h1 className="z1">Add Product</h1>
@@ -317,6 +320,7 @@ const ProductForm = () => {
         </button>
       </form>
     </div>
+   </div>
   );
 };
 

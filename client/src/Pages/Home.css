@@ -1,57 +1,169 @@
-.homesection1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* width: 700px; */
-  height: 80px;
-  position: relative;
-  /* margin-left: 27%; */
-  /* top: -1em; */
-  margin-top: 3%;
-  }
-  
-  .homesection1 div {
-  color: rgb(0, 0, 0);
-  font-size: 17px;
-  font-weight: bold;
-  margin-left: 30px;
-  }
-  
-  .section-items {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 14px;
-  color: black;
+
+.free{
+  margin-top: 100%;
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 10%;
+  /* margin-bottom: 5%; */
+ 
+
+}
+.price{
+  margin-top: 30%;
+  font-size: 20px;
+  font-weight: 600;
   text-align: center;
-   width: 210px; /* Increase the width */
-  height: 70px; /* Increase the height */
-  background-color: #d9d9d9;
-  border-radius: 50px;
-  padding: 0 20px;
-  position: relative;
+
+}
+.cash{
+  margin-top: 30%;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+.quality{
+  margin-top: 30%;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+
+}
+
+  .icons{
+    display: flex;
+    flex-direction: row;
+  }
+  .first-icon{
+    display: flex;
+    flex-direction: column;
+    height: 27vh;
+    width: 22%;
+    background-color: #d9d9d9;
+    border-radius: 30px;
+    padding: 0 20px;
+    position: relative;
+    margin-top: 5%;
+    margin-left: 2.3%;
+
+
+  }
+
+
+  .fatruck{
+     align-items: center;
+     font-size: 60px;
+     color: #d9d9d9;
+     background-color:#8eab92;
+     border-radius: 50%;
+     padding: 5px;
+     position: absolute;
+     margin-top: 15%;
+     margin-left: 30%;
+     transform: translateY(-50%);
+
   }
   
-  .home-icon {
-  font-size: 42px;
+  .money{
+    align-items: center;
+    font-size: 60px;
+    color: #d9d9d9;
+    background-color:#8eab92;
+    border-radius: 50%;
+    padding: 5px;
+    position: absolute;
+    margin-top: 15%;
+    margin-left: 30%;
+    transform: translateY(-50%);
+
+ }
+ 
+ .best{
+  align-items: center;
+  font-size: 60px;
   color: #d9d9d9;
-  background-color: black;
+  background-color:#8eab92;
   border-radius: 50%;
   padding: 5px;
   position: absolute;
-  left: 5px;
-  top: 50%;
+  margin-top: 15%;
+  margin-left: 30%;
   transform: translateY(-50%);
-  }
-  
-  .section-text {
-  display: flex;
-  flex-direction: column;
+
+}
+
+.discount{
   align-items: center;
-  text-align: center;
-  font-weight: 600;
-  margin-top: 15px; /* Increase the margin */
+  font-size: 60px;
+  color: #d9d9d9;
+  background-color:#8eab92;
+  border-radius: 50%;
+  padding: 5px;
+  position: absolute;
+  margin-top: 15%;
+  margin-left: 30%;
+  transform: translateY(-50%);
+
+}
+
+  .on{
+   
+    text-align: center;
+    font-weight: 400;
+   
   }
+  .top{
+    text-align: center;
+    font-size: 50px;
+    /* margin-left: 40%; */
+    font-weight: 500;
+    margin-top: 1%;
+
+  }
+  .middle{
+    display: flex;
+    flex-direction: row;
+    margin-left: 30%;
+    margin-top: 2%;
+  }
+ .Featured{
+  height: 9vh;
+  width: 13vw;
+  border-radius: 25px;
+  background-color: #d9d9d9;
+  color: #000;
+  border: none;
+  text-align: center;
+  margin-left: 5%;
+  font-size: medium;
+  font-weight: 600;
+ }
+ .Featureds{
+  height: 9vh;
+  width: 13vw;
+  border-radius: 25px;
+  background-color: #d9d9d9;
+  color: #000;
+  border: none;
+  text-align: center;
+  margin-left: 15%;
+  font-weight: 600;
+  
+ }
+ .Sellers{
+  height: 9vh;
+  width: 13vw;
+  border-radius: 25px;
+  background-color: #d9d9d9;
+  color: #000;
+  border: none;
+  text-align: center;
+  margin-left: 25%;
+  font-weight: 600;
+  
+ }
+  
+  
+  
   
   /* Allow text to wrap into two lines */
   .section-text span {
@@ -170,75 +282,94 @@
     margin-top: 20px;
   }
   
+
+ /* YourStyleSheet.css */
+
+/* Base styles */
+.subscribe-mail {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding:1.5rem;
+  width: 70%;
+  max-width: 1500px; /* Adjust max-width as needed */
+  margin: 0 auto;
+  box-sizing: border-box;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.mail-id {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  margin-left: 3%;
+ 
+}
+
+.email-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-right: 0px;
+  box-sizing: border-box;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.telegram-button {
+  background-color: #8eab92;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+ 
+}
+.telegram-button:hover{
+  background-color: rgb(48, 48, 48);
+  color: white;
+}
+
+.subscribe-text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+.subscribe-text p {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
   .subscribe-mail {
-    width: 800px;
-    height: 80px;
-    background-color: black;
-    border-radius: 20px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: row;
+    align-items: stretch;
   }
+
   .subscribe-text {
-    color: white;
-    font-weight: 700;
-    text-align:left; /* To center the text horizontally */
-    line-height: 75px; /* To vertically center the text */
-    font-size: 28px;
-    position: absolute; /* Position absolutely */
-    top: 50%; /* Move the element to the vertical center of the parent */
-    transform: translateY(-50%); /* Adjust for vertical centering */
-    left: 80px; /* Adjust as needed to place it in front of the mail-id div */
+    margin: 10px 0;
+    text-align: center;
   }
+
   .mail-id {
-    display: flex;
-    align-items: center;
-    width: 300px;
-    height: 40px;
-    background-color: #EDA415;
-    border-radius: 15px;
-    padding: 5px 80px;
-    margin-bottom: 60px;
-    margin-left: 53%;
-    margin-top: 55px;
-    justify-content: center;
+    flex-direction: row;
+    align-items: stretch;
   }
-  
+
   .email-input {
-    flex: 1;
-    height: 100%;
-    border: none;
-    background: none;
-    color: white;
-    font-size: 16px;
-    font-weight: 500;
-    padding-right: 40px;
-    border: none;
-    outline:0px;
+    margin-right: 0;
+    margin-bottom: 10px;
   }
-  
-  .telegram-button {
-    display: flex;
-    width: 38px;
-    height: 38px;
-    background-color: #EDA415;
-    border: none;
-    cursor: pointer;
-    margin-left: 2%;
-  }
-  /* .telegram-icon{
-    margin-left: 10px;
-  } */
-  
-  .telegram-button i {
-    color: white;
-    font-size: 30px;
-  }
+}
+
   
   
   
@@ -280,16 +411,27 @@
   overflow: hidden;
   text-overflow: ellipsis;
   }
+  .free{
+    margin-top: 30%;
+    margin-left: 20%;
+
+  }
+  .frees{
+
+    font-size: 15px;
+  }
   
   /* Allow up to 2 lines of text */
-  .section-text .multiline {
-  display: -webkit-box;
+  /* .section-text .multiline {
+  /* display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin-top: 8%;
-  margin-left: -2%;
-  }
+  margin-left: -2%; */
+  /* margin-top: 10%;
+  text-align: center; */
+  /* }  */
   /* .img890{
 
   } */
@@ -300,6 +442,74 @@
   
   /* Mobile devices */
   @media only screen and (max-width: 768px) {
+
+
+
+
+    .middle{
+      display: flex;
+      flex-direction:column;
+      margin-left: 25%;
+      margin-top: 2%;
+    }
+   .Featured{
+    height: 9vh;
+    width: 20vw;
+    border-radius: 25px;
+    background-color: #d9d9d9;
+    color: #000;
+    border: none;
+    text-align: center;
+    margin-left: 25%;
+    font-size: medium;
+    font-weight: 600;
+   }
+   .Featureds{
+    height: 9vh;
+    width: 20vw;
+    border-radius: 25px;
+    background-color: #d9d9d9;
+    color: #000;
+    border: none;
+    text-align: center;
+    margin-left: 25%;
+    font-weight: 600;
+    margin-top: 10%;
+    
+   }
+   .Sellers{
+    height: 9vh;
+    width: 22vw;
+    border-radius: 25px;
+    background-color: #d9d9d9;
+    color: #000;
+    border: none;
+    text-align: center;
+    margin-left: 25%;
+    font-weight: 600;
+    margin-top: 10%;
+    
+   }
+    .icons{
+      display: flex;
+      flex-direction: column;
+      margin-left: 25%;
+      margin-top: -50%;
+    }
+    .first-icon{
+      display: flex;
+      flex-direction: column;
+      height: 27vh;
+      width: 80%;
+      background-color: #d9d9d9;
+      border-radius: 30px;
+      padding: 0 20px;
+      position: relative;
+      margin-top: 5%;
+      margin-left: 2.3%;
+  
+  
+    }
   .homesection1 {
     flex-direction: column;
     width: auto;
@@ -311,6 +521,10 @@
     margin-left: 0;
     margin-top: 10px;
   }
+
+
+
+
   
   .best-sellers-container {
     margin-top: 10%;
@@ -435,9 +649,26 @@
         }
   }
   @media (max-width: 425px) {
-    .homesection1 {
-      margin-left: 10%;
-      }
+    .icons{
+      display: flex;
+      flex-direction: row;
+      margin-left: 25%;
+      margin-top: -50%;
+    }
+    .first-icon{
+      display: flex;
+      flex-direction: column;
+      height: 20vh;
+      width: 80%;
+      background-color: #d9d9d9;
+      border-radius: 30px;
+      padding: 0 20px;
+      position: relative;
+      margin-top: 5%;
+      margin-left: 2.3%;
+  
+  
+    }
 
       .image-container ,.image-container1 {
         display: flex;

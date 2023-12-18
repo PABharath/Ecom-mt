@@ -10,6 +10,7 @@ import { useCart } from "./CreateContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import Navbar2 from "./Navbar2";
 
 
 
@@ -186,6 +187,8 @@ const ProductDetails = () => {
 
   return (
     <div>
+      <Navbar2/>
+      <div>
       {error ? (
         <p>{error}</p>
       ) : (
@@ -348,7 +351,7 @@ const ProductDetails = () => {
 
           <hr />
           <div className="review-box">
-        <button  className=""onClick={openReviewModal}>Write a Review</button>
+        <button  className="write"onClick={openReviewModal}>Write a Review</button>
         <Modal
           isOpen={isReviewModalOpen}
           onRequestClose={closeReviewModal}
@@ -374,19 +377,21 @@ const ProductDetails = () => {
                 </label>
               ))}
             </div>
-            <button type="submit" disabled={rating === -1}>
+            <div className="text">
+            <button type="submit"    className="save"disabled={rating === -1}>
               Submit 
             </button>
-            <button type="button" className=".review-formbuttons" onClick={closeReviewModal}>
-              Close Modal
+            <button type="button"    className="close" onClick={closeReviewModal}>
+              Close 
             </button>
+            </div>
           </form>
         </Modal>
       </div>
 
           <hr />
           <div className="reviews-section">
-        <h3>Reviews</h3>
+        <h3> Reviews</h3>
         <ul className="reviews-list">
           {reviews.slice(0, showAllReviews ? reviews.length : 3).map((review, index) => (
             <li key={index} className="review-item">
@@ -434,6 +439,7 @@ const ProductDetails = () => {
       )}
        {showAddToCartToast &&<ToastContainer position="top-center" autoClose={3000} />}
        
+    </div>
     </div>
   );
 };

@@ -1,9 +1,11 @@
 import React from 'react'
 import './Product.css'
+import Navbar2 from './Navbar2';
 
 function Product() {
   return (
     <div>
+      <Navbar2/>
 <main>
         <div className="product-details">
           <div className="image" width="400px" height="500px">

@@ -1,87 +1,145 @@
-/* *{
-    animation: fadeIn 1s ease-in-out;
-} */
+/* AllProductsv.css */
 
-
-
-.dropdown-content-vik{
-    margin: 1rem;
-    display: flex;
-    flex-grow: 1;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: .7rem;
-    font-size: large;
-    font-weight: 500;
-
-}
-
-/* 
-.Dropdown-vik:hover .dropdown-content-vik{
-    display: block;
-} */
-
-
-.dropdown-content-vik button {
-    align-items: center;
-    appearance: none;
-    background-color: #FCFCFD;
-    border-width: 0px;
-    box-shadow: rgba(9, 8, 11, 0.2) 0 1px 2px,rgba(45, 35, 66, 0.15) 0 4px 8px -3px,#D6D6E7 0 -3px 0 inset;
-    box-sizing: border-box;
-    color: black;
-    cursor: pointer;
-    display: inline-flex;
-    padding: .7rem 1rem;
-    
-    justify-content: center;
-    line-height: 1;
-    list-style: none;
+  .Product-List-convik{
+    padding: 1rem ;
+  }
+  .product-convik {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .productboxvik {
+    border: 1px solid #ddd;
+    border-radius: 8px;
     overflow: hidden;
-    font-size: large;
-    font-weight: 500;
-    border-radius: 3px;
-    position: relative;
-    text-align: left;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .productboxvik:hover {
+    transform: scale(1.05);
+  }
+  
+  .product-linkvik {
     text-decoration: none;
-    transition: box-shadow .15s,transform .15s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    will-change: box-shadow,transform;
-   
-   }
-   
-   .dropdown-content-vik button:focus {
-    box-shadow: #0d0d0e 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-   }
-   
-   .dropdown-content-vik button:hover {
-    box-shadow: rgba(45, 35, 66, 0.3) 0 2px 6px, rgba(45, 35, 66, 0.2) 0 5px 10px -3px, #D6D6E7 0 -3px 0 inset;
-    transform: translateY(-1px);
-    border-bottom: 1px solid black;
-   }
-   
-   .dropdown-content-vik button:active {
-    box-shadow: #050505 0 3px 7px inset;
-    transform: translateY(2px);
-   }
-
-
-
-   .priceFilter-vik input{
-    padding: .3rem;
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid gray;
-   }
-   .priceFilter-vik{
+    color: inherit;
+  }
+  
+  .product-imgvik {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .productnamevik {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .productcatvik {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .productaddconvik {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .productpricevik {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .productaddbutvik {
+    background-color: #3498db;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .productaddbutvik:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Styles for aside (filter and dropdown) */
+  
+  .productsidevik {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .Dropdown-vik {
+    margin-bottom: 20px;
+  }
+  
+  .dropdown-content-vik {
+    display: flex;
     flex-grow: 1;
-    gap: 1rem;
-    margin: 1rem;
-    
-   }
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .priceFilter-vik {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Responsive Styles */
+  
+  @media (max-width: 768px) {
+    .product-convik {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  
+    .productboxvik {
+      width: 100%;
+    }
+  }
+  
+
+  .dropdown-content-vik button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    background-image: linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%);
+    border-radius: 15px;
+    border: 1px solid #8F9092;
+    transition: all 0.2s ease;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #606060;
+    text-shadow: 0 1px #fff;
+  }
+  
+  .dropdown-content-vik button:hover {
+    box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #CECFD1;
+  }
+  
+  .dropdown-content-vik button:active {
+    box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+  }
+  
+  .dropdown-content-vik button:focus {
+    box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+  }
+  
+  
+  

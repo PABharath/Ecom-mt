@@ -1,34 +1,46 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import styles from "./ProductList.module.css";
 import { useCart } from "./CreateContext"; // Import the custom hook
 import { toast } from "react-toastify";
 import { scrollToTop } from "./scrollUtils";
 
-const ProductList = () => {
+const ProductList = ({ searchQuery }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   // Use the custom hook to get cart context
   const { addToCart } = useCart();
+  // const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    console.log("Component mounted");
+    console.log("Component mounted with searchQuery:", searchQuery);
     fetchProducts();
-  }, []);
+  }, [searchQuery]);
 
   const fetchProducts = async () => {
     try {
       const response = await axios.get("http://localhost:5555/api/products");
-      setProducts(response.data);
+      console.log("API response:", response.data);
+      const filteredProducts = filterProducts(response.data, searchQuery);
+      console.log("Filtered products:", filteredProducts);
+      setProducts(filteredProducts);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching products:", error.message);
       console.log("Error details:", error.response);
     }
   };
+  const filterProducts = (allProducts, query) => {
+    if (!query) {
+      return allProducts; // Return all products if no search query
+    }
+    const lowercasedQuery = query.toLowerCase();
+    return allProducts.filter(
+      (product) =>
+        product.productName.toLowerCase().includes(lowercasedQuery)
+    );
+  };
   
-
   const handleAddToCart = async (event, product) => {
     event.preventDefault();
 
@@ -42,7 +54,7 @@ const ProductList = () => {
       window.location.href = "/login";
       return;
     }
-
+     
     try {
       // Make a POST request to save the product to the user's collection
       const response = await axios.post(
@@ -74,32 +86,34 @@ const ProductList = () => {
   
 
   return (
-    <div className={styles.productList}>
+    <div className='Product-List-convik'>
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className={styles.productContainer}>
+        <div className='product-convik'>
           {products.map((product) => (
-            <div key={product._id} className={styles.productBox}>
+            <div key={product._id} className='productboxvik'>
               <Link
                 to={`/products/${product._id}`}
-                className={styles.productLink} onClick={scrollToTop}
+                className='product-linkvik' onClick={scrollToTop}
               >
                 <img
-                  className={styles.productImage}
+                  className='product-imgvik'
                   src={`http://127.0.0.1:5555/api/uploads/${product.productImages[0]}`}
                   alt={product.productName}
                 />
-                <div className={styles.productName}>{product.productName}</div>
-                <div className={styles.addContainer}>
-                  <div className={styles.productPrice}>₹{product.sp}</div>
+                <div className='productnamevik'>{product.productName}</div>
+                <div className='productcatvik'>{product.category}</div>
+
+                <div className='productaddconvik'>
+                  <div className='productpricevik'>₹{product.sp}</div>
                   <Link to="/cart" onClick={scrollToTop}>
                     {" "}
-                    <button
-                      className={styles.addButton}
+                    <button 
+                      className='productaddbutvik'
                       onClick={(event) => handleAddToCart(event, product)}
                     >
-                      Add
+                      ADD TO CART
                     </button>
                   </Link>
                 </div>
