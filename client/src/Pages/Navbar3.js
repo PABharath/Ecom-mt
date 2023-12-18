@@ -25,7 +25,7 @@ import './Navbar2.css'
 
 
 
-const Navbar2 = (onSearch) => {
+const NavBar3 = (onSearch) => {
 
 
    
@@ -163,4 +163,4 @@ const Navbar2 = (onSearch) => {
   );
 };
 
-export default Navbar2;
+export default NavBar3;
