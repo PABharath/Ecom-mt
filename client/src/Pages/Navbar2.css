@@ -148,41 +148,6 @@
 
 
 
-@media screen and (max-width:1240px) {
-    .hamburger {
-        display: flex;
-    }
- 
-    .nav-menu {
-        position: absolute;
-        flex-direction: column;
-        justify-content: start;
-        top: 50px;
-        right: -100%;
-        width: 50%;
-        
-        transition: 0.4s;
-        z-index: 2;
-        background: #8eab92;
-        border-left: 1px solid #eee;
-    }
- 
-    .nav-menu.active {
-        right: 0;
-    }
- 
-    .nav-menu li {
-        padding: 1rem;
-        width: 100%;
-        border-bottom: 1px solid white;
-    }
- 
-    .nav-menu a {
-        font-size: 1.2rem;
-    }
-}
-
-
 
 .nav-searchbarvik input{
     border: none;

@@ -9,12 +9,10 @@
 
 .navLink {
   color:white;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+ 
   text-decoration: none;
   border-radius: 5px;
-  margin-left: 5px;
-  margin-right: 5px;
+
 }
 
 .navbarContainer{
