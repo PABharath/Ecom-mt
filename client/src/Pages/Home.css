@@ -36,7 +36,7 @@
   .first-icon{
     display: flex;
     flex-direction: column;
-    height: 27vh;
+    /* height: 27vh; */
     width: 22%;
     background-color: #d9d9d9;
     border-radius: 30px;
@@ -44,7 +44,7 @@
     position: relative;
     margin-top: 5%;
     margin-left: 2.3%;
-
+    padding-bottom: 20px;
 
   }
 
