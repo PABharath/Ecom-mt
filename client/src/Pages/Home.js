@@ -195,7 +195,7 @@ const [patients, setPatients] = useState([]);
           <div className="subscribe-text">
              
         
-             <strong style={{fontSize:'25px',marginLeft:'2px',cursor:'pointer'}}><GoMail style={{color:'#8eab92',marginTop:'-5px'}}  />&nbsp;&nbsp;News Settler</strong>
+             <strong style={{fontSize:'25px',marginLeft:'2px',cursor:'pointer'}}><a href="https://www.google.com"><GoMail style={{color:'#8eab92',marginTop:'-5px'}}  /></a>&nbsp;&nbsp;News Settler</strong>
            <p style={{fontSize:'large' ,marginLeft:'40px'}}>Get free 20% discount for all products on your first order.</p>
            </div>
             <div className="mail-id">
