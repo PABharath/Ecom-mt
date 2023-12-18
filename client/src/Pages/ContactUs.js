@@ -7,6 +7,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { BsTelephoneFill } from "react-icons/bs";
 import { IoHomeSharp } from "react-icons/io5";
 import { BsFillClockFill } from "react-icons/bs";
+import { FaWhatsapp } from "react-icons/fa";
 
 
 const ContactUs =()=> {
@@ -128,15 +129,17 @@ const ContactUs =()=> {
               <div className="con1">
               <IoHomeSharp /><br/>
               <h4>Your Store</h4>
-              <p>National park,d1 588436,United States</p>
-              <button ><CiLocationOn href='http://www.google.com'/>View on Google map</button>
+              <p>Matrical Technologies Beml road</p>
+              <button ><CiLocationOn style={{marginTop:'-5px'}} />&nbsp;<a href="http://www.google.com">View on Google map</a></button>
              
               </div>
               <hr/>
               <div className="con1">
               <BsTelephoneFill />
               <h4>Telephone</h4>
-              <p>+919654356782</p>
+              <p>+919036686725</p>
+              
+              <button><FaWhatsapp style={{marginTop:'-3px'}}/>&nbsp;<a href="http://wa.me/9036686725">What's App</a></button>
               </div>
               <hr/>
               <div className="con1">

@@ -76,7 +76,7 @@
   
   .contact-container {
    display: flex;
-   justify-content: space-around;
+   justify-content: space-evenly;
    width: 80%;
    align-items: center;
   
@@ -176,7 +176,7 @@
    
    transition: all 1ms;
    position: relative;
-top: -rem;
+top: -.5rem;
   }
   .c1:hover{
    background-color: white;
@@ -221,5 +221,9 @@ top: -rem;
   }
   .con1 button:hover{
    background-color:rgb(60, 60, 60);
+   color: white;
+  }
+  .con1 button a{
+   text-decoration: none;
    color: white;
   }
