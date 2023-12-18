@@ -151,7 +151,7 @@ const [patients, setPatients] = useState([]);
             <Link to="/products/64d5af52e78160215db31931">
               {" "}
               {/* Replace "/products/productId" with the actual path to the product details page */}
-              <img  className="img890"  src={require("../Assets/ban_promo_26.jpg")} alt="Product 1" />
+              <img  className="img890"  src={require("../Assets/box-image2.jpg")} alt="Product 1" />
               {/* <button className="buy-now-box-button1">Buy Now </button> */}
             </Link>
           </div>
