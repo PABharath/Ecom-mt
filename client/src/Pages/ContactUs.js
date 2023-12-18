@@ -3,6 +3,12 @@ import axios from "axios";
 import "./ContactUs.css";
 import Navbar2 from "./Navbar2";
 
+import { CiLocationOn } from "react-icons/ci";
+import { BsTelephoneFill } from "react-icons/bs";
+import { IoHomeSharp } from "react-icons/io5";
+import { BsFillClockFill } from "react-icons/bs";
+
+
 const ContactUs =()=> {
   
   const[contactdata,Setcontactdata]=useState({
@@ -43,7 +49,7 @@ const ContactUs =()=> {
   
  
     return (
-      <div>
+      <div >
         <Navbar2/>
         <div className="total">
         
@@ -119,16 +125,26 @@ const ContactUs =()=> {
             </button>
           </form>
             <div className="c1">
-              <h4 style={{fontWeight:'bold'}}>Contact Us</h4>
-              <p>Need some help regarding an order, or if you just want enquire about a product, 
-                you can write to us on Matrical@gmail.com. 
-                 We will try to respond as promptly as we can.</p> 
-                <p>If you are a blogger, stylist or if you just want to say hello, 
-                  you can contact us on <span style={{color:'blue'}}>matrical@gmail.com, <br/>or call us at +91 9871054806</span></p>
-                  <h5 style={{fontWeight:'bold'}}>Visit Us at</h5>
-                  <p>Matrical Techonologies, Sec 78 Bengaluru Karnataka 500096</p>
-                  <p>Enquiry: wwww.matrical.com<br/>Location: Bengaluru RR nagar</p>
-                  {/* <p>Location : Bengaluru RRnagar</p> */}
+              <div className="con1">
+              <IoHomeSharp /><br/>
+              <h4>Your Store</h4>
+              <p>National park,d1 588436,United States</p>
+              <button ><CiLocationOn href='http://www.google.com'/>View on Google map</button>
+             
+              </div>
+              <hr/>
+              <div className="con1">
+              <BsTelephoneFill />
+              <h4>Telephone</h4>
+              <p>+919654356782</p>
+              </div>
+              <hr/>
+              <div className="con1">
+              <BsFillClockFill /> 
+              <h4>opening Timings</h4>
+              <p>8:00 A.M to 9:00 P.M</p>
+              </div>
+             
             </div>
 
          
