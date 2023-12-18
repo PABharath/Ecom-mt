@@ -1,6 +1,5 @@
 import React from 'react';
 import './FooterPage.css';
-
 import { Link } from 'react-router-dom';
 import { scrollToTop } from "./scrollUtils";
 import { IoLocationOutline } from "react-icons/io5";
