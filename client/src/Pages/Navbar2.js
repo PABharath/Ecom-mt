@@ -65,13 +65,13 @@ const Navbar2 = (onSearch) => {
               Home
             </Nav.Link>
            
-            <Nav.Link as={NavLink} to="/SareesCategories2" className={styles.navLink}>
+            <Nav.Link as={NavLink} to="/SareesCategories2" style={{color:'white'}} className={styles.navLink}>
               Saree
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/BlogPost" className={styles.navLink}>
+            <Nav.Link as={NavLink} to="/BlogPost" style={{color:'white'}} className={styles.navLink}>
               Blog
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/ContactUs" className={styles.navLink}>
+            <Nav.Link as={NavLink} to="/ContactUs" style={{color:'white'}} className={styles.navLink}>
               Contact Us
             </Nav.Link>
             <Nav.Link as={NavLink}  className={styles.navLink}>
