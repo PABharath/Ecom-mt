@@ -195,3 +195,13 @@
     border: none;
     padding: .3rem;
 }
+
+
+
+
+.me-auto{
+    display: flex;
+    align-items: center;
+   justify-content: space-around;
+   gap: 2rem;
+}

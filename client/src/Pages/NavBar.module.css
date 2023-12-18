@@ -1,0 +1,25 @@
+/* NavBar.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+.navbar {
+
+  background-color: #8eab92;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navLink {
+  color:white;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.navbarContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 7rem;
+    
+}

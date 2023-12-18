@@ -25,7 +25,7 @@ import './Navbar2.css'
 
 
 
-const Navbar2 = (onSearch) => {
+const NavBar3 = (onSearch) => {
 
 
    
@@ -65,16 +65,16 @@ const Navbar2 = (onSearch) => {
               Home
             </Nav.Link>
            
-            <Nav.Link as={NavLink} to="/SareesCategories2" style={{color:'white'}} className={styles.navLink}>
+            <Nav.Link as={NavLink} to="/about" className={styles.navLink}>
               Saree
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/BlogPost" style={{color:'white'}} className={styles.navLink}>
+            <Nav.Link as={NavLink} to="/about" className={styles.navLink}>
               Blog
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/ContactUs" style={{color:'white'}} className={styles.navLink}>
+            <Nav.Link as={NavLink} to="/about" className={styles.navLink}>
               Contact Us
             </Nav.Link>
-            <Nav.Link as={NavLink}  className={styles.navLink}>
+            <Nav.Link as={NavLink} to="/contact" className={styles.navLink}>
 
             <input
                 type="text"
@@ -95,7 +95,7 @@ const Navbar2 = (onSearch) => {
 
 
             </Nav.Link>
-            <Nav.Link as={NavLink}  className={styles.navLink}>
+            <Nav.Link as={NavLink} to="/about" className={styles.navLink}>
 
 
                  <div className="navvik-right">
@@ -163,4 +163,4 @@ const Navbar2 = (onSearch) => {
   );
 };
 
-export default Navbar2;
+export default NavBar3;
