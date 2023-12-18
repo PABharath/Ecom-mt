@@ -75,10 +75,11 @@ const Navbar2 = (onSearch) => {
               Contact Us
             </Nav.Link>
             <Nav.Link as={NavLink}  className={styles.navLink}>
+            <div className='nav-searchbarvik'>
 
             <input
                 type="text"
-                placeholder="Search patients"
+                placeholder="Search"
               
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -86,10 +87,11 @@ const Navbar2 = (onSearch) => {
               />
              
                 <button 
-                  onClick={handleSearch}  style={{border:'none'}}>
+                  onClick={handleSearch}  >
                    
                 <IoSearchOutline/>
                 </button>
+                </div>
              
             
 
