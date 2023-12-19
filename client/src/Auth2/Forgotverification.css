@@ -1,6 +1,7 @@
  .fgv-bg1{
   /* background-image: url('https://s3-alpha-sig.figma.com/img/0b0d/7354/18892239591f7ff7d30eae83d691fae2?Expires=1702252800&Signature=eBL55hSN2SghABudycoLTHwrCaBcYH2uj0VP7NSkXb~NGImxMpZ4KgbksshEPToK0uE5b0ipRyIRC2R8vtqfEqEvxtbrwhw9DizoXPaXftQTwWlfbo~DKcV6sQQdqPP0fvnlxi0aFPF77EJMBFi9LEdObGuKzWVe3DQPUNnC~9NG59EiNNEyb56bp~-JNBAQXxeqUP2hZh2nTiTYpxExvUXIu8HhFl29SATtpMOWhkPH0cyHwTkNQxXx7-NnW~Pc9tfKsa2IOlkZ8V58PXRQX72odCwsbR~-yrd9ROZiH6WEAz3T1CTf3~JBh7VKs2Osz-4BIt-2zeXA3hjQRoHzCQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'); */
   /* height: 55vh; */
+  
    width: 35%;
   /* width: 100%;  */
   /* margin-left: 50%; */
@@ -19,7 +20,10 @@
 .fgv-bgcontainer {
   /* background-image: url(forgot-back.png); */
   
-
+  background-image: url('../Assets/loginimage2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -42,9 +46,9 @@
   /* height: 380px; */
   /* width: 100%; */
   max-width: 500px;
-  background-color:white;
+  /* background-color:white; */
   border-radius: 15px;
-  box-shadow: 0 0px 10px black;
+  box-shadow: 0 0px 5px rgb(88, 88, 88);
   
 
  /* top: -12.2%;
@@ -183,3 +187,6 @@
   }
 }
 
+.fgvheadername1{
+font-size: 30px;
+}
