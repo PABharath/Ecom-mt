@@ -45,13 +45,13 @@ const Orders = () => {
       <div className="ecom-container">
         {orders.map((order) => (
           <div key={order.orderId} className="order-table-container">
-            <h3 className="order-h3">Order ID: {order.orderId}</h3>
             <table className="ecom-order-table">
               <thead>
                 <tr>
                   <th>ORDER PLACED</th>
                   <th>TOTAL</th>
                   <th>SHIP TO</th>
+                  <th>Order ID</th>
                   <th>View Order Details</th>
                 </tr>
               </thead>
@@ -59,14 +59,15 @@ const Orders = () => {
                 <tr>
                   <td>{order.orderDate}</td>
                   <td>₹{order.totalAmount}</td>
-                  <td>available</td>
+                  <td>Address</td>
+                  <td> {order.orderId}</td>
                   <td>
-                    <a
+                  <Link
                       className="ecom-link"
-                      href={`/order-details/${order.orderId}`}
+                      to={`/invoice/${order.orderId}`}
                     >
-                      View Order Details
-                    </a>
+                      View Invoice
+                    </Link>
                   </td>
                 </tr>
               </tbody>
@@ -91,7 +92,7 @@ const Orders = () => {
 
                 {order.products && order.products.length > 0 ? (
                   order.products.map((product) => (
-                    <p key={product.productName}>{product.productName}</p>
+                    <p key={product.productName} className="ecom-product-name">{product.productName}</p>
                   ))
                 ) : (
                   <p>No products in this order</p>
@@ -100,7 +101,7 @@ const Orders = () => {
                   <button className="ecom-view-items-btn">
                     <Link
                       to={`/product-details/${order.products[0]?.productId}`}
-                      className="ecom-link"
+                      className="ecom-link-a"
                     >
                       View Your Item
                     </Link>
@@ -118,63 +119,5 @@ const Orders = () => {
   );
 };
 
-const styles = {
-  // table: {
-  //   borderCollapse: "collapse",
-  //   width: "100%",
-  //   borderRadius: "4px",
-  // },
-  // th: {
-  //   backgroundColor: "lightcyan",
-  //   padding: "20px",
-  //   textAlign: "left",
-  //   borderRadius: "10px",
-  // },
-  // td: {
-  //   backgroundColor: "lightcyan",
-  //   padding: "20px",
-  //   textAlign: "left",
-  //   border: "1px solid #ccc",
-  //   // borderRadius: '24px',
-  // },
-  yellowButton: {
-    backgroundColor: "gold",
-    // padding: '10px 20px',
-    margin: "5px",
-    border: "none",
-    borderRadius: "4px",
-    color: "black",
-
-    cursor: "pointer",
-  },
-  blueButton: {
-    backgroundColor: "black",
-    // padding: '10px 20px',
-    margin: "5px",
-    border: "none",
-    borderRadius: "4px",
-    color: "white",
-    cursor: "pointer",
-  },
-  deliveryInfoContainer: {
-    display: "flex",
-    // alignItems: 'left',
-    marginLeft: "-350px",
-  },
-  image: {
-    width: "150px",
-    height: "150px",
-    marginLeft: "-10px",
-  },
-  deliveryDetails: {
-    // marginLeft: '350px',
-  },
-  a: {
-    color: "blue",
-  },
-  button: {
-    display: "flex",
-  },
-};
 
 export default Orders;
