@@ -83,10 +83,10 @@ body {
   flex-direction: column;
   align-items: flex-start;
   margin-top: -22rem;
-  margin-left: 35rem;
+  margin-left: 32rem;
 }
 .product-name{
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
   margin-top: 10%;
 }
@@ -102,20 +102,20 @@ body {
 .product-price {
   font-size: 18px;
   color: #007bff;
-  margin-bottom: 5px;
+  margin-bottom: -30px;
 }
 
 .product-mrp {
   font-size: 16px;
   color: #888;
   text-decoration: line-through;
-  margin-bottom: 5px;
+  margin-bottom: -10px;
 }
 
 .product-sp {
   font-size: 20px;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: -100px;
 }
 
 .price-container {
@@ -176,7 +176,7 @@ body {
 
 .product-availability {
   font-size: 16px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   color: black; /* Set the default color to black */
 }
 
@@ -190,14 +190,14 @@ body {
 
 .product-offer {
   font-size: 16px;
-  margin-bottom: 10px;
+  margin-bottom: -2px;
   color: #6A6262; /* Set the offer color */
 }
 .hr-1{
   width: 50%;
   margin: 0 auto;
   position: relative;
-  left:170px;
+  left:140px;
   top:20px;
 }
 
@@ -330,9 +330,9 @@ body {
 .ratings-reviews {
   display: flex;
   align-items: center;
-  margin-top: 5px;
   font-size: 16px;
-  margin-left: 10px;
+  margin-bottom: -23px;
+  margin-top: -20px;
 }
 
 .product-ratings {
