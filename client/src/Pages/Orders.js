@@ -41,11 +41,11 @@ const Orders = () => {
   return (
     <div>
       <Navbar2 />
-      <div style={styles.container}>
-        <h1>Your Orders</h1>
+      <h1>Your Orders</h1>
+      <div className="ecom-container">
         {orders.map((order) => (
           <div key={order.orderId} className="order-table-container">
-            <h3>Order ID: {order.orderId}</h3>
+            <h3 className="order-h3">Order ID: {order.orderId}</h3>
             <table className="ecom-order-table">
               <thead>
                 <tr>
@@ -119,35 +119,24 @@ const Orders = () => {
 };
 
 const styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: "20px",
-    border: "3px solid black",
-    borderRadius: "4px",
-    boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
-    maxWidth: "900px",
-    margin: "0 auto",
-  },
-  table: {
-    borderCollapse: "collapse",
-    width: "100%",
-    borderRadius: "4px",
-  },
-  th: {
-    backgroundColor: "lightcyan",
-    padding: "20px",
-    textAlign: "left",
-    borderRadius: "10px",
-  },
-  td: {
-    backgroundColor: "lightcyan",
-    padding: "20px",
-    textAlign: "left",
-    border: "1px solid #ccc",
-    // borderRadius: '24px',
-  },
+  // table: {
+  //   borderCollapse: "collapse",
+  //   width: "100%",
+  //   borderRadius: "4px",
+  // },
+  // th: {
+  //   backgroundColor: "lightcyan",
+  //   padding: "20px",
+  //   textAlign: "left",
+  //   borderRadius: "10px",
+  // },
+  // td: {
+  //   backgroundColor: "lightcyan",
+  //   padding: "20px",
+  //   textAlign: "left",
+  //   border: "1px solid #ccc",
+  //   // borderRadius: '24px',
+  // },
   yellowButton: {
     backgroundColor: "gold",
     // padding: '10px 20px',
