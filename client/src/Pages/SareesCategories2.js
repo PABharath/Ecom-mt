@@ -89,9 +89,9 @@ const SareesCategories2 = () => {
     setMaxPrice(event.target.value);
   };
 
-  const handleFilterByPrice = () => {
-    fetchProducts();
-  };
+  // const handleFilterByPrice = () => {
+  //   fetchProducts();
+  // };
 
   
   

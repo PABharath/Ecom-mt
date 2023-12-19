@@ -27,6 +27,18 @@
   text-align: center;
 
 }
+.Featured:hover{
+  background-color:black;
+  color: white;
+}
+.Featureds:hover{
+   background-color:black;
+  color: white;
+}
+.Sellers:hover{
+  color: white;
+  background-color:black;
+}
 
   .icons{
     display: flex;

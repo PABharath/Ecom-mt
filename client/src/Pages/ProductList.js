@@ -4,13 +4,12 @@ import { Link } from "react-router-dom";
 import { useCart } from "./CreateContext"; // Import the custom hook
 import { toast } from "react-toastify";
 import { scrollToTop } from "./scrollUtils";
+import Navbar2 from "./Navbar2";
 
 const ProductList = ({ searchQuery }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  // Use the custom hook to get cart context
   const { addToCart } = useCart();
-  // const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     console.log("Component mounted with searchQuery:", searchQuery);
@@ -30,6 +29,7 @@ const ProductList = ({ searchQuery }) => {
       console.log("Error details:", error.response);
     }
   };
+
   const filterProducts = (allProducts, query) => {
     if (!query) {
       return allProducts; // Return all products if no search query
@@ -40,52 +40,19 @@ const ProductList = ({ searchQuery }) => {
         product.productName.toLowerCase().includes(lowercasedQuery)
     );
   };
-  
-  const handleAddToCart = async (event, product) => {
-    event.preventDefault();
 
-    // Check if the user is authenticated
-    const token = localStorage.getItem("token");
-    console.log("Token:", token);
-    if (!token) {
-      // If not authenticated, redirect to the login page
-      toast.error("Please login to add items to the cart.");
-      // Redirect to the login page
-      window.location.href = "/login";
-      return;
-    }
-     
-    try {
-      // Make a POST request to save the product to the user's collection
-      const response = await axios.post(
-        "http://localhost:5555/api/users/cart",
-        { productId: product._id },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      console.log("Product ID:", product._id);
-      // Check if the request was successful
-      if (response.status === 200) {
-        addToCart(product);
-        console.log("Adding to cart:", product);
-        toast.success("Added to Cart!"); // Display the toast notification
-      } else {
-        // Handle other response statuses if needed
-        toast.error("Failed to add to cart. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error adding to cart:", error.message);
-      console.log("Error details:", error.response);
-      toast.error("Failed to add to cart. Please try again.");
-    }
+  const handleAddToCart = (event, product) => {
+    event.preventDefault();
+    
+    addToCart(product);
+    console.log("Adding to cart:", product);
+    toast.success("Added to Cart!"); // Display the toast notification
   };
-  
-  
 
   return (
+    <div>
+
+    
     <div className='Product-List-convik'>
       {loading ? (
         <p>Loading...</p>
@@ -123,10 +90,8 @@ const ProductList = ({ searchQuery }) => {
         </div>
       )}
     </div>
+    </div>
   );
 };
 
 export default ProductList;
-
-
-

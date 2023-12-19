@@ -1,60 +1,50 @@
+import { Navbar, Nav, Container } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import styles from "./NavBar.module.css";
+import React, { useRef, useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faShoppingCart,
+  faBell,
+  faUser,
+  faPlus,
+} from "@fortawesome/free-solid-svg-icons";
 
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import styles from './NavBar.module.css';
-import React, { useRef, useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faBell, faUser, faPlus } from '@fortawesome/free-solid-svg-icons';
-
-
-import { CartContext } from './CreateContext';
-import useAuth from '../Auth2/useAuth';
+import { CartContext } from "./CreateContext";
+import useAuth from "../Auth2/useAuth";
 import { IoSearchOutline } from "react-icons/io5";
 
-
-
-import Button from 'react-bootstrap/Button';
-import Overlay from 'react-bootstrap/Overlay';
-import Tooltip from 'react-bootstrap/Tooltip';
+import Button from "react-bootstrap/Button";
+import Overlay from "react-bootstrap/Overlay";
+import Tooltip from "react-bootstrap/Tooltip";
 import { PiSignOutBold } from "react-icons/pi";
 import { FaUserCircle } from "react-icons/fa";
-
-import './Navbar2.css'
-
+import "./Navbar2.css";
 
 
-
-const Navbar2 = (onSearch) => {
-
-
-   
+const Navbar2 = ({ onSearch }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
   const { cartItems } = useContext(CartContext);
   const [searchQuery, setSearchQuery] = useState("");
-  const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const totalQuantity = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   const [show, setShow] = useState(false);
-    const target = useRef(null);
-
-  
+  const target = useRef(null);
 
   const handleSearch = () => {
-    console.log('Search query:', searchQuery);
+    console.log("Search query:", searchQuery);
     onSearch(searchQuery);
   };
-    
-
-  
-
-
-
 
   return (
-  
-    <Navbar  expand="lg" className={styles.navbara}>
+    <div>
+   <Navbar  expand="lg" className={styles.navbara}>
       <Container className={styles.navbarContainera}>
         <Navbar.Brand as={NavLink} to="/"  className='logovik' >
         <h3>E-Saree</h3>
@@ -114,7 +104,7 @@ const Navbar2 = (onSearch) => {
           <div className="tooltip">No new notifications.. Stay tuned for more!!</div>
         </div>
 
-        {user ? (
+        {token ? (
           <div onClick={() => navigate('/Profile')}>
             <FontAwesomeIcon icon={faUser} className="menu-icon" />
           </div>
@@ -160,7 +150,7 @@ const Navbar2 = (onSearch) => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    
+    </div>
   );
 };
 

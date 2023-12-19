@@ -11,9 +11,10 @@ const forgotRoutes = require('./routes/forgotRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const emailRoutes = require('./routes/emailRoutes');
 const searchRoutes = require('./routes/searchRoutes');
-const paymentRoutes = require('./routes/paymentRoutes');
 const reviewsRoutes = require('./routes/reviewsRoutes');
-const orderRoutes = require("./routes/orderRoutes");
+const orderRoutes = require('./routes/orderRoutes');
+
+const loginRoutes = require('./routes/loginRoutes');
 
 
 
@@ -45,7 +46,7 @@ app.use('/api/search', searchRoutes);
 // Use the auth routes
 app.use('/auth', authRoutes);
 app.use('/api', userRoutes);
-
+app.use('/api', loginRoutes);
 // Use the product routes
 app.use('/api', productRoutes);
 
@@ -72,9 +73,11 @@ app.get('/', (req, res) => {
 });
 
 // Use the payment routes
+const paymentRoutes = require('./routes/paymentRoutes');
 app.use('/api/payment', paymentRoutes);
 
-app.use("/api", orderRoutes);
+// Use order routes
+app.use("/api/orders", orderRoutes);
 
 
 const PORT = process.env.PORT || 5555;
