@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useCart } from "./CreateContext"; // Import the custom hook
 import { toast } from "react-toastify";
 import { scrollToTop } from "./scrollUtils";
+import Navbar2 from "./Navbar2";
 
 const ProductList = ({ searchQuery }) => {
   const [products, setProducts] = useState([]);
@@ -49,6 +50,9 @@ const ProductList = ({ searchQuery }) => {
   };
 
   return (
+    <div>
+
+    
     <div className='Product-List-convik'>
       {loading ? (
         <p>Loading...</p>
@@ -85,6 +89,7 @@ const ProductList = ({ searchQuery }) => {
           ))}
         </div>
       )}
+    </div>
     </div>
   );
 };

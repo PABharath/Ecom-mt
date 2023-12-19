@@ -88,7 +88,7 @@ const Forgot = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div className="fg-field fg-button-field">
+              <div className=" fg-button-field45">
                 <button type="submit" className="button">
                   Submit
                 </button>

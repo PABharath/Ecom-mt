@@ -25,7 +25,7 @@ import "./Navbar2.css";
 const Navbar2 = ({ onSearch }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
-
+  const [token,] = useState(localStorage.getItem('token'));
   const { cartItems } = useContext(CartContext);
   const [searchQuery, setSearchQuery] = useState("");
   const totalQuantity = cartItems.reduce(
@@ -43,119 +43,112 @@ const Navbar2 = ({ onSearch }) => {
 
   return (
     <div>
-      <Navbar expand="lg" className={styles.navbara}>
-        <Container className={styles.navbarContainera}>
-          <Navbar.Brand as={NavLink} to="/" className="logovik">
-            <h3>E-Saree</h3>
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-autovik">
-              <Nav.Link as={NavLink} to="/" className={styles.navLink}>
-                Home
-              </Nav.Link>
+   <Navbar  expand="lg" className={styles.navbara}>
+      <Container className={styles.navbarContainera}>
+        <Navbar.Brand as={NavLink} to="/"  className='logovik' >
+        <h3>E-Saree</h3>
+         </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-autovik">
 
-              <Nav.Link
-                as={NavLink}
-                to="/SareesCategories2"
-                className={styles.navLink}
-              >
-                Saree
-              </Nav.Link>
-              <Nav.Link as={NavLink} to="/BlogPost" className={styles.navLink}>
-                Blog
-              </Nav.Link>
-              <Nav.Link as={NavLink} to="/ContactUs" className={styles.navLink}>
-                Contact Us
-              </Nav.Link>
-              <div className="nav-searchbarvik">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
+          <Nav.Link as={NavLink} to="/"  className={styles.navLink}>
+            Home
+            </Nav.Link>
+           
+            <Nav.Link as={NavLink} to="/SareesCategories2"  className={styles.navLink}>
+              Saree
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/BlogPost"  className={styles.navLink}>
+              Blog
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/ContactUs"  className={styles.navLink}>
+              Contact Us
+            </Nav.Link>
+            <div className='nav-searchbarvik'>
 
-                <button onClick={handleSearch}>
-                  <IoSearchOutline />
+            <input
+                type="text"
+                placeholder="Search"
+              
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+               
+              />
+             
+                <button 
+                  onClick={handleSearch}  >
+                   
+                <IoSearchOutline/>
                 </button>
-              </div>
+                </div>
+             
+            
+
+
+
 
               <div className="navvik-right">
                 <Link to="/ProductForm">
                   <FontAwesomeIcon icon={faPlus} className="menu-icon" />
                 </Link>
 
-                <Link to="/cart">
-                  <FontAwesomeIcon icon={faShoppingCart} />
-                  <span>{totalQuantity}</span>
-                </Link>
+        <Link to="/cart" >
+          <FontAwesomeIcon icon={faShoppingCart} />
+          <span>{totalQuantity}</span>
+        </Link>
 
-                <div className="tooltip-container">
-                  <FontAwesomeIcon icon={faBell} className="menu-icon" />
-                  <div className="tooltip">
-                    No new notifications.. Stay tuned for more!!
-                  </div>
-                </div>
+        <div className="tooltip-container">
+          <FontAwesomeIcon icon={faBell}  className="menu-icon" />
+          <div className="tooltip">No new notifications.. Stay tuned for more!!</div>
+        </div>
 
-                {user ? (
-                  <div onClick={() => navigate("/Profile")}>
-                    <FontAwesomeIcon icon={faUser} className="menu-icon" />
-                  </div>
-                ) : (
-                  <Link to="/Login">
-                    <FontAwesomeIcon icon={faUser} className="menu-icon" />
-                  </Link>
-                )}
+        {token ? (
+          <div onClick={() => navigate('/Profile')}>
+            <FontAwesomeIcon icon={faUser} className="menu-icon" />
+          </div>
+        ) : (
+          <Link to="/Login">
+            <FontAwesomeIcon icon={faUser} className="menu-icon" />
+          </Link>
+        )}
 
-                <Button
-                  ref={target}
-                  style={{
-                    backgroundColor: "white",
-                    color: "white",
-                    border: "none",
-                  }}
-                  onClick={() => setShow(!show)}
-                >
-                  <FaUserCircle
-                    style={{
-                      fontSize: "1.2rem",
-                      marginTop: "-1rem",
-                      marginLeft: "-0.8rem",
-                    }}
-                  />
-                </Button>
+<Button  ref={target} style={{backgroundColor:'white',color:'white',border:'none'}}  onClick={() => setShow(!show)}>
+           
+           <FaUserCircle style={{fontSize:'1.2rem' , marginTop:'-1rem',marginLeft:'-0.8rem'}}/>
+       
+         </Button>
+         
+         <Overlay target={target.current} show={show}   placement="bottom">
+           {(props) => (
+             
+             <Tooltip id="overlay-example"  {...props}>
+               <div >
+               <h4>Profile</h4>
+               <FaUserCircle style={{fontSize:'2rem'}}/><br/>
+                <b>Username:</b><br/>
+              <input type="text" placeholder="Username"/><br/><br/>
+                         
+                 
+                <button className="bg-button1">logout</button><br/><br/>
+                <button className="bg-button2"><PiSignOutBold/>Profile</button> 
+                 <br/>
+               </div>
+             </Tooltip>
+             
+           )}
+         </Overlay>
+      </div>
 
-                <Overlay target={target.current} show={show} placement="bottom">
-                  {(props) => (
-                    <Tooltip id="overlay-example" {...props}>
-                      <div>
-                        <h4>Profile</h4>
-                        <FaUserCircle style={{ fontSize: "2rem" }} />
-                        <br />
-                        <b>Username:</b>
-                        <br />
-                        <input type="text" placeholder="Username" />
-                        <br />
-                        <br />
 
-                        <button className="bg-button1">logout</button>
-                        <br />
-                        <br />
-                        <button className="bg-button2">
-                          <PiSignOutBold />
-                          Profile
-                        </button>
-                        <br />
-                      </div>
-                    </Tooltip>
-                  )}
-                </Overlay>
-              </div>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+
+
+
+           
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
     </div>
   );
 };
