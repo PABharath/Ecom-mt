@@ -89,7 +89,7 @@ body {
 .product-name{
   font-size: 25px;
   font-weight: 700;
-  margin-top: 10%;
+  margin-top: 20%;
 }
 .specific{
   margin-top: -1%;
@@ -200,6 +200,11 @@ body {
   position: relative;
   left:140px;
   top:20px;
+}
+.hr-2{
+  width: 60%;
+  background-color:black ;
+  /* color:black; */
 }
 
 .review-form { 
@@ -345,7 +350,7 @@ body {
   color: #6A6262;
 }
 .name-2{
-  margin-top: 50px;
+  margin-top: 10%;
   color:#272343;
   ;
 }
