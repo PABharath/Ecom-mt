@@ -193,8 +193,6 @@ const Register = () => {
           </span>
     
     
-
-
               <input
                 type="password"
                 id='password-input2'
@@ -204,12 +202,6 @@ const Register = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
               
-
-
-
-
-
-
               {errorMessage && <p className="error-message">{errorMessage}</p>}
             </div>
             <div className="field1 button-field1">
@@ -217,8 +209,7 @@ const Register = () => {
             </div>
            
           </div>
-          
-           
+      
             <p className="para1">Or</p>
            
           
@@ -246,7 +237,7 @@ const Register = () => {
                
               </span>
             </div>
-       
+            
       </form>
      </div>
      <ToastContainer position="top-center" autoClose={3000} />

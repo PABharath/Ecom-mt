@@ -45,6 +45,7 @@ body {
   line-height: 45px;
   width: 50%;
   font-size: 15px;
+  margin-top: -16%;
 }
 .carousel-root {
   margin: 0 10px; /* Adjust the value as needed */
@@ -83,10 +84,10 @@ body {
   flex-direction: column;
   align-items: flex-start;
   margin-top: -22rem;
-  margin-left: 35rem;
+  margin-left: 32rem;
 }
 .product-name{
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
   margin-top: 10%;
 }
@@ -102,20 +103,20 @@ body {
 .product-price {
   font-size: 18px;
   color: #007bff;
-  margin-bottom: 5px;
+  margin-bottom: -30px;
 }
 
 .product-mrp {
   font-size: 16px;
   color: #888;
   text-decoration: line-through;
-  margin-bottom: 5px;
+  margin-bottom: -10px;
 }
 
 .product-sp {
   font-size: 20px;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: -100px;
 }
 
 .price-container {
@@ -176,7 +177,7 @@ body {
 
 .product-availability {
   font-size: 16px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   color: black; /* Set the default color to black */
 }
 
@@ -190,14 +191,14 @@ body {
 
 .product-offer {
   font-size: 16px;
-  margin-bottom: 10px;
+  margin-bottom: -2px;
   color: #6A6262; /* Set the offer color */
 }
 .hr-1{
   width: 50%;
   margin: 0 auto;
   position: relative;
-  left:170px;
+  left:140px;
   top:20px;
 }
 
@@ -330,9 +331,9 @@ body {
 .ratings-reviews {
   display: flex;
   align-items: center;
-  margin-top: 5px;
   font-size: 16px;
-  margin-left: 10px;
+  margin-bottom: -23px;
+  margin-top: -20px;
 }
 
 .product-ratings {
@@ -438,6 +439,46 @@ body {
   border-radius: 5px;
   /* margin-left: ; */
 } 
+/* Add this CSS to your existing styles */
+.additional-images {
+  display: flex;
+  gap: 10px;
+  margin-top: 7%;
+}
+
+.additional-image {
+  width: 100px; /* Set a fixed width for the additional images */
+  height: 150px; /* Set a fixed height for the additional images */
+  object-fit: cover; /* Maintain aspect ratio while covering the container */
+  border-radius: 10px; /* Add border-radius for a carousel effect */
+}
+
+.images-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-image {
+  margin-bottom: 20px;
+  border-radius: 10px; 
+  margin-top: 30%;/* Add border-radius for a carousel effect */
+  width: 50%;
+}
+
+.product-images img {
+  width: 250%; /* Make the images in the carousel responsive */
+  /* max-height: 300px; */
+  object-fit: contain;
+  margin-bottom: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-images img:hover {
+  transform: scale(1.2);
+  z-index: 1;
+}
+
 @media (max-width:768px) {
   .product-pricing-box { 
     width: 100%;
