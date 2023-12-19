@@ -91,11 +91,11 @@ const Register = () => {
       toast.error('Passwords do not match', { position: 'top-center', autoClose: 3000 });
     } else {
       try {
-        const response = await axios.post('http://localhost:5555/user/register', {
+        const response = await axios.post('http://localhost:5555/api/register', {
           username: name,
-          email,
+          email: email,
           contact: phoneNumber,
-          password,
+          password: password,
         });
         if (response.status === 201) {
           // Display success message using toast.success

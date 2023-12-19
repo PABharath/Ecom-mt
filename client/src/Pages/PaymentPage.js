@@ -150,12 +150,9 @@ const PaymentPage = () => {
         <div className="paya">
           <div className="amount"> Amount Payable: ₹ {totalAmount}</div>
         </div>
-        <button className="create-order" onClick={handleCreateOrder}>
+        {/* <button className="create-order" onClick={handleCreateOrder}>
           Create Order
-        </button>
-        {/* <button className="create" onClick={() => handleOrderCreation()}>
-  Create Order
-</button> */}
+        </button> */}
       </div>
       {order && (
         <div>
