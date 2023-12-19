@@ -45,6 +45,7 @@ body {
   line-height: 45px;
   width: 50%;
   font-size: 15px;
+  margin-top: -16%;
 }
 .carousel-root {
   margin: 0 10px; /* Adjust the value as needed */
@@ -438,6 +439,46 @@ body {
   border-radius: 5px;
   /* margin-left: ; */
 } 
+/* Add this CSS to your existing styles */
+.additional-images {
+  display: flex;
+  gap: 10px;
+  margin-top: 7%;
+}
+
+.additional-image {
+  width: 100px; /* Set a fixed width for the additional images */
+  height: 150px; /* Set a fixed height for the additional images */
+  object-fit: cover; /* Maintain aspect ratio while covering the container */
+  border-radius: 10px; /* Add border-radius for a carousel effect */
+}
+
+.images-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-image {
+  margin-bottom: 20px;
+  border-radius: 10px; 
+  margin-top: 30%;/* Add border-radius for a carousel effect */
+  width: 50%;
+}
+
+.product-images img {
+  width: 250%; /* Make the images in the carousel responsive */
+  /* max-height: 300px; */
+  object-fit: contain;
+  margin-bottom: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-images img:hover {
+  transform: scale(1.2);
+  z-index: 1;
+}
+
 @media (max-width:768px) {
   .product-pricing-box { 
     width: 100%;
