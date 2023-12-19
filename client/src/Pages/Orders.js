@@ -61,12 +61,12 @@ const Orders = () => {
                   <td>₹{order.totalAmount}</td>
                   <td>available</td>
                   <td>
-                    <a
+                  <Link
                       className="ecom-link"
-                      href={`/order-details/${order.orderId}`}
+                      to={`/invoice/${order.orderId}`}
                     >
                       View Order Details
-                    </a>
+                    </Link>
                   </td>
                 </tr>
               </tbody>
