@@ -7,7 +7,7 @@
   padding: 2rem;
   text-align: center; /* Center-align all content */
   width: 100%;
-  height: 450px;
+  height: 350px;
 }
 
 
@@ -18,10 +18,10 @@ font-weight: 1000;
 
 
   /* font-weight: 800; */
-  font-size: larger;
+  
   vertical-align: top;
 
-  line-height: 190%;
+  line-height: 130%;
   /* word-spacing: 29%; */
   font-family:   "Roboto_Slab variant0", Tofu;
 }
@@ -66,8 +66,7 @@ font-weight: 1000;
   margin-bottom: 5px;
   color: white;
   text-align: left;
-  font-size: 24px;
-  font-weight: 15px;
+  font-size: 18px; font-weight: 15px;
 }
 
 
@@ -104,15 +103,17 @@ font-weight: 1000;
 }
 
 .social-media-icons li {
-  margin-right: 15px;
+  margin-right: 10px;
   line-height: 30px;
 }
 
 .social-media-icons li a {
   color: white;
   line-height: 80%; 
+  position: relative;
+  right: 1.5rem;
   text-decoration: none;
-  font-size: 2rem; /* Remove blue underlines from social media links */
+  font-size: 1.5rem; /* Remove blue underlines from social media links */
 }
 
 .footer-bottom {

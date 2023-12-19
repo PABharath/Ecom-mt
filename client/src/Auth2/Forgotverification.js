@@ -76,7 +76,7 @@ function Forgotverification() {
         {/* <div className="fgvarrow">
           <AiOutlineArrowLeft></AiOutlineArrowLeft>
         </div> */}
-        <h1 className="fgvheadername" style={{fontFamily:'verdana'}}>Reset Password</h1>
+        <h1 className="fgvheadername1" style={{fontFamily:'verdana'}}>Reset Password</h1>
         
         <p className="fgvpara" >
           Create new password as you can login to your account
@@ -116,6 +116,7 @@ function Forgotverification() {
           </span>
     
           </div>
+          <br/>
            <div className="fgv-field fgv-input-field">
             {/* <label>Confirm New Password</label> */}
             <input
@@ -133,6 +134,7 @@ function Forgotverification() {
             )}
           </span>
           </div> 
+          <br/>
           <div className="fgv-field fgv-button-field">
             <button className="button" type="submit">Submit</button>
           </div>

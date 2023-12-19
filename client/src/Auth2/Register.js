@@ -93,9 +93,9 @@ const Register = () => {
       try {
         const response = await axios.post('http://localhost:5555/api/register', {
           username: name,
-          email,
+          email: email,
           contact: phoneNumber,
-          password,
+          password: password,
         });
         if (response.status === 201) {
           // Display success message using toast.success
@@ -193,8 +193,6 @@ const Register = () => {
           </span>
     
     
-
-
               <input
                 type="password"
                 id='password-input2'
@@ -204,12 +202,6 @@ const Register = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
               
-
-
-
-
-
-
               {errorMessage && <p className="error-message">{errorMessage}</p>}
             </div>
             <div className="field1 button-field1">
@@ -217,8 +209,7 @@ const Register = () => {
             </div>
            
           </div>
-          
-           
+      
             <p className="para1">Or</p>
            
           
@@ -246,7 +237,7 @@ const Register = () => {
                
               </span>
             </div>
-       
+            
       </form>
      </div>
      <ToastContainer position="top-center" autoClose={3000} />

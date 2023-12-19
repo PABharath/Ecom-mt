@@ -1,8 +1,5 @@
 {
   "devDependencies": {
     "webpack-cli": "^5.1.4"
-  },
-  "dependencies": {
-    "stripe": "^13.2.0"
   }
 }

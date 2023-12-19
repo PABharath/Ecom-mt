@@ -1,74 +1,13 @@
-.headervik {
-    width: 100%;
-    border-bottom: 1px solid #eee;
-    background: #8eab92;
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-   
-   
-}
-.headervik a{
-    text-decoration: none;
-}
- .containervik{
-    padding-top: 1rem;
- }
- .containervik ul {
-    display: flex;
-    justify-content:space-around;
-    gap: 2rem;
-    align-items: center;
-
-  
-}
- 
-.containervik ul{
-    list-style: none;
-}
-.colors {
-    color: var(--primary);
-}
- 
-.nav-menu {
-    display: flex;
-}
-.logovik
-{
-  color:white;
-   font-Size: 28px;
-}
- 
-.nav-menu li {
-    padding: 0 1rem;
-}
- 
-.nav-menu a {
-    font-size: 1rem;
-    font-weight: 600;
-    color: rgb(255, 255, 255);
-}
- 
-.hamburger {
-    display: none;
-    cursor: pointer;
-}
- 
-
-  
 .navvik-right{
     display: flex;
-    gap: 0.8rem;
-    color: black;
-    /* margin-right: 2rem; */
-   margin-top: 1%;
+    gap: 2rem;
+    margin-top: .5rem;
+    margin-left: 3rem;
 }
 
+.navvik-right *{
+    color: #333;
+}
 
 .tooltip-inner {
     max-width: var(--bs-tooltip-max-width);
@@ -126,16 +65,7 @@
   .menu-icon:hover + .tooltip {
 	opacity: 1; /* Increase opacity for better visibility */
   }
-  .menu-icon{
-    color: white;
-  }
-   
-  :root {
-	  --mainColor: #29335c;
-	  --mainColorLight: #5767aa;
-	  --secondaryColor: #db2b39;
-	  --textColor: #eee;
-  }
+
   *{
 	  margin: 0px;
 	  padding: 0px;
@@ -144,43 +74,14 @@
   }
   
  
-
-
-
-
-@media screen and (max-width:1240px) {
-    .hamburger {
-        display: flex;
-    }
- 
-    .nav-menu {
-        position: absolute;
-        flex-direction: column;
-        justify-content: start;
-        top: 50px;
-        right: -100%;
-        width: 50%;
-        
-        transition: 0.4s;
-        z-index: 2;
-        background: #8eab92;
-        border-left: 1px solid #eee;
-    }
- 
-    .nav-menu.active {
-        right: 0;
-    }
- 
-    .nav-menu li {
-        padding: 1rem;
-        width: 100%;
-        border-bottom: 1px solid white;
-    }
- 
-    .nav-menu a {
-        font-size: 1.2rem;
-    }
+.nav-searchbarvik{
+    border: 1.4px black solid;
+    border-radius:3px;
+    padding-bottom: 1px;
+    width: 350px;
+    margin-left: 2rem;
 }
+
 
 
 
@@ -188,10 +89,27 @@
     border: none;
     outline: none;
     padding: .3rem;
+    width: 320px;
    
    
 }
 .nav-searchbarvik button{
     border: none;
     padding: .3rem;
+    background-color: white;
+}
+.me-autovik{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    color: black;
+    font-weight: 500;
+    margin-top: .3rem;
+}
+
+
+
+.logovik{
+   color: black;
+   
 }

@@ -10,8 +10,8 @@
 }
 
 .bgRegistercontainer1{
-  background-image: url(https://s3-alpha-sig.figma.com/img/0b0d/7354/18892239591f7ff7d30eae83d691fae2?Expires=1702252800&Signature=eBL55hSN2SghABudycoLTHwrCaBcYH2uj0VP7NSkXb~NGImxMpZ4KgbksshEPToK0uE5b0ipRyIRC2R8vtqfEqEvxtbrwhw9DizoXPaXftQTwWlfbo~DKcV6sQQdqPP0fvnlxi0aFPF77EJMBFi9LEdObGuKzWVe3DQPUNnC~9NG59EiNNEyb56bp~-JNBAQXxeqUP2hZh2nTiTYpxExvUXIu8HhFl29SATtpMOWhkPH0cyHwTkNQxXx7-NnW~Pc9tfKsa2IOlkZ8V58PXRQX72odCwsbR~-yrd9ROZiH6WEAz3T1CTf3~JBh7VKs2Osz-4BIt-2zeXA3hjQRoHzCQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
-  width: 45%;
+  
+  width: 50%;
   margin: auto;
   margin-top: 2%;
   margin-bottom: 2%;  
@@ -23,12 +23,13 @@
 }
 .forms1{
   width: 65%;
-  padding:1rem;
+  padding:2rem;
   border-radius: 1rem;
   background-color: white;
-  margin-left: 35%;
-
-  border-left: 1px black solid;
+  /* margin-left: 35%; */
+/* 
+  border-left: 1px black solid; */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 .Headername1 {
   color:black;
@@ -41,12 +42,12 @@
   margin-bottom: 20px;
 }
 .input-field1 input {
-  width: 85%;
-  padding: 5px;
+  width: 100%;
+  padding: 10px;
   border: none;
   border-bottom: 1px solid #ccc;
-  display: inline;
-  outline: none;
+  /* display: inline;
+  outline: none; */
 }
 
 .password1 {
@@ -54,11 +55,11 @@
 }
 
 .password1 .eye-icon {
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
-  cursor: pointer;
+  cursor: pointer; */
 }
 .form-link1 {
   margin: 1rem;

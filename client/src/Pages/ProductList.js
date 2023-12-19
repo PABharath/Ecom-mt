@@ -74,12 +74,15 @@ const ProductList = ({ searchQuery }) => {
 
                 <div className='productaddconvik'>
                   <div className='productpricevik'>₹{product.sp}</div>
-                  <button 
-                    className='productaddbutvik'
-                    onClick={(event) => handleAddToCart(event, product)}
-                  >
-                    ADD TO CART
-                  </button>
+                  <Link to="/cart" onClick={scrollToTop}>
+                    {" "}
+                    <button 
+                      className='productaddbutvik'
+                      onClick={(event) => handleAddToCart(event, product)}
+                    >
+                      Add to cart
+                    </button>
+                  </Link>
                 </div>
               </Link>
             </div>

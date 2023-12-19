@@ -16,6 +16,7 @@ import Navbar2 from "./Navbar2";
 
 const ProductDetails = () => {
   const [productDetails, setProductDetails] = useState({});
+  const [mainImage, setMainImage] = useState(0);
   const [rating, setRating] = useState(-1);
   const [error, setError] = useState("");
   const [reviewData, setReviewData] = useState({ ratings: 0, reviews: 0 });
@@ -35,6 +36,9 @@ const ProductDetails = () => {
     fetchReviewData();
   }, []);
 
+  const handleThumbnailClick = (index) => {
+    setMainImage(index);
+  };
 
   const fetchReviewData = async () => {
     try {
@@ -194,7 +198,7 @@ const ProductDetails = () => {
       ) : (
         <div>
           {/* <h2>{productDetails.productName}</h2> */}
-          <div className="product-images">
+          {/* <div className="product-images">
             {productDetails.productImages &&
             productDetails.productImages.length > 0 ? (
               <Carousel showArrows={true} showStatus={false} showThumbs={false}>
@@ -213,7 +217,40 @@ const ProductDetails = () => {
             ) : (
               <p>No images available</p>
             )}
+          </div> */}
+
+<div className="product-images">
+      {productDetails.productImages && productDetails.productImages.length > 0 ? (
+        <div className="images-container">
+          {/* Display the selected main image */}
+          <img
+            className="main-image"
+            src={`http://127.0.0.1:5555/api/uploads/${productDetails.productImages[mainImage]}`}
+            alt={`Product ${mainImage}`}
+            width="1000"
+            height="1200"
+          />
+
+          {/* Display the remaining images as thumbnails */}
+          <div className="additional-images">
+            {productDetails.productImages.map((image, index) => (
+              <img
+                key={index}
+                className={`thumbnail ${index === mainImage ? 'active' : ''}`}
+                src={`http://127.0.0.1:5555/api/uploads/${image}`}
+                alt={`Product ${index}`}
+                width="50"
+                height="75"
+                onClick={() => handleThumbnailClick(index)}
+              />
+            ))}
           </div>
+        </div>
+      ) : (
+        <p>No images available</p>
+      )}
+    </div>
+
           <div className="product-pricing-box">
             <div className="next">
             <p className="product-name">{productDetails.productName}</p>
@@ -228,6 +265,7 @@ const ProductDetails = () => {
             <p className="product-offer">
               ({calculateOffer(productDetails.mrp, productDetails.sp)}% off)
             </p>
+            <hr className="hr-2" />
             <p className="availability">
               Availability:{" "}
               <span
@@ -242,12 +280,13 @@ const ProductDetails = () => {
                   : "In Stock"}
               </span>
             </p>
-       
+        
             <div className="ratings-reviews">
   <p className="product-ratings">{reviews.length > 0 ? (reviewData.ratings / reviews.length).toFixed(2) : 'N/A'} Ratings &</p>
   <p className="product-reviews">{reviewData.reviews} Reviews</p>
 
 </div>
+<hr className="hr-2" />
 
             <div className="product-savings"> 
               You Saved:{" "}

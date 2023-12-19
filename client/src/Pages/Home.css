@@ -1,4 +1,3 @@
-
 .free{
   margin-top: 100%;
   font-size: 20px;
@@ -28,6 +27,18 @@
   text-align: center;
 
 }
+.Featured:hover{
+  background-color:black;
+  color: white;
+}
+.Featureds:hover{
+   background-color:black;
+  color: white;
+}
+.Sellers:hover{
+  color: white;
+  background-color:black;
+}
 
   .icons{
     display: flex;
@@ -36,15 +47,15 @@
   .first-icon{
     display: flex;
     flex-direction: column;
-    height: 27vh;
+    /* height: 27vh; */
     width: 22%;
     background-color: #d9d9d9;
     border-radius: 30px;
-    padding: 0 20px;
+    padding: 20px 20px;
     position: relative;
     margin-top: 5%;
     margin-left: 2.3%;
-
+    /* padding-bottom: 20px; */
 
   }
 
@@ -72,7 +83,7 @@
     padding: 5px;
     position: absolute;
     margin-top: 15%;
-    margin-left: 30%;
+    margin-left: 33%;
     transform: translateY(-50%);
 
  }
@@ -86,7 +97,7 @@
   padding: 5px;
   position: absolute;
   margin-top: 15%;
-  margin-left: 30%;
+  margin-left: 33%;
   transform: translateY(-50%);
 
 }
@@ -100,7 +111,7 @@
   padding: 5px;
   position: absolute;
   margin-top: 15%;
-  margin-left: 30%;
+  margin-left: 33%;
   transform: translateY(-50%);
 
 }
@@ -222,7 +233,7 @@
   /* flex-direction: column; */
   align-items: center;
   width: 720px;
-  height: 450px;
+  /* height: 450px; */
   margin-top: 1%;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4); /* Add shadow for depth */
   margin-left: 20px;
@@ -231,17 +242,11 @@
   cursor: pointer;
   }
   
-  /* .image-container1 {
-    margin-left: 13%;
-  } */
   .image-container img {
   width: 100%;
   max-height: 100%;
   }
-  .image-container1 img {
-    width: 100%;
-    max-height: 100%;
-    }
+
   
   .buy-now-box-button1 {
   background-color: white;
@@ -627,6 +632,7 @@
     margin-left: 10%;
   }
   
+  
   .browse-all-button {
     margin-top: 5%;
   }
@@ -685,6 +691,3 @@
         cursor: pointer;
         }
   }
-  
-  
-  

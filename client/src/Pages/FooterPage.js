@@ -11,6 +11,7 @@ import { FaCcMastercard } from "react-icons/fa";
 import { FaCcPaypal } from "react-icons/fa";
 import { SiRazorpay } from "react-icons/si";
 import { SlCallEnd } from "react-icons/sl";
+import { BsTwitterX } from "react-icons/bs";
 
 
 
@@ -81,7 +82,7 @@ Location</li>
             
             <li>
               <a href="https://www.twitter.com">
-                <i className="fab fa-twitter"></i>
+                <i><BsTwitterX /></i>
               </a>
             </li>
             <li>
@@ -97,13 +98,13 @@ Location</li>
             <li>
               <h3  className='text12765'>Payment</h3>
               
-              <FaCcVisa className='list45' style={{fontSize:'2.5rem'}} /> &nbsp;
+              <FaCcVisa className='list45' style={{fontSize:'1.5rem'}} /> &nbsp;
 
-              <FaCcMastercard className='list45' style={{fontSize:'2.5rem'}}/>&nbsp;
+              <FaCcMastercard className='list45' style={{fontSize:'1.5rem'}}/>&nbsp;
 
-              <FaCcPaypal className='list45' style={{fontSize:'2.5rem'}} />&nbsp;
+              <FaCcPaypal className='list45' style={{fontSize:'1.5rem'}} />&nbsp;
 
-              <SiRazorpay className='list45'  style={{fontSize:'2.5rem'}} />
+              <SiRazorpay className='list45'  style={{fontSize:'1.5rem'}} />
 
 
               
