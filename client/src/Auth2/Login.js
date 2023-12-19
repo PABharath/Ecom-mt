@@ -85,7 +85,7 @@ const Login = () => {
           <div className="logincontainer2">
             <div className="loginform1 register">
               <div className="loginform-content1">
-                <header className="loginHeadername1">Login</header>
+                <header className="loginHeadername1" style={{textAlign:'center'}}>Login</header>
                 <form onSubmit={handleSubmit}>
                   {/* Input fields for email and password */}
                   <div className="loginfield1 logininput-field1">
@@ -113,9 +113,9 @@ const Login = () => {
                       onClick={togglePasswordVisibility}
                     >
                       {showPassword ? (
-                        <FontAwesomeIcon icon={faEyeSlash} />
+                        <FontAwesomeIcon icon={faEyeSlash} style={{color:'black'}} />
                       ) : (
-                        <FontAwesomeIcon icon={faEye} />
+                        <FontAwesomeIcon icon={faEye} style={{color:'black'}} />
                       )}
                     </span>
                   </div>

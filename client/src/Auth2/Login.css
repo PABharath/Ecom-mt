@@ -4,8 +4,13 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-top: 35px;
-  padding-bottom: 5rem;
+   /* margin-bottom: -2rem; */
+  padding-bottom: 3rem; 
+  background-image: url('../Assets/loginimage2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  
 }
 .overflow{
   overflow-x: hidden;
@@ -17,22 +22,22 @@
   align-items: center;
   /* height: 80vh; */
   font-family: Verdana;
-  background-image: url('https://s3-alpha-sig.figma.com/img/0b0d/7354/18892239591f7ff7d30eae83d691fae2?Expires=1702252800&Signature=eBL55hSN2SghABudycoLTHwrCaBcYH2uj0VP7NSkXb~NGImxMpZ4KgbksshEPToK0uE5b0ipRyIRC2R8vtqfEqEvxtbrwhw9DizoXPaXftQTwWlfbo~DKcV6sQQdqPP0fvnlxi0aFPF77EJMBFi9LEdObGuKzWVe3DQPUNnC~9NG59EiNNEyb56bp~-JNBAQXxeqUP2hZh2nTiTYpxExvUXIu8HhFl29SATtpMOWhkPH0cyHwTkNQxXx7-NnW~Pc9tfKsa2IOlkZ8V58PXRQX72odCwsbR~-yrd9ROZiH6WEAz3T1CTf3~JBh7VKs2Osz-4BIt-2zeXA3hjQRoHzCQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
+  /* background-image: url('https://s3-alpha-sig.figma.com/img/0b0d/7354/18892239591f7ff7d30eae83d691fae2?Expires=1702252800&Signature=eBL55hSN2SghABudycoLTHwrCaBcYH2uj0VP7NSkXb~NGImxMpZ4KgbksshEPToK0uE5b0ipRyIRC2R8vtqfEqEvxtbrwhw9DizoXPaXftQTwWlfbo~DKcV6sQQdqPP0fvnlxi0aFPF77EJMBFi9LEdObGuKzWVe3DQPUNnC~9NG59EiNNEyb56bp~-JNBAQXxeqUP2hZh2nTiTYpxExvUXIu8HhFl29SATtpMOWhkPH0cyHwTkNQxXx7-NnW~Pc9tfKsa2IOlkZ8V58PXRQX72odCwsbR~-yrd9ROZiH6WEAz3T1CTf3~JBh7VKs2Osz-4BIt-2zeXA3hjQRoHzCQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
   background-size: cover;
-  background-position: center;
+  background-position: center; */
 }
 .logincontainer2{
   /* height: 60vh; */
-  width: 100%;
+  /* width: 100%;
   background-color: #fff;
   border-radius: 5%;
   margin-left: 35%;
-  border: 1px solid #000080;
+  border: 1px solid #000080; */
 }
 .loginforms1 {
   background-color:transparent;
-  max-width: 600px;
-  width: 130%;
+  max-width: 400px;
+  width: 100%;
   /* height:85%; */
   margin-top: 50px;
   border-radius: 5%; 
@@ -44,10 +49,9 @@
 }
 .loginspan1{
   color: black;
+  margin-left: 30%;
 }
-.loginspan1:hover{
-  color:#000080; 
-}
+
 .loginpara1{
   color:#f5f7fb;
 }
@@ -55,21 +59,22 @@
   color: black;
   font-size: 28px;
   font-weight: bold;
-  margin-left: -60%;
+  /* margin-left: -60%; */
   margin-top: 6%;
 }
 .loginfield1 {
   margin-bottom: 20px;
 }
 .logininput-field1 input, .loginpassword1 {
-  width: 80%;
+  width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   margin-left: 3%;
   margin-top: 5%;
-  border: none;
-  outline-width: 0px;
-  border-bottom: 1px solid black;
+  /* border: none;
+  outline-width: 0px; */
+  /* border-bottom: 1px solid black; */
+  border-radius: 20px;
 }
 .loginpassword1 {
   position: relative;
@@ -95,21 +100,21 @@
 
 .loginform-link1 {
   color: black;
-  width: 100%;
-  padding-left: 13%;
+  width: 90%;
+  padding-left: 15%;
   padding-top: 5%;
   padding-bottom: 4%;
   
 }
 .loginbutton-field1 button {
-  width: 80%;
+  width: 90%;
   padding: 10px;
-  background-color: #111133; 
-  color: #ffffff;
+  background-color:#8eab92; 
+  color:white;
   border: none;
-  border-radius: 8px;
+  border-radius: 15px;
   cursor: pointer;
-  margin-left: -2%;
+ 
   font-size: 20px;
   margin-top: 2%;
   
@@ -117,13 +122,17 @@
 .loginbutton-field1 button:hover{
 
   /* background-image: linear-gradient(to right, #3b4b3f, #0da34e, #f0571a); */
-  background-color: #111133;
+  background-color:rgb(0, 0, 0);
+  color: white;
   /* background-color: #05ed01; */
 }
 .login-icon21{
-  display: inline-block;
+  /* display: inline-block;
   cursor: pointer;               
-  color: black;
+  color: black; */
+  position: relative;
+  left: 7.4rem;
+  top: -2.1rem;
 }
 .loginline11 {
   display: flex; 
@@ -167,6 +176,7 @@
   /* margin-top: 20px; */
   /* margin-left: -50%; */
   margin-top: 5%;
+  
 }
 
 /* Apply styles to GoogleLogin button */
@@ -187,6 +197,7 @@
 
 .loginform-link{
   margin-bottom: 10px;
+  text-align: center;
   
 }
 .loginforgot-pass {
@@ -195,9 +206,9 @@
   font-size: 15px;
   font-weight: 600;
 }
-.loginforgot-pass:hover{
+/* .loginforgot-pass:hover{
   color:#81dbdf
-}
+} */
 
 @media (max-width: 600px) {
   .container {
