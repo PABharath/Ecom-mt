@@ -13,10 +13,18 @@ import 'react-toastify/dist/ReactToastify.css'
 import Navbar2 from "../Pages/Navbar2";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [data,setData] = useState({
+    email:'',
+    password:'',
+})
+  const [token,setToken] = useState('') 
   const [message, setMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  const changeHandler = e =>{
+    setData({...data,[e.target.name]:e.target.value})
+}
+
 
   const navigate = useNavigate();
   const { login } = useAuth(); // Use the login function from useAuth
@@ -37,25 +45,20 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();  
     try {
-      const response = await axios.post("http://127.0.0.1:5555/auth/login", {
-        email,
-        password,
-      });
+      const response = await axios.post("http://127.0.0.1:5555/api/login",data);
   
       if (response.status === 200) {  
-        const token = response.data.token;
-        localStorage.setItem("token", token);
+        setToken(response.data.token);
+        localStorage.setItem("token", response.data.token);
   
         // Display success message using toast.success
         toast.success('Login successful', { position: 'top-center', autoClose: 3000 });
   
         // Set the user data using the login function
-        login({ token, email }); 
+        // login({ token, email }); 
   
         // Navigate to Home page after successful login
-        setTimeout(() => {
-          navigate("/");
-        }, 3000);
+        
       } else {
         // Display error message for non-200 response status using toast.error
         toast.error('Invalid credentials', { position: 'top-center', autoClose: 3000 });
@@ -75,6 +78,13 @@ const Login = () => {
     }
   };
   
+  if(token){
+    setTimeout(() => {
+      navigate('/');
+    }, 2000);
+  
+  
+   }
 
   return (
    <div>
@@ -94,8 +104,8 @@ const Login = () => {
                       name="email" // Add name attribute for form submission
                       placeholder="Email"
                       className="input1"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      value={data.email}
+                      onChange={changeHandler}
                     />
                   </div>
                   <div className="loginfield1 logininput-field1">
@@ -105,8 +115,8 @@ const Login = () => {
                       name="password" // Add name attribute for form submission
                       placeholder="Password"
                       className="loginpassword1"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      value={data.password}
+                      onChange={changeHandler}
                     />
                     <span
                       className="login-icon21"

@@ -28,7 +28,8 @@ const Navbar2 = (onSearch) => {
 const [click, setClick] = useState(false)
 const handleClick = () => setClick(!click)
 const navRef = useRef();
-  const { user } = useAuth();
+  // const { user } = useAuth();
+  const [token,] = useState(localStorage.getItem('token'));
   const navigate = useNavigate();
 
   const [searchValue, setSearchValue] = useState('');
@@ -117,7 +118,7 @@ const navRef = useRef();
           <div className="tooltip">No new notifications.. Stay tuned for more!!</div>
         </div>
 
-        {user ? (
+        {token ? (
           <div onClick={() => navigate('/Profile')}>
             <FontAwesomeIcon icon={faUser} className="menu-icon" />
           </div>
