@@ -54,8 +54,8 @@ const Navbar2 = (onSearch) => {
 
   return (
     <div>
-    <Navbar  expand="lg" className={styles.navbar}>
-      <Container className={styles.navbarContainer}>
+    <Navbar  expand="lg" className={styles.navbara}>
+      <Container className={styles.navbarContainera}>
         <Navbar.Brand as={NavLink} to="/" style={{color:'white'}} className='logovik' >E-Saree </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
