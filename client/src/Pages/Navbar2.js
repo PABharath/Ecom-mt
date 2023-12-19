@@ -104,7 +104,7 @@ const Navbar2 = ({ onSearch }) => {
           <div className="tooltip">No new notifications.. Stay tuned for more!!</div>
         </div>
 
-        {user ? (
+        {token ? (
           <div onClick={() => navigate('/Profile')}>
             <FontAwesomeIcon icon={faUser} className="menu-icon" />
           </div>

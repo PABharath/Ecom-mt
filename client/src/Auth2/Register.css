@@ -4,28 +4,40 @@
   font-weight: bold;
   
 }
-.span1:hover{
-  color:#05ed01;
-  
+
+
+.confirmpassword{
+  position: relative;
+  top: -1.5rem;
 }
 
 .bgRegistercontainer1{
   
-  width: 50%;
+  width: 100%;
+  max-width: 450px;
   margin: auto;
-  margin-top: 2%;
-  margin-bottom: 2%;  
+  /* margin-top: 2%;
+  margin-bottom: 2%;   */
   border-radius: 1rem;
   padding: 1px;
   overflow: hidden;
   box-sizing: border-box;
   
 }
+
+.bgRegistercontainermain{
+  background-image: url('../Assets/loginimage2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .forms1{
-  width: 65%;
-  padding:2rem;
+ margin-top: 12%;
+ margin-bottom: 12%;
+  padding:1rem;
+
   border-radius: 1rem;
-  background-color: white;
+
   /* margin-left: 35%; */
 /* 
   border-left: 1px black solid; */
@@ -35,7 +47,7 @@
   color:black;
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   text-align: center;
 }
 .field1 {
@@ -43,28 +55,35 @@
 }
 .input-field1 input {
   width: 100%;
+  
   padding: 10px;
-  border: none;
-  border-bottom: 1px solid #ccc;
+  /* border: none; */
+ border: 1px solid rgb(186, 186, 186);
+  border-radius: 15px;
   /* display: inline;
   outline: none; */
+  /* outline: none; */
 }
 
-.password1 {
+
+.icon2v{
   position: relative;
+  left: 24rem;
+  top: -2.3rem;
+
+}
+.icon2v1{
+  position: relative;
+  left: 24rem;
+  top: -3.7rem;
 }
 
-.password1 .eye-icon {
-  /* position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  cursor: pointer; */
-}
+
 .form-link1 {
   margin: 1rem;
   text-align: center;
   width: 100%;
+  margin-left: -1%;
   
 }
 .button-field1 button {
@@ -72,10 +91,13 @@
   padding: 10px;
   color: #ffffff;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
-  width: 100%;
-  background-color: #272343;
+  margin-left: 5%;
+  width: 90%;
+ top: -2.5rem;
+  position: relative;
+  background-color: #8eab92;
 }
 .button-field1 button:hover{
 
@@ -83,6 +105,8 @@ background-color: #000000;
 }
 .para1{
   text-align: center;
+  top: -1.5rem;
+  position: relative;
 }
 .section3,
 .section4 {
@@ -94,13 +118,14 @@ background-color: #000000;
 .section4 {
   padding: 16px;
 }
-
-
-.icon2v{
-  float: right;
-  margin-right: 1rem;
-  padding: 0px;
+.googlecontainer-register1{
+  
+margin-left: 27%;
+margin-top: -2em;
 }
+
+
+
 
 
 @media only screen and (min-width: 600px){
