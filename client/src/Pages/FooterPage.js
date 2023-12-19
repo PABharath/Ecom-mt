@@ -1,6 +1,5 @@
 import React from 'react';
 import './FooterPage.css';
-
 import { Link } from 'react-router-dom';
 import { scrollToTop } from "./scrollUtils";
 import { IoLocationOutline } from "react-icons/io5";
@@ -97,13 +96,13 @@ Location</li>
             <li>
               <h3  className='text12765'>Payment</h3>
               
-              <FaCcVisa className='list45' style={{fontSize:'2.5rem'}} /> &nbsp;
+              <FaCcVisa className='list45' style={{fontSize:'1.5rem'}} /> &nbsp;
 
-              <FaCcMastercard className='list45' style={{fontSize:'2.5rem'}}/>&nbsp;
+              <FaCcMastercard className='list45' style={{fontSize:'1.5rem'}}/>&nbsp;
 
-              <FaCcPaypal className='list45' style={{fontSize:'2.5rem'}} />&nbsp;
+              <FaCcPaypal className='list45' style={{fontSize:'1.5rem'}} />&nbsp;
 
-              <SiRazorpay className='list45'  style={{fontSize:'2.5rem'}} />
+              <SiRazorpay className='list45'  style={{fontSize:'1.5rem'}} />
 
 
               

@@ -151,7 +151,7 @@ const [patients, setPatients] = useState([]);
             <Link to="/products/64d5af52e78160215db31931">
               {" "}
               {/* Replace "/products/productId" with the actual path to the product details page */}
-              <img  className="img890"  src={require("../Assets/ban_promo_26.jpg")} alt="Product 1" />
+              <img  className="img890"  src={require("../Assets/box-image9.jpg")} alt="Product 1" />
               {/* <button className="buy-now-box-button1">Buy Now </button> */}
             </Link>
           </div>
@@ -159,17 +159,18 @@ const [patients, setPatients] = useState([]);
           <div className="image-container">
           <Link to="/products/64d5afade78160215db31933">
               {" "}
-            <img  className="img890"  src={require("../Assets/box-image6.jpg")} alt="Product 2" />
+            <img  className="img890"  src={require("../Assets/box-image7.jpg")} alt="Product 2" />
             {/* <button className="buy-now-box-button2">Buy Now </button> */}
             </Link>
           </div>
           </div>
-          <div className="image-container-wrapper">
+
+
+          {/* <div className="image-container-wrapper">
           <div className="image-container1">
           <Link to="/products/64d5afade78160215db31933">
               {" "}
             <img  className="img890"  src={require("../Assets/box-image22.jpg")} alt="Product 3" />
-            {/* <button className="buy-now-box-button2">Buy Now </button> */}
             </Link>
           </div>
 
@@ -177,11 +178,9 @@ const [patients, setPatients] = useState([]);
           <Link to="/products/64d5afade78160215db31933">
               {" "}
             <img className="img890" src={require("../Assets/box-image23.jpg")} alt="Product 4" />
-            {/* <button className="buy-now-box-button2">Buy Now </button> */}
             </Link>
           </div>
-
-          </div>
+          </div> */}
         
         {/* <div className="review-boxes">
           {reviews.map((review) => (
@@ -195,7 +194,7 @@ const [patients, setPatients] = useState([]);
           <div className="subscribe-text">
              
         
-             <strong style={{fontSize:'25px',marginLeft:'2px',cursor:'pointer'}}><GoMail style={{color:'#8eab92',marginTop:'-5px'}}  />&nbsp;&nbsp;News Settler</strong>
+             <strong style={{fontSize:'25px',marginLeft:'2px',cursor:'pointer'}}><a href="https://www.google.com"><GoMail style={{color:'#8eab92',marginTop:'-5px'}}  /></a>&nbsp;&nbsp;News Settler</strong>
            <p style={{fontSize:'large' ,marginLeft:'40px'}}>Get free 20% discount for all products on your first order.</p>
            </div>
             <div className="mail-id">
