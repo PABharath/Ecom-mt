@@ -148,7 +148,7 @@ function Navbar({ onSearch }) {
 
 <Button  ref={target} style={{backgroundColor:'rgb(206, 202, 202)',color:'black',border:'none'}}  onClick={() => setShow(!show)}>
            
-           <FaUserCircle style={{fontSize:'1.2rem' , marginTop:'-1rem',marginLeft:'-0.8rem'}}/>
+           <FaUserCircle style={{fontSize:'1.5rem' , marginTop:'-1rem',marginLeft:'-0.8rem'}}/>
        
          </Button>
          
@@ -158,7 +158,7 @@ function Navbar({ onSearch }) {
              <Tooltip id="overlay-example"  {...props}>
                <div >
                <h4>Profile</h4>
-               <FaUserCircle style={{fontSize:'2rem'}}/><br/>
+               <FaUserCircle style={{fontSize:'1rem'}}/><br/>
                 <b>Username:</b><br/>
               <input type="text" placeholder="Username"/><br/><br/>
                          

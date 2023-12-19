@@ -113,7 +113,7 @@ const ProductList = ({ searchQuery }) => {
                       className='productaddbutvik'
                       onClick={(event) => handleAddToCart(event, product)}
                     >
-                      ADD TO CART
+                      Add to cart
                     </button>
                   </Link>
                 </div>

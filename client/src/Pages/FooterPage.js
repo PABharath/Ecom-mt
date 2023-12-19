@@ -1,5 +1,6 @@
 import React from 'react';
 import './FooterPage.css';
+
 import { Link } from 'react-router-dom';
 import { scrollToTop } from "./scrollUtils";
 import { IoLocationOutline } from "react-icons/io5";
@@ -10,6 +11,7 @@ import { FaCcMastercard } from "react-icons/fa";
 import { FaCcPaypal } from "react-icons/fa";
 import { SiRazorpay } from "react-icons/si";
 import { SlCallEnd } from "react-icons/sl";
+import { BsTwitterX } from "react-icons/bs";
 
 
 
@@ -80,7 +82,7 @@ Location</li>
             
             <li>
               <a href="https://www.twitter.com">
-                <i className="fab fa-twitter"></i>
+                <i><BsTwitterX /></i>
               </a>
             </li>
             <li>
