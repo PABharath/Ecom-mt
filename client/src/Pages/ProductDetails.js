@@ -194,7 +194,7 @@ const ProductDetails = () => {
       ) : (
         <div>
           {/* <h2>{productDetails.productName}</h2> */}
-          <div className="product-images">
+          {/* <div className="product-images">
             {productDetails.productImages &&
             productDetails.productImages.length > 0 ? (
               <Carousel showArrows={true} showStatus={false} showThumbs={false}>
@@ -213,7 +213,40 @@ const ProductDetails = () => {
             ) : (
               <p>No images available</p>
             )}
-          </div>
+          </div> */}
+
+<div className="product-images">
+  {productDetails.productImages &&
+    productDetails.productImages.length > 0 ? (
+      <div className="images-container">
+        {/* Display the first image separately with a larger size */}
+        <img
+          className="main-image"
+          src={`http://127.0.0.1:5555/api/uploads/${productDetails.productImages[0]}`}
+          alt={`Product 0`}
+          width="1000"
+          height="1200"
+        />
+
+        {/* Display the remaining images below, side by side */}
+        <div className="additional-images">
+          {productDetails.productImages.slice(1).map((image, index) => (
+            <img
+              key={index}
+              className="additional-image"
+              src={`http://127.0.0.1:5555/api/uploads/${image}`}
+              alt={`Product ${index + 1}`}
+              width="200"
+              height="300"
+            />
+          ))}
+        </div>
+      </div>
+    ) : (
+      <p>No images available</p>
+  )}
+</div>
+
           <div className="product-pricing-box">
             <div className="next">
             <p className="product-name">{productDetails.productName}</p>
