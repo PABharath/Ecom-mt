@@ -12,7 +12,7 @@
   /* background-color: white; */
 }
 .backgr-45 {
-  background-image:url( 'https://s3-alpha-sig.figma.com/img/0b0d/7354/18892239591f7ff7d30eae83d691fae2?Expires=1702252800&Signature=eBL55hSN2SghABudycoLTHwrCaBcYH2uj0VP7NSkXb~NGImxMpZ4KgbksshEPToK0uE5b0ipRyIRC2R8vtqfEqEvxtbrwhw9DizoXPaXftQTwWlfbo~DKcV6sQQdqPP0fvnlxi0aFPF77EJMBFi9LEdObGuKzWVe3DQPUNnC~9NG59EiNNEyb56bp~-JNBAQXxeqUP2hZh2nTiTYpxExvUXIu8HhFl29SATtpMOWhkPH0cyHwTkNQxXx7-NnW~Pc9tfKsa2IOlkZ8V58PXRQX72odCwsbR~-yrd9ROZiH6WEAz3T1CTf3~JBh7VKs2Osz-4BIt-2zeXA3hjQRoHzCQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
+  /* background-image:url( 'https://s3-alpha-sig.figma.com/img/0b0d/7354/18892239591f7ff7d30eae83d691fae2?Expires=1702252800&Signature=eBL55hSN2SghABudycoLTHwrCaBcYH2uj0VP7NSkXb~NGImxMpZ4KgbksshEPToK0uE5b0ipRyIRC2R8vtqfEqEvxtbrwhw9DizoXPaXftQTwWlfbo~DKcV6sQQdqPP0fvnlxi0aFPF77EJMBFi9LEdObGuKzWVe3DQPUNnC~9NG59EiNNEyb56bp~-JNBAQXxeqUP2hZh2nTiTYpxExvUXIu8HhFl29SATtpMOWhkPH0cyHwTkNQxXx7-NnW~Pc9tfKsa2IOlkZ8V58PXRQX72odCwsbR~-yrd9ROZiH6WEAz3T1CTf3~JBh7VKs2Osz-4BIt-2zeXA3hjQRoHzCQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'); */
   padding: 2rem;
   border-radius: 20px;
   width: 35%;
@@ -23,13 +23,16 @@
  
   /* background-color: red; */
 }
+.fgheadername {
+  font-size: 30px;
+}
 .fg-cardcontainer {
   /* background-color: #ffffff; */
   padding: 30px;
   margin: 20px;
   /* height: 60vh; */
-  width: 80%;
-  height: 400px;
+  width: 90%;
+  height: 430px;
   /* width: "100%"; */
   border-radius: 20px;
   background-color: white;
@@ -51,7 +54,7 @@
   color:white;
 } */
 .fgpara {
-  margin-bottom: 40px;
+  margin-top: 30px;
   color: rgb(117, 115, 115);
   font-weight: bold;
   text-align: center;
@@ -66,37 +69,42 @@
   max-width: "100%";
 }
 .fg-input-field input {
-  width: 95%;
+
   padding: 10px;
-  border: none; /* Remove the border */
-  border-bottom: 1px solid #3d48e3; /* Add a bottom border for the line effect */
-  background-color: transparent; /* Make the background transparent */
-  outline: none
-}
-.fg-button-field button {
+  border-radius: 15px;
   width: 100%;
+  border: 1px solid black;
+  margin-top: 25px;
+  
+}
+.fg-button-field45 button {
+  width: 90%;
   padding: 10px;
-  background-color: #111133;
+  background-color: #8eab92;
+  margin-left: 4%;
+  margin-top: 20px;
   
   color: #ffffff;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
 }
-.fg-button-field button :hover{
-  background-color: white;
-  color: black;
+button :hover{
+  background-color:rgb(223, 12, 12);
+  color: white;
 }
 .backtologin {
   
-  
+  margin-top: 5%;
+  margin-left: 28%;
   
 
 }
 .or-line {
-  color: black;
+  color: rgb(14, 13, 13);
   /* margin-left: 190px; */
-  margin-top: 10px;
+  margin-top: 14px;
+  margin-left: 39%;
 }
 
 
