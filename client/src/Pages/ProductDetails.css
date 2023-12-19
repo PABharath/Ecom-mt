@@ -201,6 +201,11 @@ body {
   left:140px;
   top:20px;
 }
+.hr-2{
+  width: 60%;
+  background-color:black ;
+  /* color:black; */
+}
 
 .review-form { 
    margin-top: 20px;
@@ -345,7 +350,7 @@ body {
   color: #6A6262;
 }
 .name-2{
-  margin-top: 50px;
+  margin-top: 10%;
   color:#272343;
   ;
 }

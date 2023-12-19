@@ -261,6 +261,7 @@ const ProductDetails = () => {
             <p className="product-offer">
               ({calculateOffer(productDetails.mrp, productDetails.sp)}% off)
             </p>
+            <hr className="hr-2" />
             <p className="availability">
               Availability:{" "}
               <span
@@ -281,6 +282,7 @@ const ProductDetails = () => {
   <p className="product-reviews">{reviewData.reviews} Reviews</p>
 
 </div>
+<hr className="hr-2" />
 
             <div className="product-savings"> 
               You Saved:{" "}
