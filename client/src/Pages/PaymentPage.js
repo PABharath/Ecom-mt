@@ -45,48 +45,6 @@ const PaymentPage = () => {
      // Handle the payment error, display an error message, etc.
    };
 
-  // const handleOrderCreation = async () => {
-  //   try {
-  //     const response = await axios.post(
-  //       "http://localhost:5555/api/create-order",
-  //       { totalAmount: totalAmount, products: cartItems }
-  //     );
-  
-  //     const orderId = response.data.order._id;
-  
-  //     // Show a popup or perform any action to inform the user about the order creation
-  //     toast.success(`Order created successfully! Order ID: ${orderId}`, {
-  //       position: "top-center",
-  //       autoClose: 3000,
-  //     });
-  //   } catch (error) {
-  //     console.error("Error creating order:", error.response || error.message);
-  //     // Handle the error, display an error message, etc.
-  //   }
-  // };
-  
-  const handleOrderCreation = async () => {
-    try {
-      const response = await axios.post(
-        "http://localhost:5555/api/create-order",
-        { totalAmount: totalAmount, products: cartItems }
-      );
-
-      const orderId = response.data.order._id;
-
-      // Log to the console for debugging purposes
-      console.log("Order created successfully! Order ID:", orderId);
-
-      // Show a toast to inform the user about the order creation
-      toast.success(`Order created successfully! Order ID: ${orderId}`, {
-        position: "top-center",
-        autoClose: 3000,
-      });
-    } catch (error) {
-      console.error("Error creating order:", error.response || error.message);
-      // Handle the error, display an error message, etc.
-    }
-  };
   const openRazorpayModal = () => {
     console.log("Button clicked.");
     if (window.Razorpay) {
@@ -131,6 +89,10 @@ const PaymentPage = () => {
       setOrder(createdOrder);
 
       toast.success("Order created successfully!");
+      // Navigate to the orders page after a delay (2 seconds in this case)
+    setTimeout(() => {
+      navigate("/orders");
+    }, 2000);
     } catch (error) {
       console.error("Error creating order:", error.response || error.message);
       toast.error("Error creating order. Please try again.");
@@ -150,9 +112,9 @@ const PaymentPage = () => {
         <div className="paya">
           <div className="amount"> Amount Payable: ₹ {totalAmount}</div>
         </div>
-        {/* <button className="create-order" onClick={handleCreateOrder}>
+        <button className="create-order" onClick={handleCreateOrder}>
           Create Order
-        </button> */}
+        </button>
       </div>
       {order && (
         <div>
@@ -161,7 +123,7 @@ const PaymentPage = () => {
           {/* Display other order details as needed */}
         </div>
       )}
-      {<ToastContainer position="top-center" autoClose={3000} />}
+      {<ToastContainer position="top-center" autoClose={2000} />}
     </center>
     </div>
   );

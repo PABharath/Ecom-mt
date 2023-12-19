@@ -4,6 +4,7 @@ const Order = require('../models/orderModel');
 
 // Create order
 
+// Create order
 const createOrder = async (req, res) => {
   try {
     const { cartItems, totalAmount } = req.body;
@@ -11,14 +12,16 @@ const createOrder = async (req, res) => {
     // Generate a 5-digit orderId
     const orderId = generateOrderId();
 
-    // Calculate expected delivery date (10 days from now)
-    const expectedDeliveryDate = new Date();
-    expectedDeliveryDate.setDate(expectedDeliveryDate.getDate() + 10);
+    // Calculate expected delivery date (11 days from orderDate)
+    const orderDate = new Date();
+    const expectedDeliveryDate = new Date(orderDate);
+    expectedDeliveryDate.setDate(orderDate.getDate() + 10); // Adding 10 days
 
     const newOrder = new Order({
       orderId,
       products: cartItems,
       totalAmount,
+      orderDate,
       expectedDeliveryDate,
     });
 
