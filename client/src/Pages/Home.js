@@ -124,11 +124,12 @@ const [patients, setPatients] = useState([]);
           <div className="top">Top Product</div>
           <div className="middle">
           <div >
-        <Link to='/ProductList'>  <button className="Featured">Latest</button></Link>
-           
+          <Link to={{ pathname: '/SareesCategories2', state: { category: 'Kanjeevaram' } }}>
+  <button className="Featured">Latest</button>
+</Link>           
             </div>
           <div> 
-          <Link to='/Filter'><button className="Featureds">Featured</button></Link>
+          <button className="Featureds">Featured</button>
             </div>
           <div>
             <Link to='/Seller'><button className="Sellers"> Best Sellers</button></Link></div>
