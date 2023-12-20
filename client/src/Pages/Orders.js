@@ -4,7 +4,6 @@ import axios from "axios";
 import "./Orders.css";
 import Navbar2 from "./Navbar2";
 
-
 const Orders = () => {
   const [orders, setOrders] = useState([]);
 
@@ -23,10 +22,11 @@ const Orders = () => {
           orderId: order.orderId,
           orderDate: new Date(order.orderDate).toLocaleDateString(),
           totalAmount: order.totalAmount,
+          expectedDeliveryDate: order.expectedDeliveryDate,
           products: order.products.map((product) => {
             return {
               productName: product.productName,
-              // Add other product properties you want to display
+              productImages: product.productImages,
             };
           }),
         };
@@ -62,7 +62,7 @@ const Orders = () => {
                   <td>Address</td>
                   <td> {order.orderId}</td>
                   <td>
-                  <Link
+                    <Link
                       className="ecom-link"
                       to={`/invoice/${order.orderId}`}
                     >
@@ -80,8 +80,10 @@ const Orders = () => {
                   src={`http://127.0.0.1:5555/api/uploads/${
                     order.products[0]?.productImages?.[0] || "default-image.jpg"
                   }`}
-                  alt="Product Image"
+                  alt="Product"
                   className="ecom-image"
+                  onLoad={() => console.log("Image loaded successfully")}
+                  onError={(e) => console.error("Error loading image:", e)}
                 />
               </div>
               <div className="ecom-delivery-details">
@@ -92,20 +94,23 @@ const Orders = () => {
 
                 {order.products && order.products.length > 0 ? (
                   order.products.map((product) => (
-                    <p key={product.productName} className="ecom-product-name">{product.productName}</p>
+                    <p key={product.productName} className="ecom-product-name">
+                      {product.productName}
+                    </p>
                   ))
                 ) : (
                   <p>No products in this order</p>
                 )}
-                <div className="ecom-buttons">
+                <div key={order._id} className="ecom-buttons">
                   <button className="ecom-view-items-btn">
                     <Link
-                      to={`/product-details/${order.products[0]?.productId}`}
+                      to={`/products/${order.products[0]?.productId}`}
                       className="ecom-link-a"
                     >
                       View Your Item
                     </Link>
                   </button>
+
                   <button className="ecom-delivery-status-btn">
                     Delivery Status
                   </button>
@@ -118,6 +123,5 @@ const Orders = () => {
     </div>
   );
 };
-
 
 export default Orders;
