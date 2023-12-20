@@ -152,7 +152,7 @@ const [selectedCategory, setSelectedCategory] = useState(null);
                 </button>
                 </Link>
             </div>
-=======
+
           <div >
           <Link to={{ pathname: '/SareesCategories2', state: { category: 'Kanjeevaram' } }}>
   <button className="Featured">Latest</button>
