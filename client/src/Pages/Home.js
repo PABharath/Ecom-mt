@@ -12,6 +12,7 @@ import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar2 from "./Navbar2";
 import { GoMail } from "react-icons/go";
+import Filtering from "./Filtering";
 
 
 function Home() {
@@ -19,6 +20,7 @@ function Home() {
   const [filteredPatients, setFilteredPatients] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 const [patients, setPatients] = useState([]);
+const [selectedCategory, setSelectedCategory] = useState(null);
   
   const [email, setEmail] = useState({
     Email: '',
@@ -42,6 +44,12 @@ const [patients, setPatients] = useState([]);
     // Fetch initial search results (optional)
     handleSearch(searchValue);
   }, [searchValue]);
+
+
+
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -123,15 +131,27 @@ const [patients, setPatients] = useState([]);
           <div>
           <div className="top">Top Product</div>
           <div className="middle">
-          <div >
-          <button className="Featured">Latest</button>
-           
+              <div>
+                <Link to='/ProductList'>
+                  <button className="Featureds" onClick={() => handleCategorySelect("latest")}>
+                    Latest
+                  </button>
+                </Link>
+              </div>
+              <div>
+              <Link to='/ProductList'>
+                <button className="Featureds" onClick={() => handleCategorySelect("featured")}>
+                  Featured
+                </button>
+                </Link>
+              </div>
+              <div>
+              <Link to='/ProductList'>
+                <button className="Sellers" onClick={() => handleCategorySelect("bestseller")}>
+                  Best Sellers
+                </button>
+                </Link>
             </div>
-          <div> 
-          <button className="Featureds">Featured</button>
-            </div>
-          <div>
-            <button className="Sellers"> Best Sellers</button></div>
           </div>
           </div>
           {/* <div className="best-sellers-text">Best Sellers</div> */}
@@ -143,7 +163,12 @@ const [patients, setPatients] = useState([]);
         </div>
         </div>
         <div className="productContainer1">
-        <ProductList searchQuery={searchQuery} />
+        {/* <ProductList searchQuery={searchQuery} /> */}
+
+        <Filtering
+            searchQuery={searchQuery}
+            filterType={selectedCategory}
+            onCategorySelect={handleCategorySelect} />
 
         </div>
         <div className="image-container-wrapper">
