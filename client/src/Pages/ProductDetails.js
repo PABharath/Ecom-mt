@@ -15,6 +15,8 @@ import Navbar2 from "./Navbar2";
 
 
 const ProductDetails = () => {
+
+   const { productId } = useParams();
   const [productDetails, setProductDetails] = useState({});
   const [mainImage, setMainImage] = useState(0);
   const [rating, setRating] = useState(-1);
@@ -22,7 +24,7 @@ const ProductDetails = () => {
   const [reviewData, setReviewData] = useState({ ratings: 0, reviews: 0 });
   const navigate = useNavigate();
   const [reviews, setReviews] = useState([]);
-  const { productId } = useParams();
+
   const { addToCart } = useCart();
   const [showAllReviews, setShowAllReviews] = useState(false);
   const [showAddToCartToast, setShowAddToCartToast] = useState(false);
@@ -35,6 +37,13 @@ const ProductDetails = () => {
     fetchProductDetails();
     fetchReviewData();
   }, []);
+
+  useEffect(() => {
+    console.log('Product ID:', productId);
+    if (productId) {
+      fetchProductDetails(productId);
+    }
+  }, [productId]);
 
   const handleThumbnailClick = (index) => {
     setMainImage(index);
@@ -197,27 +206,7 @@ const ProductDetails = () => {
         <p>{error}</p>
       ) : (
         <div>
-          {/* <h2>{productDetails.productName}</h2> */}
-          {/* <div className="product-images">
-            {productDetails.productImages &&
-            productDetails.productImages.length > 0 ? (
-              <Carousel showArrows={true} showStatus={false} showThumbs={false}>
-                {productDetails.productImages.map((image, index) => (
-                  <div key={index}>
-                    <img className="imagee"
-                      src={`http://127.0.0.1:5555/api/uploads/${image}`}
-                      alt={`Product ${index}`}
-                      width="500"
-                      height="800"
-                      
-                    />
-                  </div>
-                ))}
-              </Carousel>
-            ) : (
-              <p>No images available</p>
-            )}
-          </div> */}
+          
 
 <div className="product-images">
       {productDetails.productImages && productDetails.productImages.length > 0 ? (

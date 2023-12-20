@@ -2,76 +2,75 @@ import React, { useState, useEffect } from 'react';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import { saveAs } from 'file-saver';
+import axios from 'axios';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-const Invoice = () => {
-  const [invoices, setInvoices] = useState([]);
+const Invoice = (props) => {
+  const [orderDetails, setOrderDetails] = useState(null);
 
-  // Simulate fetching data from the backend API
+  // Destructure match from props
+  const { match } = props;
+
+  // Simulate fetching order details from the backend API
   useEffect(() => {
-    // For demonstration purposes, we'll use a sample array of invoices
-    const sampleInvoices = [
-      {
-        id: 1,
-        date: '2023-07-22',
-        customer: 'Matrical',
-        description: 'Sample Bill 1',
-      },
-      {
-        id: 2,
-        date: '2023-07-23',
-        customer: 'janardhan',
-        description: 'Sample Bill 2',
-      },
-      {
-        id: 1,
-        date: '2023-07-22',
-        customer: 'Matrical',
-        description: 'Sample Bill 1',
-      },
-      {
-        id: 2,
-        date: '2023-07-23',
-        customer: 'janardhan',
-        description: 'Sample Bill 2',
-      },
-    
+    // Fetch order details from your backend API here using axios
+    const orderId = match.params.orderId;
+    fetchOrderDetails(orderId);
+  }, [match.params.orderId]);
 
+  // Function to fetch order details from the backend using axios
+  const fetchOrderDetails = async (orderId) => {
+    try {
+      const response = await axios.get(`http://localhost:5555/api/orders/${orderId}`);
+      const data = response.data;
 
-    ];
+      // Assuming the API response contains the order details
+      setOrderDetails(data.order);
+    } catch (error) {
+      console.error('Error fetching order details:', error);
+    }
+  };
 
-    // Simulate the API response delay with setTimeout
-    setTimeout(() => {
-      setInvoices(sampleInvoices);
-    }, 2000); 
-  }, []);
-
+  // Function to generate PDF
   const generatePDF = () => {
+    if (!orderDetails) {
+      console.error('Order details not available');
+      return;
+    }
+
+    const { orderId, orderDate, products, totalAmount, expectedDeliveryDate } = orderDetails;
+
     const docDefinition = {
       content: [
-        { text: 'Invoice', style: 'header' },
-        { text: 'Sample Invoice', style: 'subheader' },
-        // Use the fetched data to populate the content of the PDF
+        { text: `Invoice #${orderId}`, style: 'header' },
+        { text: 'Logo', style: 'subheader' },
+        { text: new Date(orderDate).toLocaleDateString(), style: 'subheader' },
+        { text: 'BILL TO', style: 'subheader' },
+        `Name,`,
+        `Address`,
+        `Ph.No: 01234567890`,
+        { text: 'item', style: 'subheader' },
         {
           table: {
             headerRows: 1,
-            widths: ['auto', 'auto', 'auto', '*'], // Define column widths
+            widths: ['*', 'auto', 'auto', 'auto'], // Define column widths
             body: [
               // Table header
-              ['Invoice ID', 'Date', 'Customer', 'Description'],
+              ['Product', 'PRICE', 'Qty', 'TOTAL'],
               // Table data
-              ...invoices.map((invoice) => [
-                invoice.id,
-                invoice.date,
-                invoice.customer,
-                invoice.description,
+              ...products.map((product) => [
+                product.productName || '',
+                `₹ ${product.price || 0}`,
+                product.quantity || 0,
+                `₹ ${product.total || 0}`,
               ]),
-
-              
             ],
           },
         },
+        `Product could be expected on ${new Date(expectedDeliveryDate).toLocaleDateString()}, Track your order.`,
+        `Sub - Total = ₹ ${totalAmount || 0}`,
+        `Total = ₹ ${totalAmount || 0}`,
       ],
       styles: {
         header: {
@@ -91,60 +90,66 @@ const Invoice = () => {
 
     // Generate the PDF and download
     pdfDocGenerator.getBlob((blob) => {
-      saveAs(blob, 'invoice.pdf');
+      saveAs(blob, `invoice_${orderId}.pdf`);
     });
   };
 
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <u><h1>Invoice</h1></u>
-      <br>
-      </br>
-      <br>
-      </br>
+      {orderDetails ? (
+        <>
+          <u>
+            <h1>Invoice #{orderDetails.orderId}</h1>
+          </u>
+          <br></br>
+          <br></br>
+          {/* Display the fetched data in a table */}
+          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orderDetails.products.map((product, index) => (
+                <tr key={index}>
+                  <td>{product.productName || ''}</td>
+                  <td>₹ {product.price || 0}</td>
+                  <td>{product.quantity || 0}</td>
+                  <td>₹ {product.total || 0}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <br></br>
+          <br></br>
 
-      {/* Display the fetched data in a table */}
-      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-        <thead>
-          <tr>
-            <th>Invoice ID</th>
-            <th>Date</th>
-            <th>Customer</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          {invoices.map((invoice) => (
-            <tr key={invoice.id}>
-              <td>{invoice.id}</td>
-              <td>{invoice.date}</td>
-              <td>{invoice.customer}</td>
-              <td>{invoice.description}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <br></br>
-      <br></br>
-
-
-
-      <center>      <button
-        onClick={generatePDF}
-        style={{
-          backgroundColor: 'gray',
-          color: 'white',
-          border: 'none',
-          padding: '10px 20px',
-          textAlign: 'center',
-          textDecoration: 'none',
-          display: 'inline-block',
-          fontSize: '16px',
-          margin: '10px 0',
-          cursor: 'pointer',
-        }}>Download  PDF</button>
-      </center>
-
+          <center>
+            <button
+              onClick={generatePDF}
+              style={{
+                backgroundColor: 'gray',
+                color: 'white',
+                border: 'none',
+                padding: '10px 20px',
+                textAlign: 'center',
+                textDecoration: 'none',
+                display: 'inline-block',
+                fontSize: '16px',
+                margin: '10px 0',
+                cursor: 'pointer',
+              }}
+            >
+              Download PDF
+            </button>
+          </center>
+        </>
+      ) : (
+        <p>Loading order details...</p>
+      )}
     </div>
   );
 };
