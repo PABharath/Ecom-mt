@@ -36,6 +36,13 @@ const ProductDetails = () => {
     fetchReviewData();
   }, []);
 
+  useEffect(() => {
+    console.log('Product ID:', productId);
+    if (productId) {
+      fetchProductDetails(productId);
+    }
+  }, [productId]);
+
   const handleThumbnailClick = (index) => {
     setMainImage(index);
   };
