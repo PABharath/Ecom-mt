@@ -78,7 +78,7 @@ function Forgotverification() {
         </div> */}
         <h1 className="fgvheadername1" style={{fontFamily:'verdana'}}>Reset Password</h1>
         
-        <p className="fgvpara" >
+        <p className="fgvpara" style={{textAlign:'center'}}>
           Create new password as you can login to your account
         </p>
         <form onSubmit={handleSubmit}>

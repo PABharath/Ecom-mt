@@ -89,7 +89,7 @@ const Forgot = () => {
                 />
               </div>
               <div className=" fg-button-field45">
-                <button type="submit" className="button">
+                <button type="submit" className="Abhi1">
                   Submit
                 </button>
 
@@ -97,7 +97,7 @@ const Forgot = () => {
                 <span>--OR--</span>
               </div>
               <div className="backtologin">
-                <Link to="/login">Or back to login</Link>
+                <Link to="/login" className="backtologin">Or back to login</Link>
                 
               </div>
               

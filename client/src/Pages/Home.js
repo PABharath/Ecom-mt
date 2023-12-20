@@ -124,7 +124,7 @@ const [patients, setPatients] = useState([]);
           <div className="top">Top Product</div>
           <div className="middle">
           <div >
-          <button className="Featured">Latest</button>
+        <Link to='/ProductList'>  <button className="Featured">Latest</button></Link>
            
             </div>
           <div> 
@@ -151,17 +151,21 @@ const [patients, setPatients] = useState([]);
             <Link to="/products/64d5af52e78160215db31931">
               {" "}
               {/* Replace "/products/productId" with the actual path to the product details page */}
-              <img  className="img890"  src={require("../Assets/box-image9.jpg")} alt="Product 1" />
+              <img  className="img890"  src={require("../Assets/home1.png")} alt="Product 1" />
+              
               {/* <button className="buy-now-box-button1">Buy Now </button> */}
             </Link>
+           
           </div>
 
           <div className="image-container">
           <Link to="/products/64d5afade78160215db31933">
               {" "}
-            <img  className="img890"  src={require("../Assets/box-image7.jpg")} alt="Product 2" />
+            <img  className="img891"  src={require("../Assets/hom6.png")} alt="Product 2" />
+          
             {/* <button className="buy-now-box-button2">Buy Now </button> */}
             </Link>
+           
           </div>
           </div>
 
