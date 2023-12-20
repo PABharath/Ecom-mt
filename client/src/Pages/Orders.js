@@ -27,6 +27,7 @@ const Orders = () => {
             return {
               productName: product.productName,
               productImages: product.productImages,
+              productId: product.productId, // Make sure productId is available
             };
           }),
         };
@@ -103,12 +104,14 @@ const Orders = () => {
                 )}
                 <div key={order._id} className="ecom-buttons">
                   <button className="ecom-view-items-btn">
-                    <Link
-                      to={`/products/${order.products[0]?.productId}`}
-                      className="ecom-link-a"
-                    >
-                      View Your Item
-                    </Link>
+                    <button className="ecom-view-items-btn">
+                      <Link
+                        to={`/products/${order.products[0]?.productId}`}
+                        className="ecom-link-a"
+                      >
+                        View Your Item
+                      </Link>
+                    </button>
                   </button>
 
                   <button className="ecom-delivery-status-btn">
