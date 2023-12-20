@@ -1,13 +1,14 @@
 /* AllProductsv.css */
 
   .Product-List-convik{
-    padding: 1rem ;
+    padding: 2.8rem ;
   }
   .product-convik {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     margin-top: 20px;
+    margin-left: -2.5rem;
   }
   
   .productboxvik {

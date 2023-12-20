@@ -128,17 +128,17 @@ const [patients, setPatients] = useState([]);
            
             </div>
           <div> 
-          <button className="Featureds">Featured</button>
+          <Link to='/Filter'><button className="Featureds">Featured</button></Link>
             </div>
           <div>
-            <button className="Sellers"> Best Sellers</button></div>
+            <Link to='/Seller'><button className="Sellers"> Best Sellers</button></Link></div>
           </div>
           </div>
           {/* <div className="best-sellers-text">Best Sellers</div> */}
           <div className="browse-all-container">
-            <Link to="/SareesCategories2">
+            {/* <Link to="/SareesCategories2">
               <button className="browse-all-button">Browse all &gt;</button>
-            </Link>
+            </Link> */}
           </div>
         </div>
         </div>
@@ -161,7 +161,7 @@ const [patients, setPatients] = useState([]);
           <div className="image-container">
           <Link to="/products/64d5afade78160215db31933">
               {" "}
-            <img  className="img891"  src={require("../Assets/hom6.png")} alt="Product 2" />
+            <img  className="img891"  src={require("../Assets/home4.png")} alt="Product 2" />
           
             {/* <button className="buy-now-box-button2">Buy Now </button> */}
             </Link>

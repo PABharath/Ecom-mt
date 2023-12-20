@@ -33,6 +33,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import "animate.css/animate.min.css";
 import Navbar2 from "./Pages/Navbar2";
+import Filter from "./Pages/Filter";
+import Seller from "./Pages/Seller";
 
 const App = () => {
   return (
@@ -83,7 +85,8 @@ const App = () => {
               <Route path="/products/:productId" component={ProductDetails} />
 
               <Route path="/SareesCategories2" element={<SareesCategories2 />} />
-              
+              <Route path="/Filter" element={<Filter />} />
+              <Route path="/Seller" element={<Seller />} />
             </Routes>
             <Footer />
           </CartProvider>
