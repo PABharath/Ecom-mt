@@ -6,15 +6,18 @@ import axios from 'axios';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-const Invoice = () => {
+const Invoice = (props) => {
   const [orderDetails, setOrderDetails] = useState(null);
+
+  // Destructure match from props
+  const { match } = props;
 
   // Simulate fetching order details from the backend API
   useEffect(() => {
     // Fetch order details from your backend API here using axios
-    const orderId = 1; // Replace with the actual orderId
+    const orderId = match.params.orderId;
     fetchOrderDetails(orderId);
-  }, []);
+  }, [match.params.orderId]);
 
   // Function to fetch order details from the backend using axios
   const fetchOrderDetails = async (orderId) => {
@@ -57,17 +60,17 @@ const Invoice = () => {
               ['Product', 'PRICE', 'Qty', 'TOTAL'],
               // Table data
               ...products.map((product) => [
-                product.productName,
-                `₹ ${product.price}`,
-                product.quantity,
-                `₹ ${product.total}`,
+                product.productName || '',
+                `₹ ${product.price || 0}`,
+                product.quantity || 0,
+                `₹ ${product.total || 0}`,
               ]),
             ],
           },
         },
         `Product could be expected on ${new Date(expectedDeliveryDate).toLocaleDateString()}, Track your order.`,
-        `Sub - Total = ₹ ${totalAmount}`,
-        `Total = ₹ ${totalAmount}`,
+        `Sub - Total = ₹ ${totalAmount || 0}`,
+        `Total = ₹ ${totalAmount || 0}`,
       ],
       styles: {
         header: {
@@ -111,12 +114,12 @@ const Invoice = () => {
               </tr>
             </thead>
             <tbody>
-              {orderDetails.products.map((product) => (
-                <tr key={product.productId}>
-                  <td>{product.productName}</td>
-                  <td>₹ {product.price}</td>
-                  <td>{product.quantity}</td>
-                  <td>₹ {product.total}</td>
+              {orderDetails.products.map((product, index) => (
+                <tr key={index}>
+                  <td>{product.productName || ''}</td>
+                  <td>₹ {product.price || 0}</td>
+                  <td>{product.quantity || 0}</td>
+                  <td>₹ {product.total || 0}</td>
                 </tr>
               ))}
             </tbody>

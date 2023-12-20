@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import { useCart } from "./CreateContext";
 import { toast } from "react-toastify";
 import { scrollToTop } from "./scrollUtils";
-import "./AllProductsv.css";
+import "./AllProductsv.css"; 
 import Navbar from "./Navbar";
 import Navbar2 from "./Navbar2";
 
 const SareesCategories2 = () => {
 
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");          
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(null);

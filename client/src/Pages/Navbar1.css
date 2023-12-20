@@ -60,7 +60,8 @@ body {
     background-color: #fff;
     padding: 12.5px;
     border-radius: 4px;
-    margin-left: -3%;
+    /* margin-left: -10%; */
+    margin-left: 5rem;
   }
   
   .search-box input {
