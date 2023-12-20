@@ -276,7 +276,7 @@ const Orders = () => {
                   <p>No products in this order</p>
                 )}
                 <div key={order._id} className="ecom-buttons">
-                  <button className="ecom-view-items-btn">
+               
                     <button className="ecom-view-items-btn">
                       <Link
                         to={`/products/${order.products[0]?.productId}`}
@@ -285,7 +285,7 @@ const Orders = () => {
                         View Your Item
                       </Link>
                     </button>
-                  </button>
+                  
 
                   <button className="ecom-delivery-status-btn">
                     Delivery Status
