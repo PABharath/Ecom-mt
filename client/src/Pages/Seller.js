@@ -25,7 +25,7 @@ const Seller = ({ searchQuery }) => {
       // Shuffle the filtered products array
       const shuffledProducts = shuffleArray(filteredProducts);
       // Get a random selection of 4-6 products
-      const selectedProducts = shuffledProducts.slice(0, getRandomNumber(4, 6));
+      const selectedProducts = shuffledProducts.slice(0, getRandomNumber(1,2));
       setProducts(selectedProducts);
       setLoading(false);
     } catch (error) {

@@ -131,7 +131,7 @@ const [patients, setPatients] = useState([]);
           <Link to='/Filter'><button className="Featureds">Featured</button></Link>
             </div>
           <div>
-            <button className="Sellers"> Best Sellers</button></div>
+           <Link to='/Seller'> <button className="Sellers"> Best Sellers</button></Link></div>
           </div>
           </div>
           {/* <div className="best-sellers-text">Best Sellers</div> */}
