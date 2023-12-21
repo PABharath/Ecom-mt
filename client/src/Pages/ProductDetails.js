@@ -70,7 +70,6 @@ const ProductDetails = () => {
     );
   };
  
-
   const renderStarRatingsAndReviews = () => (
     <div className="my">
     <div className="star-ratings-and-reviews-container">
