@@ -113,8 +113,37 @@ const Navbar2 = ({ onSearch }) => {
             <FontAwesomeIcon icon={faUser} className="menu-icon" />
           </Link>
         )}
-           <Popup trigger=
-                {<button style={{backgroundColor:"white",color:'black',border:'none'}}><FaUserCircle className="pop2"/></button>}
+
+{/* <Button  ref={target} style={{backgroundColor:'white',color:'white',border:'none'}}  onClick={() => setShow(!show)}>
+           
+           <FaUserCircle style={{fontSize:'1.2rem' , marginTop:'-1rem',marginLeft:'-0.8rem'}}/>
+       
+         </Button>
+         
+         <Overlay target={target.current} show={show}   placement="bottom">
+           {(props) => (
+             
+             <Tooltip id="overlay-example"  {...props}>
+               <div >
+               <h4>Profile</h4>
+               <FaUserCircle style={{fontSize:'2rem'}}/><br/>
+                <b>Username:</b><br/>
+              <input type="text" placeholder="Username"/><br/><br/>
+                <Link to='/Login'>         
+                {/* <button onClick={handleLogout}>Logout</button> */}
+                {/* </Link> */}
+                {/* <button className="bg-button1" onClick={handleLogout}>logout</button><br/><br/>
+                <button className="bg-button2"><PiSignOutBold/>Profile</button> 
+                 <br/>
+               </div>
+             </Tooltip>
+             
+           )}
+         </Overlay>  */}
+
+      {/* <h4>Popup - GeeksforGeeks</h4> */}
+            <Popup trigger=
+                {<button style={{backgroundColor:"white",color:'black',border:'none'}}><FaUserCircle className="pop2"/>  </button>}
                 position="bottom left">
                 <div className="pop1">
                <Link to=''> <button >Logout</button></Link><br/><br/>
