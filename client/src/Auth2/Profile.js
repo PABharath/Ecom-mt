@@ -80,8 +80,14 @@ return (
             <>
               <h3>Cart</h3>
               <ul>
+              <p>
+        <strong>Product </strong> - <strong>Quantity</strong>
+      </p>
                 {profile.cart.map((product) => (
-                  <li key={product._id}>{product.productName}</li>
+                   <li key={product._id}>
+                   {product.product} -  {product.quantity}
+                 </li>
+                  
                 ))}
               </ul>
             </>

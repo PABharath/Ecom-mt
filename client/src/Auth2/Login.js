@@ -46,11 +46,13 @@ const Login = () => {
     e.preventDefault();  
     try {
       const response = await axios.post("http://127.0.0.1:5555/api/login",data);
-  
+      const email = data.email;
+    
       if (response.status === 200) {  
         setToken(response.data.token);
         localStorage.setItem("token", response.data.token);
-  
+        localStorage.setItem('email' , email)
+
         // Display success message using toast.success
         toast.success('Login successful', { position: 'top-center', autoClose: 3000 });
   
