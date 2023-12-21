@@ -69,7 +69,7 @@ const ProductDetails = () => {
       </div>
     );
   };
-
+ 
   const renderStarRatingsAndReviews = () => (
     <div className="my">
     <div className="star-ratings-and-reviews-container">
@@ -438,8 +438,8 @@ const ProductDetails = () => {
               </div>
             </div>
           </div>
-
-          <hr />
+                  
+          <hr/>
           <div className="review-box">
             <button className="write" onClick={openReviewModal}>Write a Review</button>
             <Modal
