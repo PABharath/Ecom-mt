@@ -103,8 +103,7 @@ const Orders = () => {
                 
                     <Link className="ecom-link" to={`/invoice/${order.orderId}`}>
                         View Invoice
-                          </Link>
-
+                    </Link>
                   </td>
                 </tr>
               </tbody>

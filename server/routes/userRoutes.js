@@ -10,5 +10,5 @@ router.post('/register', userController.registerUser);
 router.get('/profile', authMiddleware, userController.getUserProfile);
 
 // Add a new route for adding to cart
-router.post('/cart', authMiddleware, userController.addToCart);
+router.post('/users/:id/cart',  userController.addToCart);
 module.exports = router;

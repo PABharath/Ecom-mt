@@ -43,9 +43,9 @@ const ProductList = ({ searchQuery }) => {
 
   const handleAddToCart = (event, product) => {
     event.preventDefault();
-    
+    console.log("Product details:", product); 
     addToCart(product);
-    console.log("Adding to cart:", product);
+    // console.log("Adding to cart:", product);
     toast.success("Added to Cart!"); // Display the toast notification
   };
 

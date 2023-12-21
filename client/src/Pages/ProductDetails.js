@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from 'react-modal';
-import { FaStar ,FaThumbsUp, FaThumbsDown} from "react-icons/fa";
+// import { FaStar ,FaThumbsUp, FaThumbsDown} from "react-icons/fa";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -11,6 +11,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Navbar2 from "./Navbar2";
+import { FaStar, FaThumbsUp, FaThumbsDown } from 'react-icons/fa'
+// import { FaStar, FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
+import StarRating from 'react-rating-stars-component';
+
+
+
+
+
 
 
 
@@ -136,7 +144,7 @@ const ProductDetails = () => {
     }
   };
 
-  const calculateOffer = () => {
+  const calculateOffer = () =>    {
     const mrp = parseFloat(productDetails.mrp);
     const sp = parseFloat(productDetails.sp);
 
@@ -200,22 +208,29 @@ const ProductDetails = () => {
   
     const reviewText = event.target.reviewText.value;
     const formData = {
-      productId: productId, // Add productId to the formData
+      productId: productId,
       starRating: rating,
       comment: reviewText,
       username: 'JohnDoe',
     };
   
     try {
+      // Send the review to the reviews collection
       const response = await axios.post('http://127.0.0.1:5555/api/reviews', formData);
       console.log('Review successfully submitted');
-      // Add the new review to the current reviews state 
+  
+      // Add the new review to the current reviews state
       setReviews([...reviews, response.data]);
+  
+      // Update the product in the products collection with the new review
+      await axios.post(`http://127.0.0.1:5555/api/products/${productId}/reviews`, formData);
+  
       toast.success("Review successfully submitted!"); // Display the toast notification
     } catch (error) {
       console.error('Error submitting review:', error);
     }
   };
+  
   
   
 
@@ -332,6 +347,20 @@ const ProductDetails = () => {
   <p className="product-reviews">{reviewData.reviews} Reviews</p>
 
 </div>
+
+
+{/* <div className="ratings-reviews">
+  <StarRating
+    initialRating={roundedAverageRating}
+    emptySymbol={<FaStar className="star" color="#e4e5e9" />}
+    fullSymbol={<FaStar className="star" color="#ffc107" />}
+    readonly
+  />
+  <p className="product-reviews">{reviewData.reviews} Reviews</p>
+</div> */}
+
+
+
 <hr className="hr-2" />
 
             <div className="product-savings"> 
