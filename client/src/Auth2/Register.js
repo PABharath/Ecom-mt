@@ -159,13 +159,7 @@ const Register = () => {
 
 
             <div className="field1 input-field1">
-            <span className='icon2v' onClick={togglePasswordVisibility}>
-            {showPassword ? (
-              <FontAwesomeIcon icon={faEyeSlash} />
-            ) : (
-              <FontAwesomeIcon icon={faEye} />
-            )}
-          </span>
+            
     
 
 
@@ -178,19 +172,21 @@ const Register = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <span className='icon2v' onClick={togglePasswordVisibility}>
+            {showPassword ? (
+              <FontAwesomeIcon icon={faEyeSlash} />
+            ) : (
+              <FontAwesomeIcon icon={faEye} />
+            )}
+          </span>
             </div>
 
 
 
             <div className="field1 input-field1">
            
-            <span className='icon2v' onClick={togglePasswordVisibility2}>
-            {setpassword ? (
-              <FontAwesomeIcon icon={faEyeSlash} />
-            ) : (
-              <FontAwesomeIcon icon={faEye} />
-            )}
-          </span>
+           
+      
     
     
               <input
@@ -200,20 +196,29 @@ const Register = () => {
                 className="confirmpassword"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
+                
               />
+              <span className='icon2v1' onClick={togglePasswordVisibility2}>
+                {setpassword ? (
+                  <FontAwesomeIcon icon={faEyeSlash} />
+                ) : (
+                  <FontAwesomeIcon icon={faEye} />
+                )}
+                    </span>
               
               {errorMessage && <p className="error-message">{errorMessage}</p>}
             </div>
             <div className="field1 button-field1">
               <button type="submit-register">Register</button>
+              <p className="para1">Or</p>
             </div>
            
           </div>
       
-            <p className="para1">Or</p>
+            
            
           
-          <div className="googlecontainer-register" >
+          <div className="googlecontainer-register1" >
         <GoogleOAuthProvider  clientId="476717558763-pbbvpjdugi7ium3eprbclkqn8f61hllf.apps.googleusercontent.com">
           <GoogleLogin 
             onSuccess={(credentialResponse) => {

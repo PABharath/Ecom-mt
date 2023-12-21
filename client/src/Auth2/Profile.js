@@ -118,7 +118,7 @@ return (
           <button onClick={handleLogout}>Logout</button>
         </>
       ) : (
-        <p>Loading profile...</p>
+        <p>Loading profile...<button onClick={handleLogout}>Logout</button></p>
       )}
     </div>
   </div>

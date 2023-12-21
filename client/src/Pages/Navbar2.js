@@ -23,11 +23,10 @@ import { PiSignOutBold } from "react-icons/pi";
 import { FaUserCircle } from "react-icons/fa";
 import "./Navbar2.css";
 
-
 const Navbar2 = ({ onSearch }) => {
   const [token,] = useState(localStorage.getItem('token'));
   const navigate = useNavigate();
-
+  const [token,] = useState(localStorage.getItem('token'));
   const { cartItems } = useContext(CartContext);
   const [searchQuery, setSearchQuery] = useState("");
   const totalQuantity = cartItems.reduce(
@@ -101,10 +100,10 @@ const Navbar2 = ({ onSearch }) => {
 
 
 
-                 <div className="navvik-right">
-        <Link to="/ProductForm">
-          <FontAwesomeIcon icon={faPlus} className="menu-icon" />
-        </Link>
+              <div className="navvik-right">
+                <Link to="/ProductForm">
+                  <FontAwesomeIcon icon={faPlus} className="menu-icon" />
+                </Link>
 
         <Link to="/cart" >
           <FontAwesomeIcon icon={faShoppingCart} />
@@ -116,7 +115,7 @@ const Navbar2 = ({ onSearch }) => {
           <div className="tooltip">No new notifications.. Stay tuned for more!!</div>
         </div>
 
-        {token ? (
+        {user ? (
           <div onClick={() => navigate('/Profile')}>
             <FontAwesomeIcon icon={faUser} className="menu-icon" />
           </div>

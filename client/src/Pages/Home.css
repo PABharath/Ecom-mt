@@ -226,6 +226,8 @@
   display: flex;
   justify-content: space-between;
   margin-top: 20px; /* Adjust spacing as needed */
+ 
+  
   }
   
   .image-container ,.image-container1 {
@@ -233,19 +235,31 @@
   /* flex-direction: column; */
   align-items: center;
   width: 720px;
-  /* height: 450px; */
+  
   margin-top: 1%;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4); /* Add shadow for depth */
-  margin-left: 20px;
+  /* box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);  */
+  margin-left: 1rem;
   margin-right: 20px;
+  border-radius: 20px;
   /* display: inline-block; */
   cursor: pointer;
   }
+
   
+
+
   .image-container img {
   width: 100%;
   max-height: 100%;
+
   }
+
+  .image-container .img891{
+    border-radius: 15px;
+    width: 100%;
+   
+  }
+ 
 
   
   .buy-now-box-button1 {

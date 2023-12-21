@@ -43,7 +43,7 @@
   /* height: 430px; */
   /* width: "100%"; */
   border-radius: 20px;
-  /* background-color: white; */
+  background-color: white;
   color: black;
   /* margin-left: 50%;
   margin-top: -32px; */
@@ -85,7 +85,7 @@
   margin-top: 25px;
   
 }
-.fg-button-field45 button {
+ .Abhi1 {
   width: 90%;
   padding: 10px;
   background-color: #8eab92;
@@ -97,14 +97,17 @@
   border-radius: 15px;
   cursor: pointer;
 }
-button :hover{
-  background-color:rgb(223, 12, 12);
+
+.Abhi:hover{
+  background-color: black;
   color: white;
 }
+
 .backtologin {
-  
+  text-decoration: none;
+  color: black;
   margin-top: 5%;
-  margin-left: 33%;
+  margin-left: 18%;
   
 
 }

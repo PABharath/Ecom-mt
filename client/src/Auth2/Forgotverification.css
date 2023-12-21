@@ -62,6 +62,7 @@
 
 .fgvpara{
   color: rgb(142, 142, 142);
+  
 }
 
 .fgv-field {
@@ -116,7 +117,7 @@
   background-color:#8eab92;
   color: #ffffff;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
 }
 

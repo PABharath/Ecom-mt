@@ -1,57 +1,39 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link , useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useCart } from "./CreateContext";
 import { toast } from "react-toastify";
 import { scrollToTop } from "./scrollUtils";
-import "./AllProductsv.css"; 
+import "./AllProductsv.css";
 import Navbar from "./Navbar";
 import Navbar2 from "./Navbar2";
 
-const SareesCategories2 = () => {
-
-  const [searchTerm, setSearchTerm] = useState("");          
+const Filtering = ({ searchQuery, filterType, onCategorySelect }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [minPrice, setMinPrice] = useState(""); // Add state for minimum price
-  const [maxPrice, setMaxPrice] = useState(""); // Add state for maximum price
   const { addToCart } = useCart();
-
-
-
-
-  const handleSearch = (query, category) => {
-    // Implement your search logic here
-    // For example, you can filter products based on the search query and category
-    setSearchTerm(category);
-    // You can use the query and category in your filtering logic
-    // Fetch or filter products based on the search term and category
-  };
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     console.log("Component mounted");
     fetchProducts();
-  }, [selectedCategory, minPrice, maxPrice]);
+  }, [filterType, searchQuery]);
+
 
   const fetchProducts = async () => {
     try {
       const response = await axios.get("http://localhost:5555/api/products");
 
-      // If a category is selected, filter products by that category
-      let filteredProducts = selectedCategory
-        ? response.data.filter((product) =>
-            product.category.includes(selectedCategory)
-          )
-        : response.data;
+      let filteredProducts = response.data;
 
-      // Filter products by price range
-      if (minPrice !== "" && maxPrice !== "") {
-        filteredProducts = filteredProducts.filter(
-          (product) =>
-            product.sp >= parseInt(minPrice) && product.sp <= parseInt(maxPrice)
-        );
+      // Filter products based on the selected category
+      if (filterType === "featured") {
+        filteredProducts = filteredProducts.filter((product) => product.featured === true);
+      } else if (filterType === "bestseller") {
+        filteredProducts = filteredProducts.filter((product) => product.bestseller === true);
       }
+
+      // Apply additional filters (e.g., search query)
 
       setProducts(filteredProducts);
       setLoading(false);
@@ -59,6 +41,10 @@ const SareesCategories2 = () => {
       console.error("Error fetching products:", error.message);
       console.log("Error details:", error.response);
     }
+  };
+
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
   };
 
   const handleAddToCart = (event, product) => {
@@ -77,17 +63,13 @@ const SareesCategories2 = () => {
     toast.success("Added to Cart!");
   };
 
-  const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
-  };
+  // const handleMinPriceChange = (event) => {
+  //   setMinPrice(event.target.value);
+  // };
 
-  const handleMinPriceChange = (event) => {
-    setMinPrice(event.target.value);
-  };
-
-  const handleMaxPriceChange = (event) => {
-    setMaxPrice(event.target.value);
-  };
+  // const handleMaxPriceChange = (event) => {
+  //   setMaxPrice(event.target.value);
+  // };
 
   // const handleFilterByPrice = () => {
   //   fetchProducts();
@@ -99,7 +81,7 @@ const SareesCategories2 = () => {
   return (
     <>
     
-<Navbar2 onSearch={handleSearch} />
+{/* <Navbar2 onSearch={handleSearch} /> */}
 
 
     <div className='Product-List-convik'>
@@ -109,21 +91,16 @@ const SareesCategories2 = () => {
 <div className="Dropdown-vik">
     <div className="dropdown-content-vik">
       
-      <button onClick={() => handleCategorySelect(null)}>All</button>
+      
       <button onClick={() => handleCategorySelect("Kanjeevaram")}>Kanjeevaram</button>
-      <button onClick={() => handleCategorySelect("Mysore")}>Mysore</button>
-      <button onClick={() => handleCategorySelect("Chettinad")}>Chettinad</button>
-      <button onClick={() => handleCategorySelect("Kasavu")}>Kasavu</button>
-      <button onClick={() => handleCategorySelect("Gadwal")}>Gadwal</button>
-      <button onClick={() => handleCategorySelect("Dharamavaram")}>Dharamavaram</button>
-      <button onClick={() => handleCategorySelect("Pochampally")}>Pochampally</button>
+      
 
     </div>
 </div>
 
 
 <div className="priceFilter-vik">
-          <label htmlFor="">Filter By Price:</label>
+          {/* <label htmlFor="">Filter By Price:</label>
           <span>Min Price: {minPrice}</span>
           <input
             type="range"
@@ -132,16 +109,16 @@ const SareesCategories2 = () => {
             step="100"
             value={minPrice}
             onChange={handleMinPriceChange}
-          />
-           <span>Max Price: {maxPrice}</span>
-          <input
+          /> */}
+           {/* <span>Max Price: {maxPrice}</span> */}
+          {/* <input
             type="range"
             min="1000"
             max="2500" // Adjust the maximum value based on your product price range
             step="200"
             value={maxPrice}
             onChange={handleMaxPriceChange}
-          />
+          /> */}
           <div>
           
            
@@ -179,7 +156,7 @@ const SareesCategories2 = () => {
                       className='productaddbutvik'
                       onClick={(event) => handleAddToCart(event, product)}
                     >
-                      Add to cart
+                      ADD
                     </button>
                   </Link>
                 </div>
@@ -193,4 +170,4 @@ const SareesCategories2 = () => {
   );
 };
 
-export default SareesCategories2;
+export default Filtering;

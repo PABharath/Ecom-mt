@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from 'react-modal';
-import { FaStar ,FaThumbsUp, FaThumbsDown} from "react-icons/fa";
+// import { FaStar ,FaThumbsUp, FaThumbsDown} from "react-icons/fa";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -11,10 +11,20 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Navbar2 from "./Navbar2";
+import { FaStar, FaThumbsUp, FaThumbsDown } from 'react-icons/fa'
+// import { FaStar, FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
+import StarRating from 'react-rating-stars-component';
+
+
+
+
+
 
 
 
 const ProductDetails = () => {
+
+   const { productId } = useParams();
   const [productDetails, setProductDetails] = useState({});
   const [mainImage, setMainImage] = useState(0);
   const [rating, setRating] = useState(-1);
@@ -22,19 +32,83 @@ const ProductDetails = () => {
   const [reviewData, setReviewData] = useState({ ratings: 0, reviews: 0 });
   const navigate = useNavigate();
   const [reviews, setReviews] = useState([]);
-  const { productId } = useParams();
+
   const { addToCart } = useCart();
   const [showAllReviews, setShowAllReviews] = useState(false);
   const [showAddToCartToast, setShowAddToCartToast] = useState(false);
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
   
-  // Use the custom hook to get cart context
+  const calculateAverageRating = () => {
+    if (reviews.length === 0) {
+      return 0;
+    }
+
+    const totalRatings = reviews.reduce((sum, review) => sum + review.starRating, 0);
+    return (totalRatings / reviews.length).toFixed(2);
+  };
+
+  const renderStarRatings = () => {
+    const averageRating = calculateAverageRating();
+
+    return (
+      <div className="star-ratings-container">
+        <h3>{averageRating} Ratings & {reviews.length} Reviews</h3>
+        {[5, 4, 3, 2, 1].map((rating, index) => {
+          const ratingCount = reviews.filter((review) => review.starRating === rating).length;
+          const percentage = (ratingCount / reviews.length) * 100;
+          const progressBarColor = calculateProgressBarColor(averageRating, rating);
+
+          return (
+            <div key={index} className="star-rating-item">
+              <div className="star-rating-header">
+                <span className="star-rating-value">{rating}</span>
+                {/* Display the count of ratings for the current star rating */}
+                <span className="rating-count">{ratingCount}</span>
+              </div>
+              {/* Add your progress bar here based on the rating count */}
+              <div className="progress-bar-container">
+                <div
+                  className="progress-bar"
+                  style={{
+                    width: `${percentage}%`,
+                    background: progressBarColor,
+                  }}
+                ></div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
+  const calculateProgressBarColor = (averageRating, currentRating) => {
+    // Customize the color logic based on your requirements
+    // Here, I'm using a gradient from red to green based on the rating
+    const gradientStart = [255, 0, 0]; // Red
+    const gradientEnd = [0, 255, 0];   // Green
+
+    const normalizedRating = Math.min(Math.max(currentRating / 5, 0), 1);
+    const color = gradientStart.map((channel, index) =>
+      Math.round(channel + normalizedRating * (gradientEnd[index] - channel))
+    );
+
+    return `rgb(${color.join(',')})`;
+  };
+
   
 
   useEffect(() => {
     fetchProductDetails();
     fetchReviewData();
   }, []);
+
+  useEffect(() => {
+    console.log('Product ID:', productId);
+    if (productId) {
+      fetchProductDetails(productId);
+    }
+  }, [productId]);
 
   const handleThumbnailClick = (index) => {
     setMainImage(index);
@@ -70,7 +144,7 @@ const ProductDetails = () => {
     }
   };
 
-  const calculateOffer = () => {
+  const calculateOffer = () =>    {
     const mrp = parseFloat(productDetails.mrp);
     const sp = parseFloat(productDetails.sp);
 
@@ -134,22 +208,29 @@ const ProductDetails = () => {
   
     const reviewText = event.target.reviewText.value;
     const formData = {
-      productId: productId, // Add productId to the formData
+      productId: productId,
       starRating: rating,
       comment: reviewText,
       username: 'JohnDoe',
     };
   
     try {
+      // Send the review to the reviews collection
       const response = await axios.post('http://127.0.0.1:5555/api/reviews', formData);
       console.log('Review successfully submitted');
-      // Add the new review to the current reviews state 
+  
+      // Add the new review to the current reviews state
       setReviews([...reviews, response.data]);
+  
+      // Update the product in the products collection with the new review
+      await axios.post(`http://127.0.0.1:5555/api/products/${productId}/reviews`, formData);
+  
       toast.success("Review successfully submitted!"); // Display the toast notification
     } catch (error) {
       console.error('Error submitting review:', error);
     }
   };
+  
   
   
 
@@ -197,27 +278,7 @@ const ProductDetails = () => {
         <p>{error}</p>
       ) : (
         <div>
-          {/* <h2>{productDetails.productName}</h2> */}
-          {/* <div className="product-images">
-            {productDetails.productImages &&
-            productDetails.productImages.length > 0 ? (
-              <Carousel showArrows={true} showStatus={false} showThumbs={false}>
-                {productDetails.productImages.map((image, index) => (
-                  <div key={index}>
-                    <img className="imagee"
-                      src={`http://127.0.0.1:5555/api/uploads/${image}`}
-                      alt={`Product ${index}`}
-                      width="500"
-                      height="800"
-                      
-                    />
-                  </div>
-                ))}
-              </Carousel>
-            ) : (
-              <p>No images available</p>
-            )}
-          </div> */}
+          
 
 <div className="product-images">
       {productDetails.productImages && productDetails.productImages.length > 0 ? (
@@ -286,6 +347,20 @@ const ProductDetails = () => {
   <p className="product-reviews">{reviewData.reviews} Reviews</p>
 
 </div>
+
+
+{/* <div className="ratings-reviews">
+  <StarRating
+    initialRating={roundedAverageRating}
+    emptySymbol={<FaStar className="star" color="#e4e5e9" />}
+    fullSymbol={<FaStar className="star" color="#ffc107" />}
+    readonly
+  />
+  <p className="product-reviews">{reviewData.reviews} Reviews</p>
+</div> */}
+
+
+
 <hr className="hr-2" />
 
             <div className="product-savings"> 
@@ -474,6 +549,7 @@ const ProductDetails = () => {
           </button>
         )}
       </div>
+      {renderStarRatings()}
         </div>
       )}
        {showAddToCartToast &&<ToastContainer position="top-center" autoClose={3000} />}
