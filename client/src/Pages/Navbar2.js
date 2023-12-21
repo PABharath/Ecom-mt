@@ -24,7 +24,6 @@ import { FaUserCircle } from "react-icons/fa";
 import "./Navbar2.css";
 
 const Navbar2 = ({ onSearch }) => {
-  const [token,] = useState(localStorage.getItem('token'));
   const navigate = useNavigate();
   const [token,] = useState(localStorage.getItem('token'));
   const { cartItems } = useContext(CartContext);
@@ -115,7 +114,7 @@ const Navbar2 = ({ onSearch }) => {
           <div className="tooltip">No new notifications.. Stay tuned for more!!</div>
         </div>
 
-        {user ? (
+        {token ? (
           <div onClick={() => navigate('/Profile')}>
             <FontAwesomeIcon icon={faUser} className="menu-icon" />
           </div>
