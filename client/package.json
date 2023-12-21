@@ -28,6 +28,7 @@
     "file-saver": "^2.0.5",
     "framer-motion": "^10.16.16",
     "ionicons": "^7.1.2",
+    "jspdf": "^2.5.1",
     "jwt-decode": "^3.1.2",
     "pdfmake": "^0.2.7",
     "react": "^18.2.0",
