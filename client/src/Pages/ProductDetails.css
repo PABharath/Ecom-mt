@@ -706,8 +706,8 @@ body {
 }
 
 .progress-bar-container {
-  width: 30%;
-  height: 15px; /* Adjust the height of the progress bar */
+  width: 25%;
+  height: 10px; /* Adjust the height of the progress bar */
   background: #D9D9D9; /* Background color of the progress bar */
   border-radius: 5px; /* Adjust the border-radius for rounded corners */
   overflow: hidden;
