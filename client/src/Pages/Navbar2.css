@@ -133,6 +133,11 @@ padding: 2px 5px;
 border-radius: 5px;
  
 }
+
+.pop1 button:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
 .pop2{
     position: relative;
     top: -0.3rem;

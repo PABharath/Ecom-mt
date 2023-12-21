@@ -2,8 +2,7 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import React, { useRef, useState, useContext } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingCart,
@@ -25,6 +24,7 @@ import "./Navbar2.css";
 import Popup from 'reactjs-popup';
 
 const Navbar2 = ({ onSearch }) => {
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [token,] = useState(localStorage.getItem('token'));
   const { cartItems } = useContext(CartContext);
@@ -41,17 +41,6 @@ const Navbar2 = ({ onSearch }) => {
     console.log("Search query:", searchQuery);
     onSearch(searchQuery);
   };
-
-  const handleLogout = () => {
-    // Clear the token
-    console.log("clicked")
-    localStorage.removeItem('token')
-    
-    // Redirect to the login page
-    navigate('/Login');
-  }
-  
-
 
   return (
     <div>
@@ -142,17 +131,17 @@ const Navbar2 = ({ onSearch }) => {
               <input type="text" placeholder="Username"/><br/><br/>
                 <Link to='/Login'>         
                 {/* <button onClick={handleLogout}>Logout</button> */}
-                {/* </Link>
-                <button className="bg-button1" onClick={handleLogout}>logout</button><br/><br/>
+                {/* {/* </Link> */}
+                {/* <button className="bg-button1" onClick={handleLogout}>logout</button><br/><br/>
                 <button className="bg-button2"><PiSignOutBold/>Profile</button> 
                  <br/>
                </div>
              </Tooltip>
              
            )}
-         </Overlay> */} 
+         </Overlay> */}
 
-{/* <h4>Popup - GeeksforGeeks</h4> */}
+      {/* <h4>Popup - GeeksforGeeks</h4> */}
             <Popup trigger=
                 {<button style={{backgroundColor:"white",color:'black',border:'none'}}><FaUserCircle className="pop2"/>  </button>}
                 position="bottom left">
@@ -161,10 +150,7 @@ const Navbar2 = ({ onSearch }) => {
                 <button><PiSignOutBold className="pop3"/>Profile</button>
                 </div>
             </Popup>
-
-
-
-      </div>
+            </div>
 
 
 

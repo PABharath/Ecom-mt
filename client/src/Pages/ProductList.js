@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useCart } from "./CreateContext"; // Import the custom hook
 import { toast } from "react-toastify";
 import { scrollToTop } from "./scrollUtils";
+import './ProductList.css'
 import Navbar2 from "./Navbar2";
 
 const ProductList = ({ searchQuery }) => {
