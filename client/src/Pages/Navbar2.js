@@ -2,7 +2,8 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import React, { useRef, useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingCart,
@@ -24,7 +25,6 @@ import "./Navbar2.css";
 import Popup from 'reactjs-popup';
 
 const Navbar2 = ({ onSearch }) => {
-  const { user } = useAuth();
   const navigate = useNavigate();
   const [token,] = useState(localStorage.getItem('token'));
   const { cartItems } = useContext(CartContext);
@@ -41,6 +41,17 @@ const Navbar2 = ({ onSearch }) => {
     console.log("Search query:", searchQuery);
     onSearch(searchQuery);
   };
+
+  const handleLogout = () => {
+    // Clear the token
+    console.log("clicked")
+    localStorage.removeItem('token')
+    
+    // Redirect to the login page
+    navigate('/Login');
+  }
+  
+
 
   return (
     <div>
@@ -104,7 +115,7 @@ const Navbar2 = ({ onSearch }) => {
           <div className="tooltip">No new notifications.. Stay tuned for more!!</div>
         </div>
 
-        {user ? (
+        {token ? (
           <div onClick={() => navigate('/Profile')}>
             <FontAwesomeIcon icon={faUser} className="menu-icon" />
           </div>
@@ -129,9 +140,10 @@ const Navbar2 = ({ onSearch }) => {
                <FaUserCircle style={{fontSize:'2rem'}}/><br/>
                 <b>Username:</b><br/>
               <input type="text" placeholder="Username"/><br/><br/>
-                         
-                 
-                <button className="bg-button1">logout</button><br/><br/>
+                <Link to='/Login'>         
+                {/* <button onClick={handleLogout}>Logout</button> */}
+                </Link>
+                <button className="bg-button1" onClick={handleLogout}>logout</button><br/><br/>
                 <button className="bg-button2"><PiSignOutBold/>Profile</button> 
                  <br/>
                </div>

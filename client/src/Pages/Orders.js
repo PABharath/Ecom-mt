@@ -3,13 +3,48 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Orders.css";
 import Navbar2 from "./Navbar2";
+import { jsPDF } from "jspdf";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const [currentOrder, setCurrentOrder] = useState(null);
 
   useEffect(() => {
     fetchOrders();
   }, []);
+
+
+  const handleViewInvoice = (order) => {
+    setCurrentOrder(order);
+    generateInvoicePDF(order);
+  };
+
+  const generateInvoicePDF = (order) => {
+    const doc = new jsPDF();
+    // Set font size and style
+    doc.setFont("helvetica", "normal"); // You can replace "helvetica" and "normal" with your preferred font and style.
+  
+    // Customize the content of the PDF using order data
+    doc.text(`Order Details and Invoice for Order #${order.orderId}`, 20, 20);
+    
+    // Display order details
+    doc.text(`Order Date: ${order.orderDate}`, 20, 30);
+    doc.text(`Total Amount: ₹${order.totalAmount}`, 20, 40);
+    doc.text(`Expected Delivery Date: ${order.expectedDeliveryDate}`, 20, 50);
+  
+    // Display products in the order
+    doc.text("Products in the Order:", 20, 60);
+    let yPosition = 70;
+    order.products.forEach((product) => {
+      doc.text(`- ${product.productName}`, 20, yPosition);
+      yPosition += 10;
+    });
+  
+    // Save the PDF and open it in a new tab for download
+    doc.save(`order_and_invoice_${order.orderId}.pdf`);
+  };
+  
+
 
 
 
@@ -101,9 +136,12 @@ const Orders = () => {
                   <td> {order.orderId}</td>
                   <td>
                 
-                    <Link className="ecom-link" to={`/invoice/${order.orderId}`}>
-                        View Invoice
-                    </Link>
+                  <button
+                      className="ecom-link"
+                      onClick={() => handleViewInvoice(order)}
+                    >
+                      View Invoice
+                    </button>
                   </td>
                 </tr>
               </tbody>
@@ -163,4 +201,3 @@ const Orders = () => {
 };
 
 export default Orders;
-

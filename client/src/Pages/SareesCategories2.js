@@ -179,7 +179,7 @@ const SareesCategories2 = () => {
                       className='productaddbutvik'
                       onClick={(event) => handleAddToCart(event, product)}
                     >
-                      ADD
+                      Add to cart
                     </button>
                   </Link>
                 </div>

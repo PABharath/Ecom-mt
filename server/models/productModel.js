@@ -2,8 +2,8 @@ const { MongoClient, ObjectId } = require('mongodb');
 
 class ProductModel {
   constructor() {
-    this.uri = 'mongodb://127.0.0.1:27017';
-    this.dbName = 'Ecommerce-mvc';
+    this.uri = 'mongodb+srv://lkasireddy915:1234@e-commerce.o3n1dk4.mongodb.net/Ecommerce?retryWrites=true&w=majority';
+    this.dbName = 'Ecommerce';
   }
 
   async connect() {

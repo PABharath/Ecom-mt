@@ -48,29 +48,31 @@ exports.getUserProfile = async (req, res) => {
 
 // New function to add a product to the user's cart
 exports.addToCart = async (req, res) => {
+  const customerId = req.params.id; // Correctly access customerId
+  const { cartItems } = req.body;
+
   try {
-    const userId = req.user.id;
-    const { productId } = req.body;
-
-    // Fetch the user based on the user ID
-    const user = await User.findById(userId);
-
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
+    const customer = await User.findOne({ email: customerId }); // Use "email" to find the customer
+    if (!customer) {
+      console.log('Customer not found for email:', customerId);
+      return res.status(404).json({ error: 'Customer not found.' });
     }
 
-    // Check if the product already exists in the cart
-    if (!user.cart.includes(productId)) {
-      // If not, add the product to the cart
-      user.cart.push(productId);
-      await user.save();
-      return res.status(200).json({ message: 'Product added to cart successfully' });
-    } else {
-      // If the product already exists in the cart, you may want to handle this case accordingly
-      return res.status(400).json({ error: 'Product already exists in the cart' });
-    }
+    // Clear the existing cart and add the new cart items
+    customer.cart = cartItems;
+
+    // Save the updated customer document
+    await customer.save();
+
+    console.log('Product added to cart successfully:', cartItems);
+
+    res.status(201).json({ cartItems });
   } catch (error) {
-    console.error('Error adding to cart:', error);
-    res.status(500).json({ error: 'Failed to add to cart' });
+    console.error('Error saving product data:', error.message);
+    console.log('customerId:', customerId);
+    res.status(500).json({ error: 'Error saving product data.' });
   }
 };
+
+
+ 
