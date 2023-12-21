@@ -358,16 +358,14 @@ body {
   color:#272343;
   ;
 }
-.my{
 
-}
 .reviews-section {
   margin-top:-25%;
   border-top: 1px solid #ccc;
   padding-top: 20px;
   width: 25%;
   margin-left: auto; /* Auto margin-left to push it to the end of the page */
-  margin-right: 10%; /* Add some right margin for spacing */
+  margin-right: 15%; /* Add some right margin for spacing */
 }
 
 .star-ratings-container {
@@ -730,6 +728,7 @@ body {
 
 .star-ratings-container {
   margin-left: 5%; /* Add margin-left for spacing */
+  /* margin-top: -5%; */
 }
 
 .star-rating-item {
