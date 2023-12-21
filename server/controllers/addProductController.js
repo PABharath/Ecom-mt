@@ -66,3 +66,25 @@ exports.addProduct = async (req, res) => {
     res.status(500).json({ error: "Failed to add product." });
   }
 };
+
+exports.addReviewToProduct = async (req, res) => {
+  const { productId } = req.params;
+  const { starRating, comment, username } = req.body;
+
+  try {
+    const product = await Product.findById(productId);
+
+    if (!product) {
+      return res.status(404).json({ error: "Product not found." });
+    }
+
+    // Update the product with the new review
+    product.reviews.push({ starRating, comment, username });
+    await product.save();
+
+    res.status(200).json({ message: "Review added to product successfully." });
+  } catch (error) {
+    console.error("Error adding review to product:", error);
+    res.status(500).json({ error: "Failed to add review to product." });
+  }
+};
