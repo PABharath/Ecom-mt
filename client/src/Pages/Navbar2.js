@@ -142,7 +142,7 @@ const Navbar2 = ({ onSearch }) => {
               <input type="text" placeholder="Username"/><br/><br/>
                 <Link to='/Login'>         
                 {/* <button onClick={handleLogout}>Logout</button> */}
-                </Link>
+                {/* </Link>
                 <button className="bg-button1" onClick={handleLogout}>logout</button><br/><br/>
                 <button className="bg-button2"><PiSignOutBold/>Profile</button> 
                  <br/>
@@ -150,14 +150,14 @@ const Navbar2 = ({ onSearch }) => {
              </Tooltip>
              
            )}
-         </Overlay> */}
+         </Overlay> */} 
 
 {/* <h4>Popup - GeeksforGeeks</h4> */}
             <Popup trigger=
                 {<button style={{backgroundColor:"white",color:'black',border:'none'}}><FaUserCircle className="pop2"/>  </button>}
                 position="bottom left">
                 <div className="pop1">
-               <Link to=''> <button >Logout</button></Link><br/><br/>
+                <button onClick={handleLogout}>Logout</button><br/><br/>
                 <button><PiSignOutBold className="pop3"/>Profile</button>
                 </div>
             </Popup>
