@@ -5,6 +5,7 @@ import { Country, State } from "country-state-city";
 import "./IntegratedAddressPage.css";
 import { CartContext } from "./CreateContext";
 import axios from "axios";
+import Navbar2 from './Navbar2';
 
 
 const IntegratedAddressPage = () => {
@@ -97,6 +98,8 @@ const IntegratedAddressPage = () => {
   
 
   return (
+    <>
+    <Navbar2/>
     <div className="page">
       <div className="address-view-container">
         <AddressView
@@ -267,6 +270,7 @@ const IntegratedAddressPage = () => {
         Next
       </button>
     </div>
+    </>
   );
 };
 
