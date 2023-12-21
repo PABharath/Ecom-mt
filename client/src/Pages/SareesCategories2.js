@@ -9,15 +9,14 @@ import Navbar from "./Navbar";
 import Navbar2 from "./Navbar2";
 
 const SareesCategories2 = () => {
-  const location = useLocation();
-  const selectedCategory = location.state ? location.state.category : null;
+
   const [searchTerm, setSearchTerm] = useState("");          
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [minPrice, setMinPrice] = useState(""); // Add state for minimum price
   const [maxPrice, setMaxPrice] = useState(""); // Add state for maximum price
   const { addToCart } = useCart();
-  const [selectedCat, setSelectedCat] = useState(null);
 
 
 
@@ -79,7 +78,7 @@ const SareesCategories2 = () => {
   };
 
   const handleCategorySelect = (category) => {
-    setSelectedCat(category);
+    setSelectedCategory(category);
   };
 
   const handleMinPriceChange = (event) => {
