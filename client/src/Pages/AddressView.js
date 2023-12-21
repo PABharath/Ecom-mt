@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AddAddressPage from './AddAddressPage';
-import Navbar2 from './Navbar2';
+
 
 const AddressView = ({ onAddressSelection }) => {
   const [error, setError] = useState(null);
@@ -46,14 +46,14 @@ useEffect(() => {
   } else {
     return (
      <div>
-     <Navbar2/>
+     
        <div style={{ display: 'flex', gap: '20px' }}>
         <div>
           <div style={{ display: 'flex', gap: '20px', position: 'relative', left: '400px', top: '25px' }}>
             {/* <button onClick={handleShowPopup}>Add Address</button> */}
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
-            <h3 style={{ marginBottom: '10px' }}>Addresses</h3>
+            <h3 style={{ marginBottom: '10px',marginTop:'7%' }}>Addresses</h3>
             {data.map((user) => (
               <div
                 key={user.id}
@@ -66,6 +66,7 @@ useEffect(() => {
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'start',
+                  
                 }}
               >
                 <input
