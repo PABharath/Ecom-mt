@@ -30,7 +30,64 @@ const ProductDetails = () => {
   const [showAddToCartToast, setShowAddToCartToast] = useState(false);
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
   
-  // Use the custom hook to get cart context
+  const calculateAverageRating = () => {
+    if (reviews.length === 0) {
+      return 0;
+    }
+
+    const totalRatings = reviews.reduce((sum, review) => sum + review.starRating, 0);
+    return (totalRatings / reviews.length).toFixed(2);
+  };
+
+  const renderStarRatings = () => {
+    const averageRating = calculateAverageRating();
+
+    return (
+      <div className="star-ratings-container">
+        <h3>{averageRating} Ratings & {reviews.length} Reviews</h3>
+        {[5, 4, 3, 2, 1].map((rating, index) => {
+          const ratingCount = reviews.filter((review) => review.starRating === rating).length;
+          const percentage = (ratingCount / reviews.length) * 100;
+          const progressBarColor = calculateProgressBarColor(averageRating, rating);
+
+          return (
+            <div key={index} className="star-rating-item">
+              <div className="star-rating-header">
+                <span className="star-rating-value">{rating}</span>
+                {/* Display the count of ratings for the current star rating */}
+                <span className="rating-count">{ratingCount}</span>
+              </div>
+              {/* Add your progress bar here based on the rating count */}
+              <div className="progress-bar-container">
+                <div
+                  className="progress-bar"
+                  style={{
+                    width: `${percentage}%`,
+                    background: progressBarColor,
+                  }}
+                ></div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
+  const calculateProgressBarColor = (averageRating, currentRating) => {
+    // Customize the color logic based on your requirements
+    // Here, I'm using a gradient from red to green based on the rating
+    const gradientStart = [255, 0, 0]; // Red
+    const gradientEnd = [0, 255, 0];   // Green
+
+    const normalizedRating = Math.min(Math.max(currentRating / 5, 0), 1);
+    const color = gradientStart.map((channel, index) =>
+      Math.round(channel + normalizedRating * (gradientEnd[index] - channel))
+    );
+
+    return `rgb(${color.join(',')})`;
+  };
+
   
 
   useEffect(() => {
@@ -463,6 +520,7 @@ const ProductDetails = () => {
           </button>
         )}
       </div>
+      {renderStarRatings()}
         </div>
       )}
        {showAddToCartToast &&<ToastContainer position="top-center" autoClose={3000} />}
