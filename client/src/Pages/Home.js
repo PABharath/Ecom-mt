@@ -13,6 +13,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import Navbar2 from "./Navbar2";
 import { GoMail } from "react-icons/go";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import SareeShopCarousel from "./SareeShopCarousel";
+
 
 function Home() {
 
@@ -142,6 +146,8 @@ const [patients, setPatients] = useState([]);
           </div>
         </div>
         </div>
+
+        
         <div className="productContainer1">
         <ProductList searchQuery={searchQuery} />
 
@@ -168,6 +174,8 @@ const [patients, setPatients] = useState([]);
            
           </div>
           </div>
+
+         
 
 
           {/* <div className="image-container-wrapper">
@@ -218,6 +226,7 @@ const [patients, setPatients] = useState([]);
             </div>
            
           </div>
+          <SareeShopCarousel />
         </div>
       </section>
       {/* <ToastContainer position="top-center" autoClose={3000} /> */}
