@@ -200,7 +200,7 @@ const usderSubmit=(e)=>{
             <tfoot>
               <td colSpan="4">
                 <div className="custom-footer">
-                  <Link to="../ProductList">
+                  <Link to="/ProductList">
                     <button type="submit" className="btn btn-primary">
                       Continue Shopping
                     </button>

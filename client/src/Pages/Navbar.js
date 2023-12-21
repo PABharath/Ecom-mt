@@ -32,8 +32,8 @@ function Navbar({ onSearch }) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [categoryFilter, setCategoryFilter] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
-  const [show, setShow] = useState(false);
-    const target = useRef(null);
+  // const [show, setShow] = useState(false);
+  //   const target = useRef(null);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -146,7 +146,7 @@ function Navbar({ onSearch }) {
           </Link>
         )}
 
-<Button  ref={target} style={{backgroundColor:'rgb(206, 202, 202)',color:'black',border:'none'}}  onClick={() => setShow(!show)}>
+{/* <Button  ref={target} style={{backgroundColor:'rgb(206, 202, 202)',color:'black',border:'none'}}  onClick={() => setShow(!show)}>
            
            <FaUserCircle style={{fontSize:'1.5rem' , marginTop:'-1rem',marginLeft:'-0.8rem'}}/>
        
@@ -170,7 +170,7 @@ function Navbar({ onSearch }) {
              </Tooltip>
              
            )}
-         </Overlay>
+         </Overlay> */}
       </div>
     </header>
   );

@@ -13,7 +13,10 @@ const userSchema = new mongoose.Schema({
   resetToken: String,
   resetTokenExpiration: Date,
   // Additional user-related data
-  cart: [{ product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' }, quantity: Number }],  
+  cart: [{ 
+     product:String ,
+     quantity: Number 
+    }],  
   wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
   reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
 });
