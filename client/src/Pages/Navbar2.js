@@ -21,6 +21,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import { PiSignOutBold } from "react-icons/pi";
 import { FaUserCircle } from "react-icons/fa";
 import "./Navbar2.css";
+import Popup from 'reactjs-popup';
 
 const Navbar2 = ({ onSearch }) => {
   const { user } = useAuth();
@@ -113,7 +114,7 @@ const Navbar2 = ({ onSearch }) => {
           </Link>
         )}
 
-<Button  ref={target} style={{backgroundColor:'white',color:'white',border:'none'}}  onClick={() => setShow(!show)}>
+{/* <Button  ref={target} style={{backgroundColor:'white',color:'white',border:'none'}}  onClick={() => setShow(!show)}>
            
            <FaUserCircle style={{fontSize:'1.2rem' , marginTop:'-1rem',marginLeft:'-0.8rem'}}/>
        
@@ -137,7 +138,20 @@ const Navbar2 = ({ onSearch }) => {
              </Tooltip>
              
            )}
-         </Overlay>
+         </Overlay> */}
+
+{/* <h4>Popup - GeeksforGeeks</h4> */}
+            <Popup trigger=
+                {<button style={{backgroundColor:"white",color:'black',border:'none'}}><FaUserCircle className="pop2"/>  </button>}
+                position="bottom left">
+                <div className="pop1">
+               <Link to=''> <button >Logout</button></Link><br/><br/>
+                <button><PiSignOutBold className="pop3"/>Profile</button>
+                </div>
+            </Popup>
+
+
+
       </div>
 
 

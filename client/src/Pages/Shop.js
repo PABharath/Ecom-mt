@@ -8,7 +8,7 @@ const Shop = () => {
   <div>
     <Navbar2/>
     <div className="shop-page">
-      <h1>Sarees</h1>
+      <h1 className='h1'>Sarees</h1>
       <section className="category">
         <h3>Kanjeevaram Silk Sarees</h3>
         <p>
