@@ -13,8 +13,8 @@
     flex-direction: column;
   }
   .space23{
-    margin-left: 4px;
-    width: 400px;
+    margin-left: 180px;
+    width: 10%;
   }
   /* Adjust styling as needed */
   .slick-initialized .slick-slide {
@@ -25,3 +25,38 @@
     display: flex !important;
     flex-direction: row !important;
 }
+
+/* SareeShopCarousel.css */
+
+/* SareeShopCarousel.css */
+
+.slick-arrow {
+  font-size: 24px;
+  color: white;
+  background: #333;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.next-arrow {
+  right: 10px;
+}
+
+.prev-arrow {
+  left: 10px;
+}
+
+.slick-prev,
+.slick-next {
+  display: none !important; /* Hide default arrows */
+}
+
+.slick-dots {
+  position: static !important;
+}
+
