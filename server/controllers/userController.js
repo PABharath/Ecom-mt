@@ -65,11 +65,12 @@ exports.getUserProfile = async (req, res) => {
 
     // Fetch user details from the "users" collection and populate additional data
     const user = await User.findById(userId)
-      .populate("cart.product", "productName sp quantity")
-      .populate("wishlist", "productName")
-      .populate("reviews", "comment")
-      .select("-password") // Exclude password from the response
-      .populate("address"); // Populate user addresses
+    .populate('cart.productName', 'productName sp quantity') 
+      .populate('wishlist', 'productName')
+      .populate('reviews', 'comment')
+      .select('-password') // Exclude password from the response
+      .populate('address') // Populate user addresses
+
 
     if (!user) {
       return res.status(404).json({ error: "User not found" });

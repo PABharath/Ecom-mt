@@ -85,7 +85,13 @@ return (
       </p>
                 {profile.cart.map((product) => (
                    <li key={product._id}>
-                   {product.product} -  {product.quantity}
+                   {product.productName} -  {product.quantity}
+                   {product.sp} -  
+                   <img
+                      className="product-imgvik"
+                      src={`http://127.0.0.1:5555/api/uploads/${product.productImages[0]}`}
+                      alt={product.productName}
+                    />
                  </li>
                   
                 ))}
