@@ -63,7 +63,7 @@ exports.getUserProfile = async (req, res) => {
       .populate('wishlist', 'productName')
       .populate('reviews', 'comment')
       .select('-password') // Exclude password from the response
-      .populate('addresses'); // Populate user addresses
+      .populate('address'); // Populate user addresses
 
     if (!user) {
       return res.status(404).json({ error: 'User not found' });

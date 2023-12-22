@@ -15,7 +15,7 @@ export const useCart = () => {
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [email,] = useState(localStorage.getItem('email'));
-
+  
   const addToCart = async (product) => {
     try {
       const existingProduct = cartItems.find(
