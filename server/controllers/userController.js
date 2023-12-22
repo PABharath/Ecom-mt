@@ -31,8 +31,8 @@ exports.getUserProfile = async (req, res) => {
 
     // Fetch user details from the "users" collection and populate additional data
     const user = await User.findById(userId)
-      .populate('cart', 'productName') // Add fields you want to populate for 'Product' documents
-      .populate('wishlist', 'productName')
+    .populate('cart.product', 'productName sp quantity')      
+    .populate('wishlist', 'productName')
       .populate('reviews', 'comment');
 
     if (!user) {
