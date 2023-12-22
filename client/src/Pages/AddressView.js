@@ -90,13 +90,13 @@ useEffect(() => {
                   
                 }}
               >
-                {/* <input
+                <input
                   type="radio"
                   name="address"
                   value={user.id}
                   checked={selectedAddress === user.id}
                   onChange={() => handleAddressSelection(user.id)}
-                /> */}
+                />
                 <span style={{ marginBottom: '10px', display: 'block', fontWeight: 'bold' }}>
                   {user.fullName}
                 </span>

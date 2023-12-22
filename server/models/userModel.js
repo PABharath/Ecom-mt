@@ -1,5 +1,5 @@
 // models/userModel.js
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
   username: String,
@@ -8,7 +8,6 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   contact: String,
-  address: String,
   password: String,
   resetToken: String,
   resetTokenExpiration: Date,
@@ -17,7 +16,10 @@ const userSchema = new mongoose.Schema({
      product:String ,
      quantity: Number 
     }],  
-  wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
+  wishlist: [{ 
+    product:String ,
+    quantity: Number 
+   }],
   reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
   address: [{ 
     fullName: String,
@@ -32,5 +34,5 @@ const userSchema = new mongoose.Schema({
    }] 
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 module.exports = User;

@@ -1,6 +1,9 @@
 // CreateContext.js
 import React, { createContext, useState, useContext } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
+
+
 export const CartContext = createContext();
 
 // Custom hook to use the cart context
@@ -12,14 +15,13 @@ export const useCart = () => {
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [email,] = useState(localStorage.getItem('email'));
-
   
   const addToCart = async (product) => {
     try {
       const existingProduct = cartItems.find(
         (item) => item.productId === product._id
       );
-  
+
       if (existingProduct) {
         const updatedCartItems = cartItems.map((item) =>
           item.productId === product._id
@@ -27,7 +29,7 @@ export const CartProvider = ({ children }) => {
             : item
         );
         setCartItems(updatedCartItems);
-  
+
         // Send the updated cartItems to the backend
         await axios.post(`http://localhost:5555/api/users/${email}/cart`, {
           cartItems: updatedCartItems.map((item) => ({
@@ -40,7 +42,7 @@ export const CartProvider = ({ children }) => {
           ...cartItems,
           { productId: product._id, quantity: 1, ...product },
         ]);
-  
+
         // Send the updated cartItems to the backend
         await axios.post(`http://localhost:5555/api/users/${email}/cart`, {
           cartItems: [
@@ -52,11 +54,53 @@ export const CartProvider = ({ children }) => {
           })),
         });
       }
-  
+
       console.log("Adding to cart:", product);
       // Display the toast notification
     } catch (error) {
       console.error("Error adding to cart:", error.message);
+    }
+  };
+
+  const handleAddToWishlist = async (product) => {
+    try {
+      const existingProduct = cartItems.find(
+        (item) => item.productId === product._id
+      );
+
+      if (existingProduct) {
+        // For existing wishlist item, update the quantity
+        const updatedCartItems = cartItems.map((item) =>
+          item.productId === product._id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+        setCartItems(updatedCartItems);
+      } else {
+        // For a new wishlist item, add it to the wishlist
+        setCartItems([
+          ...cartItems,
+          { productId: product._id, quantity: 1, ...product },
+        ]);
+      }
+
+      // Send the updated wishlist to the backend
+      await axios.post(`http://localhost:5555/api/users/${email}/wishlist`, {
+        wishlistItem: [
+          ...cartItems,
+          { productId: product._id, quantity: 1, ...product },
+        ].map((item) => ({
+         
+          product: item.productName,
+          quantity: item.quantity,
+        })),
+      });
+
+      console.log("Adding to wishlist:", product);
+      toast.success("Added to Wishlist!");
+    } catch (error) {
+      console.error("Error adding to wishlist:", error.message);
+      toast.error("Failed to add to Wishlist. Please try again.");
     }
   };
   
@@ -101,6 +145,7 @@ export const CartProvider = ({ children }) => {
         cartItems,
         setCartItems, 
         addToCart,
+        handleAddToWishlist,
         removeFromCart,
         clearCart,
         handleDecrement,

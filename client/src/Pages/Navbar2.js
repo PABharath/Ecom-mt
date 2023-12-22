@@ -156,7 +156,7 @@ const Navbar2 = ({ onSearch }) => {
 
       {/* <h4>Popup - GeeksforGeeks</h4> */}
             <Popup trigger=
-                {<button style={{backgroundColor:"white",color:'black',border:'none'}}><FaUserCircle className="pop2"/>  </button>}
+                {<button style={{backgroundColor:"white",color:'black',border:'none'}}><FaUserCircle className="pop2"/></button>}
                 position="bottom left">
                 <div className="pop1">
                 <button onClick={handleLogout}>Logout</button><br/><br/>

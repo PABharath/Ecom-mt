@@ -58,7 +58,7 @@ const IntegratedAddressPage = () => {
     try {
       console.log("Form Data:", formData);  // Add this line to check formData
       const response = await axios.post(
-        `http://localhost:5555/api/${email}/insert`,
+        `http://localhost:5555/api/${email}/address`,
         formData,
         {
           headers: {
