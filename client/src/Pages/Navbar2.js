@@ -42,6 +42,19 @@ const Navbar2 = ({ onSearch }) => {
     onSearch(searchQuery);
   };
 
+  const handleLogout = () => {
+    // Clear the token
+    
+    localStorage.removeItem('token')
+    
+    // Redirect to the login page
+    navigate('/Login');
+  }
+  
+  
+  
+
+
   return (
     <div>
    <Navbar  expand="lg" className={styles.navbara}>
@@ -147,7 +160,7 @@ const Navbar2 = ({ onSearch }) => {
                 position="bottom left">
                 <div className="pop1">
                 <button onClick={handleLogout}>Logout</button><br/><br/>
-                <button><PiSignOutBold className="pop3"/>Profile</button>
+           <Link to='/Profile'><button ><PiSignOutBold className="pop3"/>Profile</button></Link> 
                 </div>
             </Popup>
             </div>

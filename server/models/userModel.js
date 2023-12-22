@@ -19,6 +19,17 @@ const userSchema = new mongoose.Schema({
     }],  
   wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
   reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
+  address: [{ 
+    fullName: String,
+    mobileNumber: String,
+    addressLine: String,
+    area: String,
+    town: String,
+    state: String,
+    country: String,
+    pincode: String,
+    isDefaultAddress: Boolean, 
+   }] 
 });
 
 const User = mongoose.model('User', userSchema);
