@@ -13,7 +13,7 @@ const emailRoutes = require('./routes/emailRoutes');
 const searchRoutes = require('./routes/searchRoutes');
 const reviewsRoutes = require('./routes/reviewsRoutes');
 const orderRoutes = require('./routes/orderRoutes');
-
+const cartRoutes = require('./routes/cartRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 
 
@@ -78,6 +78,9 @@ app.use('/api/payment', paymentRoutes);
 
 // Use order routes
 app.use("/api/orders", orderRoutes);
+
+// Use the cart routes
+app.use('/api/profile', cartRoutes);
 
 
 const PORT = process.env.PORT || 5555;

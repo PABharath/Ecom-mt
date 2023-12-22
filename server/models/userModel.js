@@ -8,16 +8,20 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   contact: String,
-  address: String,
   password: String,
   resetToken: String,
   resetTokenExpiration: Date,
   // Additional user-related data
   cart: [{ 
-     product:String ,
-     quantity: Number 
+     productName:String ,
+     quantity: Number ,
+     sp: Number,
+     productImages: [String],
     }],  
-  wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
+  wishlist: [{ 
+    product:String ,
+    quantity: Number 
+   }],
   reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
   address: [{ 
     fullName: String,
