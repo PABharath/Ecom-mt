@@ -130,10 +130,15 @@ body {
 }
 
 .add-to-cart-button{
-  background-color: #30BD57;
-  ;
+  background-color: #30BD57; 
+}
+.add-to-cart-button:hover{
+  background-color: #38864e; 
 }
 .buy-now-button{
+  background-color: #3d3370;
+}
+.buy-now-button:hover{
   background-color: #272343;
 }
 
@@ -167,10 +172,10 @@ body {
   border: none;
   cursor: pointer;
   font-size: 18px;
-  padding: 10px 30px;
   border-radius: 30px;
   margin-top: 10px;
   margin-right: 10px;
+  width: 25%;
 }
 
 

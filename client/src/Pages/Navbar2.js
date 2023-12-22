@@ -60,23 +60,23 @@ const Navbar2 = ({ onSearch }) => {
    <Navbar  expand="lg" className={styles.navbara}>
       <Container className={styles.navbarContainera}>
         <Navbar.Brand as={NavLink} to="/"  className='logovik' >
-        <h3>E-Saree</h3>
+        <h3 className="navbar-h3">E-Saree</h3>
          </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-autovik">
 
-          <Nav.Link as={NavLink} to="/"  className={styles.navLink}>
+          <Nav.Link as={NavLink} to="/"  className='navLink' style={{fontWeight:'bold',fontSize:'18px'}}>
             Home
             </Nav.Link>
            
-            <Nav.Link as={NavLink} to="/SareesCategories2"  className={styles.navLink}>
+            <Nav.Link as={NavLink} to="/SareesCategories2"  className='navLink' style={{fontWeight:'bold',fontSize:'18px'}}>
               Saree
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/BlogPost"  className={styles.navLink}>
+            <Nav.Link as={NavLink} to="/BlogPost"  className='navLink' style={{fontWeight:'bold',fontSize:'18px'}}>
               Blog
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/ContactUs"  className={styles.navLink}>
+            <Nav.Link as={NavLink} to="/ContactUs"  className='navLink' style={{fontWeight:'bold',fontSize:'18px'}}>
               Contact Us
             </Nav.Link>
             <div className='nav-searchbarvik'>
@@ -96,34 +96,28 @@ const Navbar2 = ({ onSearch }) => {
                 <IoSearchOutline/>
                 </button>
                 </div>
-             
-            
-
-
-
-
               <div className="navvik-right">
                 <Link to="/ProductForm">
-                  <FontAwesomeIcon icon={faPlus} className="menu-icon" />
+                  <FontAwesomeIcon icon={faPlus} className="menu-icon" style={{fontSize:'22px'}} />
                 </Link>
 
         <Link to="/cart" >
-          <FontAwesomeIcon icon={faShoppingCart} />
+          <FontAwesomeIcon icon={faShoppingCart}  className="menu-icon-cart" style={{fontSize:'20px'}}/>
           <span>{totalQuantity}</span>
         </Link>
 
         <div className="tooltip-container">
-          <FontAwesomeIcon icon={faBell}  className="menu-icon" />
+          <FontAwesomeIcon icon={faBell}  className="menu-icon1" style={{fontSize:'20px'}}/>
           <div className="tooltip">No new notifications.. Stay tuned for more!!</div>
         </div>
 
         {token ? (
           <div onClick={() => navigate('/Profile')}>
-            <FontAwesomeIcon icon={faUser} className="menu-icon" />
+            <FontAwesomeIcon icon={faUser} className="menu-icon" style={{fontSize:'20px'}}/>
           </div>
         ) : (
           <Link to="/Login">
-            <FontAwesomeIcon icon={faUser} className="menu-icon" />
+            <FontAwesomeIcon icon={faUser} className="menu-icon1" style={{fontSize:'22px'}}/>
           </Link>
         )}
 
