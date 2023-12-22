@@ -13,8 +13,10 @@ const userSchema = new mongoose.Schema({
   resetTokenExpiration: Date,
   // Additional user-related data
   cart: [{ 
-     product:String ,
-     quantity: Number 
+     productName:String ,
+     quantity: Number ,
+     sp: Number,
+     productImages: [String],
     }],  
   wishlist: [{ 
     product:String ,

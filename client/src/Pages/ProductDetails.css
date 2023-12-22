@@ -15,7 +15,7 @@ body {
   border-radius: 5px;
 }
 .rating-count{
-   margin-right: 70%;
+   /* margin-right: 70%; */
    /* margin-top: 1%; */
 }
 .write{
@@ -360,25 +360,26 @@ body {
 }
 
 .reviews-section {
-  margin-top:-25%;
-  border-top: 1px solid #ccc;
-  padding-top: 20px;
-  width: 25%;
-  margin-left: auto; /* Auto margin-left to push it to the end of the page */
-  margin-right: 15%; /* Add some right margin for spacing */
+  height: 380px;
+    overflow: auto;
+    border-top: 1px solid #ccc;
+    /* padding-top: 20px; */
+    width: 33%;
+    margin-left: 2%;
+   
 }
 
 .star-ratings-container {
   margin-left: auto; /* Auto margin-left to push it to the end of the page */
-  margin-top: 30%;
-  width:100% ;
+  /* margin-top: 30%; */
+  width:50% ;
 
 }
 .ratt{
-  margin-top: -20%;
+  /* margin-top: -25%; */
 }
 .ratts{
-  margin-top: 20%;
+  /* margin-top: -25%; */
   margin-left: 20%;
 }
 
@@ -406,9 +407,8 @@ body {
 }
 
 .review-item {
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 20px;
+  margin-bottom: 0px;
+    border-bottom: 1px solid #ccc;
 }
 
 .review-username {
@@ -727,7 +727,7 @@ body {
 }
 
 .star-ratings-container {
-  margin-left: 5%; /* Add margin-left for spacing */
+  margin-left: 2%; /* Add margin-left for spacing */
   /* margin-top: -5%; */
 }
 
@@ -739,7 +739,7 @@ body {
 
 .star-rating-header {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   margin-bottom: 5px;
   margin-left: 3%;
@@ -748,7 +748,7 @@ body {
 .star-rating-value {
   margin-right: 5px;
 }
-
+    
 .progress-bar-container {
   width: 25%;
   height: 10px; /* Adjust the height of the progress bar */

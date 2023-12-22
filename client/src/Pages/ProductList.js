@@ -92,7 +92,7 @@ const ProductList = ({ searchQuery }) => {
           <div className="product-convik">
             {products.map((product) => (
               <div key={product._id} className="productboxvik">
-                <div className="productboxvik">
+                <div className="productboxvik87">
                   <Link
                     to={`/products/${product._id}`}
                     className="product-linkvik"
@@ -102,10 +102,10 @@ const ProductList = ({ searchQuery }) => {
                       src={`http://127.0.0.1:5555/api/uploads/${product.productImages[0]}`}
                       alt={product.productName}
                     />
-                    <div className="productnamevik">{product.productName}</div>
+                    
                     {/* <div className="productcatvik">{product.category}</div> */}
-                  </Link>
-
+                  <div className="changing234">
+                  <div className="productnamevik">{product.productName}</div>
                   <div className="productaddconvik">
                     <button
                       className="productaddbutvik"
@@ -123,6 +123,9 @@ const ProductList = ({ searchQuery }) => {
                       <FontAwesomeIcon icon={faHeart} />
                     </button>
                   </div>
+                  </div>
+                  </Link>
+
                 </div>
               </div>
             ))}

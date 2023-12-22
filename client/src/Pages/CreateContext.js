@@ -33,8 +33,10 @@ export const CartProvider = ({ children }) => {
         // Send the updated cartItems to the backend
         await axios.post(`http://localhost:5555/api/users/${email}/cart`, {
           cartItems: updatedCartItems.map((item) => ({
-            product: item.productName,
+            productName: item.productName,
             quantity: item.quantity,
+            productImages:item.productImages[0],
+            sp:item.sp,
           })),
         });
       } else {
@@ -49,8 +51,10 @@ export const CartProvider = ({ children }) => {
             ...cartItems,
             { productId: product._id, quantity: 1, ...product },
           ].map((item) => ({
-            product: item.productName,
+            productName: item.productName,
             quantity: item.quantity,
+            productImages:item.productImages[0],
+            sp:item.sp,
           })),
         });
       }
@@ -143,6 +147,7 @@ export const CartProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         cartItems,
+        setCartItems, 
         addToCart,
         handleAddToWishlist,
         removeFromCart,

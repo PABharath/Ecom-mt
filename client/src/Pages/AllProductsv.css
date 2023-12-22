@@ -14,14 +14,23 @@
   .productboxvik {
     border: 1px solid #ddd;
     border-radius: 8px;
+    padding: 10px;
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
   }
-  
-  .productboxvik:hover {
-    transform: scale(1.05);
+  .productboxvik87 {
+    /* border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out; */
   }
-  
+  .productboxvik:hover {
+    transform: scale(1.03);
+  }
+  .changing234{
+    
+  }
   .product-linkvik {
     text-decoration: none;
     color: inherit;
@@ -29,13 +38,14 @@
   
   .product-imgvik {
     width: 100%;
-    height: 200px;
+    height: 450px;
     object-fit: cover;
   }
   
   .productnamevik {
     font-size: 16px;
     font-weight: bold;
+    text-align: center;
     margin-top: 10px;
   }
   
