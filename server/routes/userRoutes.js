@@ -11,4 +11,9 @@ router.get('/profile', authMiddleware, userController.getUserProfile);
 
 // Add a new route for adding to cart
 router.post('/users/:id/cart',  userController.addToCart);
+
+// Add a new route for adding to wishlist
+router.post('/users/:id/wishlist', userController.addToWishlist);
+
+
 module.exports = router;

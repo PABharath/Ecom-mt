@@ -7,6 +7,8 @@ import { scrollToTop } from "./scrollUtils";
 import "./AllProductsv.css"; 
 import Navbar from "./Navbar";
 import Navbar2 from "./Navbar2";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const SareesCategories2 = () => {
 
@@ -16,7 +18,7 @@ const SareesCategories2 = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [minPrice, setMinPrice] = useState(""); // Add state for minimum price
   const [maxPrice, setMaxPrice] = useState(""); // Add state for maximum price
-  const { addToCart } = useCart();
+  const { addToCart , handleAddToWishlist} = useCart();
 
 
 
@@ -75,6 +77,28 @@ const SareesCategories2 = () => {
     addToCart(product);
     console.log("Adding to cart:", product);
     toast.success("Added to Cart!");
+  };
+
+  const handleAddToWishlistClick = async (event, product) => {
+    event.stopPropagation(); // Prevent the click from propagating to the Link component
+  
+    const token = localStorage.getItem("token");
+  
+    if (!token) {
+      toast.error("Please login to add items to the wishlist.");
+      window.location.href = "/login";
+      return;
+    }
+  
+    try {
+      await handleAddToWishlist(event, product);
+      console.log("Adding to wishlist:", product);
+      toast.success("Added to Wishlist!");
+    } catch (error) {
+      console.error("Error adding to Wishlist:", error.message);
+      console.log("Error details:", error.response);
+      toast.error("Failed to add to Wishlist. Please try again.");
+    }
   };
 
   const handleCategorySelect = (category) => {
@@ -169,19 +193,27 @@ const SareesCategories2 = () => {
                   alt={product.productName}
                 />
                 <div className='productnamevik'>{product.productName}</div>
-                <div className='productcatvik'>{product.category}</div>
+                {/* <div className='productcatvik'>{product.category}</div> */}
 
                 <div className='productaddconvik'>
-                  <div className='productpricevik'>₹{product.sp}</div>
                   <Link to="/cart" onClick={scrollToTop}>
                     {" "}
                     <button 
                       className='productaddbutvik'
                       onClick={(event) => handleAddToCart(event, product)}
                     >
-                      Add to cart
+                     <FontAwesomeIcon icon={faShoppingCart} />
                     </button>
                   </Link>
+                  <div className='productpricevik'>₹{product.sp}</div>
+                  <button
+                      className="productaddbutvik wishlist-button"
+                      onClick={(event) =>
+                        handleAddToWishlistClick(event, product)
+                      }
+                    >
+                      <FontAwesomeIcon icon={faHeart} />
+                    </button>
                 </div>
               </Link>
             </div>
