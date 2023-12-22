@@ -38,6 +38,7 @@ useEffect(() => {
       setData(res.data.user);
       
     })
+    
     .catch((err) => console.log(err));
 }, [token]);
 

@@ -61,9 +61,9 @@ exports.getUserProfile = async (req, res) => {
     const user = await User.findById(userId)
     .populate('cart.product', 'productName sp quantity') 
       .populate('wishlist', 'productName')
-      .populate('reviews', 'comment');
+      .populate('reviews', 'comment')
       .select('-password') // Exclude password from the response
-      .populate('address'); // Populate user addresses
+      .populate('address') // Populate user addresses
 
 
     if (!user) {

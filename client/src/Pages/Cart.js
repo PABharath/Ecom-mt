@@ -37,8 +37,9 @@ function Cart() {
       })
       .then((res) => {
         console.log(res.data);
-        // Assuming the cart items are under the 'cart' property in the user object
-        setCartItems(res.data.user.cart);
+        console.log(res.data.user.cart);
+        const cartItems = res.data.user.cart || []; 
+        setCartItems(cartItems);
       })
       .catch((err) => console.log(err));
   }, [token, setCartItems]);
