@@ -13,15 +13,23 @@ const userSchema = new mongoose.Schema({
   resetToken: String,
   resetTokenExpiration: Date,
   // Additional user-related data
-  cart: [
-    {
-      product: String,
-      quantity: Number,
-    },
-  ],
-  wishlist: [{ product: String, 
-    quantity: Number }],
-  reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: "Review" }],
+  cart: [{ 
+     product:String ,
+     quantity: Number 
+    }],  
+  wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
+  reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
+  address: [{ 
+    fullName: String,
+    mobileNumber: String,
+    addressLine: String,
+    area: String,
+    town: String,
+    state: String,
+    country: String,
+    pincode: String,
+    isDefaultAddress: Boolean, 
+   }] 
 });
 
 const User = mongoose.model("User", userSchema);

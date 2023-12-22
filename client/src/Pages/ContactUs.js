@@ -158,7 +158,7 @@ const ContactUs =()=> {
             width="97%"
             height="429.5px"
             className="i1"
-            style={{ border: "0",borderRadius:'8px',  marginLeft:'0px',boxShadow:'0 0 20px grey', margin:'1rem' }}
+            style={{ border: "0",borderRadius:'8px',  marginLeft:'0px',boxShadow:'0 0 20px grey', margin:'1.2rem' }}
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

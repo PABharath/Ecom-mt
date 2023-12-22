@@ -115,10 +115,10 @@ return (
             </>
           )}
 
-          <button onClick={handleLogout}>Logout</button>
+          {/* <button onClick={handleLogout}>Logout</button> */}
         </>
       ) : (
-        <p>Loading profile...<button onClick={handleLogout}>Logout</button></p>
+        <p>Loading profile...</p>
       )}
     </div>
   </div>

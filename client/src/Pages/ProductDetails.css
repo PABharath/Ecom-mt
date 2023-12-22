@@ -14,6 +14,10 @@ body {
   background-color: #fff;
   border-radius: 5px;
 }
+.rating-count{
+   margin-right: 70%;
+   /* margin-top: 1%; */
+}
 .write{
   height: 5vh;
   width: 10vw;
@@ -341,14 +345,14 @@ body {
   margin-top: -20px;
 }
 
-.product-ratings {
+/* .product-ratings {
   color: #6A6262;
   margin-right: 5px;
 }
 
 .product-reviews {
   color: #6A6262;
-}
+} */
 .name-2{
   margin-top: 10%;
   color:#272343;
@@ -356,10 +360,45 @@ body {
 }
 
 .reviews-section {
+  margin-top:-25%;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+  width: 25%;
+  margin-left: auto; /* Auto margin-left to push it to the end of the page */
+  margin-right: 15%; /* Add some right margin for spacing */
+}
+
+.star-ratings-container {
+  margin-left: auto; /* Auto margin-left to push it to the end of the page */
+  margin-top: 30%;
+  width:100% ;
+
+}
+.ratt{
+  margin-top: -20%;
+}
+.ratts{
+  margin-top: 20%;
+  margin-left: 20%;
+}
+
+.product-ratings {
+  color: #6A6262;
+  margin-right: 5px;
+}
+
+.product-reviews {
+  color: #6A6262;
+  
+}
+
+
+/* .reviews-section {
   margin-top: 20px;
   border-top: 1px solid #ccc;
   padding-top: 20px;
-}
+  width: 25%;
+} */
 
 .reviews-list {
   list-style: none;
@@ -381,6 +420,7 @@ body {
   display: flex;
   align-items: center;
   margin-bottom: 5px;
+  margin-left: 100px;
 }
 
 .star {
@@ -389,15 +429,18 @@ body {
 
 .review-comment {
   font-style: italic;
+  margin-top: -5%;
 }
 
 .see-all-reviews-button {
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 5px 8px;
   border-radius: 5px;
   cursor: pointer;
+  margin-bottom: 10px;
+
 }
 
 .see-all-reviews-button:hover {
@@ -684,7 +727,8 @@ body {
 }
 
 .star-ratings-container {
-  /* Add your container styles here */
+  margin-left: 5%; /* Add margin-left for spacing */
+  /* margin-top: -5%; */
 }
 
 .star-rating-item {

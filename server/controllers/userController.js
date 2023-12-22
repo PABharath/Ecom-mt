@@ -132,4 +132,30 @@ exports.addToWishlist = async (req, res) => {
     res.status(500).json({ error: 'Error saving wishlist item data.' });
   }
 };
+exports.addAddress = async (req, res) => {
+  const customerId = req.params.id; // Correctly access customerId
+  const appointmentData = req.body;
+ console.log(req.params.id);
+  try {
+    const customer = await User.findOne({ email: customerId }); // Use "_id" to find the customer
+    if (!customer) {
+      console.log('Customer not found for _id:', customerId);
+      return res.status(404).json({ error: 'Customer not found.' });
+    }
+
+    // Add the new appointment to the customer's appointments array
+    customer.address.push(appointmentData);
+
+    // Save the updated customer document
+    await customer.save();
+
+    console.log('Appointment data saved successfully:', appointmentData);
+
+    res.status(201).json(appointmentData);
+  } catch (error) {
+    console.error('Error saving appointment data:', error.message);
+    console.log('customerId:', customerId);
+    res.status(500).json({ error: 'Error saving appointment data.' });
+  }
+};
  

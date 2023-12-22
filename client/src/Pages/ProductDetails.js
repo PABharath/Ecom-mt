@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from 'react-modal';
-// import { FaStar ,FaThumbsUp, FaThumbsDown} from "react-icons/fa";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -12,19 +11,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Navbar2 from "./Navbar2";
 import { FaStar, FaThumbsUp, FaThumbsDown } from 'react-icons/fa'
-// import { FaStar, FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
 import StarRating from 'react-rating-stars-component';
 
-
-
-
-
-
-
-
 const ProductDetails = () => {
-
-   const { productId } = useParams();
+  const { productId } = useParams();
   const [productDetails, setProductDetails] = useState({});
   const [mainImage, setMainImage] = useState(0);
   const [rating, setRating] = useState(-1);
@@ -32,12 +22,11 @@ const ProductDetails = () => {
   const [reviewData, setReviewData] = useState({ ratings: 0, reviews: 0 });
   const navigate = useNavigate();
   const [reviews, setReviews] = useState([]);
-
   const { addToCart } = useCart();
   const [showAllReviews, setShowAllReviews] = useState(false);
   const [showAddToCartToast, setShowAddToCartToast] = useState(false);
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
-  
+
   const calculateAverageRating = () => {
     if (reviews.length === 0) {
       return 0;
@@ -51,8 +40,9 @@ const ProductDetails = () => {
     const averageRating = calculateAverageRating();
 
     return (
+      
       <div className="star-ratings-container">
-        <h3>{averageRating} Ratings & {reviews.length} Reviews</h3>
+        <h3 className="ratt">{averageRating} Ratings & {reviews.length} Reviews</h3>
         {[5, 4, 3, 2, 1].map((rating, index) => {
           const ratingCount = reviews.filter((review) => review.starRating === rating).length;
           const percentage = (ratingCount / reviews.length) * 100;
@@ -62,10 +52,8 @@ const ProductDetails = () => {
             <div key={index} className="star-rating-item">
               <div className="star-rating-header">
                 <span className="star-rating-value">{rating}</span>
-                {/* Display the count of ratings for the current star rating */}
                 <span className="rating-count">{ratingCount}</span>
               </div>
-              {/* Add your progress bar here based on the rating count */}
               <div className="progress-bar-container">
                 <div
                   className="progress-bar"
@@ -81,13 +69,46 @@ const ProductDetails = () => {
       </div>
     );
   };
+ 
+  const renderStarRatingsAndReviews = () => (
+    <div className="my">
+    <div className="star-ratings-and-reviews-container">
+      {renderStarRatings()}
+      <div className="reviews-section">
+        <h3 className="ratts"> Reviews</h3>
+        <ul className="reviews-list">
+          {reviews.slice(0, showAllReviews ? reviews.length : 3).map((review, index) => (
+            <li key={index} className="review-item">
+              <p className="review-username">{review.username}</p>
+              <div className="star-rating">
+                {Array.from({ length: 5 }).map((_, starIndex) => (
+                  <FaStar
+                    key={starIndex}
+                    className="star"
+                    color={starIndex < review.starRating ? "#ffc107" : "#e4e5e9"}
+                  />
+                ))}
+              </div>
+              <p className="review-comment">{review.comment}</p>
+            </li>
+          ))}
+        </ul>
+        {reviews.length > 3 && (
+          <button
+            className="see-all-reviews-button"
+            onClick={() => setShowAllReviews(!showAllReviews)}
+          >
+            {showAllReviews ? "Show Less Reviews" : "See All Reviews"}
+          </button>
+        )}
+      </div>
+    </div>
+    </div>
+  );
 
   const calculateProgressBarColor = (averageRating, currentRating) => {
-    // Customize the color logic based on your requirements
-    // Here, I'm using a gradient from red to green based on the rating
-    const gradientStart = [255, 0, 0]; // Red
-    const gradientEnd = [0, 255, 0];   // Green
-
+    const gradientStart = [255, 0, 0];
+    const gradientEnd = [0, 255, 0];
     const normalizedRating = Math.min(Math.max(currentRating / 5, 0), 1);
     const color = gradientStart.map((channel, index) =>
       Math.round(channel + normalizedRating * (gradientEnd[index] - channel))
@@ -95,8 +116,6 @@ const ProductDetails = () => {
 
     return `rgb(${color.join(',')})`;
   };
-
-  
 
   useEffect(() => {
     fetchProductDetails();
@@ -118,13 +137,9 @@ const ProductDetails = () => {
     try {
       const response = await fetch(`http://127.0.0.1:5555/api/reviews?productId=${productId}`);
       const data = await response.json();
-      setReviews(data); // Update the state with fetched data
-  
-      // Calculate total ratings and reviews
+      setReviews(data);
       const totalRatings = data.reduce((sum, review) => sum + review.starRating, 0);
       const totalReviews = data.length;
-  
-      // Update the reviewData state
       setReviewData({ ratings: totalRatings, reviews: totalReviews });
     } catch (error) {
       console.error("Error fetching review data:", error);
@@ -133,18 +148,15 @@ const ProductDetails = () => {
   
   const fetchProductDetails = async () => {
     try {
-      const response = await axios.get(
-        `http://127.0.0.1:5555/api/products/${productId}`
-      );
-      console.log("Response:", response.data); // Log the response data
+      const response = await axios.get(`http://127.0.0.1:5555/api/products/${productId}`);
+      console.log("Response:", response.data);
       setProductDetails(response.data);
     } catch (error) {
       console.error("Error fetching product details:", error);
       setError("Error fetching product details");
     }
   };
-
-  const calculateOffer = () =>    {
+  const calculateOffer = () => {
     const mrp = parseFloat(productDetails.mrp);
     const sp = parseFloat(productDetails.sp);
 
@@ -160,42 +172,34 @@ const ProductDetails = () => {
   const handleAddToCart = (event, product) => {
     event.preventDefault();
 
-    // Check if the user is authenticated
     const token = localStorage.getItem("token");
 
     if (!token) {
-      // If not authenticated, redirect to the login page
       toast.error("Please login to add items to the cart.");
-      // Redirect to the login page
       window.location.href = "/login";
       return;
     }
 
-    // If authenticated, proceed with adding to cart
     addToCart(product);
     console.log("Adding to cart:", product);
-    toast.success("Added to Cart!"); // Display the toast notification
+    toast.success("Added to Cart!");
     setShowAddToCartToast(true);
   };
 
   const handleBuyNow = (event, product) => {
     event.preventDefault();
 
-    // Check if the user is authenticated
     const token = localStorage.getItem("token");
 
     if (!token) {
-      // If not authenticated, redirect to the login page
       toast.error("Please login to proceed with the purchase.");
-      // Redirect to the login page
       window.location.href = "/login";
       return;
     }
 
-    // If authenticated, proceed with adding to cart and navigating to the Cart page
     addToCart(product);
     console.log("Adding to cart:", product);
-    navigate("/Cart"); // Navigate to the Cart page
+    navigate("/Cart");
   };
 
   const handleSubmitReview = async (event) => {
@@ -215,25 +219,19 @@ const ProductDetails = () => {
     };
   
     try {
-      // Send the review to the reviews collection
       const response = await axios.post('http://127.0.0.1:5555/api/reviews', formData);
       console.log('Review successfully submitted');
   
-      // Add the new review to the current reviews state
       setReviews([...reviews, response.data]);
   
-      // Update the product in the products collection with the new review
       await axios.post(`http://127.0.0.1:5555/api/products/${productId}/reviews`, formData);
   
-      toast.success("Review successfully submitted!"); // Display the toast notification
+      toast.success("Review successfully submitted!");
     } catch (error) {
       console.error('Error submitting review:', error);
     }
   };
   
-  
-  
-
   const handleLikeDislike = async (reviewId, action) => {
     try {
       const response = await axios.post(`http://127.0.0.1:5555/api/reviews/${reviewId}/${action}`);
@@ -263,12 +261,11 @@ const ProductDetails = () => {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      width: '50%', // Set the width of the modal
-      maxHeight: '100vh', // Set the maximum height of the modal
-      overflow: 'auto', // Enable scrolling if the content overflows
+      width: '50%',
+      maxHeight: '100vh',
+      overflow: 'auto',
     },
   };
-
 
   return (
     <div>
@@ -278,117 +275,96 @@ const ProductDetails = () => {
         <p>{error}</p>
       ) : (
         <div>
-          
-
-<div className="product-images">
-      {productDetails.productImages && productDetails.productImages.length > 0 ? (
-        <div className="images-container">
-          {/* Display the selected main image */}
-          <img
-            className="main-image"
-            src={`http://127.0.0.1:5555/api/uploads/${productDetails.productImages[mainImage]}`}
-            alt={`Product ${mainImage}`}
-            width="1000"
-            height="1200"
-          />
-
-          {/* Display the remaining images as thumbnails */}
-          <div className="additional-images">
-            {productDetails.productImages.map((image, index) => (
-              <img
-                key={index}
-                className={`thumbnail ${index === mainImage ? 'active' : ''}`}
-                src={`http://127.0.0.1:5555/api/uploads/${image}`}
-                alt={`Product ${index}`}
-                width="50"
-                height="75"
-                onClick={() => handleThumbnailClick(index)}
-              />
-            ))}
+          <div className="product-images">
+            {productDetails.productImages && productDetails.productImages.length > 0 ? (
+              <div className="images-container">
+                <img
+                  className="main-image"
+                  src={`http://127.0.0.1:5555/api/uploads/${productDetails.productImages[mainImage]}`}
+                  alt={`Product ${mainImage}`}
+                  width="1000"
+                  height="1200"
+                />
+                <div className="additional-images">
+                  {productDetails.productImages.map((image, index) => (
+                    <img
+                      key={index}
+                      className={`thumbnail ${index === mainImage ? 'active' : ''}`}
+                      src={`http://127.0.0.1:5555/api/uploads/${image}`}
+                      alt={`Product ${index}`}
+                      width="50"
+                      height="75"
+                      onClick={() => handleThumbnailClick(index)}
+                    />
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <p>No images available</p>
+            )}
           </div>
-        </div>
-      ) : (
-        <p>No images available</p>
-      )}
-    </div>
 
           <div className="product-pricing-box">
             <div className="next">
-            <p className="product-name">{productDetails.productName}</p>
-            <div className="price-container">
-              <p className="product-price">
-                <span className="product-mrp"> </span>
-                <span className="strikethrough">₹ {productDetails.mrp}</span>
+              <p className="product-name">{productDetails.productName}</p>
+              <div className="price-container">
+                <p className="product-price">
+                  <span className="product-mrp"> </span>
+                  <span className="strikethrough">₹ {productDetails.mrp}</span>
+                </p>
+                &nbsp;&nbsp;
+                <p className="product-sp"> ₹ {productDetails.sp}</p>
+              </div>
+              <p className="product-offer">
+                ({calculateOffer(productDetails.mrp, productDetails.sp)}% off)
               </p>
-              &nbsp;&nbsp;
-              <p className="product-sp"> ₹ {productDetails.sp}</p>
-            </div>
-            <p className="product-offer">
-              ({calculateOffer(productDetails.mrp, productDetails.sp)}% off)
-            </p>
-            <hr className="hr-2" />
-            <p className="availability">
-              Availability:{" "}
-              <span
-                className={`availability-status ${
-                  productDetails.availability === 0
-                    ? "out-of-stock"
-                    : "in-stock"
-                }`}
-              >
-                {productDetails.availability === 0
-                  ? "Out Of Stock"
-                  : "In Stock"}
-              </span>
-            </p>
-        
-            <div className="ratings-reviews">
-  <p className="product-ratings">{reviews.length > 0 ? (reviewData.ratings / reviews.length).toFixed(2) : 'N/A'} Ratings &</p>
-  <p className="product-reviews">{reviewData.reviews} Reviews</p>
-
-</div>
-
-
-{/* <div className="ratings-reviews">
-  <StarRating
-    initialRating={roundedAverageRating}
-    emptySymbol={<FaStar className="star" color="#e4e5e9" />}
-    fullSymbol={<FaStar className="star" color="#ffc107" />}
-    readonly
-  />
-  <p className="product-reviews">{reviewData.reviews} Reviews</p>
-</div> */}
-
-
-
-<hr className="hr-2" />
-
-            <div className="product-savings"> 
-              You Saved:{" "}
-              <span className="savings-amount">
-                ₹ {productDetails.mrp - productDetails.sp}
-              </span>{" "}
-              (<div className="product-taxes">Inclusive of all taxes</div>)
-            </div>
-
-            <div className="buttons">
-              <button
-                className="add-to-cart-button"
-                onClick={(event) => handleAddToCart(event, productDetails)}
-              >
-                Add to Cart
-              </button>
-
-              <Link to="/Cart">
-                <button
-                  className="buy-now-button"
-                  onClick={(event) => handleBuyNow(event, productDetails)}
+              <hr className="hr-2" />
+              <p className="availability">
+                Availability:{" "}
+                <span
+                  className={`availability-status ${
+                    productDetails.availability === 0
+                      ? "out-of-stock"
+                      : "in-stock"
+                  }`}
                 >
-                  Buy Now
+                  {productDetails.availability === 0
+                    ? "Out Of Stock"
+                    : "In Stock"}
+                </span>
+              </p>
+              <div className="ratings-reviews">
+                <p className="product-ratings">{reviews.length > 0 ? (reviewData.ratings / reviews.length).toFixed(2) : 'N/A'} Ratings &</p>
+                <p className="product-reviews">{reviewData.reviews} Reviews</p>
+              </div>
+              <hr className="hr-2" />
+
+              <div className="product-savings">
+                You Saved:{" "}
+                <span className="savings-amount">
+                  ₹ {productDetails.mrp - productDetails.sp}
+                </span>{" "}
+                (<div className="product-taxes">Inclusive of all taxes</div>)
+              </div>
+
+              <div className="buttons">
+                <button
+                  className="add-to-cart-button"
+                  onClick={(event) => handleAddToCart(event, productDetails)}
+                >
+                  Add to Cart
                 </button>
-              </Link>
+
+                <Link to="/Cart">
+                  <button
+                    className="buy-now-button"
+                    onClick={(event) => handleBuyNow(event, productDetails)}
+                  >
+                    Buy Now
+                  </button>
+                </Link>
+              </div>
             </div>
-          </div>
           </div>
 
           <hr className="hr-1" />
@@ -462,101 +438,56 @@ const ProductDetails = () => {
               </div>
             </div>
           </div>
-
-          <hr />
+                  
+          <hr/>
           <div className="review-box">
-        <button  className="write"onClick={openReviewModal}>Write a Review</button>
-        <Modal
-          isOpen={isReviewModalOpen}
-          onRequestClose={closeReviewModal}
-          contentLabel="Review Modal"
-          style={customModalStyles}
-        >
-          <form className="review-form" onSubmit={handleSubmitReview}>
-            {/* Review form inputs */}
-            <textarea name="reviewText" placeholder="Write your review..." />
-            <div className="star-rating">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <label key={index}>
-                  <input
-                    type="radio"
-                    name="rating"
-                    value={index + 1}
-                    onChange={() => setRating(index + 1)}
-                  />
-                  <FaStar
-                    className="star"
-                    color={index < rating ? "#ffc107" : "#e4e5e9"}
-                  />
-                </label>
-              ))}
-            </div>
-            <div className="text">
-            <button type="submit"    className="save"disabled={rating === -1}>
-              Submit 
-            </button>
-            <button type="button"    className="close" onClick={closeReviewModal}>
-              Close 
-            </button>
-            </div>
-          </form>
-        </Modal>
-      </div>
+            <button className="write" onClick={openReviewModal}>Write a Review</button>
+            <Modal
+              isOpen={isReviewModalOpen}
+              onRequestClose={closeReviewModal}
+              contentLabel="Review Modal"
+              style={customModalStyles}
+            >
+              <form className="review-form" onSubmit={handleSubmitReview}>
+                <textarea name="reviewText" placeholder="Write your review..." />
+                <div className="star-rating">
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <label key={index}>
+                      <input
+                        type="radio"
+                        name="rating"
+                        value={index + 1}
+                        onChange={() => setRating(index + 1)}
+                      />
+                      <FaStar
+                        className="star"
+                        color={index < rating ? "#ffc107" : "#e4e5e9"}
+                      />
+                    </label>
+                  ))}
+                </div>
+                <div className="text">
+                  <button type="submit" className="save" disabled={rating === -1}>
+                    Submit
+                  </button>
+                  <button type="button" className="close" onClick={closeReviewModal}>
+                    Close
+                  </button>
+                </div>
+              </form>
+            </Modal>
+          </div>
 
           <hr />
-          <div className="reviews-section">
-        <h3> Reviews</h3>
-        <ul className="reviews-list">
-          {reviews.slice(0, showAllReviews ? reviews.length : 3).map((review, index) => (
-            <li key={index} className="review-item">
-              <p className="review-username">{review.username}</p>
-              <div className="star-rating">
-                {Array.from({ length: 5 }).map((_, starIndex) => (
-                  <FaStar
-                    key={starIndex}
-                    className="star"
-                    color={starIndex < review.starRating ? "#ffc107" : "#e4e5e9"}
-                  />
-                ))}
-              </div>
-              <p className="review-comment">{review.comment}</p>
-              <div className="like-dislike-section">
-              <div className="like-dislike-button">
-  <FaThumbsUp
-    className="like-icon"
-    onClick={() => handleLikeDislike(review._id, "like")}
-  />
-  <span className="like-dislike-count">{review.likes}</span>
+          <div className="reviews-and-ratings-container">
+          {renderStarRatingsAndReviews()}
 </div>
-<div className="like-dislike-button">
-  <FaThumbsDown
-    className="dislike-icon"
-    onClick={() => handleLikeDislike(review._id, "dislike")}
-  />
-  <span className="like-dislike-count">{review.dislikes}</span>
-</div>
-
-              </div>
-            </li>
-          ))}
-        </ul>
-        {reviews.length > 3 && (
-          <button
-            className="see-all-reviews-button"
-            onClick={() => setShowAllReviews(!showAllReviews)}
-          >
-            {showAllReviews ? "Show Less Reviews" : "See All Reviews"}
-          </button>
-        )}
-      </div>
-      {renderStarRatings()}
         </div>
       )}
-       {showAddToCartToast &&<ToastContainer position="top-center" autoClose={3000} />}
-       
+      {showAddToCartToast && <ToastContainer position="top-center" autoClose={3000} />}
     </div>
-    </div>
-  );
+  </div>
+);
 };
 
 export default ProductDetails;

@@ -42,6 +42,19 @@ const Navbar2 = ({ onSearch }) => {
     onSearch(searchQuery);
   };
 
+  const handleLogout = () => {
+    // Clear the token
+    
+    localStorage.removeItem('token')
+    
+    // Redirect to the login page
+    navigate('/Login');
+  }
+  
+  
+  
+
+
   return (
     <div>
    <Navbar  expand="lg" className={styles.navbara}>
@@ -114,21 +127,43 @@ const Navbar2 = ({ onSearch }) => {
           </Link>
         )}
 
+{/* <Button  ref={target} style={{backgroundColor:'white',color:'white',border:'none'}}  onClick={() => setShow(!show)}>
+           
+           <FaUserCircle style={{fontSize:'1.2rem' , marginTop:'-1rem',marginLeft:'-0.8rem'}}/>
+       
+         </Button>
+         
+         <Overlay target={target.current} show={show}   placement="bottom">
+           {(props) => (
+             
+             <Tooltip id="overlay-example"  {...props}>
+               <div >
+               <h4>Profile</h4>
+               <FaUserCircle style={{fontSize:'2rem'}}/><br/>
+                <b>Username:</b><br/>
+              <input type="text" placeholder="Username"/><br/><br/>
+                <Link to='/Login'>         
+                {/* <button onClick={handleLogout}>Logout</button> */}
+                {/* {/* </Link> */}
+                {/* <button className="bg-button1" onClick={handleLogout}>logout</button><br/><br/>
+                <button className="bg-button2"><PiSignOutBold/>Profile</button> 
+                 <br/>
+               </div>
+             </Tooltip>
+             
+           )}
+         </Overlay> */}
 
-
-
+      {/* <h4>Popup - GeeksforGeeks</h4> */}
             <Popup trigger=
                 {<button style={{backgroundColor:"white",color:'black',border:'none'}}><FaUserCircle className="pop2"/></button>}
                 position="bottom left">
                 <div className="pop1">
-               <Link to=''> <button >Logout</button></Link><br/><br/>
-                <button><PiSignOutBold className="pop3"/>Profile</button>
+                <button onClick={handleLogout}>Logout</button><br/><br/>
+           <Link to='/Profile'><button ><PiSignOutBold className="pop3"/>Profile</button></Link> 
                 </div>
             </Popup>
-
-
-
-      </div>
+            </div>
 
 
 
