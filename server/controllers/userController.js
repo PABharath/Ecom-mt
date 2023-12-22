@@ -25,32 +25,6 @@ exports.registerUser = async (req, res) => {
 };
 
 // New function to save user address
-exports.saveUserAddress = async (req, res) => {
-  const customerId = req.params.id; // Correctly access customerId
-  const { addressData } = req.body;
-
-  try {
-    const customer = await User.findOne({ email: customerId }); // Use "email" to find the customer
-    if (!customer) {
-      console.log('Customer not found for email:', customerId);
-      return res.status(404).json({ error: 'Customer not found.' });
-    }
-
-    // Add the new address to the user's addresses
-    customer.addresses.push(addressData);
-
-    // Save the updated customer document
-    await customer.save();
-
-    console.log('Address added successfully:', addressData);
-
-    res.status(201).json({ addressData });
-  } catch (error) {
-    console.error('Error saving address data:', error.message);
-    console.log('customerId:', customerId);
-    res.status(500).json({ error: 'Error saving address data.' });
-  }
-};
 
 // Update the getUserProfile function to fetch user addresses
 exports.getUserProfile = async (req, res) => {
