@@ -8,11 +8,16 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 20px;
-  padding: 20px;
+  
+  width: 100vw;
   border: 1px solid #e0e0e0;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  box-shadow: 0px 0px 15px ;
+  background-color: #efefef;
   border-radius: 5px;
+  display: flex;
+  font-size: 20px;
+  flex-direction: column;
+  font-weight: 600;
 }
 .rating-count{
    /* margin-right: 70%; */

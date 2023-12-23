@@ -1,44 +1,174 @@
 .profile-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f8f8f8;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.logout-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+}
+
+.profile-info {
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  /* Add additional styles for user information */
+}
+
+.main {
+  height: 40vh;
+  width: 35%;
+  border: 1px solid black;
+  box-shadow: 0px 0px 15px;
+  margin-top: 3%;
+  margin-left: 30%;
+  border-radius: 20px;   
+}
+
+.asdf {
+  display: flex;
+  flex-direction: row;
+}
+
+.mains {
+  height: 70vh;
+  width: 80%;
+  border: 1px solid black;
+  box-shadow: 0px 0px 15px;
+  margin-top: 3%;
+  border-radius: 20px;
+  overflow-y:scroll;
+  overflow-x: hidden;
+  margin-bottom: 40px;
   
-  .profile-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 0 10px;
+  background-color: rgb(205, 203, 203);
+}
+
+.mainsss {
+  height: 70vh;
+  width: 80%;
+  border: 1px solid black;
+  box-shadow: 0px 0px 15px;
+  margin-top: 3%;
+  border-radius: 20px;
+  overflow-y:scroll;
+  margin-left: 1%;
+  overflow-x: hidden;
+  margin-bottom: 40px;
+  background-color: rgb(205, 203, 203);
+
+}
+
+.welcomes {
+  font-size: 25px;
+  font-weight: 600px;
+  margin-left: 45%;
+  margin-top: 5%;
+  color:black;
+}
+
+.welcomess {
+  font-size: 15px;
+  font-weight: 600px;
+  margin-top: 10%;
+  /* margin-left: 5%; */
+}
+.price{
+  margin-top: -10%;
+  font-size: 15px;
+  font-weight: 600px;
+
+}
+.prices{
+  margin-top: -5%;
+  font-size: 15px;
+  font-weight: 400px;
+
+}
+.sss{
+  margin-top: -5%;
+  font-size: 15px;
+  font-weight: 500px;
   }
+
+.fix {
+  display: flex;
+  flex-direction: row;
+}
+
+.welcome {
+  font-size: 20px;
+  font-weight: 600px;
+  margin-left: 2%;
+  margin-top: 5%;
+}
+
+.product-imgvik-profile {
+  margin-left: 10%;
+  width: 50%;
+}
+
+.user {
+  font-size: 17px;
+  font-weight: 600px;
+  margin-left: 2%;
+  margin-top: 5%;
+}
+
+.users {
+  font-size: 15px;
+  font-weight: 600px;
+  margin-left: 2%;
+  margin-top: 5%;
+}
+
+.mains-list,
+.wishlist-list {
+  display: flex;
+  flex-wrap: wrap;
+  /* overflow-x: auto; */
   
-  h1 {
-    font-size: 24px;
-    margin: 0;
-  }
-  
-  .logout-button {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .logout-button:hover {
-    background-color: #c0392b;
-  }
-  
-  .profile-info {
-    padding: 20px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    /* Add additional styles for user information */
-  }
-  
+}
+
+.product-item {
+  width: calc(33.33% - 10px); /* Three items in one row with some spacing */
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.product-imgvik-profile {
+  width: 100%;
+}
+
+.product-details {
+  text-align: center;
+}
