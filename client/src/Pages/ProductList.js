@@ -14,6 +14,7 @@ const ProductList = ({ searchQuery }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const { addToCart, handleAddToWishlist } = useCart();
+  const [email,] = useState(localStorage.getItem('email'));
 
   useEffect(() => {
     console.log("Component mounted with searchQuery:", searchQuery);
@@ -61,8 +62,10 @@ const ProductList = ({ searchQuery }) => {
   };
 
   const handleAddToWishlistClick = async (event, product) => {
-    event.stopPropagation(); // Prevent the click from propagating to the Link component
-  
+     // Prevent the click from propagating to the Link component
+     event.preventDefault();
+
+   console.log(product);
     const token = localStorage.getItem("token");
   
     if (!token) {
@@ -72,8 +75,18 @@ const ProductList = ({ searchQuery }) => {
     }
   
     try {
-      await handleAddToWishlist(event, product);
-      console.log("Adding to wishlist:", product);
+     
+      const wishlistItem ={
+        productName:product.productName,
+        
+        sp:product.sp ,
+        productImages: product.productImages[0],   
+
+      }
+      await axios.post(`http://localhost:5555/api/users/${email}/wishlist`, wishlistItem);
+        
+    
+      console.log("Adding to wishlist:", wishlistItem);
       toast.success("Added to Wishlist!");
     } catch (error) {
       console.error("Error adding to Wishlist:", error.message);

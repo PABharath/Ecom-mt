@@ -88,7 +88,7 @@ exports.addToCart = async (req, res) => {
 // New function to add a product to the user's wishlist
 exports.addToWishlist = async (req, res) => {
   const customerId = req.params.id; // Correctly access customerId
-  const { wishlistItem } = req.body;
+  const  wishlistItem  = req.body;
 
   try {
     const customer = await User.findOne({ email: customerId }); // Use "email" to find the customer
