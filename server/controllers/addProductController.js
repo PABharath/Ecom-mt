@@ -16,8 +16,8 @@ exports.addProduct = async (req, res) => {
     pattern,
     borderSize,
     type,
-    review,
-    starRating,
+    // review,
+    // starRating,
     mrp,
     sp,
   } = req.body;
@@ -51,8 +51,8 @@ exports.addProduct = async (req, res) => {
       pattern,
       borderSize,
       type,
-      review,
-      starRating: parseInt(starRating),
+      // review,
+      // starRating: parseInt(starRating),
       mrp: parseFloat(mrp),
       sp: parseFloat(sp),
     });
@@ -67,24 +67,24 @@ exports.addProduct = async (req, res) => {
   }
 };
 
-exports.addReviewToProduct = async (req, res) => {
-  const { productId } = req.params;
-  const { starRating, comment, username } = req.body;
+// exports.addReviewToProduct = async (req, res) => {
+//   const { productId } = req.params;
+//   const { starRating, comment, username } = req.body;
 
-  try {
-    const product = await Product.findById(productId);
+//   try {
+//     const product = await Product.findById(productId);
 
-    if (!product) {
-      return res.status(404).json({ error: "Product not found." });
-    }
+//     if (!product) {
+//       return res.status(404).json({ error: "Product not found." });
+//     }
 
-    // Update the product with the new review
-    product.reviews.push({ starRating, comment, username });
-    await product.save();
+//     // Update the product with the new review
+//     product.reviews.push({ starRating, comment, username });
+//     await product.save();
 
-    res.status(200).json({ message: "Review added to product successfully." });
-  } catch (error) {
-    console.error("Error adding review to product:", error);
-    res.status(500).json({ error: "Failed to add review to product." });
-  }
-};
+//     res.status(200).json({ message: "Review added to product successfully." });
+//   } catch (error) {
+//     console.error("Error adding review to product:", error);
+//     res.status(500).json({ error: "Failed to add review to product." });
+//   }
+// };

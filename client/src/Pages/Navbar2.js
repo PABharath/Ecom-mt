@@ -21,12 +21,13 @@ import Tooltip from "react-bootstrap/Tooltip";
 import { PiSignOutBold } from "react-icons/pi";
 import { FaUserCircle } from "react-icons/fa";
 import "./Navbar2.css";
-import Popup from 'reactjs-popup';
+import Popup from "reactjs-popup";
 
 const Navbar2 = ({ onSearch }) => {
   const { user } = useAuth();
+  console.log("User Object:", user); 
   const navigate = useNavigate();
-  const [token,] = useState(localStorage.getItem('token'));
+  const [token] = useState(localStorage.getItem("token"));
   const { cartItems } = useContext(CartContext);
   const [searchQuery, setSearchQuery] = useState("");
   const totalQuantity = cartItems.reduce(
@@ -44,84 +45,106 @@ const Navbar2 = ({ onSearch }) => {
 
   const handleLogout = () => {
     // Clear the token
-    
-    localStorage.removeItem('token')
-    
-    // Redirect to the login page
-    navigate('/Login');
-  }
-  
-  
-  
 
+    localStorage.removeItem("token");
+
+    // Redirect to the login page
+    navigate("/Login");
+  };
 
   return (
     <div>
-   <Navbar  expand="lg" className={styles.navbara}>
-      <Container className={styles.navbarContainera}>
-        <Navbar.Brand as={NavLink} to="/"  className='logovik' >
-        <h3 className="navbar-h3">E-Saree</h3>
-         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-autovik">
+      <Navbar expand="lg" className={styles.navbara}>
+        <Container className={styles.navbarContainera}>
+          <Navbar.Brand as={NavLink} to="/" className="logovik">
+            <h3 className="navbar-h3">E-Saree</h3>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-autovik">
+              <Nav.Link
+                as={NavLink}
+                to="/"
+                className="navLink"
+                style={{ fontWeight: "bold", fontSize: "18px" }}
+              >
+                Home
+              </Nav.Link>
 
-          <Nav.Link as={NavLink} to="/"  className='navLink' style={{fontWeight:'bold',fontSize:'18px'}}>
-            Home
-            </Nav.Link>
-           
-            <Nav.Link as={NavLink} to="/SareesCategories2"  className='navLink' style={{fontWeight:'bold',fontSize:'18px'}}>
-              Saree
-            </Nav.Link>
-            <Nav.Link as={NavLink} to="/BlogPost"  className='navLink' style={{fontWeight:'bold',fontSize:'18px'}}>
-              Blog
-            </Nav.Link>
-            <Nav.Link as={NavLink} to="/ContactUs"  className='navLink' style={{fontWeight:'bold',fontSize:'18px',marginLeft:'10px'}}>
-              Contact Us
-            </Nav.Link>
-            <div className='nav-searchbarvik'>
+              <Nav.Link
+                as={NavLink}
+                to="/SareesCategories2"
+                className="navLink"
+                style={{ fontWeight: "bold", fontSize: "18px" }}
+              >
+                Saree
+              </Nav.Link>
+              <Nav.Link
+                as={NavLink}
+                to="/BlogPost"
+                className="navLink"
+                style={{ fontWeight: "bold", fontSize: "18px" }}
+              >
+                Blog
+              </Nav.Link>
+              <Nav.Link
+                as={NavLink}
+                to="/ContactUs"
+                className="navLink"
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "18px",
+                  marginLeft: "10px",
+                }}
+              >
+                Contact Us
+              </Nav.Link>
+              <div className="nav-searchbarvik">
+                <input
+                  type="text"
+                  placeholder="Search"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
 
-            <input
-                type="text"
-                placeholder="Search"
-              
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-               
-              />
-             
-                <button 
-                  onClick={handleSearch}  >
-                   
-                <IoSearchOutline/>
+                <button onClick={handleSearch}>
+                  <IoSearchOutline />
                 </button>
-                </div>
+              </div>
               <div className="navvik-right">
+              {user && user.role === "admin" && (
+              <div className="prod-form">
                 <Link to="/ProductForm">
                   <FontAwesomeIcon icon={faPlus} className="menu-icon" />
                 </Link>
+              </div>
+            )}
+                <Link to="/cart">
+                  <FontAwesomeIcon
+                    icon={faShoppingCart}
+                    className="menu-icon-cart"
+                  />
+                  <span>{totalQuantity}</span>
+                </Link>
 
-        <Link to="/cart" >
-          <FontAwesomeIcon icon={faShoppingCart}  className="menu-icon-cart" />
-          <span>{totalQuantity}</span>
-        </Link>
+                <div className="tooltip-container">
+                  <FontAwesomeIcon icon={faBell} className="menu-icon" />
+                  <div className="tooltip">
+                    No new notifications.. Stay tuned for more!!
+                  </div>
+                </div>
 
-        <div className="tooltip-container">
-          <FontAwesomeIcon icon={faBell}  className="menu-icon1" />
-          <div className="tooltip">No new notifications.. Stay tuned for more!!</div>
-        </div>
+                {token ? (
+                  <div onClick={() => navigate("/Profile")}>
+                    <FontAwesomeIcon icon={faUser} className="menu-icon" />
+                  </div>
+                ) : (
+                  <Link to="/Login">
+                    <FontAwesomeIcon icon={faUser} className="menu-icon1" />
+                  </Link>
+                )}
 
-        {token ? (
-          <div onClick={() => navigate('/Profile')}>
-            <FontAwesomeIcon icon={faUser} className="menu-icon" />
-          </div>
-        ) : (
-          <Link to="/Login">
-            <FontAwesomeIcon icon={faUser} className="menu-icon1"/>
-          </Link>
-        )}
-
-{/* <Button  ref={target} style={{backgroundColor:'white',color:'white',border:'none'}}  onClick={() => setShow(!show)}>
+                {/* <Button  ref={target} style={{backgroundColor:'white',color:'white',border:'none'}}  onClick={() => setShow(!show)}>
            
            <FaUserCircle style={{fontSize:'1.2rem' , marginTop:'-1rem',marginLeft:'-0.8rem'}}/>
        
@@ -148,26 +171,38 @@ const Navbar2 = ({ onSearch }) => {
            )}
          </Overlay> */}
 
-      {/* <h4>Popup - GeeksforGeeks</h4> */}
-            <Popup trigger=
-                {<button style={{backgroundColor:"white",color:'black',border:'none'}}><FaUserCircle className="pop2"/></button>}
-                position="bottom left">
-                <div className="pop1">
-                <button onClick={handleLogout}>Logout</button><br/><br/>
-           <Link to='/Profile'><button ><PiSignOutBold className="pop3"/>Profile</button></Link> 
-                </div>
-            </Popup>
-            </div>
-
-
-
-
-
-           
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+                {/* <h4>Popup - GeeksforGeeks</h4> */}
+                <Popup
+                  trigger={
+                    <button
+                      style={{
+                        backgroundColor: "white",
+                        color: "black",
+                        border: "none",
+                      }}
+                    >
+                      <FaUserCircle className="pop2" />
+                    </button>
+                  }
+                  position="bottom left"
+                >
+                  <div className="pop1">
+                    <button onClick={handleLogout}>Logout</button>
+                    <br />
+                    <br />
+                    <Link to="/Profile">
+                      <button>
+                        <PiSignOutBold className="pop3" />
+                        Profile
+                      </button>
+                    </Link>
+                  </div>
+                </Popup>
+              </div>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </div>
   );
 };

@@ -16,8 +16,8 @@ const productSchema = new mongoose.Schema({
   pattern: String,
   borderSize: String,
   type: String,
-  review: String,
-  starRating: Number,
+  // review: String,
+  // starRating: Number,
   mrp: Number,
   sp: Number,
 });
