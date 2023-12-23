@@ -10,7 +10,7 @@ import Navbar2 from "./Navbar2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
 
-const ProductList = ({ searchQuery }) => {
+const ProductList = ({ searchQuery, pageType }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const { addToCart, handleAddToWishlist } = useCart();
@@ -25,7 +25,17 @@ const ProductList = ({ searchQuery }) => {
     try {
       const response = await axios.get("http://localhost:5555/api/products");
       console.log("API response:", response.data);
-      const filteredProducts = filterProducts(response.data, searchQuery);
+      
+      let filteredProducts;
+  
+      if (pageType === "home") {
+        // Display only 8 products on the home page
+        filteredProducts = filterProducts(response.data, searchQuery).slice(0, 8);
+      } else {
+        // Display all products on other pages (saree categories page)
+        filteredProducts = filterProducts(response.data, searchQuery);
+      }
+  
       console.log("Filtered products:", filteredProducts);
       setProducts(filteredProducts);
       setLoading(false);
@@ -34,6 +44,7 @@ const ProductList = ({ searchQuery }) => {
       console.log("Error details:", error.response);
     }
   };
+  
 
   const filterProducts = (allProducts, query) => {
     if (!query) {

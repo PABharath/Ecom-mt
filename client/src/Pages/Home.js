@@ -12,7 +12,6 @@ import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar2 from "./Navbar2";
 import { GoMail } from "react-icons/go";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SareeShopCarousel from "./SareeShopCarousel";
@@ -149,7 +148,7 @@ const [patients, setPatients] = useState([]);
 
         
         <div className="productContainer1">
-        <ProductList searchQuery={searchQuery} />
+        <ProductList searchQuery="" pageType="home" />
 
         </div>
         <div className="image-container-wrapper">
