@@ -5,13 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "./CreateContext";
 import Navbar2 from "./Navbar2";
-import axios from 'axios';
+import axios from "axios";
 
 const calculateSubtotal = (cartItems) => {
-  return cartItems.reduce(
-    (total, item) => total + item.sp * item.quantity,
-    0
-  );
+  return cartItems.reduce((total, item) => total + item.sp * item.quantity, 0);
 };
 
 export const calculateTotal = (cartItems) => {
@@ -24,9 +21,16 @@ export const calculateTotal = (cartItems) => {
 };
 
 function Cart() {
-  const { cartItems, removeFromCart, handleDecrement, handleIncrement, setCartItems } = useContext(CartContext);
-  const [inputValue, setInputValue] = useState('');
-  const [token] = useState(localStorage.getItem('token'));
+  const {
+    cartItems,
+    removeFromCart,
+    handleDecrement,
+    handleIncrement,
+    setCartItems,
+  } = useContext(CartContext);
+  const [inputValue, setInputValue] = useState("");
+  const [token] = useState(localStorage.getItem("token"));
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -44,17 +48,84 @@ function Cart() {
       .catch((err) => console.log(err));
   }, [token, setCartItems]);
 
+  const handleIncrementProduct = async (productId) => {
+    try {
+      await axios.post(
+        "http://localhost:5555/api/profile/cart/increment",
+        { productId },
+        {
+          headers: {
+            "x-token": token,
+          },
+        }
+      );
+      const updatedCart = cartItems.map((item) => {
+        if (item.product === productId) {
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
+      setCartItems(updatedCart);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+  const handleDecrementProduct = async (productId) => {
+    try {
+      await axios.post(
+        "http://localhost:5555/api/profile/cart/decrement",
+        { productId },
+        {
+          headers: {
+            "x-token": token,
+          },
+        }
+      );
+      const updatedCart = cartItems.map((item) => {
+        if (item.product === productId) {
+          return { ...item, quantity: Math.max(item.quantity - 1, 1) };
+        }
+        return item;
+      });
+      setCartItems(updatedCart);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+
+  const handleRemoveProduct = async (productId) => {
+    try {
+      await axios.delete(
+        "http://localhost:5555/api/profile/cart/delete",
+        {
+          headers: {
+            "x-token": token,
+          },
+          data: { productId }, // Include data field for axios.delete
+        }
+      );
+      const updatedCart = cartItems.filter(
+        (item) => item.product !== productId
+      );
+      setCartItems(updatedCart);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+
   const usderSubmit = (e) => {
     e.preventDefault();
-    if (inputValue === 'NEW100') {
-      alert('coupon applied successfully');
+    if (inputValue === "NEW100") {
+      alert("coupon applied successfully");
     } else {
-      alert('error');
+      alert("error");
     }
   };
 
   const isCartEmpty = cartItems.length === 0;
-  const navigate = useNavigate();
 
   const handleNextClick = () => {
     if (isCartEmpty) {
@@ -64,10 +135,6 @@ function Cart() {
         state: { totalAmount: calculateTotal(cartItems) },
       });
     }
-  };
-
-  const handleRemoveProduct = (productId) => {
-    removeFromCart(productId);
   };
 
   const calculateDelivery = () => {
@@ -80,7 +147,11 @@ function Cart() {
   };
 
   const calculateTotalAmount = () => {
-    return calculateSubtotal(cartItems) + calculateDelivery() - (inputValue === 'NEW100' ? 100 : 0);
+    return (
+      calculateSubtotal(cartItems) +
+      calculateDelivery() -
+      (inputValue === "NEW100" ? 100 : 0)
+    );
   };
 
   return (
@@ -105,18 +176,18 @@ function Cart() {
                   </tr>
                 ) : (
                   cartItems.map((item) => (
-                    <tr key={item.productId}>
+                    <tr key={item.product?._id}>
                       <td colSpan="1">
                         <div className="row">
                           <div className="product-info">
                             <div className="product-image-box">
-                              {item.productImages &&
-                                item.productImages.length > 0 ? (
+                              {item.product?.productImages &&
+                              item.product.productImages.length > 0 ? (
                                 <div className="image-with-description">
                                   <img
                                     className="imagee-cart"
-                                    src={`http://127.0.0.1:5555/api/uploads/${item.productImages[0]}`}
-                                    alt={`Product ${item.productId}`}
+                                    src={`http://127.0.0.1:5555/api/uploads/${item.product.productImages[0]}`}
+                                    alt={`Product ${item.product._id}`}
                                     width="100"
                                     height="100"
                                   />
@@ -124,21 +195,25 @@ function Cart() {
                               ) : (
                                 <p>No image available</p>
                               )}
-                              <h6 className="name">{item.productName}</h6>
+                              <h6 className="name">
+                                {item.product?.productName}
+                              </h6>
                             </div>
                           </div>
                         </div>
                       </td>
                       <td>
                         <center>
-                          <b>₹ {item.sp}</b>
+                          <b>₹ {item.product?.sp}</b>
                         </center>
                       </td>
                       <td className="quantity-box">
                         <button
                           type="button"
                           className="bt"
-                          onClick={() => handleDecrement(item.productId)}
+                          onClick={() =>
+                            handleDecrementProduct(item.product?._id)
+                          }
                         >
                           -
                         </button>
@@ -146,7 +221,9 @@ function Cart() {
                         <button
                           type="button"
                           className="bt"
-                          onClick={() => handleIncrement(item.productId)}
+                          onClick={() =>
+                            handleIncrementProduct(item.product?._id)
+                          }
                         >
                           +
                         </button>
@@ -159,10 +236,12 @@ function Cart() {
                             alignItems: "center",
                           }}
                         >
-                          <b>₹{item.sp * item.quantity}</b>
+                          <b>₹{item.product?.sp * item.quantity}</b>
                           <button
                             type="button"
-                            onClick={() => handleRemoveProduct(item.productId)}
+                            onClick={() =>
+                              handleRemoveProduct(item.product?._id)
+                            }
                             className="remove-icon"
                           >
                             <FontAwesomeIcon icon={faTrashAlt} />
@@ -228,7 +307,11 @@ function Cart() {
                       <button className=" buttoncoupn" onClick={usderSubmit}>
                         Apply
                       </button>
-                      {inputValue === 'NEW100' && <p className="Couponalert">Coupon NEW100 Applied and discount 100/-</p>}
+                      {inputValue === "NEW100" && (
+                        <p className="Couponalert">
+                          Coupon NEW100 Applied and discount 100/-
+                        </p>
+                      )}
                     </td>
                   </tr>
                   <tr>
