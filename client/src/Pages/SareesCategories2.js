@@ -7,6 +7,7 @@ import { scrollToTop } from "./scrollUtils";
 import "./AllProductsv.css"; 
 import Navbar from "./Navbar";
 import Navbar2 from "./Navbar2";
+import ProductList from "./ProductList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
 
@@ -220,6 +221,7 @@ const SareesCategories2 = () => {
           ))}
         </div>
       )}
+      {/* <ProductList searchQuery="" /> */}
     </div>
     </>
   );

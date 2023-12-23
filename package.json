@@ -3,6 +3,7 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "html2pdf.js": "^0.10.1",
     "react-rating-stars-component": "^2.2.0"
   }
 }
