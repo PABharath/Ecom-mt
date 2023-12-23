@@ -19,8 +19,11 @@ const userSchema = new mongoose.Schema({
      productImages: [String],
     }],  
   wishlist: [{ 
-    product:String ,
-    quantity: Number 
+    productName:String ,
+    
+    sp: Number,
+    productImages: [String],  
+
    }],
   reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
   address: [{ 

@@ -79,19 +79,23 @@ return (
           {profile.cart && profile.cart.length > 0 && (
             <>
               <h3>Cart</h3>
-              <ul>
-              <p>
-        <strong>Product </strong> - <strong>Quantity</strong>
-      </p>
+              <ul className='product-profile'>
+              
+        
+      
                 {profile.cart.map((product) => (
                    <li key={product._id}>
-                   {product.productName} -  {product.quantity}
-                   {product.sp} -  
-                   <img
-                      className="product-imgvik"
+                <img
+                      className="product-imgvik-profile"
                       src={`http://127.0.0.1:5555/api/uploads/${product.productImages[0]}`}
                       alt={product.productName}
                     />
+                   <div>  
+                  <p>{product.productName} </p>    
+                   
+                  <p><strong>Price :</strong>{product.sp} </p> 
+                   <p><strong>Quantity :</strong>{product.quantity}</p> 
+                   </div>     
                  </li>
                   
                 ))}
@@ -102,9 +106,22 @@ return (
           {profile.wishlist && profile.wishlist.length > 0 && (
             <>
               <h3>Wishlist</h3>
-              <ul>
-                {profile.wishlist.map((product) => (
-                  <li key={product._id}>{product.productName}</li>
+              <ul className='product-profile'>
+              {profile.wishlist.map((product) => (
+                   <li key={product._id}>
+                <img
+                      className="product-imgvik-profile"
+                      src={`http://127.0.0.1:5555/api/uploads/${product.productImages[0]}`}
+                      alt={product.productName}
+                    />
+                   <div>  
+                  <p>{product.productName} </p>    
+                   
+                  <p><strong>Price :</strong>{product.sp} </p> 
+                   
+                   </div>     
+                 </li>
+                  
                 ))}
               </ul>
             </>

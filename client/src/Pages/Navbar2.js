@@ -76,7 +76,7 @@ const Navbar2 = ({ onSearch }) => {
             <Nav.Link as={NavLink} to="/BlogPost"  className='navLink' style={{fontWeight:'bold',fontSize:'18px'}}>
               Blog
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/ContactUs"  className='navLink' style={{fontWeight:'bold',fontSize:'18px'}}>
+            <Nav.Link as={NavLink} to="/ContactUs"  className='navLink' style={{fontWeight:'bold',fontSize:'18px',marginLeft:'10px'}}>
               Contact Us
             </Nav.Link>
             <div className='nav-searchbarvik'>
@@ -98,26 +98,26 @@ const Navbar2 = ({ onSearch }) => {
                 </div>
               <div className="navvik-right">
                 <Link to="/ProductForm">
-                  <FontAwesomeIcon icon={faPlus} className="menu-icon" style={{fontSize:'22px'}} />
+                  <FontAwesomeIcon icon={faPlus} className="menu-icon" />
                 </Link>
 
         <Link to="/cart" >
-          <FontAwesomeIcon icon={faShoppingCart}  className="menu-icon-cart" style={{fontSize:'20px'}}/>
+          <FontAwesomeIcon icon={faShoppingCart}  className="menu-icon-cart" />
           <span>{totalQuantity}</span>
         </Link>
 
         <div className="tooltip-container">
-          <FontAwesomeIcon icon={faBell}  className="menu-icon1" style={{fontSize:'20px'}}/>
+          <FontAwesomeIcon icon={faBell}  className="menu-icon1" />
           <div className="tooltip">No new notifications.. Stay tuned for more!!</div>
         </div>
 
         {token ? (
           <div onClick={() => navigate('/Profile')}>
-            <FontAwesomeIcon icon={faUser} className="menu-icon" style={{fontSize:'20px'}}/>
+            <FontAwesomeIcon icon={faUser} className="menu-icon" />
           </div>
         ) : (
           <Link to="/Login">
-            <FontAwesomeIcon icon={faUser} className="menu-icon1" style={{fontSize:'22px'}}/>
+            <FontAwesomeIcon icon={faUser} className="menu-icon1"/>
           </Link>
         )}
 
