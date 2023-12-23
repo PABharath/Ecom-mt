@@ -89,16 +89,16 @@ export const CartProvider = ({ children }) => {
       }
 
       // Send the updated wishlist to the backend
-      await axios.post(`http://localhost:5555/api/users/${email}/wishlist`, {
-        wishlistItem: [
-          ...cartItems,
-          { productId: product._id, quantity: 1, ...product },
-        ].map((item) => ({
+      // await axios.post(`http://localhost:5555/api/users/${email}/wishlist`, {
+      //   wishlistItem: [
+      //     ...cartItems,
+      //     { productId: product._id, quantity: 1, ...product },
+      //   ].map((item) => ({
          
-          product: item.productName,
-          quantity: item.quantity,
-        })),
-      });
+      //     product: item.productName,
+      //     quantity: item.quantity,
+      //   })),
+      // });
 
       console.log("Adding to wishlist:", product);
       toast.success("Added to Wishlist!");
