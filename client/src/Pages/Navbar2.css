@@ -74,18 +74,18 @@
 	  box-sizing: border-box;
   }
   .navbar-h3{
-    margin-left: -50px;
+    margin-left: -30px;
   }
   .navLink{
-    margin-left: 30px;
+    margin-left: 10px;
   }
  
 .nav-searchbarvik{
     border: 1.4px black solid;
     border-radius:3px;
-    padding-bottom: 1px;
-    width: 410px;
-    margin-left: 4rem;
+    /* padding-bottom: 1px; */
+    width: 370px;
+    margin-left: 20px;
 }
 
 
@@ -101,7 +101,7 @@
 }
 .nav-searchbarvik button{
     border: none;
-    padding-left: 4rem;
+    padding-left: 1rem;
     background-color: white;
 }
 .me-autovik{
@@ -153,7 +153,4 @@ border-radius: 5px;
 .pop3{
     position: relative;
     top: -0.1rem;
-}
-.menu-icon-cart{
-    margin-left: 20px;
 }
