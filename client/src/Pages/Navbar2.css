@@ -66,20 +66,26 @@
 	opacity: 1; /* Increase opacity for better visibility */
   }
 
+
   *{
 	  margin: 0px;
 	  padding: 0px;
 	  
 	  box-sizing: border-box;
   }
-  
+  .navbar-h3{
+    margin-left: -50px;
+  }
+  .navLink{
+    margin-left: 30px;
+  }
  
 .nav-searchbarvik{
     border: 1.4px black solid;
     border-radius:3px;
     padding-bottom: 1px;
-    width: 350px;
-    margin-left: 2rem;
+    width: 410px;
+    margin-left: 4rem;
 }
 
 
@@ -95,7 +101,7 @@
 }
 .nav-searchbarvik button{
     border: none;
-    padding: .3rem;
+    padding-left: 4rem;
     background-color: white;
 }
 .me-autovik{
@@ -147,4 +153,7 @@ border-radius: 5px;
 .pop3{
     position: relative;
     top: -0.1rem;
+}
+.menu-icon-cart{
+    margin-left: 20px;
 }
