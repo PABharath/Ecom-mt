@@ -53,7 +53,7 @@ const Navbar2 = ({ onSearch }) => {
   };
 
   return (
-    <div>
+    <div className="nav1">
       <Navbar expand="lg" className={styles.navbara}>
         <Container className={styles.navbarContainera}>
           <Navbar.Brand as={NavLink} to="/" className="logovik">
