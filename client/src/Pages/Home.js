@@ -79,6 +79,38 @@ const [patients, setPatients] = useState([]);
         }
       }
     }
+
+
+    const [reviews, setReviews] = useState([]);
+
+    const fetchReviews = async () => {
+      try {
+        console.log('Fetching reviews...');
+        const response = await axios.get('http://127.0.0.1:5555/api/reviews');
+    
+        // Check if the response is valid and contains data
+        if (response.data && Array.isArray(response.data)) {
+          console.log('Reviews data:', response.data);
+          setReviews(response.data);
+        } else {
+          console.log('No reviews found or unexpected response format.');
+          // Update the state to an empty array
+          setReviews([]);
+        }
+      } catch (error) {
+        console.error('Error fetching reviews:', error);
+        // Update the state to an empty array in case of an error
+        setReviews([]);
+      }
+    };
+
+    useEffect(() => {
+      console.log('Fetching reviews...');
+      fetchReviews();
+    }, []);
+
+
+    
    
 
 
@@ -174,33 +206,19 @@ const [patients, setPatients] = useState([]);
           </div>
           </div>
 
-         
-
-
-          {/* <div className="image-container-wrapper">
-          <div className="image-container1">
-          <Link to="/products/64d5afade78160215db31933">
-              {" "}
-            <img  className="img890"  src={require("../Assets/box-image22.jpg")} alt="Product 3" />
-            </Link>
-          </div>
-
-          <div className="image-container1">
-          <Link to="/products/64d5afade78160215db31933">
-              {" "}
-            <img className="img890" src={require("../Assets/box-image23.jpg")} alt="Product 4" />
-            </Link>
-          </div>
-          </div> */}
         
-        {/* <div className="review-boxes">
-          {reviews.map((review) => (
-            <div key={review._id} className="review-box">
-              <div className="review-text">{review.comment}</div>
-            </div>
-          ))}
-        </div> */}
-  <div className="mail-box">
+          <div className="review-boxes">
+            <h1>Customer Reviews</h1>
+            {reviews.map((review) => (
+              <div key={review._id} className="review-box">
+                <div className="review-text">{review.comment}</div>
+                {/* You can customize the display of other review details as needed */}
+              </div>
+            ))}
+          </div>
+
+
+        <div className="mail-box">
           <div className="subscribe-mail">
           <div className="subscribe-text">
              
