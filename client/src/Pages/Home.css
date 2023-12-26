@@ -28,16 +28,16 @@
 
 }
 .Featured:hover{
-  background-color:black;
+  background-color: rgb(77, 223, 77);
   color: white;
 }
 .Featureds:hover{
-   background-color:black;
+  background-color: rgb(78, 224, 78);
   color: white;
 }
 .Sellers:hover{
   color: white;
-  background-color:black;
+  background-color: rgb(86, 235, 86);
 }
 
   .icons{
@@ -588,11 +588,14 @@
   
   .review-box {
     flex: 0 0 calc(33.33% - 20px); /* Adjust the width based on the number of boxes you want in a row */
-    border: 1px solid #ddd;
+    border: 1px solid #ca0808;
     padding: 10px;
     margin: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #fff;
+    color: black;
+    height: 25px;
+    width: 25px;
     /* Add any additional styling you want for the review boxes */
   }
   

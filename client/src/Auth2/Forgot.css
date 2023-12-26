@@ -29,7 +29,7 @@
   /* background-color: red; */
 }
 .fgheadername {
-  font-size: 22px;
+  font-size: 21px;
 }
 .fg-cardcontainer {
   /* background-color: #ffffff; */
@@ -81,8 +81,9 @@
   padding: 10px;
   border-radius: 15px;
   width: 90%;
-  border: 1px solid black;
+  border: 1px solid rgb(204, 204, 204);
   margin-top: 25px;
+  
   
 }
  .Abhi1 {
@@ -98,7 +99,7 @@
   cursor: pointer;
 }
 
-.Abhi:hover{
+.Abhi1:hover{
   background-color: black;
   color: white;
 }

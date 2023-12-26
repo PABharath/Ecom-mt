@@ -1,34 +1,27 @@
-import { Navbar, Nav, Container } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
-import styles from "./NavBar.module.css";
-import React, { useRef, useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faShoppingCart,
   faBell,
-  faUser,
   faPlus,
+  faShoppingCart,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
-
-import { CartContext } from "./CreateContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useContext, useRef, useState } from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../Auth2/useAuth";
-import { IoSearchOutline } from "react-icons/io5";
+import { CartContext } from "./CreateContext";
+import styles from "./NavBar.module.css";
+import SearchBar from "./SearchBar";
 
-import Button from "react-bootstrap/Button";
-import Overlay from "react-bootstrap/Overlay";
-import Tooltip from "react-bootstrap/Tooltip";
-import { PiSignOutBold } from "react-icons/pi";
 import { FaUserCircle } from "react-icons/fa";
-import "./Navbar2.css";
+import { PiSignOutBold } from "react-icons/pi";
 import Popup from "reactjs-popup";
+import "./Navbar2.css";
 
 const Navbar2 = ({ onSearch }) => {
-<<<<<<< Updated upstream
   const { user } = useAuth();
   console.log("User Object:", user); 
-=======
->>>>>>> Stashed changes
+  console.log("User Object:", user);
   const navigate = useNavigate();
   const [token] = useState(localStorage.getItem("token"));
   const { cartItems } = useContext(CartContext);
@@ -56,7 +49,7 @@ const Navbar2 = ({ onSearch }) => {
   };
 
   return (
-    <div>
+    <div className="nav1">
       <Navbar expand="lg" className={styles.navbara}>
         <Container className={styles.navbarContainera}>
           <Navbar.Brand as={NavLink} to="/" className="logovik">
@@ -102,7 +95,7 @@ const Navbar2 = ({ onSearch }) => {
               >
                 Contact Us
               </Nav.Link>
-              <div className="nav-searchbarvik">
+              {/* <div className="nav-searchbarvik">
                 <input
                   type="text"
                   placeholder="Search"
@@ -113,15 +106,16 @@ const Navbar2 = ({ onSearch }) => {
                 <button onClick={handleSearch}>
                   <IoSearchOutline />
                 </button>
-              </div>
+              </div> */}
+              <SearchBar />
               <div className="navvik-right">
-              {user && user.role === "admin" && (
-              <div className="prod-form">
-                <Link to="/ProductForm">
-                  <FontAwesomeIcon icon={faPlus} className="menu-icon" />
-                </Link>
-              </div>
-            )}
+                {user && user.role === "admin" && (
+                  <div className="prod-form">
+                    <Link to="/ProductForm">
+                      <FontAwesomeIcon icon={faPlus} className="menu-icon" />
+                    </Link>
+                  </div>
+                )}
                 <Link to="/cart">
                   <FontAwesomeIcon
                     icon={faShoppingCart}
@@ -147,21 +141,7 @@ const Navbar2 = ({ onSearch }) => {
                   </Link>
                 )}
 
-<<<<<<< Updated upstream
                 {/* <Button  ref={target} style={{backgroundColor:'white',color:'white',border:'none'}}  onClick={() => setShow(!show)}>
-=======
-        {token ? (
-          <div onClick={() => navigate('/Profile')}>
-            <FontAwesomeIcon icon={faUser} className="menu-icon" />
-          </div>
-        ) : (
-          <Link to="/Login">
-            <FontAwesomeIcon icon={faUser} className="menu-icon" />
-          </Link>
-        )}
-
-<Button  ref={target} style={{backgroundColor:'white',color:'white',border:'none'}}  onClick={() => setShow(!show)}>
->>>>>>> Stashed changes
            
            <FaUserCircle style={{fontSize:'1.2rem' , marginTop:'-1rem',marginLeft:'-0.8rem'}}/>
        

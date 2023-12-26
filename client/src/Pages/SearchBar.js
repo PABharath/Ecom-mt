@@ -1,55 +1,71 @@
+// Search.js
 
-import React,{useState} from 'react';
-import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { BsSearch } from "react-icons/bs";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import './searchbar.css';
 
-const SearchBar = ({ onSearch }) => {
-  const [searchValue, setSearchValue] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+export default function Search() {
+  const [searchResult, setSearchResult] = useState([]);
+  const [key, setKey] = useState("");
 
-  const handleInputChange = async (event) => {
-    const value = event.target.value;
-    setSearchValue(value);
-
-    if (value.length >= 3) {
+  useEffect(() => {
+    const search = async () => {
       try {
-        const response = await axios.get(`http://localhost:5555/api/search?query=${value}`);
-        console.log("search"+response.data)
-        setSearchResults(response.data);
-      } catch (error) {
-        console.error('Error searching:', error);
-      }
-    } else {
-      setSearchResults([]);
-    }
-  };
+        if (!key.trim()) {
+          setSearchResult([]);
+          return;
+        }
 
-  const handleSearchIconClick = () => {
-    onSearch(searchValue);
-  };
+        const res = await axios.get("http://localhost:5555/api/products", {
+          params: { key, limit: 5 },
+        });
+
+        setSearchResult(res.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    search();
+  }, [key]);
 
   return (
-    <div className="search-box">
-      <input
-        type="text"
-        placeholder="Search for products, brands, and more"
-        value={searchValue}
-        onChange={handleInputChange}
-      />
-      <FontAwesomeIcon icon={faSearch} className="search-icon" onClick={handleSearchIconClick} />
-      {searchResults.length > 0 && (
-        <ul className="search-results">
-          {searchResults.map((result) => (
-            <li key={result._id}>
-              <Link to={`/products/${result._id}`}>{result.productName}</Link>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <form>
+      <div className="Search-wrapper">
+       
+        <div className="form-group1">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Searching..."
+            value={key}
+            onChange={(e) => setKey(e.target.value)}
+          /> <button className="search-btn">
+          <BsSearch />
+        </button>
+        </div>
+        {searchResult && searchResult.length > 0 && (
+          <div className="search-result">
+            {searchResult.map((product) => (
+              <Link
+                key={product._id}
+                to={`/products/${product._id}`} // Navigate to the product details page
+                className="result-item"
+              >
+                <div>
+                  <img src={`http://localhost:5555/uploads/${product.productImages[0]}`} alt="" />
+                </div>
+                <div className="product-info">
+                  <p>{product.productName}</p>
+                  <p>{product.category.join(', ')}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    </form>
   );
-};
-
-export default SearchBar;
+}

@@ -275,7 +275,7 @@ const ProductDetails = () => {
   return (
     <div>
       <Navbar2/>
-      <div>
+      <div className="product-overflow">
       {error ? (
         <p>{error}</p>
       ) : (

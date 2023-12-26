@@ -1,174 +1,129 @@
-.profile-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f8f8f8;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.profile-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  padding: 0 10px;
-}
-
-h1 {
-  font-size: 24px;
-  margin: 0;
-}
-
-.logout-button {
-  background-color: #e74c3c;
-  color: white;
+.container-cart button {
   border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.logout-button:hover {
-  background-color: #c0392b;
-}
-
-.profile-info {
-  padding: 20px;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  /* Add additional styles for user information */
-}
-
-.main {
-  height: 40vh;
-  width: 35%;
-  border: 1px solid black;
-  box-shadow: 0px 0px 15px;
-  margin-top: 3%;
-  margin-left: 30%;
-  border-radius: 20px;   
-}
-
-.asdf {
-  display: flex;
-  flex-direction: row;
-}
-
-.mains {
-  height: 70vh;
-  width: 80%;
-  border: 1px solid black;
-  box-shadow: 0px 0px 15px;
-  margin-top: 3%;
-  border-radius: 20px;
-  overflow-y:scroll;
-  overflow-x: hidden;
-  margin-bottom: 40px;
-  
-  background-color: rgb(205, 203, 203);
-}
-
-.mainsss {
-  height: 70vh;
-  width: 80%;
-  border: 1px solid black;
-  box-shadow: 0px 0px 15px;
-  margin-top: 3%;
-  border-radius: 20px;
-  overflow-y:scroll;
-  margin-left: 1%;
-  overflow-x: hidden;
-  margin-bottom: 40px;
-  background-color: rgb(205, 203, 203);
-
-}
-
-.welcomes {
-  font-size: 25px;
-  font-weight: 600px;
-  margin-left: 45%;
-  margin-top: 5%;
-  color:black;
-}
-
-.welcomess {
-  font-size: 15px;
-  font-weight: 600px;
+  background-color: transparent; /* Set background to transparent */
+  color: white;
   margin-top: 10%;
-  /* margin-left: 5%; */
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  padding: 8px;
+  transition: color 0.3s ease; /* Add transition effect for color change */
 }
-.price{
-  margin-top: -10%;
-  font-size: 15px;
-  font-weight: 600px;
 
+.container-cart button:hover {
+  color:green; /* Change text color on hover */
 }
-.prices{
-  margin-top: -5%;
-  font-size: 15px;
-  font-weight: 400px;
 
-}
-.sss{
-  margin-top: -5%;
-  font-size: 15px;
-  font-weight: 500px;
-  }
+/* Rest of your existing styles */
 
-.fix {
-  display: flex;
-  flex-direction: row;
+.first {
+  height: 45vh;
+  width: 100%;
+  background-color: rgb(61, 143, 58);
+  color: white;
 }
 
 .welcome {
-  font-size: 20px;
-  font-weight: 600px;
-  margin-left: 2%;
-  margin-top: 5%;
-}
-
-.product-imgvik-profile {
-  margin-left: 10%;
-  width: 50%;
+  font-size: 35px;
+  font-weight: 600;
+  margin-left: 5%;
 }
 
 .user {
-  font-size: 17px;
-  font-weight: 600px;
-  margin-left: 2%;
-  margin-top: 5%;
+  font-size: 20px;
+  font-weight: 400;
+  margin-left: 5%;
 }
 
-.users {
-  font-size: 15px;
-  font-weight: 600px;
-  margin-left: 2%;
-  margin-top: 5%;
+.email {
+  font-size: 20px;
+  font-weight: 300;
+  margin-left: 5%;
 }
 
-.mains-list,
-.wishlist-list {
+.contanct {
+  font-size: 20px;
+  font-weight: 300;
+  margin-left: 5%;
+}
+
+.sign {
+  height: 7vh;
+  width: 10%;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  margin-left: 85%;
+  margin-top: 2%;
+}
+.sign:hover{
+  background-color: rgb(35, 232, 35);
+  color: white;
+  cursor: pointer;
+}
+
+.third {
   display: flex;
-  flex-wrap: wrap;
-  /* overflow-x: auto; */
+  flex-direction: row;
+}
+
+.container-cart {
+  width: 180px;
+  margin-left: 5%;
+  height: 40vh;
+  background-color: rgb(163, 163, 167);
+  margin-top: 5%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  
+}
+.wish{
+  margin-top: 20%;
+  font-size: 20px;
+  font-weight: 600;
+}
+.hr{
+  border: 2px solid;
+  margin-top: 30%;
   
 }
 
+.carts {
+  /* margin-top: 500vw; */
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.cart {
+  margin-left: 45%;
+  margin-top: 6%;
+}
+/* ... (your existing styles) */
+
 .product-item {
-  width: calc(33.33% - 10px); /* Three items in one row with some spacing */
-  margin: 5px;
+  width: 600px; 
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #ddd; 
+  border-radius: 10px;
   display: flex;
-  flex-direction: row;
   align-items: center;
+  margin-top: 5%;
+  margin-left: 35%;
+}
+.liiii{
+  list-style-type: none;
 }
 
 .product-imgvik-profile {
-  width: 100%;
+  width: 150px;
+  height: 20vh;
+  margin-right: 20px;
 }
 
 .product-details {
-  text-align: center;
+  flex: 2; 
 }
