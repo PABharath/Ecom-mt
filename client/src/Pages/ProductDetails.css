@@ -772,3 +772,111 @@ body {
   height: 100%;
   background: grey; /* Default color of the progress bar */
 }
+
+
+
+
+
+
+
+
+@media (max-width: 425px) {
+  .product-details {
+    height: auto;
+    flex-direction: column;
+    font-size: 14px;
+  }
+
+  .product-images {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .product-images img {
+    width: 100%;
+    max-height: none;
+  }
+
+  .product-info {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .product-name h2 {
+    font-size: 16px;
+  }
+
+  .product-pricing-box {
+    width: 100%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .product-price,
+  .product-mrp,
+  .product-sp,
+  .product-offer,
+  .product-availability,
+  .ratings-reviews,
+  .product-savings {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .add-to-cart-button,
+  .buy-now-button,
+  .see-all-reviews-button {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .review-form,
+  .sp-info {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .info-columns .heading {
+    font-size: 14px;
+  }
+
+  .review-form textarea {
+    width: 100%;
+  }
+
+  .star-rating,
+  .star-rating label,
+  .star,
+  .star-rating-item,
+  .star-rating-header,
+  .star-rating-value,
+  .progress-bar-container,
+  .progress-bar {
+    margin-left: 0;
+  }
+  
+  .review-form button,
+  .review-formbuttons {
+    width: 100%;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .product-name {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .imagee {
+    height: auto;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .specific {
+    margin-top: 5%;
+    font-size: 14px;
+  }
+}
