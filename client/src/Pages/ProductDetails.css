@@ -8,14 +8,19 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 20px;
-  padding: 20px;
+  
+  width: 100vw;
   border: 1px solid #e0e0e0;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  box-shadow: 0px 0px 15px ;
+  background-color: #efefef;
   border-radius: 5px;
+  display: flex;
+  font-size: 20px;
+  flex-direction: column;
+  font-weight: 600;
 }
 .rating-count{
-   margin-right: 70%;
+   /* margin-right: 70%; */
    /* margin-top: 1%; */
 }
 .write{
@@ -130,10 +135,15 @@ body {
 }
 
 .add-to-cart-button{
-  background-color: #30BD57;
-  ;
+  background-color: #30BD57; 
+}
+.add-to-cart-button:hover{
+  background-color: #38864e; 
 }
 .buy-now-button{
+  background-color: #3d3370;
+}
+.buy-now-button:hover{
   background-color: #272343;
 }
 
@@ -167,10 +177,10 @@ body {
   border: none;
   cursor: pointer;
   font-size: 18px;
-  padding: 10px 30px;
   border-radius: 30px;
   margin-top: 10px;
   margin-right: 10px;
+  width: 25%;
 }
 
 
@@ -360,25 +370,26 @@ body {
 }
 
 .reviews-section {
-  margin-top:-25%;
-  border-top: 1px solid #ccc;
-  padding-top: 20px;
-  width: 25%;
-  margin-left: auto; /* Auto margin-left to push it to the end of the page */
-  margin-right: 15%; /* Add some right margin for spacing */
+  height: 380px;
+    overflow: auto;
+    border-top: 1px solid #ccc;
+    /* padding-top: 20px; */
+    width: 33%;
+    margin-left: 2%;
+   
 }
 
 .star-ratings-container {
   margin-left: auto; /* Auto margin-left to push it to the end of the page */
-  margin-top: 30%;
-  width:100% ;
+  /* margin-top: 30%; */
+  width:50% ;
 
 }
 .ratt{
-  margin-top: -25%;
+  /* margin-top: -25%; */
 }
 .ratts{
-  margin-top: 20%;
+  /* margin-top: -25%; */
   margin-left: 20%;
 }
 
@@ -406,9 +417,8 @@ body {
 }
 
 .review-item {
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 20px;
+  margin-bottom: 0px;
+    border-bottom: 1px solid #ccc;
 }
 
 .review-username {
@@ -727,7 +737,7 @@ body {
 }
 
 .star-ratings-container {
-  margin-left: 5%; /* Add margin-left for spacing */
+  margin-left: 2%; /* Add margin-left for spacing */
   /* margin-top: -5%; */
 }
 
@@ -739,7 +749,7 @@ body {
 
 .star-rating-header {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   margin-bottom: 5px;
   margin-left: 3%;
@@ -748,7 +758,7 @@ body {
 .star-rating-value {
   margin-right: 5px;
 }
-
+    
 .progress-bar-container {
   width: 25%;
   height: 10px; /* Adjust the height of the progress bar */

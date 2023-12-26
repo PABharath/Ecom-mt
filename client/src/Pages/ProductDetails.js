@@ -52,9 +52,7 @@ const ProductDetails = () => {
             <div key={index} className="star-rating-item">
               <div className="star-rating-header">
                 <span className="star-rating-value">{rating}</span>
-                <span className="rating-count">{ratingCount}</span>
-              </div>
-              <div className="progress-bar-container">
+                <div className="progress-bar-container">
                 <div
                   className="progress-bar"
                   style={{
@@ -63,6 +61,9 @@ const ProductDetails = () => {
                   }}
                 ></div>
               </div>
+                <span className="rating-count">{ratingCount}</span>
+              </div>
+              
             </div>
           );
         })}
@@ -70,7 +71,6 @@ const ProductDetails = () => {
     );
   };
  
-
   const renderStarRatingsAndReviews = () => (
     <div className="my">
     <div className="star-ratings-and-reviews-container">

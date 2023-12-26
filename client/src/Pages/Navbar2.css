@@ -69,20 +69,26 @@
 	opacity: 1; /* Increase opacity for better visibility */
   }
 
+
   *{
 	  margin: 0px;
 	  padding: 0px;
 	  
 	  box-sizing: border-box;
   }
-  
+  .navbar-h3{
+    margin-left: -30px;
+  }
+  .navLink{
+    margin-left: 10px;
+  }
  
 .nav-searchbarvik{
     border: 1.4px black solid;
     border-radius:3px;
-    padding-bottom: 1px;
-    width: 350px;
-    margin-left: 2rem;
+    /* padding-bottom: 1px; */
+    width: 370px;
+    margin-left: 20px;
 }
 
 
@@ -98,7 +104,7 @@
 }
 .nav-searchbarvik button{
     border: none;
-    padding: .3rem;
+    padding-left: 1rem;
     background-color: white;
 }
 .me-autovik{

@@ -16,6 +16,7 @@ const IntegratedAddressPage = () => {
   const [countries, setCountries] = useState([]);
   const [states, setStates] = useState([]);
   const [isDefaultAddress, setIsDefaultAddress] = useState(false);
+  const [email,] = useState(localStorage.getItem('email'));
 
   // const { cartItems } = useContext(CartContext);
   // const totalAmount = calculateTotal(cartItems);
@@ -57,7 +58,7 @@ const IntegratedAddressPage = () => {
     try {
       console.log("Form Data:", formData);  // Add this line to check formData
       const response = await axios.post(
-        'http://127.0.0.1:5555/api/insert',
+        `http://localhost:5555/api/${email}/address`,
         formData,
         {
           headers: {

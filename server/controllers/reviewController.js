@@ -1,5 +1,3 @@
-// controllers/reviewController.js
-
 const Review = require('../models/reviewModel');
 
 exports.getReviews = async (req, res) => {
@@ -8,18 +6,28 @@ exports.getReviews = async (req, res) => {
     const filteredReviews = await Review.find({ productId });
     res.json(filteredReviews);
   } catch (error) {
-    console.error(error);
+    console.error('Error fetching reviews:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
 
 exports.postReview = async (req, res) => {
   try {
-    const newReview = new Review(req.body);
+    const { productId, starRating, comment, username } = req.body;
+
+    // Validate and sanitize input here if needed
+
+    const newReview = new Review({
+      productId,
+      starRating,
+      comment,
+      username,
+    });
+
     await newReview.save();
     res.status(201).json(newReview);
   } catch (error) {
-    console.error(error);
+    console.error('Error posting review:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
@@ -42,7 +50,7 @@ exports.likeDislikeReview = async (req, res) => {
 
     res.json(review);
   } catch (error) {
-    console.error(error);
+    console.error('Error updating like/dislike:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AddAddressPage from './AddAddressPage';
-
+import axios from 'axios';
 
 const AddressView = ({ onAddressSelection }) => {
   const [error, setError] = useState(null);
@@ -8,22 +8,44 @@ const AddressView = ({ onAddressSelection }) => {
   const [data, setData] = useState([]);
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
+  const [token,] = useState(localStorage.getItem('token'));
 
+// useEffect(() => {
+//   fetch("http://localhost:5555/api/addresses")
+//     .then(res => res.json())
+//     .then(
+//       (data) => {
+//         setIsLoaded(true);
+//         setData(data);
+//       },
+//       (error) => {
+//         setIsLoaded(true);
+//         setError(error);
+//       }
+//     );
+// }, []);
 
 useEffect(() => {
-  fetch("http://localhost:5555/api/addresses")
-    .then(res => res.json())
-    .then(
-      (data) => {
-        setIsLoaded(true);
-        setData(data);
+  axios
+    .get('http://localhost:5555/api/profile', {
+      headers: {
+        'x-token': token,
       },
-      (error) => {
-        setIsLoaded(true);
-        setError(error);
-      }
-    );
-}, []);
+    })
+    .then((res) => {
+      console.log(res.data);
+      setIsLoaded(true);
+      setData(res.data.user);
+      
+    })
+    
+    .catch((err) => console.log(err));
+}, [token]);
+
+
+
+
+
 
 
   const handleAddressSelection = (addressId) => {
@@ -54,7 +76,7 @@ useEffect(() => {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
             <h3 style={{ marginBottom: '10px',marginTop:'7%' }}>Addresses</h3>
-            {data.map((user) => (
+            {data.address && data.address.map((user) => (
               <div
                 key={user.id}
                 style={{

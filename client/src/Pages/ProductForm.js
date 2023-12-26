@@ -19,8 +19,8 @@ const ProductForm = () => {
     pattern: "",
     borderSize: "",
     type: "",
-    review: "",
-    starRating: 0,
+    // review: "",
+    // starRating: 0,
     mrp: "",
     sp: "",
   });
@@ -77,8 +77,8 @@ const ProductForm = () => {
       formDataToSubmit.append("pattern", formData.pattern);
       formDataToSubmit.append("borderSize", formData.borderSize);
       formDataToSubmit.append("type", formData.type);
-      formDataToSubmit.append("review", formData.review);
-      formDataToSubmit.append("starRating", formData.starRating);
+      // formDataToSubmit.append("review", formData.review);
+      // formDataToSubmit.append("starRating", formData.starRating);
       formDataToSubmit.append("mrp", formData.mrp);
       formDataToSubmit.append("sp", formData.sp);
 
@@ -274,7 +274,7 @@ const ProductForm = () => {
             required
           />
         </div>
-        <div>
+        {/* <div>
           <label>Review:</label>
           <textarea
             name="review"
@@ -294,7 +294,7 @@ const ProductForm = () => {
             max={5}
             required
           />
-        </div>
+        </div> */}
         <div>
           <label>MRP:</label>
           <input
