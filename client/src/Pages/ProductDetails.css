@@ -1,4 +1,8 @@
 /* ProductDetails.css */
+.product-overflow{
+overflow-x: hidden;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
 }
@@ -18,10 +22,6 @@ body {
     font-size: 20px;
     flex-direction: column;
     font-weight: 600;
-}
-.rating-count{
-   /* margin-right: 70%; */
-   /* margin-top: 1%; */
 }
 .write{
   height: 5vh;
@@ -49,6 +49,7 @@ body {
 }
 .prod-info{
   margin-top: 1%;
+  margin-left: 1%;
 }
 .next{
   line-height: 45px;
@@ -366,7 +367,9 @@ body {
 .name-2{
   margin-top: 10%;
   color:#272343;
-  ;
+}
+.high{
+  margin-left: 1%;
 }
 
 .reviews-section {
@@ -384,9 +387,6 @@ body {
   /* margin-top: 30%; */
   width:50% ;
 
-}
-.ratt{
-  /* margin-top: -25%; */
 }
 .ratts{
   /* margin-top: -25%; */
@@ -536,6 +536,15 @@ body {
 .product-images img:hover { 
   transform: scale(1.2);
   z-index: 1;    
+}
+
+@media only screen and (max-width: 425px) {
+  
+.info-columns .row {
+  display: flex;
+  /* align-items: baseline; */
+  margin-bottom: 10px;
+}
 }
 
 @media (max-width:768px) {
@@ -715,7 +724,7 @@ body {
   font-size: 16px;
   padding: 10px 20px;
   border-radius: 5px;
-} */
+} 
 .buttons{
   display: flex;
   flex-direction: column;
