@@ -34,17 +34,17 @@ export default function Search() {
   return (
     <form>
       <div className="Search-wrapper">
-        <button className="search-btn">
-          <BsSearch />
-        </button>
-        <div className="form-group">
+       
+        <div className="form-group1">
           <input
             type="text"
             className="form-control"
             placeholder="Searching..."
             value={key}
             onChange={(e) => setKey(e.target.value)}
-          />
+          /> <button className="search-btn">
+          <BsSearch />
+        </button>
         </div>
         {searchResult && searchResult.length > 0 && (
           <div className="search-result">
