@@ -67,9 +67,9 @@ function Forgotverification() {
   };
 
   return (
-    
+   
    <div>
-    <Navbar2/>
+     <Navbar2/>
     <div className="fgv-bgcontainer">
       <div className="fgv-bg1">
       <div className="fgv-cardcontainer">
