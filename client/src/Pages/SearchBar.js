@@ -18,7 +18,7 @@ export default function Search() {
           return;
         }
 
-        const res = await axios.get("http://localhost:5000/api/products", {
+        const res = await axios.get("http://localhost:5555/api/products", {
           params: { key, limit: 5 },
         });
 
@@ -55,7 +55,7 @@ export default function Search() {
                 className="result-item"
               >
                 <div>
-                  <img src={`http://localhost:5000/uploads/${product.productImages[0]}`} alt="" />
+                  <img src={`http://localhost:5555/uploads/${product.productImages[0]}`} alt="" />
                 </div>
                 <div className="product-info">
                   <p>{product.productName}</p>

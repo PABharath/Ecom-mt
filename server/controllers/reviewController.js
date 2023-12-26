@@ -1,18 +1,49 @@
 const Review = require('../models/reviewModel');
 
-exports.getReviews = async (req, res) => {
+// Fetch reviews based on productId
+exports.getProductReviews = async (req, res) => {
   try {
     const productId = req.query.productId;
     const filteredReviews = await Review.find({ productId });
 
-    console.log('Fetched reviews:', filteredReviews);
+    console.log('Fetched product reviews:', filteredReviews);
 
     res.json(filteredReviews);
   } catch (error) {
-    console.error('Error fetching reviews:', error);
+    console.error('Error fetching product reviews:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
+
+// Fetch all reviews
+exports.getAllReviews = async (req, res) => {
+  try {
+    const allReviews = await Review.find();
+
+    console.log('Fetched all reviews:', allReviews);
+
+    res.json(allReviews);
+  } catch (error) {
+    console.error('Error fetching all reviews:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+// controllers/reviewController.js
+
+exports.getFiveStarReviews = async (req, res) => {
+  try {
+    const fiveStarReviews = await Review.find({ starRating: 5 });
+
+    console.log('Fetched 5-star reviews:', fiveStarReviews);
+
+    res.json(fiveStarReviews);
+  } catch (error) {
+    console.error('Error fetching 5-star reviews:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
 
 
 exports.postReview = async (req, res) => {
