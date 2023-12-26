@@ -6,6 +6,7 @@ import useAuth from './useAuth';
 import Navbar2 from '../Pages/Navbar2';
 import axios from 'axios';
 import './Profile.css';
+// import vani from './Assests/vani.jpg'
 
 const Profile = () => {
   const { user, logout } = useAuth();
@@ -42,11 +43,14 @@ const Profile = () => {
       <div>
         {Object.keys(profile).length > 0 ? (
           <>
+          <div className='mine'> 
             <div className='main'>
+              
               <h2 className='welcome'>Welcome, {profile?.username}!</h2>
               <p className='user'>Username: {profile?.username}</p>
               <p className='users'>Email: {profile?.email}</p>
               <p className='users'>Contact: {profile?.contact}</p>
+            </div>
             </div>
             <div className='fix'>
               {profile.cart && profile.cart.length > 0 && (
@@ -55,7 +59,7 @@ const Profile = () => {
                     <h3 className='welcomes'>Cart</h3>
                     <ul className='product-profile mains-list'>
                       {profile.cart.map((product) => (
-                        <li key={product._id}>
+                        <li className='li654' key={product._id}>
                           <div className='product-item'>
                             <img
                               className="product-imgvik-profile"
@@ -81,7 +85,7 @@ const Profile = () => {
                     <h3 className='welcomes'>Wishlist</h3>
                     <ul className='product-profile wishlist-list'>
                       {profile.wishlist.map((product) => (
-                        <li key={product._id}>
+                        <li className='li654' key={product._id}>
                           <div className='product-item'>
                             <img
                               className="product-imgvik-profile"
