@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./Pages/Navbar";
 import BlogPost from "./Pages/BlogPost";
 import Footer from "./Pages/FooterPage";
 import Home from "./Pages/Home";
@@ -20,41 +19,37 @@ import { CartProvider } from "./Pages/CreateContext";
 import Cart from "./Pages/Cart";
 import PaymentPage from "./Pages/PaymentPage";
 import { ToastContainer } from "react-toastify";
-import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
-// import AddAddressPage from "./Pages/AddAddressPage";
 import Profile from "./Auth2/Profile";
 import { AuthProvider } from "./Auth2/AuthProvider";
-import useAuth from './Auth2/useAuth';
 import Information from "./Pages/Information";
 import Shop from "./Pages/Shop";
 import SareesCategories2 from "./Pages/SareesCategories2";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
 import "animate.css/animate.min.css";
 import Navbar2 from "./Pages/Navbar2";
 import Filter from "./Pages/Filter";
 import Seller from "./Pages/Seller";
+import SearchBar from "./Pages/SearchBar";
 
 const App = () => {
   return (
     <div>
       <AuthProvider>
         <Router>
-         
           <CartProvider>
             <Routes>
-              
-            <Route path="/Navbar2" element={<Navbar2 />} />
-
-            
+              <Route path="/Navbar2" element={<Navbar2 />} /> 
+              <Route path="/Searchbar" element={<SearchBar />} />
               <Route path="/" element={<Home />} />
               <Route path="/Login" element={<Login />} />
               <Route path="/Register" element={<Register />} />
               <Route path="/Forgot" element={<Forgot />} />
-              <Route path="/Forgotnewpassword" element={<Forgotnewpassword />} />
+              <Route
+                path="/Forgotnewpassword"
+                element={<Forgotnewpassword />}
+              />
               <Route path="/Forgotverify" element={<Forgotverify />} />
-              {/* <Route path="/Profile" element={<ProfileWrapper />} /> */}
               <Route path="/Profile" element={<Profile />} />
               <Route path="/ProductForm" element={<ProductForm />} />
               <Route path="/BlogPost" element={<BlogPost />} />
@@ -63,20 +58,11 @@ const App = () => {
               <Route path="/products/:productId" element={<ProductDetails />} />
               <Route path="/Cart" element={<Cart />} />
               <Route path="/Shop" element={<Shop />} />
-              
-              {/* <Route path="/Addaddress" element={<AddAddressPage/>} /> */}
               <Route
                 path="/IntegratedAddressPage"
                 element={<IntegratedAddressPage />}
               />
-             <Route
-                path="/Payment"
-                element={
-                  <Elements stripe={loadStripe("pk_test_51NZ8O0SII7pguLOZyXrsXLAaaK04XwK5MXOTW4KqLGNT9TJJfEICTL4d8F8q6TRl0npDALXbafmRCKSTNUSJjuiU00hWoo6wif")}>
-                    <PaymentPage />
-                  </Elements>
-                }
-              />
+              <Route path="/Payment" element={<PaymentPage />} />
               <Route path="/Invoice" element={<Invoice />} />
               <Route path="/orders" element={<Orders />} />
               <Route path="/ContactUs" element={<ContactUs />} />
@@ -84,7 +70,10 @@ const App = () => {
               <Route path="/shop" element={<Shop />} />
               <Route path="/products/:productId" component={ProductDetails} />
 
-              <Route path="/SareesCategories2" element={<SareesCategories2 />} />
+              <Route
+                path="/SareesCategories2"
+                element={<SareesCategories2 />}
+              />
               <Route path="/Filter" element={<Filter />} />
               <Route path="/Seller" element={<Seller />} />
             </Routes>
@@ -96,11 +85,5 @@ const App = () => {
     </div>
   );
 };
-
-// const ProfileWrapper = () => {
-//   const { user, logout } = useAuth();
-
-//   return <Profile user={user} logout={logout} />;
-// };
 
 export default App;
