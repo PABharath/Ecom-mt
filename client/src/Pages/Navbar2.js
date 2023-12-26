@@ -135,7 +135,7 @@ const Navbar2 = ({ onSearch }) => {
                   </div>
                 </div>
 
-                {token ? (
+                {/* {token ? (
                   <div onClick={() => navigate("/Profile")}>
                     <FontAwesomeIcon icon={faUser} className="menu-icon" />
                   </div>
@@ -143,7 +143,7 @@ const Navbar2 = ({ onSearch }) => {
                   <Link to="/Login">
                     <FontAwesomeIcon icon={faUser} className="menu-icon1" />
                   </Link>
-                )}
+                )} */}
 
                 {/* <Button  ref={target} style={{backgroundColor:'white',color:'white',border:'none'}}  onClick={() => setShow(!show)}>
            
