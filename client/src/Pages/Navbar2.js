@@ -24,8 +24,11 @@ import "./Navbar2.css";
 import Popup from "reactjs-popup";
 
 const Navbar2 = ({ onSearch }) => {
+<<<<<<< Updated upstream
   const { user } = useAuth();
   console.log("User Object:", user); 
+=======
+>>>>>>> Stashed changes
   const navigate = useNavigate();
   const [token] = useState(localStorage.getItem("token"));
   const { cartItems } = useContext(CartContext);
@@ -144,7 +147,21 @@ const Navbar2 = ({ onSearch }) => {
                   </Link>
                 )}
 
+<<<<<<< Updated upstream
                 {/* <Button  ref={target} style={{backgroundColor:'white',color:'white',border:'none'}}  onClick={() => setShow(!show)}>
+=======
+        {token ? (
+          <div onClick={() => navigate('/Profile')}>
+            <FontAwesomeIcon icon={faUser} className="menu-icon" />
+          </div>
+        ) : (
+          <Link to="/Login">
+            <FontAwesomeIcon icon={faUser} className="menu-icon" />
+          </Link>
+        )}
+
+<Button  ref={target} style={{backgroundColor:'white',color:'white',border:'none'}}  onClick={() => setShow(!show)}>
+>>>>>>> Stashed changes
            
            <FaUserCircle style={{fontSize:'1.2rem' , marginTop:'-1rem',marginLeft:'-0.8rem'}}/>
        
