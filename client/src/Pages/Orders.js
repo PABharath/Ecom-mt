@@ -9,7 +9,8 @@ import html2pdf from "html2pdf.js";
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [currentOrder, setCurrentOrder] = useState(null);
-
+  const [token] = useState(localStorage.getItem('token'));
+  
   useEffect(() => {
     fetchOrders();
   }, []);
@@ -77,15 +78,30 @@ const Orders = () => {
   
   
 
+  useEffect(() => {
+    axios
+      .get('http://localhost:5555/api/profile', {
+        headers: {
+          'x-token': token,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setOrders(res.data.user.orders);
+      })
+      .catch((err) => console.log(err));
+  }, [token]);
+
 
 
 
   const fetchOrders = async () => {
     try {
-      const response = await axios.get("http://localhost:5555/api/orders");
+      const response = await axios.get("http://localhost:5555/");
       console.log("API Response:", response);
   
       const data = response.data.orders;
+
   
       const ordersWithFormattedData = data.map((order) => {
         return {
@@ -180,18 +196,27 @@ const Orders = () => {
             </table>
 
             <div className="ecom-delivery-info-container">
-              <div className="ecom-image-box">
-                {/* Assuming product image URL is available in the first product */}
-                <img
-                  src={`http://127.0.0.1:5555/api/uploads/${
-                    order.products[0]?.productImages?.[0] || "default-image.jpg"
-                  }`}
-                  alt="Product"
-                  className="ecom-image"
-                  onLoad={() => console.log("Image loaded successfully")}
-                  onError={(e) => console.error("Error loading image:", e)}
-                />
-              </div>
+            <div className="ecom-image-box">
+  {/* Assuming product images are available in the first product */}
+  {order.products && order.products.length > 0 ? (
+    order.products.map((product, index) => (
+      <div key={index} className="ecom-product-item">
+      <img
+        
+        src={`http://127.0.0.1:5555/api/uploads/${product.productImages?.[0] || "default-image.jpg"}`}
+        alt={`Product ${index + 1}`}
+        className="ecom-image"
+        onLoad={() => console.log(`Image ${index + 1} loaded successfully`)}
+        onError={(e) => console.error(`Error loading image ${index + 1}:`, e)}
+      />
+      <p className="ecom-product-name">{product.productName}</p>
+      </div>
+    ))
+  ) : (
+    <p>No products in this order</p>
+  )}
+</div>
+
               <div className="ecom-delivery-details">
                 <p>
                   Delivery By{" "}

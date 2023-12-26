@@ -205,7 +205,8 @@ const ProductDetails = () => {
 
   const handleSubmitReview = async (event) => {
     event.preventDefault();
-  
+   closeReviewModal();
+   
     if (rating === -1) {
       toast.error("Please select a star rating before submitting the review.");
       return;
@@ -228,6 +229,9 @@ const ProductDetails = () => {
       await axios.post(`http://127.0.0.1:5555/api/products/${productId}/reviews`, formData);
   
       toast.success("Review successfully submitted!");
+    
+        
+      
     } catch (error) {
       console.error('Error submitting review:', error);
     }

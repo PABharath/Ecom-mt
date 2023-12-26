@@ -60,7 +60,7 @@ exports.getUserProfile = async (req, res) => {
 // New function to add a product to the user's cart
 exports.addToCart = async (req, res) => {
   const customerId = req.params.id; // Correctly access customerId
-  const { cartItems } = req.body;
+  const  {cartItems}  = req.body;
 
   try {
     const customer = await User.findOne({ email: customerId }); // Use "email" to find the customer
@@ -70,8 +70,8 @@ exports.addToCart = async (req, res) => {
     }
 
     // Clear the existing cart and add the new cart items
+  
     customer.cart = cartItems;
-
     // Save the updated customer document
     await customer.save();
 
@@ -136,5 +136,46 @@ exports.addAddress = async (req, res) => {
     console.error("Error saving appointment data:", error.message);
     console.log("customerId:", customerId);
     res.status(500).json({ error: "Error saving appointment data." });
+  }
+};
+ // Adjust the path based on your project structure
+
+exports.UpdateProduct = async (req, res) => {
+  const customerId = req.params.id;
+  const productId = req.params.productId;
+  const updatedProductData = req.body;
+
+  try {
+    // Find the user by ID or email (as per your requirement)
+    const user = await User.findOne({ email: customerId });
+
+    if (!user) {
+      // If the user with the given ID or email was not found
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Find the index of the product in the cart
+    const productIndex = user.cart.findIndex((product) => product._id.toString() === productId);
+
+    if (productIndex === -1) {
+      // If the product with the given ID was not found in the cart
+      return res.status(404).json({ error: 'Product not found in the cart' });
+    }
+
+    // Update the product in the cart
+    user.cart[productIndex] = {
+      ...user.cart[productIndex],
+      ...updatedProductData,
+    };
+
+    // Save the updated user data
+    await user.save();
+    console.log("Product updated successfully:", updatedProductData);
+
+    // If the product was successfully updated
+    res.status(200).json({ message: 'Product updated successfully', user: user });
+  } catch (error) {
+    console.error('Error updating product:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 };

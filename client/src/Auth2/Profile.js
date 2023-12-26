@@ -64,7 +64,7 @@ const Profile = () => {
                             />
                             <div className='product-details'>
                               <p className='welcomess'>{product.productName}</p>
-                              <p className='sss'><strong>Price:</strong> {product.sp}</p>
+                              <p className='sss'><strong>Price:</strong> ₹ {product.sp}</p>
                               <p className='prices'><strong>Quantity:</strong> {product.quantity}</p>
                             </div>
                           </div>
@@ -91,7 +91,7 @@ const Profile = () => {
                             <br></br>
                             <div className='product-details'>
                               <p className='welcomess'>{product.productName}</p> <br></br>
-                              <p className='price'><strong>Price:</strong> {product.sp}</p>
+                              <p className='price'><strong>Price:</strong> ₹ {product.sp}</p>
                             </div>
                           </div>
                         </li>
