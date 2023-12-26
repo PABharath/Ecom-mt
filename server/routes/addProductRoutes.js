@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.post('/addproducts', upload.array('productImages'), addProductController.addProduct);
-router.post('/products/:productId/reviews', addProductController.addReviewToProduct);
+// router.post('/products/:productId/reviews', addProductController.addReviewToProduct);
 
 
 module.exports = router;

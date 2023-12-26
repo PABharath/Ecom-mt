@@ -4,6 +4,7 @@ import axios from "axios";
 import "./Orders.css";
 import Navbar2 from "./Navbar2";
 import { jsPDF } from "jspdf";
+import html2pdf from "html2pdf.js";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -20,29 +21,60 @@ const Orders = () => {
   };
 
   const generateInvoicePDF = (order) => {
-    const doc = new jsPDF();
-    // Set font size and style
-    doc.setFont("helvetica", "normal"); // You can replace "helvetica" and "normal" with your preferred font and style.
+    // Create an HTML template for the PDF content
+    const pdfContent = `
+      <div style="font-family: 'Helvetica', sans-serif;">
+      <h2 style="text-align: center;">Invoice Details</h2>
+
+        <p><strong> Order ID :</strong>${order.orderId}</p>
+        <p><strong>Order Date :</strong> ${order.orderDate}</p>
+       
   
-    // Customize the content of the PDF using order data
-    doc.text(`Order Details and Invoice for Order #${order.orderId}`, 20, 20);
-    
-    // Display order details
-    doc.text(`Order Date: ${order.orderDate}`, 20, 30);
-    doc.text(`Total Amount: ₹${order.totalAmount}`, 20, 40);
-    doc.text(`Expected Delivery Date: ${order.expectedDeliveryDate}`, 20, 50);
+        <h3>Products in the Order:</h3>
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Item</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Price</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Quantity</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Total Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${order.products.map(
+              (product) => `
+                <tr>
+                  <td style="border: 1px solid #ddd; padding: 8px;">${product.productName}</td>
+                  <td style="border: 1px solid #ddd; padding: 8px;">₹${product.productPrice}</td>
+                  <td style="border: 1px solid #ddd; padding: 8px;">${product.quantity}</td>
+                  <td style="border: 1px solid #ddd; padding: 8px;">₹${product.totalPrice}</td>
+                </tr>
+              `
+            ).join('')}
+          </tbody>
+        </table>
+       
+        <hr />
   
-    // Display products in the order
-    doc.text("Products in the Order:", 20, 60);
-    let yPosition = 70;
-    order.products.forEach((product) => {
-      doc.text(`- ${product.productName}`, 20, yPosition);
-      yPosition += 10;
+        <p style="text-align: right;"><strong>Total Amount:</strong> ₹${order.totalAmount}</p>
+      </div>
+      <p><strong>Expected Delivery Date:</strong> ${order.expectedDeliveryDate}</p>
+  
+    `;
+  
+    // Create a new jsPDF instance
+    const pdf = new jsPDF();
+  
+    // Convert the HTML content to PDF
+    html2pdf(pdfContent, {
+      margin: 10,
+      filename: `order_and_invoice_${order.orderId}.pdf`,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
     });
-  
-    // Save the PDF and open it in a new tab for download
-    doc.save(`order_and_invoice_${order.orderId}.pdf`);
   };
+  
   
 
 
