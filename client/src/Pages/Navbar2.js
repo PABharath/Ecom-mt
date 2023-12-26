@@ -10,7 +10,7 @@ import {
   faUser,
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
-
+import SearchBar from "./SearchBar";
 import { CartContext } from "./CreateContext";
 import useAuth from "../Auth2/useAuth";
 import { IoSearchOutline } from "react-icons/io5";
@@ -25,7 +25,7 @@ import Popup from "reactjs-popup";
 
 const Navbar2 = ({ onSearch }) => {
   const { user } = useAuth();
-  console.log("User Object:", user); 
+  console.log("User Object:", user);
   const navigate = useNavigate();
   const [token] = useState(localStorage.getItem("token"));
   const { cartItems } = useContext(CartContext);
@@ -99,7 +99,7 @@ const Navbar2 = ({ onSearch }) => {
               >
                 Contact Us
               </Nav.Link>
-              <div className="nav-searchbarvik">
+              {/* <div className="nav-searchbarvik">
                 <input
                   type="text"
                   placeholder="Search"
@@ -110,15 +110,16 @@ const Navbar2 = ({ onSearch }) => {
                 <button onClick={handleSearch}>
                   <IoSearchOutline />
                 </button>
-              </div>
+              </div> */}
+              <SearchBar />
               <div className="navvik-right">
-              {user && user.role === "admin" && (
-              <div className="prod-form">
-                <Link to="/ProductForm">
-                  <FontAwesomeIcon icon={faPlus} className="menu-icon" />
-                </Link>
-              </div>
-            )}
+                {user && user.role === "admin" && (
+                  <div className="prod-form">
+                    <Link to="/ProductForm">
+                      <FontAwesomeIcon icon={faPlus} className="menu-icon" />
+                    </Link>
+                  </div>
+                )}
                 <Link to="/cart">
                   <FontAwesomeIcon
                     icon={faShoppingCart}

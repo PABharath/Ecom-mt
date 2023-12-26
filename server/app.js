@@ -42,7 +42,6 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 // Serve uploaded images
 app.use('/api/uploads', express.static('uploads'));
 app.use('/api/search', searchRoutes);
-
 // Use the auth routes
 app.use('/auth', authRoutes);
 app.use('/api', userRoutes);

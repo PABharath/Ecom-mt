@@ -1,8 +1,9 @@
+// searchRoutes.js
+
 const express = require('express');
 const router = express.Router();
 const searchController = require('../controllers/searchController');
 
-router.get('/', searchController.searchProducts);
+router.get('/products', searchController.searchProducts);
 
 module.exports = router;
-
