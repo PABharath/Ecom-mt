@@ -1,12 +1,16 @@
 .navvik-right{
     display: flex;
-    gap: 1.5rem;
-    margin-top: .5rem;
-    margin-left: 3rem;
+    
+    gap: 2rem;
+    margin-top: 1.4rem;
+    margin-left: 1rem;
 }
 
 .navvik-right *{
     color: #333;
+}
+.me-autovik{
+    margin-left: 3rem;
 }
 
 /* .tooltip-inner {
@@ -77,17 +81,18 @@
 	  box-sizing: border-box;
   }
   .navbar-h3{
-    margin-left: -30px;
+    margin-left: 5rem;
   }
   .navLink{
     margin-left: 10px;
+    margin-top: 0.8rem;
   }
  
 .nav-searchbarvik{
     border: 1.4px black solid;
     border-radius:3px;
     /* padding-bottom: 1px; */
-    width: 370px;
+    width: 100%;
     margin-left: 20px;
 }
 
@@ -110,7 +115,8 @@
 .me-autovik{
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 2rem;
+    
     color: black;
     font-weight: 500;
     margin-top: .3rem;
@@ -149,7 +155,7 @@ border-radius: 5px;
 }
 .pop2{
     position: relative;
-    top: -0.4rem;
+    top: -1.1rem;
     font-size: 1.2rem;
     left: -0.3rem;
 }
