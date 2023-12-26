@@ -4,12 +4,16 @@ exports.getReviews = async (req, res) => {
   try {
     const productId = req.query.productId;
     const filteredReviews = await Review.find({ productId });
+
+    console.log('Fetched reviews:', filteredReviews);
+
     res.json(filteredReviews);
   } catch (error) {
     console.error('Error fetching reviews:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
+
 
 exports.postReview = async (req, res) => {
   try {
