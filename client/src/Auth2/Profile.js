@@ -74,7 +74,7 @@ const Profile = () => {
                           <h3 className='cart'>Cart</h3>
                           <ul className='product-profile mains-list'>
                             {profile.cart.map((product) => (
-                              <li className="liiiii" key={product._id}>
+                              <li className="liiii" key={product._id}>
                                 <div className='product-item'>
                                   <img
                                     className="product-imgvik-profile"

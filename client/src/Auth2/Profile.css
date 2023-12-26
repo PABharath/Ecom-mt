@@ -12,7 +12,7 @@
 }
 
 .container-cart button:hover {
-  color: #ffcc00; /* Change text color on hover */
+  color:green; /* Change text color on hover */
 }
 
 /* Rest of your existing styles */
@@ -20,7 +20,7 @@
 .first {
   height: 45vh;
   width: 100%;
-  background-color: rgb(3, 3, 71);
+  background-color: rgb(61, 143, 58);
   color: white;
 }
 
@@ -98,7 +98,7 @@
 }
 
 .cart {
-  margin-left: 7%;
+  margin-left: 45%;
   margin-top: 6%;
 }
 /* ... (your existing styles) */
@@ -112,6 +112,7 @@
   display: flex;
   align-items: center;
   margin-top: 5%;
+  margin-left: 35%;
 }
 .liiii{
   list-style-type: none;
