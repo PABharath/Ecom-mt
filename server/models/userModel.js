@@ -36,7 +36,15 @@ const userSchema = new mongoose.Schema({
     country: String,
     pincode: String,
     isDefaultAddress: Boolean, 
+   }], 
+   orders: [{ 
+    orderId: { type: String, required: true, unique: true },
+    orderDate: { type: Date, default: Date.now },
+    products: { type: Array, required: true },
+    totalAmount: { type: Number, required: true },
+    expectedDeliveryDate: { type: Date },
    }] 
+
 });
 
 const User = mongoose.model("User", userSchema);

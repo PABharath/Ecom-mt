@@ -1,15 +1,16 @@
+// Profile.js - frontend
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import useAuth from './useAuth';
 import Navbar2 from '../Pages/Navbar2';
+import axios from 'axios';
 import './Profile.css';
 
 const Profile = () => {
-  const { logout } = useAuth();
+  const { user, logout } = useAuth();
   const [profile, setProfile] = useState({});
   const [token] = useState(localStorage.getItem('token'));
-  const [activeTab, setActiveTab] = useState('cart'); // Default to 'cart'
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,12 +28,8 @@ const Profile = () => {
   }, [token]);
 
   const handleLogout = () => {
-    logout();
+    localStorage.removeItem('token');
     navigate('/Login');
-  };
-
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
   };
 
   if (!token) {
@@ -45,77 +42,61 @@ const Profile = () => {
       <div>
         {Object.keys(profile).length > 0 ? (
           <>
-            <div className='first'>
+            <div className='main'>
               <h2 className='welcome'>Welcome, {profile?.username}!</h2>
               <p className='user'>Username: {profile?.username}</p>
-              <p className='email'>Email: {profile?.email}</p>
-              <p className='contanct'>Contact: {profile?.contact}</p>
-              <button className='sign' onClick={handleLogout}>
-                SIGN OUT
-              </button>
+              <p className='users'>Email: {profile?.email}</p>
+              <p className='users'>Contact: {profile?.contact}</p>
             </div>
-            <div>
+            <div className='fix'>
               {profile.cart && profile.cart.length > 0 && (
                 <>
-                  <div className='second'>
-                    <div className='third'>
-                      <div className='container-cart'>
-                        <button className='carts' onClick={() => handleTabClick('cart')}>
-                          carts
-                        </button>
-                        <hr className='hr'></hr>
-                        <button className='wish' onClick={() => handleTabClick('wishlist')}>
-                          wishlist
-                        </button>
-                        {/* ... (other buttons) */}
-                      </div>
-                      {activeTab === 'cart' && (
-                        <div className='cart-container'>
-                          <h3 className='cart'>Cart</h3>
-                          <ul className='product-profile mains-list'>
-                            {profile.cart.map((product) => (
-                              <li className="liiii" key={product._id}>
-                                <div className='product-item'>
-                                  <img
-                                    className="product-imgvik-profile"
-                                    src={`http://127.0.0.1:5555/api/uploads/${product.productImages[0]}`}
-                                    alt={product.productName}
-                                  />
-                                  <div className='product-details'>
-                                    <p className='name'>{product.productName}</p>
-                                    <p><strong>Price:</strong> {product.sp}</p>
-                                    <p><strong>Quantity:</strong> {product.quantity}</p>
-                                  </div>
-                                </div>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                      {activeTab === 'wishlist' && (
-                        <div className='wishlist-container'>
-                          <h3 className='cart'>Wishlist</h3>
-                          <ul className='product-profile wishlist-list'>
-                            {profile.wishlist.map((product) => (
-                              <li className="liiii" key={product._id}>
-                                <div className='product-item'>
-                                  <img
-                                    className="product-imgvik-profile"
-                                    src={`http://127.0.0.1:5555/api/uploads/${product.productImages[0]}`}
-                                    alt={product.productName}
-                                  />
-                                  <br></br>
-                                  <div className='product-details'>
-                                    <p>{product.productName}</p> <br></br>
-                                    <p><strong>Price:</strong> {product.sp}</p>
-                                  </div>
-                                </div>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </div>
+                  <div className='mains'>
+                    <h3 className='welcomes'>Cart</h3>
+                    <ul className='product-profile mains-list'>
+                      {profile.cart.map((product) => (
+                        <li key={product._id}>
+                          <div className='product-item'>
+                            <img
+                              className="product-imgvik-profile"
+                              src={`http://127.0.0.1:5555/api/uploads/${product.productImages[0]}`}
+                              alt={product.productName}
+                            />
+                            <div className='product-details'>
+                              <p className='welcomess'>{product.productName}</p>
+                              <p className='sss'><strong>Price:</strong> ₹ {product.sp}</p>
+                              <p className='prices'><strong>Quantity:</strong> {product.quantity}</p>
+                            </div>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </>
+              )}
+
+              {profile.wishlist && profile.wishlist.length > 0 && (
+                <>
+                  <div className='mainsss'>
+                    <h3 className='welcomes'>Wishlist</h3>
+                    <ul className='product-profile wishlist-list'>
+                      {profile.wishlist.map((product) => (
+                        <li key={product._id}>
+                          <div className='product-item'>
+                            <img
+                              className="product-imgvik-profile"
+                              src={`http://127.0.0.1:5555/api/uploads/${product.productImages[0]}`}
+                              alt={product.productName}
+                            />
+                            <br></br>
+                            <div className='product-details'>
+                              <p className='welcomess'>{product.productName}</p> <br></br>
+                              <p className='price'><strong>Price:</strong> ₹ {product.sp}</p>
+                            </div>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </>
               )}
