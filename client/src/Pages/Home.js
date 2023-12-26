@@ -86,12 +86,16 @@ const [patients, setPatients] = useState([]);
     const fetchReviews = async () => {
       try {
         console.log('Fetching reviews...');
-        const response = await axios.get('http://127.0.0.1:5555/api/reviews');
+        const response = await axios.get('http://127.0.0.1:5555/api/all-reviews');
     
         // Check if the response is valid and contains data
         if (response.data && Array.isArray(response.data)) {
           console.log('Reviews data:', response.data);
-          setReviews(response.data);
+    
+          // Filter only 5-star reviews
+          const fiveStarReviews = response.data.filter((review) => review.starRating === 5);
+    
+          setReviews(fiveStarReviews);
         } else {
           console.log('No reviews found or unexpected response format.');
           // Update the state to an empty array
@@ -103,12 +107,19 @@ const [patients, setPatients] = useState([]);
         setReviews([]);
       }
     };
-
+    
     useEffect(() => {
       console.log('Fetching reviews...');
       fetchReviews();
     }, []);
-
+    
+    
+    useEffect(() => {
+      console.log('Fetching general reviews...');
+      fetchReviews();
+    }, []);
+    
+   
 
     
    
@@ -208,14 +219,18 @@ const [patients, setPatients] = useState([]);
 
         
           <div className="review-boxes">
-            <h1>Customer Reviews</h1>
-            {reviews.map((review) => (
-              <div key={review._id} className="review-box">
-                <div className="review-text">{review.comment}</div>
-                {/* You can customize the display of other review details as needed */}
-              </div>
-            ))}
-          </div>
+  <h1>Customer Reviews</h1>
+  {reviews.map((review) => (
+    <div key={review._id} className="review-box">
+      <div className="review-text">{review.comment}</div>
+      <div className="review-details">
+        <span className="star-rating">Star Rating: {review.starRating}</span>
+        <span className="username">Username: {review.username}</span>
+      </div>
+      {/* You can customize the display of other review details as needed */}
+    </div>
+  ))}
+</div>
 
 
         <div className="mail-box">
