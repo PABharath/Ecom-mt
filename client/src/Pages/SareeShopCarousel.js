@@ -19,19 +19,19 @@ const SareeShopCarousel = () => {
     prevArrow:   <AiFillStepBackward />, // Set the interval for automatic scrolling in milliseconds
   };
 
-  const NextArrow = (props) => (
-    <div {...props} className="slick-arrow next-arrow" onClick={() => sliderRef.current.slickNext()}>
+  // const NextArrow = (props) => (
+  //   <div {...props} className="slick-arrow next-arrow" onClick={() => sliderRef.current.slickNext()}>
    
-      <div>Next</div>
-    </div>
-  );
+  //     <div>Next</div>
+  //   </div>
+  // );
 
-  const PrevArrow = (props) => (
-    <div {...props} className="slick-arrow prev-arrow" onClick={() => sliderRef.current.slickPrev()}>
+  // const PrevArrow = (props) => (
+  //   <div {...props} className="slick-arrow prev-arrow" onClick={() => sliderRef.current.slickPrev()}>
      
-      <div>Prev</div>
-    </div>
-  );
+  //     <div>Prev</div>
+  //   </div>
+  // );
 
   return (
     <div className="saree-shop-carousel">
