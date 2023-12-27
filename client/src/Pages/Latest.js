@@ -110,7 +110,7 @@ const ProductList = ({ searchQuery, pageType }) => {
   return (
     <div>
       <>
-      {/* <Navbar2/> */}
+      <Navbar2/>
     
       <div className="Product-List-convik">
         {loading ? (

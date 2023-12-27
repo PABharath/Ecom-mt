@@ -11,7 +11,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../Auth2/useAuth";
 import { CartContext } from "./CreateContext";
 import styles from "./NavBar.module.css";
-import SearchBar from "./SearchBar";
+import Search from "./Search";
 
 import { FaUserCircle } from "react-icons/fa";
 import { PiSignOutBold } from "react-icons/pi";
@@ -107,7 +107,7 @@ const Navbar2 = ({ onSearch }) => {
                   <IoSearchOutline />
                 </button>
               </div> */}
-              <SearchBar />
+              <Search />
               <div className="navvik-right">
                 {user && user.role === "admin" && (
                   <div className="prod-form">
