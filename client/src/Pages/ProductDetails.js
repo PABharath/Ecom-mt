@@ -221,12 +221,14 @@ const ProductDetails = () => {
     };
   
     try {
-      const response = await axios.post('http://127.0.0.1:5555/api/reviews', formData);
+      // Post the review based on the productId
+      await axios.post(`http://127.0.0.1:5555/api/products/${productId}/reviews`, formData);
+  
       console.log('Review successfully submitted');
   
-      setReviews([...reviews, response.data]);
-  
-      await axios.post(`http://127.0.0.1:5555/api/products/${productId}/reviews`, formData);
+      // Assuming you want to update the reviews state with the newly submitted review
+      // Make sure reviews and setReviews are properly defined using the useState hook
+      // setReviews([...reviews, response.data]);
   
       toast.success("Review successfully submitted!");
     
@@ -236,6 +238,7 @@ const ProductDetails = () => {
       console.error('Error submitting review:', error);
     }
   };
+  
   
   const handleLikeDislike = async (reviewId, action) => {
     try {

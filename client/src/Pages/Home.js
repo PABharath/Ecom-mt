@@ -218,19 +218,22 @@ const [patients, setPatients] = useState([]);
           </div>
 
         
-          <div className="review-boxes">
-  <h1>Customer Reviews</h1>
-  {reviews.map((review) => (
-    <div key={review._id} className="review-box">
-      <div className="review-text">{review.comment}</div>
-      <div className="review-details">
-        <span className="star-rating">Star Rating: {review.starRating}</span>
-        <span className="username">Username: {review.username}</span>
-      </div>
-      {/* You can customize the display of other review details as needed */}
-    </div>
-  ))}
-</div>
+          
+            <h1 className="customer-reviews">Customer Reviews</h1>
+            <div className="review-boxes">
+            {reviews.map((review) => (
+              <div className="review-box1">
+              <div key={review._id} className="review-box">
+                <div className="review-text">{review.comment}</div>
+                <div className="review-details">
+                  <span className="star-rating1">Star Rating: {review.starRating}</span>
+                  <span className="username"> {review.username}</span>
+                </div>
+                {/* You can customize the display of other review details as needed */}
+              </div>
+              </div>
+            ))}
+          </div>
 
 
         <div className="mail-box">
