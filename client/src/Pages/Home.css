@@ -366,7 +366,7 @@
   font-size: 12px;
 }
 
-.review-box1{
+.home-review-box{
   width: 22%;
   padding: 30px;
   border: 1px solid gray;
@@ -394,7 +394,7 @@
 .customer-reviews{
   margin-left: -20%;
 }
-.star-rating1{
+.home-star-rating{
   display: flex;
   margin-left: 17%;
   margin-top: 2%;
@@ -402,7 +402,7 @@
 .username{
   margin-left: 34%;
 }
-.star-icon1{
+.home-star-icon1{
   color: rgb(237, 186, 57);
   margin-top: 2.5%;
   margin-left: 1%;
