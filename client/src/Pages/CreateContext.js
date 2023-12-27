@@ -1,5 +1,5 @@
 // CreateContext.js
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext,useEffect} from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -16,6 +16,11 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [email,] = useState(localStorage.getItem('email'));
   
+
+  // useEffect(() => {
+  //   addToCart();
+  // }, [cartItems]);
+  
   const addToCart = async (product) => {
     try {
       const existingProduct = cartItems.find(
@@ -28,8 +33,8 @@ export const CartProvider = ({ children }) => {
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
-        setCartItems(updatedCartItems);
-
+      
+      setCartItems(updatedCartItems);
         // Send the updated cartItems to the backend
         await axios.post(`http://localhost:5555/api/users/${email}/cart`, {
           cartItems: updatedCartItems.map((item) => ({
@@ -66,6 +71,13 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+
+
+
+
+
+
+  
   const handleAddToWishlist = async (product) => {
     try {
       const existingProduct = cartItems.find(
@@ -116,17 +128,37 @@ export const CartProvider = ({ children }) => {
         ? { ...item, quantity: Math.max(item.quantity - 1, 1) }
         : item
     );
+    console.log(updatedCartItems)
     setCartItems(updatedCartItems);
   };
 
   // Function to increment product quantity in the cart
-  const handleIncrement = (productId) => {
+  const handleIncrement = async(productId) => {
+    try{
     const updatedCartItems = cartItems.map((item) =>
       item.productId === productId
         ? { ...item, quantity: item.quantity + 1 }
         : item
     );
+    
     setCartItems(updatedCartItems);
+    // Send the updated cartItems to the backend
+    await axios.post(`http://localhost:5555/api/users/${email}/cart`, {
+      cartItems: updatedCartItems.map((item) => ({
+        productName: item.productName,
+        quantity: item.quantity,
+        productImages:item.productImages[0],
+        sp:item.sp,
+      })),
+    });
+    console.log("Adding to cart:", productId);
+    // Display the toast notification
+  } catch (error) {
+    console.error("Error adding to cart:", error.message);
+  }
+
+
+
   };
 
   // Function to remove a product from the cart

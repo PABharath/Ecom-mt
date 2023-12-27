@@ -15,6 +15,6 @@ router.post('/:id/address', userController.addAddress);
 
 // Add a new route for adding to wishlist
 router.post('/users/:id/wishlist', userController.addToWishlist);
-
+router.put('/users/:id/cart/:productId',  userController.UpdateProduct);
 
 module.exports = router;

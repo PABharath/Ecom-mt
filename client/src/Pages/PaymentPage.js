@@ -15,7 +15,10 @@ const PaymentPage = () => {
 
   const [order, setOrder] = useState(null);
   const totalAmount = location.state ? location.state.totalAmount : 0;
+  const [email,] = useState(localStorage.getItem('email'));
 
+  
+  
   const handlePaymentSuccess = async (paymentResponse) => {
     try {
       const minimumAmount = 1.0;
@@ -79,7 +82,7 @@ const PaymentPage = () => {
   const handleCreateOrder = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5555/api/orders/create",
+        `http://localhost:5555/api/users/${email}/orders/create`,
         { cartItems, totalAmount }
       );
 

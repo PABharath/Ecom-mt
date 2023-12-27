@@ -205,7 +205,8 @@ const ProductDetails = () => {
 
   const handleSubmitReview = async (event) => {
     event.preventDefault();
-  
+   closeReviewModal();
+   
     if (rating === -1) {
       toast.error("Please select a star rating before submitting the review.");
       return;
@@ -230,6 +231,9 @@ const ProductDetails = () => {
       // setReviews([...reviews, response.data]);
   
       toast.success("Review successfully submitted!");
+    
+        
+      
     } catch (error) {
       console.error('Error submitting review:', error);
     }

@@ -76,7 +76,7 @@ const paymentRoutes = require('./routes/paymentRoutes');
 app.use('/api/payment', paymentRoutes);
 
 // Use order routes
-app.use("/api/orders", orderRoutes);
+app.use("/api", orderRoutes);
 
 // Use the cart routes
 app.use('/api/profile', cartRoutes);

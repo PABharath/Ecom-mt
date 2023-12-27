@@ -1,30 +1,26 @@
-import { Navbar, Nav, Container } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
-import styles from "./NavBar.module.css";
-import React, { useRef, useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faShoppingCart,
   faBell,
-  faUser,
   faPlus,
+  faShoppingCart,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import SearchBar from "./SearchBar";
-import { CartContext } from "./CreateContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useContext, useRef, useState } from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../Auth2/useAuth";
-import { IoSearchOutline } from "react-icons/io5";
+import { CartContext } from "./CreateContext";
+import styles from "./NavBar.module.css";
+import SearchBar from "./SearchBar";
 
-import Button from "react-bootstrap/Button";
-import Overlay from "react-bootstrap/Overlay";
-import Tooltip from "react-bootstrap/Tooltip";
-import { PiSignOutBold } from "react-icons/pi";
 import { FaUserCircle } from "react-icons/fa";
-import "./Navbar2.css";
+import { PiSignOutBold } from "react-icons/pi";
 import Popup from "reactjs-popup";
+import "./Navbar2.css";
 
 const Navbar2 = ({ onSearch }) => {
   const { user } = useAuth();
+  console.log("User Object:", user); 
   console.log("User Object:", user);
   const navigate = useNavigate();
   const [token] = useState(localStorage.getItem("token"));
@@ -135,7 +131,7 @@ const Navbar2 = ({ onSearch }) => {
                   </div>
                 </div>
 
-                {token ? (
+                {/* {token ? (
                   <div onClick={() => navigate("/Profile")}>
                     <FontAwesomeIcon icon={faUser} className="menu-icon" />
                   </div>
@@ -143,7 +139,7 @@ const Navbar2 = ({ onSearch }) => {
                   <Link to="/Login">
                     <FontAwesomeIcon icon={faUser} className="menu-icon1" />
                   </Link>
-                )}
+                )} */}
 
                 {/* <Button  ref={target} style={{backgroundColor:'white',color:'white',border:'none'}}  onClick={() => setShow(!show)}>
            
