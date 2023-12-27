@@ -72,22 +72,23 @@
 .container-cart {
   width: 180px;
   margin-left: 5%;
-  height: 40vh;
+  height: 65vh;
   background-color: rgb(163, 163, 167);
-  margin-top: 5%;
+  margin-top: 1%;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  margin-bottom:5% ;
   
 }
 .wish{
-  margin-top: 20%;
+  margin-top: 10%;
   font-size: 20px;
   font-weight: 600;
 }
 .hr{
   border: 2px solid;
-  margin-top: 30%;
+  margin-top: 10%;
   
 }
 
@@ -128,3 +129,47 @@
 .product-details {
   flex: 2; 
 }
+/* Add this CSS to your existing styles */
+
+.addresses-container {
+  margin-top: 20px;
+}
+
+.addresses {
+  font-size: 24px;
+  font-weight: 600;
+  margin-left: 5%;
+}
+
+.address-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px;
+}
+
+.address-details {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px 0;
+}
+
+.address-details p {
+  font-size: 16px;
+  margin: 8px 0;
+}
+.wishes{
+  border: none;
+  border-radius: 5px;
+  height: 5vh;
+  width: 20%;
+  background-color: black;
+  color: white;
+  margin-left: 80%;
+}
+.wishes:hover{
+  background-color: grey;
+  color: black;
+}
+
+/* Adjust the margin, padding, font-size, and other styles according to your design */
