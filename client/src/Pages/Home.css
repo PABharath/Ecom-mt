@@ -366,6 +366,31 @@
   font-size: 12px;
 }
 
+.review-box1{
+  /* height: 30vh; */
+  width: 20%;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 10%;
+  text-align: justify;
+  margin-left: 7%;
+}
+.review-boxes{
+  margin-left: 8%;
+  display: flex;
+  flex-direction: row;
+}
+.customer-reviews{
+  margin-left: -20%;
+}
+.star-rating1{
+  display: flex;
+  margin-left: 30%;
+  margin-top: 2%;
+}
+.username{
+  margin-left: 34%;
+}
 /* Responsive styles */
 @media (max-width: 768px) {
   .subscribe-mail {
