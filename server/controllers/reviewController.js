@@ -20,6 +20,7 @@ exports.getAllReviews = async (req, res) => {
   try {
     const allReviews = await Review.find();
 
+    console.log('Fetched all reviews:', allReviews);
 
     res.json(allReviews);
   } catch (error) {
