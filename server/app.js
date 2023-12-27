@@ -1,4 +1,3 @@
-
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -53,7 +52,7 @@ app.use('/api', productRoutes);
 app.use('/api', addProductRoutes);
 
 // Use the address routes
-app.use('/api', addressRoutes);
+app.use('/api/address', addressRoutes);
 
 // Use the forgot password routes
 app.use('/api', forgotRoutes);
@@ -86,4 +85,3 @@ const PORT = process.env.PORT || 5555;
 app.listen(PORT, () => {
   console.log(`Backend server is running on http://localhost:${PORT}`);
 });
- 

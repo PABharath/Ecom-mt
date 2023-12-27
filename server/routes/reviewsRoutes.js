@@ -11,5 +11,7 @@ router.get('/all-reviews', reviewController.getAllReviews);
 // New route for fetching 5-star reviews
 router.get('/five-star-reviews', reviewController.getFiveStarReviews);
 
+// Route for posting product reviews
+router.post('/products/:productId/reviews', reviewController.postReview); // Add this line
 
 module.exports = router;
