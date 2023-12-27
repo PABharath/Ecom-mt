@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { BsSearch } from "react-icons/bs";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import './searchbar.css';
+import './Search.css';
 
 export default function Search() {
   const [searchResult, setSearchResult] = useState([]);
