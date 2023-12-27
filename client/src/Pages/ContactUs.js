@@ -55,7 +55,7 @@ const ContactUs =()=> {
         <div className="total">
         
         <h1 className="head">Contact Us</h1>
-
+        
         <div className="contact-container">
          
             

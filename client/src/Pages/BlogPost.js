@@ -20,7 +20,7 @@ import bg17 from "../Assets/bg17.jpeg";
 
 import { AnimationOnScroll } from "react-animation-on-scroll";
 
-import bg18 from "../Assets/bg18.jpg";
+import bg18 from "../Assets/blog2.jpeg";
 import Navbar2 from "./Navbar2";
 
 const BlogPost = () => {
@@ -32,12 +32,14 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__zoomIn">
+            {/* <AnimationOnScroll animateIn="animate__zoomIn"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">
               <img className="blog-image" src={bg1} alt="Time and Thread" />
-            </AnimationOnScroll>
+             </AnimationOnScroll> 
           </div>
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
               <p>
                 In a world where the past and present intertwine, where history
                 dances with modernity, few things embody the essence of this
@@ -50,7 +52,7 @@ const BlogPost = () => {
                 industry too is experiencing a remarkable transformation through
                 ecommerce platforms.
               </p>
-            </AnimationOnScroll>
+             {/* </AnimationOnScroll>  */}
           </div>
         </div>
 
@@ -60,7 +62,8 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
               <p>
                 The art of weaving has been an integral part of Indian heritage,
                 passed down through generations. Sarees, with their intricate
@@ -72,12 +75,13 @@ const BlogPost = () => {
                 limited by geographical boundaries is now accessible with a
                 simple click.
               </p>
-            </AnimationOnScroll>
+             {/* </AnimationOnScroll>  */}
           </div>
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">
               <img className="blog-image" src={bg2} alt="Time and Thread" />
-            </AnimationOnScroll>
+             </AnimationOnScroll> 
           </div>
         </div>
 
@@ -87,12 +91,14 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__zoomInDown">
+            {/* <AnimationOnScroll animateIn="animate__zoomInDown"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">
               <img className="blog-image" src={bg3} alt="Time and Thread" />
             </AnimationOnScroll>
           </div>
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
               <p>
                 The beauty of sarees and textiles ecommerce lies in the vast
                 array of choices it presents. Whether you seek the timeless
@@ -104,7 +110,7 @@ const BlogPost = () => {
                 Banarasi weaves, every piece is an embodiment of the artisans'
                 dedication.
               </p>
-            </AnimationOnScroll>
+            {/* </AnimationOnScroll>  */}
           </div>
         </div>
 
@@ -114,7 +120,8 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
               <p>
                 Imagine having the world of sarees and textiles at your
                 fingertips, where you can customize your search based on color,
@@ -126,12 +133,13 @@ const BlogPost = () => {
                 preferences empowers you to find the saree that aligns with your
                 vision.
               </p>
-            </AnimationOnScroll>
+            {/* </AnimationOnScroll>  */}
           </div>
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__zoomInDown">
+            {/* <AnimationOnScroll animateIn="animate__zoomInDown"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">
               <img className="blog-image" src={bg4} alt="Time and Thread" />
-            </AnimationOnScroll>
+            </AnimationOnScroll> 
           </div>
         </div>
 
@@ -143,12 +151,14 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__zoomIn">
+            {/* <AnimationOnScroll animateIn="animate__zoomIn"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">
               <img className="blog-image" src={bg5} alt="Time and Thread" />
-            </AnimationOnScroll>
+             </AnimationOnScroll> 
           </div>
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
               <p>
                 Sarees and textiles ecommerce isn't just about shopping; it's
                 about preserving and celebrating tradition through technology.
@@ -159,7 +169,7 @@ const BlogPost = () => {
                 part of India's rich textile heritage. The clicks and scrolls
                 are threads that connect cultures and communities.
               </p>
-            </AnimationOnScroll>
+             {/* </AnimationOnScroll>  */}
           </div>
         </div>
 
@@ -169,7 +179,8 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
               <p>
                 Picture stepping into a luxurious showroom dedicated to sarees,
                 where each piece is a work of art meticulously showcased for
@@ -180,12 +191,13 @@ const BlogPost = () => {
                 landscape becomes a canvas on which the sarees come alive,
                 giving you an immersive shopping experience.
               </p>
-            </AnimationOnScroll>
+             {/* </AnimationOnScroll>  */}
           </div>
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">
               <img className="blog-image" src={bg18} alt="Time and Thread" />
-            </AnimationOnScroll>
+             </AnimationOnScroll> 
           </div>
         </div>
 
@@ -197,12 +209,14 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__zoomInDown">
+            {/* <AnimationOnScroll animateIn="animate__zoomInDown"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">
               <img className="blog-image" src={bg6} alt="Time and Thread" />
-            </AnimationOnScroll>
+            </AnimationOnScroll> 
           </div>
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
               <p>
                 One of the most impactful aspects of saree and textiles
                 ecommerce is its role in empowering artisans and promoting
@@ -214,7 +228,7 @@ const BlogPost = () => {
                 supporting an artisan's livelihood and the preservation of
                 age-old techniques.
               </p>
-            </AnimationOnScroll>
+             {/* </AnimationOnScroll>  */}
           </div>
         </div>
 
@@ -224,7 +238,8 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
               <p>
                 The saree is more than fabric; it's a canvas on which you paint
                 your story. Your choice of color, pattern, and design reflects
@@ -234,13 +249,14 @@ const BlogPost = () => {
                 resonate with your unique self. It's a celebration of diversity,
                 an homage to individuality.
               </p>
-            </AnimationOnScroll>
+            {/* </AnimationOnScroll>  */}
           </div>
 
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">
               <img className="blog-image" src={bg7} alt="Time and Thread" />
-            </AnimationOnScroll>
+            </AnimationOnScroll> 
           </div>
         </div>
 
@@ -250,12 +266,14 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__zoomInDown">
+            {/* <AnimationOnScroll animateIn="animate__zoomInDown"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">
               <img className="blog-image" src={bg8} alt="Time and Thread" />
-            </AnimationOnScroll>
+             </AnimationOnScroll> 
           </div>
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
               <p>
                 As the digital era unfolds, the saree and textiles industry
                 finds itself at the threshold of innovation and tradition.
@@ -266,7 +284,7 @@ const BlogPost = () => {
                 few of the benefits that ecommerce brings. It's a transformation
                 that embraces the future while honoring the past.
               </p>
-            </AnimationOnScroll>
+            {/* </AnimationOnScroll>  */}
           </div>
         </div>
 
@@ -276,7 +294,8 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
               <p>
                 In the world of sarees and textiles ecommerce, possibilities
                 abound. The digital realm offers a treasure trove of options for
@@ -287,13 +306,14 @@ const BlogPost = () => {
                 journey of discovery, where each saree tells a story that
                 resonates with your own.
               </p>
-            </AnimationOnScroll>
+            {/* </AnimationOnScroll>  */}
           </div>
 
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__zoomIn">
+            {/* <AnimationOnScroll animateIn="animate__zoomIn"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">
               <img className="blog-image" src={bg9} alt="Time and Thread" />
-            </AnimationOnScroll>
+            </AnimationOnScroll> 
           </div>
         </div>
 
@@ -303,12 +323,14 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">
               <img className="blog-image" src={bg10} alt="Time and Thread" />
-            </AnimationOnScroll>
+            </AnimationOnScroll> 
           </div>
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
               <p>
                 Sarees and textiles carry the threads of tradition that bind
                 generations together. Each weave tells a story, echoing the
@@ -320,7 +342,7 @@ const BlogPost = () => {
                 click away, allowing you to explore a myriad of options from the
                 comfort of your home.
               </p>
-            </AnimationOnScroll>
+             {/* </AnimationOnScroll>  */}
           </div>
         </div>
 
@@ -330,7 +352,8 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
               <p>
                 One of the defining features of a saree and textiles ecommerce
                 platform is the sheer variety it offers. Whether you're seeking
@@ -341,13 +364,14 @@ const BlogPost = () => {
                 kaleidoscope of choices that reflect the diversity of India's
                 textile heritage.
               </p>
-            </AnimationOnScroll>
+            {/* </AnimationOnScroll>  */}
           </div>
 
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__zoomInDown">
+            {/* <AnimationOnScroll animateIn="animate__zoomInDown"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">
               <img className="blog-image" src={bg11} alt="Time and Thread" />
-            </AnimationOnScroll>
+            </AnimationOnScroll> 
           </div>
         </div>
 
@@ -357,12 +381,14 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__zoomIn">
+            {/* <AnimationOnScroll animateIn="animate__zoomIn"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">
               <img className="blog-image" src={bg12} alt="Time and Thread" />
-            </AnimationOnScroll>
+             </AnimationOnScroll> 
           </div>
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
               <p>
                 Gone are the days of scouring multiple stores to find that
                 perfect saree. Ecommerce platforms have revolutionized the
@@ -372,7 +398,7 @@ const BlogPost = () => {
                 down your search and find the saree that resonates with your
                 vision. The art of personalization is at your fingertips.
               </p>
-            </AnimationOnScroll>
+             {/* </AnimationOnScroll>  */}
           </div>
         </div>
 
@@ -382,7 +408,8 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
               <p>
                 Sarees and textiles ecommerce isn't confined by geographical
                 limitations. It transcends borders, bringing the richness of
@@ -392,13 +419,14 @@ const BlogPost = () => {
                 the globe can indulge in the artistry of Indian sarees,
                 contributing to a global celebration of heritage.
               </p>
-            </AnimationOnScroll>
+            {/* </AnimationOnScroll>  */}
           </div>
 
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">
               <img className="blog-image" src={bg13} alt="Time and Thread" />
-            </AnimationOnScroll>
+             </AnimationOnScroll> 
           </div>
         </div>
 
@@ -408,12 +436,14 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__zoomInDown">
+            {/* <AnimationOnScroll animateIn="animate__zoomInDown"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">
               <img className="blog-image" src={bg14} alt="Time and Thread" />
-            </AnimationOnScroll>
+            </AnimationOnScroll> 
           </div>
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
               <p>
                 Imagine walking into a store, surrounded by a curated collection
                 of sarees that reflect the essence of different regions. Now,
@@ -424,7 +454,7 @@ const BlogPost = () => {
                 immerse yourself in the intricate details of each saree,
                 creating an engaging shopping journey.
               </p>
-            </AnimationOnScroll>
+            {/* </AnimationOnScroll>  */}
           </div>
         </div>
 
@@ -434,7 +464,8 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
               <p>
                 The ecommerce revolution isn't just about convenience; it's also
                 about empowerment. Many platforms collaborate directly with
@@ -444,13 +475,14 @@ const BlogPost = () => {
                 livelihoods of skilled artisans, ensuring that the legacy of
                 textile artistry continues to flourish.
               </p>
-            </AnimationOnScroll>
+             {/* </AnimationOnScroll>  */}
           </div>
 
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__zoomIn">
+            {/* <AnimationOnScroll animateIn="animate__zoomIn"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">
               <img className="blog-image" src={bg15} alt="Time and Thread" />
-            </AnimationOnScroll>
+            </AnimationOnScroll> 
           </div>
         </div>
 
@@ -460,12 +492,14 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">
               <img className="blog-image" src={bg16} alt="Time and Thread" />
-            </AnimationOnScroll>
+             </AnimationOnScroll> 
           </div>
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
               <p>
                 In a world where individuality is celebrated, sarees and
                 textiles offer a canvas for self-expression. Your choice of
@@ -475,7 +509,7 @@ const BlogPost = () => {
                 myriad of colors, patterns, and designs, you can craft a
                 wardrobe that is a true reflection of yourself.
               </p>
-            </AnimationOnScroll>
+             {/* </AnimationOnScroll>  */}
           </div>
         </div>
 
@@ -485,7 +519,8 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+            {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
               <p>
                 As the sun rises on the world of ecommerce, it brings with it a
                 new dawn for tradition. Sarees and textiles, the embodiment of
@@ -496,13 +531,14 @@ const BlogPost = () => {
                 or an explorer of contemporary creations, the saree and textiles
                 ecommerce landscape welcomes you with open arms.
               </p>
-            </AnimationOnScroll>
+            {/* </AnimationOnScroll>  */}
           </div>
 
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__zoomInDown">
+            {/* <AnimationOnScroll animateIn="animate__zoomInDown"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">  
               <img className="blog-image" src={bg17} alt="Time and Thread" />
-            </AnimationOnScroll>
+            </AnimationOnScroll> 
           </div>
         </div>
         <hr />
@@ -510,17 +546,19 @@ const BlogPost = () => {
 
         <div className="blog-section">
           <div className="blog-image-con">
-            <AnimationOnScroll animateIn="animate__zoomIn">
+            {/* <AnimationOnScroll animateIn="animate__zoomIn"> */}
+            <AnimationOnScroll animateIn="animate__fadeInUp">
               <img
                 className="blog-image"
-                src={bg17}
+                src={bg18}
                 alt="The Enchantment Continues"
               />
-            </AnimationOnScroll>
+           </AnimationOnScroll>
           </div>
           <div className="blog-text">
-            <AnimationOnScroll animateIn="animate__flipInX">
-              <p>
+            {/* <AnimationOnScroll animateIn="animate__flipInX"> */}
+             {/* <AnimationOnScroll animateIn="animate__fadeInUp"> */}
+              <p> 
                 In conclusion, sarees and textiles ecommerce is a celebration of
                 heritage, an embrace of innovation, and a tribute to the
                 timeless allure of sarees. As you navigate the digital emporium,
@@ -529,7 +567,7 @@ const BlogPost = () => {
                 With every saree you choose, you become a part of this
                 narrative, contributing to the legacy that spans generations.
               </p>
-            </AnimationOnScroll>
+             {/* </AnimationOnScroll>  */}
           </div>
         </div>
       </div>
