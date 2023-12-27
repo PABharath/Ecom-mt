@@ -29,9 +29,15 @@ const Orders = () => {
 
         <p><strong> Order ID :</strong>${order.orderId}</p>
         <p><strong>Order Date :</strong> ${order.orderDate}</p>
-       
-  
-        <h3>Products in the Order:</h3>
+        ${order.address.map((address)=>`
+        <p><strong>Address :</strong></p>
+        <p>${address.fullName},${address.mobileNumber}</P>
+        <p> ${address.addressLine},${address.area}</p>
+        <p> ${address.town},${address.state}</p>
+        <p> ${address.country},${address.pincode}</p>
+        `
+        )}
+        
         <table style="width: 100%; border-collapse: collapse;">
           <thead>
             <tr>
@@ -46,9 +52,9 @@ const Orders = () => {
               (product) => `
                 <tr>
                   <td style="border: 1px solid #ddd; padding: 8px;">${product.productName}</td>
-                  <td style="border: 1px solid #ddd; padding: 8px;">₹${product.productPrice}</td>
+                  <td style="border: 1px solid #ddd; padding: 8px;">₹${product.sp}</td>
                   <td style="border: 1px solid #ddd; padding: 8px;">${product.quantity}</td>
-                  <td style="border: 1px solid #ddd; padding: 8px;">₹${product.totalPrice}</td>
+                  <td style="border: 1px solid #ddd; padding: 8px;">₹${product.sp*product.quantity}</td>
                 </tr>
               `
             ).join('')}

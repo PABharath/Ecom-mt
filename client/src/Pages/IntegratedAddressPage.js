@@ -92,7 +92,7 @@ const IntegratedAddressPage = () => {
 
   const handleNext = () => {
     if (selectedAddress !== null) {
-      navigate("/Payment", { state: { totalAmount: totalAmount } }); // Pass totalAmount in state
+      navigate("/Payment", { state: { totalAmount: totalAmount,address:selectedAddress } }); // Pass totalAmount in state
     }
   };
   
@@ -105,7 +105,7 @@ const IntegratedAddressPage = () => {
       <div className="address-view-container">
         <AddressView
           selectedAddress={selectedAddress}
-          onAddressSelection={(addressId) => setSelectedAddress(addressId)}
+          onAddressSelection={(user) => setSelectedAddress(user)}
         />
       </div>
 
