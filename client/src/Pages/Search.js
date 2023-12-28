@@ -47,10 +47,13 @@ export default function Search() {
           />
         </div>
         {searchResult && searchResult.length > 0 && (
-  <div className="search-result">
-    {searchResult.map((product) => (
-               <Link
-               to={`/products/${product._id}`} key={product._id} className="result-item">
+          <div className="search-result">
+            {searchResult.map((product) => (
+              <Link
+                to={`/products/${product._id}`}
+                key={product._id}
+                className="result-item"
+              >
                 <div>
                   <img src={`http://localhost:5555/uploads/${product.productImages[0]}`} alt="" />
                 </div>
@@ -60,9 +63,8 @@ export default function Search() {
                 </div>
               </Link>
             ))}
-  </div>
-)}
-
+          </div>
+        )}
       </div>
     </form>
   );

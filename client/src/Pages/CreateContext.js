@@ -15,11 +15,24 @@ export const useCart = () => {
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [email,] = useState(localStorage.getItem('email'));
+  const [token] = useState(localStorage.getItem('token'));
+  const [backendCartItems, setBackendCartItems] = useState([]);
   
 
-  // useEffect(() => {
-  //   addToCart();
-  // }, [cartItems]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5555/api/profile", {
+        headers: {
+          "x-token": token,
+        },
+      })
+      .then((res) => {
+        const selectedItems = res.data.user.cart || [];
+        setCartItems(selectedItems);
+      })
+      .catch((err) => console.log(err));
+  }, [token]); // Only depend on token, not backendCartItems
+  
   
   const addToCart = async (product) => {
     try {
@@ -121,45 +134,63 @@ export const CartProvider = ({ children }) => {
   };
   
 
-  // Function to decrement product quantity in the cart
-  const handleDecrement = (productId) => {
-    const updatedCartItems = cartItems.map((item) =>
-      item.productId === productId
-        ? { ...item, quantity: Math.max(item.quantity - 1, 1) }
-        : item
-    );
-    console.log(updatedCartItems)
-    setCartItems(updatedCartItems);
+  const handleDecrement = async (product) => {
+    try {
+      const updatedCartItems = cartItems.map((item) =>
+        item.productId === product.productId
+          ? { ...item, quantity: Math.max(item.quantity - 1, 1) }
+          : item
+      );
+  
+      setCartItems(updatedCartItems);
+  
+      // Send the updated cartItems to the backend
+      await axios.post(`http://localhost:5555/api/users/${email}/cart`, {
+        cartItems: updatedCartItems.map((item) => ({
+          productId: item.productId,
+          productName: item.productName,
+          quantity: item.quantity,
+          productImages: item.productImages[0],
+          sp: item.sp,
+        })),
+      });
+  
+      console.log("Decrementing from cart:", product.productId);
+    } catch (error) {
+      console.error("Error decrementing from cart:", error.message);
+    }
   };
-
-  // Function to increment product quantity in the cart
-  const handleIncrement = async(productId) => {
-    try{
-    const updatedCartItems = cartItems.map((item) =>
-      item.productId === productId
-        ? { ...item, quantity: item.quantity + 1 }
-        : item
-    );
-    
-    setCartItems(updatedCartItems);
-    // Send the updated cartItems to the backend
-    await axios.post(`http://localhost:5555/api/users/${email}/cart`, {
-      cartItems: updatedCartItems.map((item) => ({
-        productName: item.productName,
-        quantity: item.quantity,
-        productImages:item.productImages[0],
-        sp:item.sp,
-      })),
-    });
-    console.log("Adding to cart:", productId);
-    // Display the toast notification
-  } catch (error) {
-    console.error("Error adding to cart:", error.message);
-  }
-
-
-
+  
+  
+  const handleIncrement = async (product) => {
+    try {
+      const updatedCartItems = cartItems.map((item) =>
+        item.productId === product.productId
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+  
+      setCartItems(updatedCartItems);
+  
+      // Send the updated cartItems to the backend
+      await axios.post(`http://localhost:5555/api/users/${email}/cart`, {
+        cartItems: updatedCartItems.map((item) => ({
+          productId: item.productId,
+          productName: item.productName,
+          quantity: item.quantity,
+          productImages: item.productImages[0],
+          sp: item.sp,
+        })),
+      });
+  
+      console.log("Adding to cart:", product);
+    } catch (error) {
+      console.error("Error adding to cart:", error.message);
+    }
   };
+  
+  
+  
 
   // Function to remove a product from the cart
   const removeFromCart = (productId) => {
@@ -192,3 +223,9 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+
+
+
+
+
+

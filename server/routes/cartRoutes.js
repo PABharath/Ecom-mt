@@ -13,6 +13,6 @@ router.post('/api/profile/cart/increment', cartController.incrementCartItem);
 router.post('/api/profile/cart/decrement', cartController.decrementCartItem);
 
 // Route to delete a cart item
-router.post('/api/profile/cart/delete', cartController.deleteCartItem);
+router.delete('/api/profile/cart/delete', cartController.deleteCartItem);
 
 module.exports = router;

@@ -20,8 +20,6 @@ import "./Navbar2.css";
 
 const Navbar2 = ({ onSearch }) => {
   const { user } = useAuth();
-  console.log("User Object:", user); 
-  console.log("User Object:", user);
   const navigate = useNavigate();
   const [token] = useState(localStorage.getItem("token"));
   const { cartItems } = useContext(CartContext);
