@@ -6,8 +6,6 @@ exports.getProductReviews = async (req, res) => {
     const productId = req.query.productId;
     const filteredReviews = await Review.find({ productId });
 
-    console.log('Fetched product reviews:', filteredReviews);
-
     res.json(filteredReviews);
   } catch (error) {
     console.error('Error fetching product reviews:', error);

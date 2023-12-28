@@ -80,8 +80,15 @@
    width: 80%;
    align-items: center;
   
-   transition: all 2s;
+  
    margin: auto;
+  }
+  .Contact1{
+   transition: all 2s;
+
+  }
+  .Contact1:hover{
+   transform: scale(1.1);
   }
  
   
