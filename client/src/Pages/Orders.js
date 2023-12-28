@@ -216,6 +216,14 @@ const Orders = () => {
         onError={(e) => console.error(`Error loading image ${index + 1}:`, e)}
       />
       <p className="ecom-product-name">{product.productName}</p>
+      <button className="ecom-view-items-btn">
+                      <Link
+                        to={`/products/${product?.productId}`}
+                        className="ecom-link-a"
+                      >
+                        View Your Item
+                      </Link>
+                    </button>
       </div>
     ))
   ) : (

@@ -22,7 +22,7 @@ export default function Search() {
           params: { key, limit: 5 },
         });
 
-        setSearchResult(res.data.data);
+        setSearchResult(res.data);
       } catch (error) {
         console.log(error);
       }
@@ -49,8 +49,9 @@ export default function Search() {
         {searchResult && searchResult.length > 0 && (
           <div className="search-result">
             {searchResult.map((product) => (
+              <div key={product._id}>
               <Link
-                key={product._id}
+                
                 to={`/products/${product._id}`} // Navigate to the product details page
                 className="result-item"
               >
@@ -62,6 +63,7 @@ export default function Search() {
                   <p>{product.category.join(', ')}</p>
                 </div>
               </Link>
+              </div>
             ))}
           </div>
         )}
