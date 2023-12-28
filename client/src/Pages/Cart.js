@@ -845,7 +845,7 @@ function Cart() {
               <tfoot>
                 <td colSpan="4">
                   <div className="custom-footer">
-                    <Link to="/ProductList">
+                    <Link to="/SareesCategories2">
                       <button type="submit" className="btn btn-primary">
                         Continue Shopping
                       </button>

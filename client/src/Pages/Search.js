@@ -20,8 +20,8 @@ export default function Search() {
         const res = await axios.get("http://localhost:5555/api/products", {
           params: { key, limit: 5 },
         });
+
         setSearchResult(res.data);
-        console.log(res);
       } catch (error) {
         console.log(error);
       }
@@ -49,9 +49,10 @@ export default function Search() {
         {searchResult && searchResult.length > 0 && (
           <div className="search-result">
             {searchResult.map((product) => (
+              <div key={product._id}>
               <Link
-                to={`/products/${product._id}`}
-                key={product._id}
+                
+                to={`/products/${product._id}`} // Navigate to the product details page
                 className="result-item"
               >
                 <div>
@@ -62,6 +63,7 @@ export default function Search() {
                   <p>{product.category.join(', ')}</p>
                 </div>
               </Link>
+              </div>
             ))}
           </div>
         )}

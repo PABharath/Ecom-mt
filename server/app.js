@@ -14,7 +14,7 @@ const reviewsRoutes = require("./routes/reviewsRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const cartRoutes = require("./routes/cartRoutes");
 const loginRoutes = require("./routes/loginRoutes");
-const path = require("path");
+ const path = require("path");
 
 const app = express();
 app.use(cors());
