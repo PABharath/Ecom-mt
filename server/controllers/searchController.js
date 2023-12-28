@@ -1,34 +1,23 @@
-// searchController.js
+// controllers/SearchController.js
+const Search = require("../models/searchModel");
 
-const Product = require('../models/addProductModel'); // Adjust the import based on your actual model file
-
-const searchProducts = async (req, res) => {
-  try {
-    const { key, page, limit } = req.query; // Changed to req.query to get parameters from the query string
-    const skip = (page - 1) * limit || 0; // Added default value for skip
-
-    const search = key
-      ? {
-          $or: [
-            { productName: { $regex: key, $options: 'i' } },
-            { productDescription: { $regex: key, $options: 'i' } },
-          ],
-        }
-      : {};
-
-    const data = await Product.find(search).skip(skip).limit(parseInt(limit, 10) || 10); // Added parseInt for limit
-
-    res.json({
-      data,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      error: 'Internal server error',
-    });
-  }
+const searchController = {
+  liveSearch: async (req, res) => {
+    try {
+      const { query } = req.params;
+      const results = await Search.find({
+        $or: [
+          { productName: { $regex: new RegExp(query, 'i') } },
+          { productDescription: { $regex: new RegExp(query, 'i') } },
+          // Add other fields as needed
+        ],
+      });
+      res.json(results);
+    } catch (error) {
+      console.error('Error in liveSearch:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  },
 };
 
-module.exports = {
-  searchProducts,
-};
+module.exports = searchController;

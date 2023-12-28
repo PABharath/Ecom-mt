@@ -90,7 +90,7 @@ const ProductDetails = () => {
               .slice(0, showAllReviews ? reviews.length : 3)
               .map((review, index) => (
                 <li key={index} className="review-item">
-                   <p className="review-comment">{review.comment}</p>
+                   <p className="review-comment-product">{review.comment}</p>
                   <p className="review-username">{review.username}</p>
                   <div className="star-rating">
                     {Array.from({ length: 5 }).map((_, starIndex) => (

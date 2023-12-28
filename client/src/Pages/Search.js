@@ -1,9 +1,7 @@
-// Search.js
-
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BsSearch } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 import axios from "axios";
-import { Link } from "react-router-dom";
 import './Search.css';
 
 export default function Search() {
@@ -18,6 +16,7 @@ export default function Search() {
           return;
         }
 
+        // Update the endpoint URL to fetch products
         const res = await axios.get("http://localhost:5555/api/products", {
           params: { key, limit: 5 },
         });
@@ -27,24 +26,25 @@ export default function Search() {
         console.log(error);
       }
     };
-
-    search();
+    
+    search(); // Call the search function
+    
   }, [key]);
 
   return (
     <form>
       <div className="Search-wrapper">
-       
-        <div className="form-group1">
+        <button className="search-btn">
+          <BsSearch />
+        </button>
+        <div className="form-group">
           <input
             type="text"
             className="form-control"
             placeholder="Searching..."
             value={key}
             onChange={(e) => setKey(e.target.value)}
-          /> <button className="search-btn">
-          <BsSearch />
-        </button>
+          />
         </div>
         {searchResult && searchResult.length > 0 && (
           <div className="search-result">
@@ -65,8 +65,9 @@ export default function Search() {
               </Link>
               </div>
             ))}
-          </div>
-        )}
+  </div>
+)}
+
       </div>
     </form>
   );
