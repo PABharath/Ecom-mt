@@ -1,9 +1,7 @@
-// Search.js
-
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BsSearch } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 import axios from "axios";
-import { Link } from "react-router-dom";
 import './Search.css';
 
 export default function Search() {
@@ -18,42 +16,41 @@ export default function Search() {
           return;
         }
 
+        // Update the endpoint URL to fetch products
         const res = await axios.get("http://localhost:5555/api/products", {
           params: { key, limit: 5 },
         });
-
-        setSearchResult(res.data.data);
+        setSearchResult(res.data);
+        console.log(res);
       } catch (error) {
         console.log(error);
       }
     };
-
-    search();
+    
+    search(); // Call the search function
+    
   }, [key]);
 
   return (
     <form>
       <div className="Search-wrapper">
-       
-        <div className="form-group1">
+        <button className="search-btn">
+          <BsSearch />
+        </button>
+        <div className="form-group">
           <input
             type="text"
             className="form-control"
             placeholder="Searching..."
             value={key}
             onChange={(e) => setKey(e.target.value)}
-          /> <button className="search-btn">
-          <BsSearch />
-        </button>
+          />
         </div>
         {searchResult && searchResult.length > 0 && (
-          <div className="search-result">
-            {searchResult.map((product) => (
-              <Link
-                key={product._id}
-                to={`/products/${product._id}`} // Navigate to the product details page
-                className="result-item"
-              >
+  <div className="search-result">
+    {searchResult.map((product) => (
+               <Link
+               to={`/products/${product._id}`} key={product._id} className="result-item">
                 <div>
                   <img src={`http://localhost:5555/uploads/${product.productImages[0]}`} alt="" />
                 </div>
@@ -63,8 +60,9 @@ export default function Search() {
                 </div>
               </Link>
             ))}
-          </div>
-        )}
+  </div>
+)}
+
       </div>
     </form>
   );

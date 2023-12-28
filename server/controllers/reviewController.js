@@ -6,8 +6,6 @@ exports.getProductReviews = async (req, res) => {
     const productId = req.query.productId;
     const filteredReviews = await Review.find({ productId });
 
-    console.log('Fetched product reviews:', filteredReviews);
-
     res.json(filteredReviews);
   } catch (error) {
     console.error('Error fetching product reviews:', error);
@@ -19,8 +17,6 @@ exports.getProductReviews = async (req, res) => {
 exports.getAllReviews = async (req, res) => {
   try {
     const allReviews = await Review.find();
-
-    console.log('Fetched all reviews:', allReviews);
 
     res.json(allReviews);
   } catch (error) {
