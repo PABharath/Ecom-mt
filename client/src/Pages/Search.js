@@ -65,9 +65,8 @@ export default function Search() {
               </Link>
               </div>
             ))}
-  </div>
-)}
-
+          </div>
+        )}
       </div>
     </form>
   );
