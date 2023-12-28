@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const searchController = require('../controllers/searchController');
 
-router.get('/products', searchController.searchProducts);
+// Route for searching products
+router.get('/products/:query', searchController.liveSearch);
 
 module.exports = router;

@@ -53,7 +53,9 @@ const Orders = () => {
                 <tr>
                   <td style="border: 1px solid #ddd; padding: 8px;">${product.productName}</td>
                   <td style="border: 1px solid #ddd; padding: 8px;">₹${product.sp}</td>
+                  <td style="border: 1px solid #ddd; padding: 8px;">₹${product.sp}</td>
                   <td style="border: 1px solid #ddd; padding: 8px;">${product.quantity}</td>
+                  <td style="border: 1px solid #ddd; padding: 8px;">₹${product.sp*product.quantity}</td>
                   <td style="border: 1px solid #ddd; padding: 8px;">₹${product.sp*product.quantity}</td>
                 </tr>
               `
@@ -184,7 +186,7 @@ const Orders = () => {
               </thead>
               <tbody>
                 <tr>
-                  <td>{order.orderDate}</td>
+                  <td> {order.orderDate}</td>
                   <td>₹{order.totalAmount}</td>
                   <td>Address</td>
                   <td> {order.orderId}</td>
@@ -216,6 +218,14 @@ const Orders = () => {
         onError={(e) => console.error(`Error loading image ${index + 1}:`, e)}
       />
       <p className="ecom-product-name">{product.productName}</p>
+      <button className="ecom-view-items-btn">
+                      <Link
+                        to={`/products/${product?.productId}`}
+                        className="ecom-link-a"
+                      >
+                        View Your Item
+                      </Link>
+                    </button>
       </div>
     ))
   ) : (
