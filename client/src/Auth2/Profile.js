@@ -68,6 +68,7 @@ const Profile = () => {
         {Object.keys(profile).length > 0 ? (
           <>
             <div className="first">
+              <div className="first1">
               <h2 className="welcome">Welcome, {profile?.username}!</h2>
               <p className="user">Username: {profile?.username}</p>
               <p className="email">Email: {profile?.email}</p>
@@ -75,19 +76,24 @@ const Profile = () => {
               <button className="sign" onClick={handleLogout}>
                 SIGN OUT
               </button>
+              <br/><br/>
+              </div>
             </div>
             <div>
               {profile.cart && profile.cart.length > 0 && (
                 <>
                   <div className="second">
                     <div className="third">
+                    <div className="cont1">
                       <div className="container-cart">
+                        
                         <button
                           className="carts"
                           onClick={() => handleTabClick("cart")}
                         >
                           carts
                         </button>
+                        
                         <hr className="hr"></hr>
                         <button
                           className="wish"
@@ -109,36 +115,41 @@ const Profile = () => {
                         >
                           Addresses
                         </button>
+                        </div>
                       </div>
                       {activeTab === "cart" && (
                         <div className="cart-container">
-                          <h3 className="cart">Cart</h3>
+                          <h3 className="cart">Cart</h3><br/>
                           <ul className="product-profile mains-list">
                             {profile.cart.map((product) => (
                               <li className="liiii" key={product._id}>
                                 <div className="product-item">
                                   <img
-                                    className="product-imgvik-profile"
+                                    className="product-imgvik-profile1"
                                     src={`http://127.0.0.1:5555/api/uploads/${product.productImages[0]}`}
                                     alt={product.productName}
                                   />
-                                  <div className="product-details">
-                                    <p className="name">
-                                      {product.productName}
-                                    </p>
-                                    <p>
-                                      <strong>Price:</strong> {product.sp}
-                                    </p>
-                                    <p>
-                                      <strong>Quantity:</strong>{" "}
-                                      {product.quantity}
-                                    </p>
+                                  <div className="product-details1">
+                                    
+                                     <p className="item1"> {product.productName}</p>
+                                  
+                                  
+                                      <p className="item1">Price:{product.sp}</p>
+                                 <p className="item1">Quantity:{product.quantity}</p>
+                                   
+                               
                                   </div>
+                                
                                 </div>
+                                
+                                <hr className="hr1"/>
                               </li>
+                              
                             ))}
                           </ul>
+                          
                         </div>
+                        
                       )}
                       {activeTab === "wishlist" && (
                         <div className="wishlist-container">
@@ -146,17 +157,17 @@ const Profile = () => {
                           <ul className="product-profile wishlist-list">
                             {profile.wishlist.map((product) => (
                               <li className="liiii" key={product._id}>
-                                <div className="product-item">
+                                <div className="product-item1">
                                   <img
-                                    className="product-imgvik-profile"
+                                    className="product-imgvik-profile2"
                                     src={`http://127.0.0.1:5555/api/uploads/${product.productImages[0]}`}
                                     alt={product.productName}
                                   />
                                   <br></br>
-                                  <div className="product-details">
-                                    <p>{product.productName}</p> <br></br>
-                                    <p>
-                                      <strong>Price:</strong> {product.sp}
+                                  <div className="product-details2">
+                                    <p className="item1">{product.productName}</p> 
+                                    <p className="item1">
+                                      Price: {product.sp}
                                     </p>
                                   </div>
                                 </div>
@@ -197,10 +208,11 @@ const Profile = () => {
                         profile.address.length > 0 && (
                           <div className="addresses-container">
                             <h3 className="addresses">Addresses</h3>
-                            <ul className="address-list">
+                            <div className="address-list">
                               {profile.address.map((address) => (
-                                <li className="liiii" key={address._id["$oid"]}>
+                                <div className="liiii" key={address._id["$oid"]}>
                                   <div className="address-details">
+                                  
                                     <p>
                                       <strong>Full name:</strong>{" "}
                                       {address.fullName}
@@ -243,11 +255,13 @@ const Profile = () => {
                                       >
                                         delete
                                       </button>
+                                     
                                     </div>
                                   </div>
-                                </li>
+                                  </div>
+                              
                               ))}
-                            </ul>
+                            </div>
                           </div>
                         )}
                     </div>

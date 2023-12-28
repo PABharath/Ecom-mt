@@ -20,8 +20,9 @@
 .first {
   height: 45vh;
   width: 100%;
-  background-color: rgb(61, 143, 58);
+  background-color: #8eab92;
   color: white;
+ 
 }
 
 .welcome {
@@ -67,19 +68,30 @@
 .third {
   display: flex;
   flex-direction: row;
+
+ 
 }
 
 .container-cart {
-  width: 180px;
+ 
   margin-left: 5%;
-  height: 65vh;
+  height: 53.5vh;
   background-color: rgb(163, 163, 167);
-  margin-top: 1%;
+ padding: 2rem;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  margin-bottom:5% ;
+  margin-top: 3rem;
+  position: relative;
+  left: 4rem;
+ 
+ 
   
+}
+.cont1{
+  padding-right: 10rem;
+  border-right: 1px solid rgb(165, 165, 165);
+ 
 }
 .wish{
   margin-top: 10%;
@@ -99,8 +111,8 @@
 }
 
 .cart {
-  margin-left: 45%;
-  margin-top: 6%;
+  margin-left: 5%;
+  margin-top: 3%;
 }
 /* ... (your existing styles) */
 
@@ -108,32 +120,104 @@
   width: 600px; 
   margin: 10px;
   padding: 15px;
+  border: 1px solid #909090; 
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  margin-top: -0.2%;
+  margin-left: 10%;
+  /* background-color: rgb(176, 185, 176); */
+}
+.liiii{
+  list-style-type: none;
+  margin-left: 2rem;
+}
+.product-item1{
+  width: 600px; 
+  margin: 10px;
+  padding: 15px;
   border: 1px solid #ddd; 
   border-radius: 10px;
   display: flex;
   align-items: center;
-  margin-top: 5%;
-  margin-left: 35%;
-  background-color: rgb(176, 185, 176);
+  margin-top: -0.2%;
+  margin-left: 10%;
 }
-.liiii{
-  list-style-type: none;
-}
+.product-details2{
+  display: flex;
+ 
+  /* margin: 20px; */
+  width: 18vw;
+  height: 150px;
 
-.product-imgvik-profile {
+  /* box-shadow: 0px 0px 15px; */
+  /* background-color: #efefef; */
+  /* border-radius: 5px; */
+  display: flex;
+  font-size: 15px;
+  font-family: cursive;
+  font-weight: bold;
+  flex-direction: column;
+}
+.product-imgvik-profile1 {
+width: 150px;
+height: 20vh;
+  margin-right: 20px;
+  width: fit-content;
+  
+}
+.product-imgvik-profile2 {
   width: 150px;
   height: 20vh;
-  margin-right: 20px;
+    margin-right: 20px;
+    width: fit-content;
+    
+  }
+
+.product-details1 {
+ flex: 1;
+
+}
+.product-details1 {
+  display: flex;
+ 
+  /* margin: 20px; */
+  width: 10vw;
+  height: 150px;
+
+  /* box-shadow: 0px 0px 15px; */
+  /* background-color: #efefef; */
+  /* border-radius: 5px; */
+  display: flex;
+  font-size: 15px;
+  font-family: cursive;
+  font-weight: bold;
+  flex-direction: column;
+  
+}
+.item1{
+  position: relative;
+  left: 3.5rem;
+  top: 1.5rem;
 }
 
-.product-details {
-  flex: 2; 
+.hr1 {
+ position: relative;
+ left: 3.5rem;
+ width: 100%;
+  /* color: inherit; */
+  /* border: 0; */
+  border-top: 2px solid black;
+  opacity: .25;
+
 }
 /* Add this CSS to your existing styles */
 
 .addresses-container {
   margin-top: 20px;
+ 
 }
+
 
 .addresses {
   font-size: 24px;
@@ -145,6 +229,8 @@
   list-style-type: none;
   padding: 0;
   margin: 10px;
+  display: flex;
+  
 }
 
 .address-details {
@@ -152,20 +238,22 @@
   border-radius: 10px;
   padding: 15px;
   margin: 10px 0;
+  
 }
 
 .address-details p {
   font-size: 16px;
   margin: 8px 0;
+  
 }
 .wishes{
   border: none;
   border-radius: 5px;
   height: 5vh;
-  width: 20%;
+  padding: 5px 10px;
   background-color: black;
   color: white;
-  margin-left: 80%;
+  margin-left: 70%;
 }
 .wishes:hover{
   background-color: grey;
