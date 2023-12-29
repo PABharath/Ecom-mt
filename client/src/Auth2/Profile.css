@@ -74,8 +74,8 @@
 
 .container-cart {
  
-  margin-left: 5%;
-  height: 53.5vh;
+  
+   left: 20%;
   background-color: rgb(163, 163, 167);
  padding: 2rem;
   border-radius: 10px;
@@ -83,13 +83,14 @@
   flex-direction: column;
   margin-top: 3rem;
   position: relative;
-  left: 4rem;
+  margin-bottom: 3rem;
+  border-right: 1px solid rgb(165, 165, 165);
  
  
   
 }
 .cont1{
-  padding-right: 10rem;
+   padding-right: 5rem; 
   border-right: 1px solid rgb(165, 165, 165);
  
 }
