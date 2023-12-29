@@ -109,7 +109,7 @@ const ProductForm = () => {
      <div className="product-form1">
       <br/>
       
-      <h1 className="z1">Add Product</h1>
+      <p className="Add1">Add Product</p>
       <br/>
       <form
         onSubmit={handleSubmit}

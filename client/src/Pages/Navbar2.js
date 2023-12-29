@@ -12,6 +12,7 @@ import useAuth from "../Auth2/useAuth";
 import { CartContext } from "./CreateContext";
 import styles from "./NavBar.module.css";
 import Search from "./Search";
+import { FaPlus  } from "react-icons/fa";
 
 import { FaUserCircle } from "react-icons/fa";
 import { PiSignOutBold } from "react-icons/pi";
@@ -114,6 +115,12 @@ const Navbar2 = ({ onSearch }) => {
                     </Link>
                   </div>
                 )}
+                <div className="tooltip-container">
+                 <Link to='/ProductForm'>< FaPlus  className="menu-icon" /></Link> 
+                  {/* <div className="tooltip">
+                    No new notifications.. Stay tuned for more!!
+                  </div> */}
+                </div>
                 <Link to="/cart">
                   <FontAwesomeIcon
                     icon={faShoppingCart}
@@ -128,6 +135,8 @@ const Navbar2 = ({ onSearch }) => {
                     No new notifications.. Stay tuned for more!!
                   </div>
                 </div>
+
+                
 
                 {/* {token ? (
                   <div onClick={() => navigate("/Profile")}>

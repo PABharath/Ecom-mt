@@ -156,7 +156,7 @@ const Profile = () => {
                       )}
                       {activeTab === "wishlist" && (
                         <div className="wishlist-container">
-                          <h3 className="cart">Wishlist</h3>
+                          <h3 className="cart">Wishlist</h3><br/>
                           <ul className="product-profile wishlist-list">
                             {profile.wishlist.map((product) => (
                               <li className="liiii" key={product._id}>
@@ -173,7 +173,9 @@ const Profile = () => {
                                       Price: {product.sp}
                                     </p>
                                   </div>
+                                  
                                 </div>
+                                <br/>
                               </li>
                             ))}
                           </ul>
