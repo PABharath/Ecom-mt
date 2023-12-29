@@ -14,16 +14,23 @@
   right: 20%;
 
 }
-h1{
-  padding: 2% 22%;
-}
-/* .order-h3{
-  margin-left: -28%;
-} */
 
-/* .ecom-main-container {
-  margin-left: -350px;
-} */
+.ecom-container1{
+  display: flex;
+  width: 77vw;
+  flex-direction: column;
+  align-items: center;
+  /* padding: -20px; */
+  border: 1px solid gray;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* max-width: 845px; */
+  margin: 0 10px;
+  margin-bottom: 4%;
+  margin-left: 10%;
+
+
+}
 
 .ecom-order-table {
   border-collapse: collapse;
@@ -47,7 +54,7 @@ h1{
 .ecom-link {
   color: black;
   text-decoration: none;
-  background-color: gold;
+  /* background-color: gold; */
   border-radius: 4px;
   padding:  2px 5px;
 }
@@ -81,7 +88,7 @@ h1{
   margin-left: 10px;
   margin-top: 5%;
   font-size: 1rem;
-  background-color: aqua;
+  /* background-color: aqua; */
   padding: 3px 5px;
   border-radius: 3px;
 }
@@ -126,6 +133,14 @@ h1{
   margin: 10px;
 
 }
+
+.orders-heading1{
+  text-align: start;
+  margin: 10px;
+ margin-left: 130px;
+}
+
+
 
 .ecom-product-item{
    
