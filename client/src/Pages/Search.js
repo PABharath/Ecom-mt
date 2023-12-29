@@ -37,10 +37,10 @@ export default function Search() {
         <button className="search-btn">
           <BsSearch />
         </button>
-        <div className="form-group">
+        <div className="form-group1">
           <input
             type="text"
-            className="form-control"
+            className="form-control1"
             placeholder="Searching..."
             value={key}
             onChange={(e) => setKey(e.target.value)}
@@ -65,9 +65,8 @@ export default function Search() {
               </Link>
               </div>
             ))}
-  </div>
-)}
-
+          </div>
+        )}
       </div>
     </form>
   );
