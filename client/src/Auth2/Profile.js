@@ -12,7 +12,7 @@ const Profile = () => {
   const { logout } = useAuth();
   const [profile, setProfile] = useState({});
   const [token] = useState(localStorage.getItem("token"));
-  const [activeTab, setActiveTab] = useState("cart"); // Default to 'cart'
+  const [activeTab, setActiveTab] = useState("cart"); 
   const [email]=useState(localStorage.getItem('email'));
   const navigate = useNavigate();
 

@@ -12,7 +12,7 @@
 }
 
 .container-cart button:hover {
-  color:green; /* Change text color on hover */
+  color:green; 
 }
 
 /* Rest of your existing styles */
@@ -76,6 +76,9 @@
  
   margin-left: 5%;
   
+  
+   left: 20%;
+
   background-color: rgb(163, 163, 167);
  padding: 2.5rem;
   border-radius: 10px;
@@ -84,13 +87,14 @@
   margin-top: 3rem;
   margin-bottom: 3rem;
   position: relative;
-  left: 4rem;
+  margin-bottom: 3rem;
+  border-right: 1px solid rgb(165, 165, 165);
  
  
   
 }
 .cont1{
-  padding-right: 10rem;
+   padding-right: 5rem; 
   border-right: 1px solid rgb(165, 165, 165);
  
 }
