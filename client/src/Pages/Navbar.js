@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faBell, faUser, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { CiSearch } from "react-icons/ci";
-import axios from 'axios';
+// import { CiSearch } from "react-icons/ci";
+// import axios from 'axios';
 
 import { CartContext } from './CreateContext';
 import useAuth from '../Auth2/useAuth';
@@ -12,26 +12,26 @@ import { IoSearchOutline } from "react-icons/io5";
 
 import './Navbar.css';
 
-import Button from 'react-bootstrap/Button';
-import Overlay from 'react-bootstrap/Overlay';
-import Tooltip from 'react-bootstrap/Tooltip';
-import { LuImagePlus } from "react-icons/lu";
-import { PiSignOutBold } from "react-icons/pi";
-import { FaUserCircle } from "react-icons/fa";
+// import Button from 'react-bootstrap/Button';
+// import Overlay from 'react-bootstrap/Overlay';
+// import Tooltip from 'react-bootstrap/Tooltip';
+// import { LuImagePlus } from "react-icons/lu";
+// import { PiSignOutBold } from "react-icons/pi";
+// import { FaUserCircle } from "react-icons/fa";
 
 function Navbar({ onSearch }) {
   const navRef = useRef();
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  const [searchValue, setSearchValue] = useState('');
+  // const [searchValue, setSearchValue] = useState('');
   const { cartItems } = useContext(CartContext);
   const [searchQuery, setSearchQuery] = useState("");
   const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   const [showDropdown, setShowDropdown] = useState(false);
   const [categoryFilter, setCategoryFilter] = useState(null);
-  const [searchResults, setSearchResults] = useState([]);
+  // const [searchResults, setSearchResults] = useState([]);
   // const [show, setShow] = useState(false);
   //   const target = useRef(null);
 
@@ -39,20 +39,20 @@ function Navbar({ onSearch }) {
     setShowDropdown(!showDropdown);
   };
 
-  const handleCategoryClick = (category) => {
-    setCategoryFilter(category);
-    setShowDropdown(!showDropdown);
-    navigate(`/${category}`);
-  };
-  const handleSearch = () => {
+  // const handleCategoryClick = (category) => {
+  //   setCategoryFilter(category);
+  //   setShowDropdown(!showDropdown);
+  //   navigate(`/${category}`);
+  // };
+   const handleSearch = () => {
     console.log('Search query:', searchQuery);
     onSearch(searchQuery);
   };
     
 
-  const handleInputChange = (event) => {
-    setSearchValue(event.target.value);
-  };
+  // const handleInputChange = (event) => {
+  //   setSearchValue(event.target.value);
+  // };
 
   const showNavbar = () => {
     navRef.current.classList.toggle('responsive_nav');
