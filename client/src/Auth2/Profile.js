@@ -6,6 +6,7 @@ import Navbar2 from "../Pages/Navbar2";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Profile.css";
+import ProfileOrders from "../Pages/ProfileOrders";
 
 const Profile = () => {
   const { logout } = useAuth();
@@ -165,32 +166,9 @@ const Profile = () => {
                           </ul>
                         </div>
                       )}
-                      {activeTab === "orders" &&
-                        profile.orders &&
-                        profile.orders.length > 0 && (
-                          <div className="orders-container">
-                            <h3 className="orders">Orders</h3>
-                            <ul className="order-list">
-                              {profile.orders.map((order) => (
-                                <li key={order.orderId}>
-                                  <div className="order-details">
-                                    <p>
-                                      <strong>Order ID:</strong> {order.orderId}
-                                    </p>
-                                    <p>
-                                      <strong>Total Amount:</strong>{" "}
-                                      {order.totalAmount}
-                                    </p>
-                                    <p>
-                                      <strong>Status:</strong> {order.status}
-                                    </p>
-                                    {/* Add more order details as needed */}
-                                  </div>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
+                     {activeTab === "orders" && (
+  <ProfileOrders />
+)}
 
                       {activeTab === "addresses" &&
                         profile.address &&
