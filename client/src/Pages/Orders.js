@@ -14,8 +14,6 @@ const Orders = () => {
   useEffect(() => {
     fetchOrders();
   }, []);
-
-
   const handleViewInvoice = (order) => {
     setCurrentOrder(order);
     generateInvoicePDF(order);
@@ -84,24 +82,18 @@ const Orders = () => {
     });
   };
   
-  
-
   useEffect(() => {
     axios
       .get('http://localhost:5555/api/profile', {
         headers: {
           'x-token': token,
-        },
-      })
+        },})
       .then((res) => {
         console.log(res.data);
         setOrders(res.data.user.orders);
       })
       .catch((err) => console.log(err));
   }, [token]);
-
-
-
 
   const fetchOrders = async () => {
     try {
@@ -178,7 +170,11 @@ const Orders = () => {
               <thead>
                 <tr>
                   <th>Order Placed</th>
-                  <th>Total</th>
+                  <th>Total</th>  `1  1q
+                  
+                  
+                  
+                  `
                   <th>Ship To</th>
                   <th>Order ID</th>
                  
@@ -189,7 +185,7 @@ const Orders = () => {
               </thead>
               <tbody>
                 <tr>
-                  <td> {order.orderDate}</td>
+                  <td>{order.orderDate}</td>
                   <td>₹{order.totalAmount}</td>
                   <td>Address</td>
                   <td> {order.orderId}</td>
@@ -260,9 +256,7 @@ const Orders = () => {
         ))}
       </div>
 
-
     </div>
   );
 };
-
 export default Orders;

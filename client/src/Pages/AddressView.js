@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 import AddAddressPage from './AddAddressPage';
 import axios from 'axios';
@@ -15,16 +13,18 @@ const AddressView = ({ onAddressSelection }) => {
     axios
       .get('http://localhost:5555/api/profile', {
         headers: {
-          'x-token': token,
+         'x-token': token,
         },
-      })
+      })  
       .then((res) => {
         console.log(res.data);
         setIsLoaded(true);
         setData(res.data.user);
-      })
+      })   
       .catch((err) => console.log(err));
   }, [token]);
+     
+
 
   const handleAddressSelection = (user) => {
     onAddressSelection(user);
@@ -71,14 +71,14 @@ const AddressView = ({ onAddressSelection }) => {
                     name="address"
                     value={user.id}
                     onChange={() => handleAddressSelection(user)}
-                  />
+                    />
                   <span style={{ marginBottom: '10px', display: 'block', fontWeight: 'bold' }}>
                     {user.fullName}
                   </span>
                   <div style={{ whiteSpace: 'pre-wrap', overflow: 'hidden' }}>
                     {`${user.mobileNumber}, ${user.addressLine}, ${user.area}, ${user.town}, ${user.state}, ${user.country}, ${user.pincode}`}
                   </div>
-                </div>
+                </div>    
               ))}
             </div>
           </div>
@@ -91,9 +91,9 @@ const AddressView = ({ onAddressSelection }) => {
         </div>
       </div>
     );
+
+
   }
 };
 
 export default AddressView;
-
-
