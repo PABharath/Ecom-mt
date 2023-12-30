@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useCallback} from "react";
 import axios from "axios";
 import Modal from "react-modal";
 import { useParams, Link, useNavigate } from "react-router-dom";
@@ -132,23 +132,13 @@ const ProductDetails = () => {
     return `rgb(${color.join(",")})`;
   };
 
-  useEffect(() => {
-    fetchProductDetails();
-    fetchReviewData();
-  }, []);
-
-  useEffect(() => {
-    console.log("Product ID:", productId);
-    if (productId) {
-      fetchProductDetails(productId);
-    }
-  }, [productId]);
+ 
 
   const handleThumbnailClick = (index) => {
     setMainImage(index);
   };
 
-  const fetchReviewData = async () => {
+  const fetchReviewData = useCallback(async () => {
     try {
       const response = await fetch(
         `${ BASE_URL }/api/product-reviews?productId=${productId}`
@@ -164,9 +154,9 @@ const ProductDetails = () => {
     } catch (error) {
       console.error("Error fetching review data:", error);
     }
-  };
+  },[productId]);
 
-  const fetchProductDetails = async () => {
+  const fetchProductDetails = useCallback(async () => {
     try {
       const response = await axios.get(
         `${ BASE_URL }/api/products/${productId}`
@@ -177,7 +167,21 @@ const ProductDetails = () => {
       console.error("Error fetching product details:", error);
       setError("Error fetching product details");
     }
-  };
+  },[setProductDetails,productId]);
+
+
+  useEffect(() => {
+    fetchProductDetails();
+    fetchReviewData();
+  }, [fetchProductDetails,fetchReviewData]);
+
+  useEffect(() => {
+    console.log("Product ID:", productId);
+    if (productId) {
+      fetchProductDetails(productId);
+    }
+  }, [productId,fetchProductDetails]);
+
   const calculateOffer = () => {
     const mrp = parseFloat(productDetails.mrp);
     const sp = parseFloat(productDetails.sp);

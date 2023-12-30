@@ -1,5 +1,5 @@
 // ProductList.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useCallback } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useCart } from "./CreateContext"; // Import the custom hook
@@ -8,6 +8,7 @@ import './ProductList.css'
 import Navbar2 from "./Navbar2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { BASE_URL } from "../services/Helpers";
 
 const ProductList = ({ searchQuery, pageType }) => {
   const [products, setProducts] = useState([]);
@@ -15,14 +16,11 @@ const ProductList = ({ searchQuery, pageType }) => {
   const { addToCart,  } = useCart();
   const [email,] = useState(localStorage.getItem('email'));
 
-  useEffect(() => {
-    console.log("Component mounted with searchQuery:", searchQuery);
-    fetchProducts();
-  }, [searchQuery]);
+  
 
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:5555/api/products");
+      const response = await axios.get(`${BASE_URL}/api/products`);
       console.log("API response:", response.data);
       
       let filteredProducts;
@@ -42,8 +40,13 @@ const ProductList = ({ searchQuery, pageType }) => {
       console.error("Error fetching products:", error.message);
       console.log("Error details:", error.response);
     }
-  };
+  },[pageType,searchQuery]);
   
+
+  useEffect(() => {
+    console.log("Component mounted with searchQuery:", searchQuery);
+    fetchProducts();
+  }, [searchQuery,fetchProducts]);
 
   const filterProducts = (allProducts, query) => {
     if (!query) {

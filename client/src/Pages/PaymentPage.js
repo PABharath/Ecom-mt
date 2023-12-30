@@ -28,7 +28,7 @@ const PaymentPage = () => {
       const calculatedAmount = Math.max(minimumAmount, totalAmount);
 
       const response = await axios.post(
-        '${ BASE_URL }/api/checkout',
+        `${ BASE_URL }/api/checkout`,
         { totalAmount: calculatedAmount,
           }
       );
