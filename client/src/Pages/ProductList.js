@@ -7,6 +7,8 @@ import { toast } from "react-toastify";
 import './ProductList.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { BASE_URL } from "../services/Helpers";
+
 
 const ProductList = ({ searchQuery, pageType }) => {
   const [products, setProducts] = useState([]);
@@ -21,7 +23,7 @@ const ProductList = ({ searchQuery, pageType }) => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:5555/api/products");
+      const response = await axios.get(`${ BASE_URL }/api/products`);
       console.log("API response:", response.data);
       
       let filteredProducts;
@@ -92,7 +94,7 @@ const ProductList = ({ searchQuery, pageType }) => {
         productImages: product.productImages[0],   
 
       }
-      await axios.post(`http://localhost:5555/api/users/${email}/wishlist`, wishlistItem);
+      await axios.post(`${ BASE_URL }/api/users/${email}/wishlist`, wishlistItem);
         
     
       console.log("Adding to wishlist:", wishlistItem);

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./ProductForm.css";
 import Navbar2 from "./Navbar2";
+import { BASE_URL } from "../services/Helpers";
+
 
 const ProductForm = () => {
   const [formData, setFormData] = useState({
@@ -83,7 +85,7 @@ const ProductForm = () => {
       formDataToSubmit.append("sp", formData.sp);
 
       const response = await axios.post(
-        "http://localhost:5555/api/addproducts",
+        `${ BASE_URL }/api/addproducts`,
         formDataToSubmit,
         {
           headers: {

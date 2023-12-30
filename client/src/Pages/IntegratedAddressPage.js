@@ -5,6 +5,7 @@ import { Country, State } from "country-state-city";
 import "./IntegratedAddressPage.css";
 import axios from "axios";
 import Navbar2 from './Navbar2';
+import { BASE_URL } from "../services/Helpers";
 
 
 const IntegratedAddressPage = () => {
@@ -57,7 +58,7 @@ const IntegratedAddressPage = () => {
     try {
       console.log("Form Data:", formData);  // Add this line to check formData
       const response = await axios.post(
-        `http://localhost:5555/api/${email}/address`,
+        `${ BASE_URL }/api/${email}/address`,
         formData,
         {
           headers: {

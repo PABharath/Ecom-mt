@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useCart } from "./CreateContext"; 
 import { toast } from "react-toastify";
 import { scrollToTop } from "./scrollUtils";
+import Navbar2 from "./Navbar2";
+
 
 const Seller = ({ searchQuery }) => {
   const [products, setProducts] = useState([]);

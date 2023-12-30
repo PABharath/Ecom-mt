@@ -7,6 +7,8 @@
   import { CartContext } from "./CreateContext";
   import Navbar2 from "./Navbar2";
   import axios from "axios";
+  import { BASE_URL } from "../services/Helpers";
+
 
   const calculateSubtotal = (cartItems) => {
     return cartItems.reduce((total, item) => total + item.sp * item.quantity, 0);
@@ -34,7 +36,7 @@
 
     useEffect(() => {
       axios
-        .get("http://localhost:5555/api/profile", {
+        .get(`${ BASE_URL }/api/profile`, {
           headers: {
             "x-token": token,
           },
@@ -123,7 +125,7 @@
                                   <div className="image-with-description">
                                     <img
                                       className="imagee-cart"
-                                      src={`http://127.0.0.1:5555/api/uploads/${item.productImages[0]}`}
+                                      src={`${ BASE_URL }/api/uploads/${item.productImages[0]}`}
                                       alt={`Product ${item.productId}`}
                                       width="100"
                                       height="100"

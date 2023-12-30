@@ -8,6 +8,8 @@ import "./AllProductsv.css";
 import Navbar2 from "./Navbar2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { BASE_URL } from "../services/Helpers";
+
 
 const SareesCategories2 = () => {
   const [products, setProducts] = useState([]);
@@ -32,7 +34,7 @@ const SareesCategories2 = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:5555/api/products");
+      const response = await axios.get(`${ BASE_URL }/api/products`);
 
       let filteredProducts = selectedCategory
         ? response.data.filter((product) =>
@@ -166,7 +168,7 @@ const SareesCategories2 = () => {
                 >
                   <img
                     className="product-imgvik"
-                    src={`http://127.0.0.1:5555/api/uploads/${product.productImages[0]}`}
+                    src={`${ BASE_URL }/api/uploads/${product.productImages[0]}`}
                     alt={product.productName}
                   />
                   <div className="productnamevik">{product.productName}</div>

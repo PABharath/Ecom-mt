@@ -8,6 +8,8 @@ import { BsTelephoneFill } from "react-icons/bs";
 import { IoHomeSharp } from "react-icons/io5";
 import { BsFillClockFill } from "react-icons/bs";
 import { FaWhatsapp } from "react-icons/fa";
+import { BASE_URL } from "../services/Helpers";
+
 
 
 const ContactUs =()=> {
@@ -35,7 +37,7 @@ const ContactUs =()=> {
     try {
       console.log('contactdata:', contactdata); // Log the form data
       // Send formData to backend
-      await axios.post('http://localhost:5555/contact', contactdata);
+      await axios.post(`${ BASE_URL }/contact`, contactdata);
   
       // Redirect on success
       // navigate('/');
