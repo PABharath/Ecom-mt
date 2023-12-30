@@ -23,7 +23,6 @@ const AddAddressPage = ({onClose, onSelectAddress}) => {
   const [error, setError] = useState('');
   const [selectedAddress,] = useState(null);
 
-  // State and country options
   const stateOptions = ['State 1', 'State 2', 'State 3']; // Replace with actual state options
   const countryOptions = ['Country 1', 'Country 2', 'Country 3']; // Replace with actual country options
 

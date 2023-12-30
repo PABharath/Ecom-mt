@@ -1,7 +1,7 @@
 // CreateContext.js
 import React, { createContext, useState, useContext,useEffect} from "react";
 import axios from "axios";
-// import { toast } from "react-toastify";
+
 
 
 export const CartContext = createContext();
@@ -16,7 +16,6 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [email,] = useState(localStorage.getItem('email'));
   const [token] = useState(localStorage.getItem('token'));
-  // const [backendCartItems, setBackendCartItems] = useState([]);
   
 
   useEffect(() => {
