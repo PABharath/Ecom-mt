@@ -36,9 +36,9 @@ export default function Search() {
 
     <form>
     <div className="Search-wrapper">
-      <button className="search-btn">
+      {/* <button className="search-btn">
         <BsSearch />
-      </button>
+      </button> */}
       <div className="form-group1">
         <input
           type="text"
