@@ -42,17 +42,18 @@ const Profile = () => {
   if (!token) {
     navigate("/Login");
   }
-  const handleDeleteAddress = async ( addressId) => {
+
+  const handleDeleteAddress = async (addressId) => {
     try {
       // Send a DELETE request to the server with both user ID and address ID
-      await axios.delete(
-        `http://localhost:5555/api/address/${email}/${addressId}`,
-       
-      );
-
+      await axios.delete(`http://localhost:5555/api/address/${email}/${addressId}`);
+  
       // Update the state to reflect the deleted address
-      
-
+      setProfile((prevProfile) => ({
+        ...prevProfile,
+        address: prevProfile.address.filter((address) => address._id !== addressId),
+      }));
+  
       // Display a success toast
       toast.success("Address deleted successfully!");
     } catch (error) {
@@ -61,7 +62,7 @@ const Profile = () => {
       toast.error(`Error deleting address: ${error.message}`);
     }
   };
-
+  
   return (
     <div>
       
