@@ -84,7 +84,7 @@ const Seller = ({ searchQuery }) => {
                 >
                   <img
                     className='product-imgvik'
-                    src={`http://127.0.0.1:5555/api/uploads/${product.productImages[0]}`}
+                    src={`${BASE_URL}/api/uploads/${product.productImages[0]}`}
                     alt={product.productName}
                   />
                   <div className='productnamevik'>{product.productName}</div>

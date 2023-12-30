@@ -96,7 +96,7 @@ const ProductList = ({ searchQuery, pageType }) => {
         productImages: product.productImages[0],   
 
       }
-      await axios.post(`http://localhost:5555/api/users/${email}/wishlist`, wishlistItem);
+      await axios.post(`${BASE_URL}/api/users/${email}/wishlist`, wishlistItem);
         
     
       console.log("Adding to wishlist:", wishlistItem);
