@@ -6,11 +6,14 @@
    width: 100%;
    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
-  .z1{
+  .Add1{
+   width: 25%;
    text-align: center;
+   height: 45px;
    font-size: 2rem;
-   height: 40px;
-   width: 23%;
+   font-weight: bold;
+   /* height: 40px;
+   width: 20%; */
    border-radius: 15px;
    background-color: #ccc;
    color: black;
@@ -18,9 +21,12 @@
    transition: all 1s;
    /* text-shadow: 1.5px 1.5px 1.5px red; */
    } 
-   .z1:hover{
+   .Add1:hover{
       transform: scale(1.05);
    }
+   h1 {
+      padding: 2% 22%;
+  }
   .product-form1 form {
    display: grid;
    grid-template-columns: auto auto auto;
@@ -76,6 +82,7 @@
    border-radius: 4px;
    cursor: pointer;
    height: 35px;
+   margin-top: 1.8rem;
   }
   
   .product-form1 form button:disabled {

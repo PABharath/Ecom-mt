@@ -2,26 +2,34 @@
   border: none;
   background-color: transparent; /* Set background to transparent */
   color: white;
-  margin-top: 10%;
+ 
   cursor: pointer;
-  font-size: 20px;
-  font-weight: 600;
+  /* font-size: 20px;
+  font-weight: 600; */
   text-align: center;
   padding: 8px;
   transition: color 0.3s ease; /* Add transition effect for color change */
 }
 
 .container-cart button:hover {
-  color:green; /* Change text color on hover */
+  color:green; 
 }
 
 /* Rest of your existing styles */
 
 .first {
-  height: 45vh;
+  
   width: 100%;
-  background-color: rgb(61, 143, 58);
+  background-color: #8eab92;
   color: white;
+  
+  
+ 
+}
+
+.first1{
+  top: 1rem;
+  position: relative;
 }
 
 .welcome {
@@ -48,10 +56,10 @@
   margin-left: 5%;
 }
 
-.sign {
-  height: 7vh;
-  width: 10%;
+/* .sign {
+  padding: 5px 10px;
   border: none;
+  font-weight:20px ;
   border-radius: 5px;
   background-color: white;
   color: black;
@@ -62,24 +70,41 @@
   background-color: rgb(35, 232, 35);
   color: white;
   cursor: pointer;
-}
+} */
 
 .third {
   display: flex;
-  flex-direction: row;
+ 
+
+ 
 }
 
 .container-cart {
-  width: 180px;
-  margin-left: 5%;
-  height: 65vh;
-  background-color: rgb(163, 163, 167);
-  margin-top: 1%;
+ 
+  
+  
+  
+   left: 20%;
+
+  background-color: #8eab92;
+  color: white;
+ padding: 2.5rem;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  margin-bottom:5% ;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  position: relative;
+  margin-bottom: 3rem;
+  border-right: 1px solid rgb(165, 165, 165);
+ 
+ 
   
+}
+.cont1{
+   padding-right: 5rem; 
+  border-right: 1px solid rgb(165, 165, 165);
+ 
 }
 .wish{
   margin-top: 10%;
@@ -99,41 +124,118 @@
 }
 
 .cart {
-  margin-left: 45%;
-  margin-top: 6%;
+  margin-left: 5%;
+  margin-top: 3%;
 }
 /* ... (your existing styles) */
 
 .product-item {
-  width: 600px; 
-  margin: 10px;
-  padding: 15px;
-  border: 1px solid #ddd; 
+  width: 580px; 
+  
+  padding: 1rem;
+  border: 1px solid #909090; 
   border-radius: 10px;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  margin-top: 5%;
-  margin-left: 35%;
-  background-color: rgb(176, 185, 176);
+  margin-top: -0.2%;
+  /* margin-left: 9.5%; */
+ 
 }
 .liiii{
   list-style-type: none;
+  /* margin-left: 2rem; */
 }
+.product-item1{
+  width: 580px; 
+  /* margin: 10px; */
+  padding: 1rem;
+  border: 1px solid #909090; 
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  margin-top: -0.2%;
+  /* margin-left: 10%; */
+}
+.product-details2{
+  display: flex;
+ 
+  /* margin: 20px; */
+  /* width: 15vw; */
+  /* height: 150px; */
 
-.product-imgvik-profile {
-  width: 150px;
-  height: 20vh;
+  /* box-shadow: 0px 0px 15px; */
+  /* background-color: #efefef; */
+  /* border-radius: 5px; */
+  display: flex;
+  font-size: 15px;
+  font-family: cursive;
+  font-weight: bold;
+  flex-direction: column;
+}
+.product-imgvik-profile1 {
+width: 150px;
+height: 18vh;
   margin-right: 20px;
+  width: fit-content;
+  
 }
+.product-imgvik-profile2 {
+   /* width: 150px; */
+   height: 20vh; 
+    margin-right: 20px;
+     width: fit-content; 
+     
+  }
 
-.product-details {
-  flex: 2; 
+.product-details1 {
+ flex: 1;
+
+}
+.product-details1 {
+  display: flex;
+ 
+  /* margin: 20px; */
+  width: 10vw;
+  height: 150px;
+
+  /* box-shadow: 0px 0px 15px; */
+  /* background-color: #efefef; */
+  /* border-radius: 5px; */
+  display: flex;
+  font-size: 15px;
+  font-family: cursive;
+  font-weight: bold;
+  flex-direction: column;
+  
+}
+.item1{
+  position: relative;
+  left: 3.5rem;
+  top: 1.5rem;
+}
+.item2{
+  position: relative;
+  left: 3.5rem;
+  top: 0.5rem;
+}
+.hr1 {
+ position: relative;
+ left: rem;
+ width: 100%;
+  /* color: inherit; */
+  /* border: 0; */
+  border-top: 2px solid black;
+  opacity: .25;
+
 }
 /* Add this CSS to your existing styles */
 
 .addresses-container {
   margin-top: 20px;
+ 
 }
+
 
 .addresses {
   font-size: 24px;
@@ -145,6 +247,8 @@
   list-style-type: none;
   padding: 0;
   margin: 10px;
+  display: flex;
+  
 }
 
 .address-details {
@@ -152,24 +256,97 @@
   border-radius: 10px;
   padding: 15px;
   margin: 10px 0;
+  
 }
 
 .address-details p {
   font-size: 16px;
   margin: 8px 0;
+  
 }
 .wishes{
   border: none;
   border-radius: 5px;
   height: 5vh;
-  width: 20%;
+  padding: 5px 10px;
   background-color: black;
   color: white;
-  margin-left: 80%;
+  margin-left: 70%;
 }
 .wishes:hover{
   background-color: grey;
   color: black;
 }
 
-/* Adjust the margin, padding, font-size, and other styles according to your design */
+.product-cart{
+  display: flex;
+  flex-wrap: wrap;
+  /* margin-left: 2rem; */
+  justify-content: space-around;
+  
+}
+
+.product-wishlist1{
+  display: flex;
+  flex-wrap: wrap;
+  /* margin-left: 2rem; */
+  justify-content: space-around;
+}
+
+.sign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 10px;
+  color: black;
+  /* text-shadow: 2px 2px rgb(116, 116, 116); */
+  text-transform: uppercase;
+  border: solid 2px black;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 17px;
+  background-color: hsl(49deg 98% 60%);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  /* transition: all .5s ease; */
+  left: 80%;
+}
+
+.sign:active {
+  transform: scale(.9);
+  transition: all 100ms ease;
+}
+
+.sign svg {
+  transition: all .5s ease;
+  z-index: 2;
+}
+
+.play {
+  transition: all .5s ease;
+  transition-delay: 300ms;
+}
+
+.sign:hover svg {
+  transform: scale(3) translate(50%);
+}
+
+.now {
+  position: absolute;
+  left: 0;
+  transform: translateX(-100%);
+  transition: all .5s ease;
+  z-index: 2;
+}
+
+.sign:hover .now {
+  transform: translateX(10px);
+  transition-delay: 300ms;
+}
+
+.sign:hover .play {
+  transform: translateX(200%);
+  transition-delay: 300ms;
+}

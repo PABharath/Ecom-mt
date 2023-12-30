@@ -127,8 +127,8 @@ const [patients, setPatients] = useState([]);
 
   return (
     <>
-    <Navbar2 onSearch={handleSearch}/>
-    <div className="home-main-body">
+    <Navbar2 onSearch={handleSearch} className="navbar-position" />
+    <div className="home-main-body" >
       <section>
         <ImageCarousel />
         
@@ -170,7 +170,7 @@ const [patients, setPatients] = useState([]);
           <div className="top">Top Product</div>
           <div className="middle">
           <div >
-        <Link to='/ProductList'>  <button className="Featured">Latest</button></Link>
+        <Link to='/Latest'>  <button className="Featured">Latest</button></Link>
            
             </div>
           <div> 
@@ -217,23 +217,24 @@ const [patients, setPatients] = useState([]);
           </div>
           </div>
 
-        
-          
-            <h1 className="customer-reviews">Customer Reviews</h1>
-            <div className="review-boxes">
-            {reviews.map((review) => (
-              <div className="review-box1">
-              <div key={review._id} className="review-box">
-                <div className="review-text">{review.comment}</div>
-                <div className="review-details">
-                  <span className="star-rating1">Star Rating: {review.starRating}</span>
-                  <span className="username"> {review.username}</span>
-                </div>
-                {/* You can customize the display of other review details as needed */}
+          <h1 className="customer-reviews">Customer Reviews</h1>
+          <div className="review-boxes">
+        {reviews.slice(0, 3).map((review) => (
+          <div className="home-review-box" key={review._id}>
+            <div className="review-box">
+              <div className="review-text">{review.comment}</div>
+              <div className="review-details">
+                <span className="home-star-rating">
+                  Star Rating: {Array.from({ length: review.starRating }, (_, index) => (
+                    <FaStar key={index} className="home-star-icon1" />
+                  ))}
+                </span>
+                <span className="username">{review.username}</span>
               </div>
-              </div>
-            ))}
+            </div>
           </div>
+        ))}
+      </div>
 
 
         <div className="mail-box">

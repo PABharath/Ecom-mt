@@ -1,47 +1,62 @@
 /* Orders.css */
 .ecom-container {
   display: flex;
+  width: 77vw;
   flex-direction: column;
   align-items: center;
-  padding: -20px;
+  /* padding: -20px; */
   border: 1px solid gray;
-  border-radius: 23px;
+  border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  max-width: 845px;
-  margin: 0 auto;
+  /* max-width: 845px; */
+  margin: 0 10px;
   margin-bottom: 4%;
-}
-h1{
-  padding: 2% 22%;
-}
-.order-h3{
-  margin-left: -28%;
+  right: 20%;
+
 }
 
-.ecom-main-container {
-  margin-left: -350px;
+.ecom-container1{
+  display: flex;
+  width: 77vw;
+  flex-direction: column;
+  align-items: center;
+  /* padding: -20px; */
+  border: 1px solid gray;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* max-width: 845px; */
+  margin: 0 10px;
+  margin-bottom: 4%;
+  margin-left: 10%;
+
+
 }
 
 .ecom-order-table {
   border-collapse: collapse;
   width: 100%;
+   background-color: lightcyan;
 }
 
 .ecom-order-table th {
-  background-color: lightcyan;
-  padding: 7px 40px;
+   width: 140px; 
+   padding: 2px 2px; 
   text-align: left;
+  font-size: 1rem;
 }
 
 .ecom-order-table td {
-  background-color: lightcyan;
-  padding: 7px 40px;
+ 
+  padding: 2px 4px;
   text-align: left;
 }
 
 .ecom-link {
   color: black;
   text-decoration: none;
+  /* background-color: gold; */
+  border-radius: 4px;
+  padding:  2px 5px;
 }
 .ecom-link-a{
   color: black;
@@ -59,7 +74,7 @@ h1{
 .ecom-image {
   width: 150px;
   height: 150px;
-  margin-left: 30%;
+  /* margin-left: 30%; */
   margin-top: 5%;
 }
 
@@ -69,7 +84,13 @@ h1{
   font-weight: bold;
 }
 .ecom-product-name{
-  font-weight: 400
+  font-weight: 400;
+  margin-left: 10px;
+  margin-top: 5%;
+  font-size: 1rem;
+  /* background-color: aqua; */
+  padding: 3px 5px;
+  border-radius: 3px;
 }
 
 .ecom-buttons {
@@ -78,12 +99,13 @@ h1{
 
 .ecom-view-items-btn {
   background-color: gold;
-  margin: 15px;
+  /* margin: 15px; */
   border: none;
   border-radius: 4px;
   color: black;
   cursor: pointer;
   padding: 5px;
+  margin-bottom: 10%;
 }
 
 
@@ -96,4 +118,34 @@ h1{
   cursor: pointer;
   padding: 5px;
 }
+
+.ecom-image-box{
+  display: flex;
+  column-gap: 20px;
   
+}
+.order-table-container{
+  margin-left: 0px;
+}
+
+.orders-heading{
+  text-align: start;
+  margin: 10px;
+
+}
+
+.orders-heading1{
+  text-align: start;
+  margin: 10px;
+ margin-left: 130px;
+}
+
+
+
+.ecom-product-item{
+   
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}

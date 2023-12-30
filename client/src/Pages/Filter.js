@@ -66,6 +66,9 @@ const Filter = ({ searchQuery }) => {
   };
 
   return (
+    <>
+    <Navbar2/>
+   
     <div>
       <div className='Product-List-convik'>
         {loading ? (
@@ -104,6 +107,7 @@ const Filter = ({ searchQuery }) => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

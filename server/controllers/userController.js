@@ -75,7 +75,6 @@ exports.addToCart = async (req, res) => {
     // Save the updated customer document
     await customer.save();
 
-    console.log("Product added to cart successfully:", cartItems);
 
     res.status(201).json({ cartItems });
   } catch (error) {

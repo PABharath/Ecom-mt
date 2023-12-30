@@ -29,8 +29,9 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import "animate.css/animate.min.css";
 import Navbar2 from "./Pages/Navbar2";
 import Filter from "./Pages/Filter";
+import Latest from './Pages/Latest';
 import Seller from "./Pages/Seller";
-import SearchBar from "./Pages/SearchBar";
+import Search from "./Pages/Search";
 
 const App = () => {
   return (
@@ -39,8 +40,8 @@ const App = () => {
         <Router>
           <CartProvider>
             <Routes>
-              <Route path="/Navbar2" element={<Navbar2 />} /> 
-              <Route path="/Searchbar" element={<SearchBar />} />
+              <Route path="/Navbar2" element={<Navbar2 />} />
+              <Route path="/Search" element={<Search />} />
               <Route path="/" element={<Home />} />
               <Route path="/Login" element={<Login />} />
               <Route path="/Register" element={<Register />} />
@@ -74,6 +75,7 @@ const App = () => {
                 path="/SareesCategories2"
                 element={<SareesCategories2 />}
               />
+                <Route path="/Latest" element={<Latest />} />
               <Route path="/Filter" element={<Filter />} />
               <Route path="/Seller" element={<Seller />} />
             </Routes>

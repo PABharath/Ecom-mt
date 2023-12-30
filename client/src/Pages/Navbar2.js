@@ -11,7 +11,8 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../Auth2/useAuth";
 import { CartContext } from "./CreateContext";
 import styles from "./NavBar.module.css";
-import SearchBar from "./SearchBar";
+import Search from "./Search";
+import { FaPlus  } from "react-icons/fa";
 
 import { FaUserCircle } from "react-icons/fa";
 import { PiSignOutBold } from "react-icons/pi";
@@ -20,8 +21,6 @@ import "./Navbar2.css";
 
 const Navbar2 = ({ onSearch }) => {
   const { user } = useAuth();
-  console.log("User Object:", user); 
-  console.log("User Object:", user);
   const navigate = useNavigate();
   const [token] = useState(localStorage.getItem("token"));
   const { cartItems } = useContext(CartContext);
@@ -107,7 +106,7 @@ const Navbar2 = ({ onSearch }) => {
                   <IoSearchOutline />
                 </button>
               </div> */}
-              <SearchBar />
+              <Search />
               <div className="navvik-right">
                 {user && user.role === "admin" && (
                   <div className="prod-form">
@@ -116,6 +115,12 @@ const Navbar2 = ({ onSearch }) => {
                     </Link>
                   </div>
                 )}
+                <div className="tooltip-container">
+                 <Link to='/ProductForm'>< FaPlus  className="menu-icon" /></Link> 
+                  {/* <div className="tooltip">
+                    No new notifications.. Stay tuned for more!!
+                  </div> */}
+                </div>
                 <Link to="/cart">
                   <FontAwesomeIcon
                     icon={faShoppingCart}
@@ -130,6 +135,8 @@ const Navbar2 = ({ onSearch }) => {
                     No new notifications.. Stay tuned for more!!
                   </div>
                 </div>
+
+                
 
                 {/* {token ? (
                   <div onClick={() => navigate("/Profile")}>

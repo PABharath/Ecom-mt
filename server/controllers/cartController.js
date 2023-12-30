@@ -78,7 +78,7 @@ exports.decrementCartItem = async (req, res) => {
 exports.deleteCartItem = async (req, res) => {
   try {
     const userId = req.user.id;
-    const { productId } = req.body;
+    const { product } = req.body;
 
     const user = await User.findById(userId);
     if (!user) {
@@ -86,7 +86,7 @@ exports.deleteCartItem = async (req, res) => {
     }
 
     // Remove the item from the cart
-    const updatedCart = user.cart.filter(item => item.product != productId);
+    const updatedCart = user.cart.filter(item => item.product != product._id);
     user.cart = updatedCart;
     await user.save();
 
@@ -96,4 +96,5 @@ exports.deleteCartItem = async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error' });
   }
 };
+
 

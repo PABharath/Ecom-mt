@@ -429,17 +429,17 @@ body {
 .star-rating {
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
-  margin-left: 100px;
+  margin-bottom: 7px;
+  /* margin-left: 100px; */
 }
 
 .star {
   margin-right: 3px;
 }
 
-.review-comment {
+.review-comment-product {
   font-style: italic;
-  margin-top: -5%;
+  margin-top: 4%;
 }
 
 .see-all-reviews-button {

@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema({
   resetTokenExpiration: Date,
   // Additional user-related data
   cart: [{ 
+    productId:String,
      productName:String ,
      quantity: Number ,
      sp: Number,
@@ -39,10 +40,21 @@ const userSchema = new mongoose.Schema({
    }], 
    orders: [{ 
     orderId: { type: String, required: true, unique: true },
-    orderDate: { type: Date, default: Date.now },
+    orderDate: { type: String, },
     products: { type: Array, required: true },
     totalAmount: { type: Number, required: true },
-    expectedDeliveryDate: { type: Date },
+    expectedDeliveryDate: { type: String },
+    address: [{ 
+      fullName: String,
+      mobileNumber: String,
+      addressLine: String,
+      area: String,
+      town: String,
+      state: String,
+      country: String,
+      pincode: String,
+      isDefaultAddress: Boolean, 
+     }]
    }] 
 
 });

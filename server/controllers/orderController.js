@@ -8,7 +8,8 @@ const User = require('../models/userModel');
 exports.createOrder = async (req, res) => {
   const userId = req.params.id
   try {
-    const { cartItems, totalAmount } = req.body;
+    const { cartItems, totalAmount,address } = req.body;
+    console.log(address);
     const customer = await User.findOne({ email: userId })
     // Generate a 5-digit orderId
     console.log('After finding user', customer);
@@ -18,13 +19,16 @@ exports.createOrder = async (req, res) => {
     const orderDate = new Date();
     const expectedDeliveryDate = new Date(orderDate);
     expectedDeliveryDate.setDate(orderDate.getDate() + 10); // Adding 10 days
+    const formatDate = date => date.toISOString().split('T')[0];
 
     const newOrder = {
       orderId,
       products: cartItems,
       totalAmount,
-      orderDate,
-      expectedDeliveryDate,
+      orderDate: formatDate(orderDate),
+      expectedDeliveryDate: formatDate(expectedDeliveryDate),
+
+      address:address
     };
 
     // Add the new order to the user's orders array

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Orders.css";
-import Navbar2 from "./Navbar2";
+
 import { jsPDF } from "jspdf";
 import html2pdf from "html2pdf.js";
 
@@ -14,6 +14,8 @@ const Orders = () => {
   useEffect(() => {
     fetchOrders();
   }, []);
+
+
   const handleViewInvoice = (order) => {
     setCurrentOrder(order);
     generateInvoicePDF(order);
@@ -82,18 +84,24 @@ const Orders = () => {
     });
   };
   
+  
+
   useEffect(() => {
     axios
       .get('http://localhost:5555/api/profile', {
         headers: {
           'x-token': token,
-        },})
+        },
+      })
       .then((res) => {
         console.log(res.data);
         setOrders(res.data.user.orders);
       })
       .catch((err) => console.log(err));
   }, [token]);
+
+
+
 
   const fetchOrders = async () => {
     try {
@@ -161,20 +169,16 @@ const Orders = () => {
 
   return (
     <div>
-      <Navbar2 />
-      <h4 className="orders-heading1">Your Orders</h4>
-      <div className="ecom-container1">
+      
+      <h4 className="orders-heading">Your Orders</h4>
+      <div className="ecom-container">
         {orders.map((order) => (
           <div key={order.orderId} className="order-table-container">
             <table className="ecom-order-table">
               <thead>
                 <tr>
                   <th>Order Placed</th>
-                  <th>Total</th>  `1  1q
-                  
-                  
-                  
-                  `
+                  <th>Total</th>
                   <th>Ship To</th>
                   <th>Order ID</th>
                  
@@ -185,7 +189,7 @@ const Orders = () => {
               </thead>
               <tbody>
                 <tr>
-                  <td>{order.orderDate}</td>
+                  <td> {order.orderDate}</td>
                   <td>₹{order.totalAmount}</td>
                   <td>Address</td>
                   <td> {order.orderId}</td>
@@ -255,8 +259,8 @@ const Orders = () => {
           </div>
         ))}
       </div>
-
     </div>
   );
 };
+
 export default Orders;
