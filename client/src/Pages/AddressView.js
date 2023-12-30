@@ -5,7 +5,7 @@ import { BASE_URL } from "../services/Helpers";
 
 
 const AddressView = ({ onAddressSelection }) => {
-  const [error, setError] = useState(null);
+  const [error,] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [data, setData] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
@@ -32,10 +32,6 @@ const AddressView = ({ onAddressSelection }) => {
     onAddressSelection(user);
   };
 
-  const handleShowPopup = () => {
-    setShowPopup(true);
-  };
-
   const handleHidePopup = () => {
     setShowPopup(false);
   };
@@ -50,7 +46,6 @@ const AddressView = ({ onAddressSelection }) => {
         <div style={{ display: 'flex', gap: '20px' }}>
           <div>
             <div style={{ display: 'flex', gap: '20px', position: 'relative', left: '400px', top: '25px' }}>
-              {/* <button onClick={handleShowPopup}>Add Address</button> */}
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
               <h3 style={{ marginBottom: '10px', marginTop: '7%' }}>Addresses</h3>

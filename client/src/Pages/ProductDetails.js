@@ -221,7 +221,7 @@ const ProductDetails = () => {
 
     addToCart(product);
     console.log("Adding to cart:", product);
-    navigate("/Cart");
+    navigate("/IntegratedAddressPage");
   };
 
   const handleSubmitReview = async (event) => {
@@ -386,7 +386,7 @@ const ProductDetails = () => {
                     Add to Cart
                   </button>
 
-                  <Link to="/Cart">
+                  <Link to="/IntegratedAddressPage">
                     <button
                       className="buy-now-button"
                       onClick={(event) => handleBuyNow(event, productDetails)}

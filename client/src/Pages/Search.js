@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { BsSearch } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import './Search.css';

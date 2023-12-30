@@ -31,7 +31,7 @@ const Seller = ({ searchQuery }) => {
   }, [searchQuery]);
 
   useEffect(() => {
-    console.log("Component mounted with searchQuery:", searchQuery);
+    // console.log("Component mounted with searchQuery:", searchQuery);
     fetchProducts();
   }, [fetchProducts]);
 
@@ -68,7 +68,7 @@ const Seller = ({ searchQuery }) => {
 
   return (
     <>
-    <Navbar2/>
+
     <div>
       <div className='Product-List-convik'>
         {loading ? (

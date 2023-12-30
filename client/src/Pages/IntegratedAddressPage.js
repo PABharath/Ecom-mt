@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate,useLocation} from "react-router-dom";
 import AddressView from "./AddressView";
 import { Country, State } from "country-state-city";
 import "./IntegratedAddressPage.css";
-import { CartContext } from "./CreateContext";
 import axios from "axios";
 import Navbar2 from './Navbar2';
 import { BASE_URL } from "../services/Helpers";

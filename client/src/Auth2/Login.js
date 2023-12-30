@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
-import { MdOutlineRemoveRedEye } from "react-icons/md";
+// import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
-import useAuth from "./useAuth"; // Import the useAuth hook
+// import useAuth from "./useAuth"; // Import the useAuth hook
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer, toast } from 'react-toastify';
@@ -20,7 +20,7 @@ const Login = () => {
     password:'',
 })
   const [token,setToken] = useState('') 
-  const [message, setMessage] = useState("");
+  const [message,] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const changeHandler = e =>{
@@ -29,7 +29,7 @@ const Login = () => {
 
 
   const navigate = useNavigate();
-  const { login } = useAuth(); // Use the login function from useAuth
+  // const { login } = useAuth(); // Use the login function from useAuth
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
@@ -148,16 +148,13 @@ const Login = () => {
                     <button type="submit">Login</button>
                   </div>
                 </form>
-
                 {/* Link to register page */}
-
                 <div className="login-or">
                   <div className="login-hr1" />
                   <div className="or">or</div>
                   <div className="login-hr2" />
                 </div>
               </div>
-
               {/* Google login */}
               <div className="log-google google-login-containers">
                 <GoogleOAuthProvider clientId="476717558763-pbbvpjdugi7ium3eprbclkqn8f61hllf.apps.googleusercontent.com">
@@ -195,3 +192,5 @@ const Login = () => {
 };
 
 export default Login;
+    
+

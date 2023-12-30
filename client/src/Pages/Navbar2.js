@@ -1,11 +1,6 @@
-import {
-  faBell,
-  faPlus,
-  faShoppingCart,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
+import {faBell,faPlus,faShoppingCart,} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../Auth2/useAuth";
@@ -22,21 +17,20 @@ import "./Navbar2.css";
 const Navbar2 = ({ onSearch }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const [token] = useState(localStorage.getItem("token"));
+  // const [token] = useState(localStorage.getItem("token"));
   const { cartItems } = useContext(CartContext);
-  const [searchQuery, setSearchQuery] = useState("");
+  // const [searchQuery,] = useState("");
   const totalQuantity = cartItems.reduce(
     (total, item) => total + item.quantity,
     0
   );
 
-  const [show, setShow] = useState(false);
-  const target = useRef(null);
+  // const target = useRef(null);
 
-  const handleSearch = () => {
-    console.log("Search query:", searchQuery);
-    onSearch(searchQuery);
-  };
+  // const handleSearch = () => {
+  //   console.log("Search query:", searchQuery);
+  //   onSearch(searchQuery);
+  // };
 
   const handleLogout = () => {
     // Clear the token
@@ -94,18 +88,6 @@ const Navbar2 = ({ onSearch }) => {
               >
                 Contact Us
               </Nav.Link>
-              {/* <div className="nav-searchbarvik">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-
-                <button onClick={handleSearch}>
-                  <IoSearchOutline />
-                </button>
-              </div> */}
               <Search />
               <div className="navvik-right">
                 {user && user.role === "admin" && (

@@ -17,7 +17,6 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [email,] = useState(localStorage.getItem('email'));
   const [token] = useState(localStorage.getItem('token'));
-  const [backendCartItems, setBackendCartItems] = useState([]);
   
 
   useEffect(() => {
