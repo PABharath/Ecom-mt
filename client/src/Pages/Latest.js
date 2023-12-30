@@ -4,7 +4,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useCart } from "./CreateContext"; // Import the custom hook
 import { toast } from "react-toastify";
-import { scrollToTop } from "./scrollUtils";
 import './ProductList.css'
 import Navbar2 from "./Navbar2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,7 +12,7 @@ import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
 const ProductList = ({ searchQuery, pageType }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { addToCart, handleAddToWishlist } = useCart();
+  const { addToCart,  } = useCart();
   const [email,] = useState(localStorage.getItem('email'));
 
   useEffect(() => {
