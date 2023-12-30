@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import AddAddressPage from './AddAddressPage';
 import axios from 'axios';
+import { BASE_URL } from "../services/Helpers";
+
 
 const AddressView = ({ onAddressSelection }) => {
   const [error, setError] = useState(null);
@@ -11,7 +13,7 @@ const AddressView = ({ onAddressSelection }) => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5555/api/profile', {
+      .get(`${ BASE_URL }/api/profile`, {
         headers: {
          'x-token': token,
         },

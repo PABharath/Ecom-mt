@@ -2,6 +2,7 @@
 import React, { createContext, useState, useContext,useEffect} from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { BASE_URL } from "../services/Helpers";
 
 
 export const CartContext = createContext();
@@ -21,7 +22,7 @@ export const CartProvider = ({ children }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5555/api/profile", {
+      .get(`${ BASE_URL }/api/profile`, {
         headers: {
           "x-token": token,
         },
@@ -49,7 +50,7 @@ export const CartProvider = ({ children }) => {
       
       setCartItems(updatedCartItems);
         // Send the updated cartItems to the backend
-        await axios.post(`http://localhost:5555/api/users/${email}/cart`, {
+        await axios.post(`${ BASE_URL }/api/users/${email}/cart`, {
           cartItems: updatedCartItems.map((item) => ({
             productId: item._id,
             productName: item.productName,
@@ -65,7 +66,7 @@ export const CartProvider = ({ children }) => {
         ]);
 
         // Send the updated cartItems to the backend
-        await axios.post(`http://localhost:5555/api/users/${email}/cart`, {
+        await axios.post(`${ BASE_URL }/api/users/${email}/cart`, {
           cartItems: [
             ...cartItems,
             { productId: product._id, quantity: 1, ...product },
@@ -142,7 +143,7 @@ export const CartProvider = ({ children }) => {
   
   const updateBackendCart = async (updatedCartItems) => {
     try {
-      await axios.post(`http://localhost:5555/api/users/${email}/cart`, {
+      await axios.post(`${ BASE_URL }/api/users/${email}/cart`, {
         cartItems: updatedCartItems.map((item) => ({
           productId: item.productId,
           productName: item.productName,

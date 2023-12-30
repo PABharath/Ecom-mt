@@ -9,6 +9,7 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import Navbar2 from '../Pages/Navbar2';
+import { BASE_URL } from "../services/Helpers";
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -91,7 +92,7 @@ const Register = () => {
       toast.error('Passwords do not match', { position: 'top-center', autoClose: 3000 });
     } else {
       try {
-        const response = await axios.post('http://localhost:5555/api/register', {
+        const response = await axios.post(`${BASE_URL}/api/register`, {
           username: name,
           email: email,
           contact: phoneNumber,

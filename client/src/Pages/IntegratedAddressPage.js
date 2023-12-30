@@ -6,6 +6,7 @@ import "./IntegratedAddressPage.css";
 import { CartContext } from "./CreateContext";
 import axios from "axios";
 import Navbar2 from './Navbar2';
+import { BASE_URL } from "../services/Helpers";
 
 
 const IntegratedAddressPage = () => {
@@ -58,7 +59,7 @@ const IntegratedAddressPage = () => {
     try {
       console.log("Form Data:", formData);  // Add this line to check formData
       const response = await axios.post(
-        `http://localhost:5555/api/${email}/address`,
+        `${ BASE_URL }/api/${email}/address`,
         formData,
         {
           headers: {

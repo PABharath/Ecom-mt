@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Profile.css";
 import ProfileOrders from "../Pages/ProfileOrders";
+import { BASE_URL } from "../services/Helpers";
 
 const Profile = () => {
   const { logout } = useAuth();
@@ -18,7 +19,7 @@ const Profile = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5555/api/profile", {
+      .get(`${BASE_URL}/api/profile`, {
         headers: {
           "x-token": token,
         },

@@ -7,6 +7,8 @@ import { useCart } from "./CreateContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar2 from "./Navbar2";
+import { BASE_URL } from "../services/Helpers";
+
 
 const PaymentPage = () => {
   const location = useLocation();
@@ -26,7 +28,7 @@ const PaymentPage = () => {
       const calculatedAmount = Math.max(minimumAmount, totalAmount);
 
       const response = await axios.post(
-        "http://localhost:5555/api/checkout",
+        '${ BASE_URL }/api/checkout',
         { totalAmount: calculatedAmount,
           }
       );
@@ -84,7 +86,7 @@ const PaymentPage = () => {
   const handleCreateOrder = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:5555/api/users/${email}/orders/create`,
+        `${ BASE_URL }/api/users/${email}/orders/create`,
         { cartItems, totalAmount ,address}
       );
 

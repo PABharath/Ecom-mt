@@ -11,6 +11,8 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import Navbar2 from "../Pages/Navbar2";
+import { BASE_URL } from "../services/Helpers";
+
 
 const Login = () => {
   const [data,setData] = useState({
@@ -45,7 +47,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();  
     try {
-      const response = await axios.post("http://127.0.0.1:5555/api/login",data);
+      const response = await axios.post(`${ BASE_URL } /api/login`,data);
       const email = data.email;
     
       if (response.status === 200) {  

@@ -12,6 +12,8 @@ import { GoMail } from "react-icons/go";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SareeShopCarousel from "./SareeShopCarousel";
+import { BASE_URL } from "../services/Helpers";
+
 
 
 function Home() {
@@ -46,7 +48,7 @@ function Home() {
   
     try {
       console.log('Email:', email);
-      const response = await axios.post('http://localhost:5555/login', email);
+      const response = await axios.post(`${ BASE_URL }/login`, email);
   
       toast.success('Subscribed successfully!', {
         position: "top-right",
@@ -81,7 +83,7 @@ function Home() {
     const fetchReviews = async () => {
       try {
         console.log('Fetching reviews...');
-        const response = await axios.get('http://127.0.0.1:5555/api/all-reviews');
+        const response = await axios.get(`${ BASE_URL }/api/all-reviews`);
     
         // Check if the response is valid and contains data
         if (response.data && Array.isArray(response.data)) {
