@@ -51,6 +51,7 @@ export const CartProvider = ({ children }) => {
         // Send the updated cartItems to the backend
         await axios.post(`http://localhost:5555/api/users/${email}/cart`, {
           cartItems: updatedCartItems.map((item) => ({
+            productId: item._id,
             productName: item.productName,
             quantity: item.quantity,
             productImages:item.productImages[0],
@@ -69,6 +70,8 @@ export const CartProvider = ({ children }) => {
             ...cartItems,
             { productId: product._id, quantity: 1, ...product },
           ].map((item) => ({
+            
+            productId: item._id,
             productName: item.productName,
             quantity: item.quantity,
             productImages:item.productImages[0],
@@ -91,75 +94,13 @@ export const CartProvider = ({ children }) => {
 
 
   
-  const handleAddToWishlist = async (product) => {
-    try {
-      const existingProduct = cartItems.find(
-        (item) => item.productId === product._id
-      );
+ 
 
-      if (existingProduct) {
-        // For existing wishlist item, update the quantity
-        const updatedCartItems = cartItems.map((item) =>
-          item.productId === product._id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-        setCartItems(updatedCartItems);
-      } else {
-        // For a new wishlist item, add it to the wishlist
-        setCartItems([
-          ...cartItems,
-          { productId: product._id, quantity: 1, ...product },
-        ]);
-      }
-
-      // Send the updated wishlist to the backend
-      // await axios.post(`http://localhost:5555/api/users/${email}/wishlist`, {
-      //   wishlistItem: [
-      //     ...cartItems,
-      //     { productId: product._id, quantity: 1, ...product },
-      //   ].map((item) => ({
-         
-      //     product: item.productName,
-      //     quantity: item.quantity,
-      //   })),
-      // });
-
-      console.log("Adding to wishlist:", product);
-      toast.success("Added to Wishlist!");
-    } catch (error) {
-      console.error("Error adding to wishlist:", error.message);
-      toast.error("Failed to add to Wishlist. Please try again.");
-    }
-  };
   
-
-  const handleDecrement = async (product) => {
-    try {
-      const updatedCartItems = cartItems.map((item) =>
-        item.productId === product.productId
-          ? { ...item, quantity: Math.max(item.quantity - 1, 1) }
-          : item
-      );
   
-      setCartItems(updatedCartItems);
   
-      // Send the updated cartItems to the backend
-      await axios.post(`http://localhost:5555/api/users/${email}/cart`, {
-        cartItems: updatedCartItems.map((item) => ({
-          productId: item.productId,
-          productName: item.productName,
-          quantity: item.quantity,
-          productImages: item.productImages[0],
-          sp: item.sp,
-        })),
-      });
   
-      console.log("Decrementing from cart:", product.productId);
-    } catch (error) {
-      console.error("Error decrementing from cart:", error.message);
-    }
-  };
+  
   
   
   const handleIncrement = async (product) => {
@@ -173,6 +114,34 @@ export const CartProvider = ({ children }) => {
       setCartItems(updatedCartItems);
   
       // Send the updated cartItems to the backend
+      await updateBackendCart(updatedCartItems);
+    } catch (error) {
+      console.error("Error incrementing in cart:", error.message);
+    }
+  };
+  
+  const handleDecrement = async (product) => {
+    try {
+      const updatedCartItems = cartItems.map((item) =>
+        item.productId === product.productId
+          ? {
+              ...item,
+              quantity: Math.max(item.quantity - 1, 1),
+            }
+          : item
+      );
+  
+      setCartItems(updatedCartItems);
+  
+      // Send the updated cartItems to the backend
+      await updateBackendCart(updatedCartItems);
+    } catch (error) {
+      console.error("Error decrementing in cart:", error.message);
+    }
+  };
+  
+  const updateBackendCart = async (updatedCartItems) => {
+    try {
       await axios.post(`http://localhost:5555/api/users/${email}/cart`, {
         cartItems: updatedCartItems.map((item) => ({
           productId: item.productId,
@@ -182,23 +151,43 @@ export const CartProvider = ({ children }) => {
           sp: item.sp,
         })),
       });
-  
-      console.log("Adding to cart:", product);
     } catch (error) {
-      console.error("Error adding to cart:", error.message);
+      console.error("Error updating backend cart:", error.message);
     }
   };
   
   
   
+  
+  
+  
+  
+  
+  
 
-  // Function to remove a product from the cart
-  const removeFromCart = (productId) => {
+
+
+  
+// ...
+
+const removeFromCart = async (productId) => {
+  try {
+    // Filter out the product to be removed
     const updatedCartItems = cartItems.filter(
       (item) => item.productId !== productId
     );
+
     setCartItems(updatedCartItems);
-  };
+
+    // Send the updated cartItems to the backend (to remove the product)
+    await updateBackendCart(updatedCartItems);
+  } catch (error) {
+    console.error("Error removing product from cart:", error.message);
+  }
+};
+
+// ...
+
 
   // Function to clear the entire cart
   const clearCart = () => {
@@ -212,7 +201,7 @@ export const CartProvider = ({ children }) => {
         cartItems,
         setCartItems, 
         addToCart,
-        handleAddToWishlist,
+        
         removeFromCart,
         clearCart,
         handleDecrement,

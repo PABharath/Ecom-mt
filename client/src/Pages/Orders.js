@@ -14,8 +14,6 @@ const Orders = () => {
   useEffect(() => {
     fetchOrders();
   }, []);
-
-
   const handleViewInvoice = (order) => {
     setCurrentOrder(order);
     generateInvoicePDF(order);
@@ -84,24 +82,18 @@ const Orders = () => {
     });
   };
   
-  
-
   useEffect(() => {
     axios
       .get('http://localhost:5555/api/profile', {
         headers: {
           'x-token': token,
-        },
-      })
+        },})
       .then((res) => {
         console.log(res.data);
         setOrders(res.data.user.orders);
       })
       .catch((err) => console.log(err));
   }, [token]);
-
-
-
 
   const fetchOrders = async () => {
     try {
@@ -170,26 +162,39 @@ const Orders = () => {
   return (
     <div>
       <Navbar2 />
-      <h1>Your Orders</h1>
-      <div className="ecom-container">
+      <h4 className="orders-heading1">Your Orders</h4>
+      <div className="ecom-container1">
         {orders.map((order) => (
           <div key={order.orderId} className="order-table-container">
             <table className="ecom-order-table">
               <thead>
                 <tr>
-                  <th>ORDER PLACED</th>
-                  <th>TOTAL</th>
-                  <th>SHIP TO</th>
+                  <th>Order Placed</th>
+                  <th>Total</th>  `1  1q
+                  
+                  
+                  
+                  `
+                  <th>Ship To</th>
                   <th>Order ID</th>
+                 
+                  <th>Delivery By</th>
+                  <th>Delivery Status</th>
                   <th>View Order Details</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td> {order.orderDate}</td>
+                  <td>{order.orderDate}</td>
                   <td>₹{order.totalAmount}</td>
                   <td>Address</td>
                   <td> {order.orderId}</td>
+                  <td> 
+                    {/* Delivery By{" "} */}
+                  {new Date(order.expectedDeliveryDate).toLocaleDateString()}</td>
+                  <td><button className="ecom-delivery-status-btn">
+                   Status
+                  </button> </td>
                   <td>
                 
                   <button
@@ -198,7 +203,7 @@ const Orders = () => {
                     >
                       View Invoice
                     </button>
-                  </td>
+                  </td>``
                 </tr>
               </tbody>
             </table>
@@ -233,44 +238,25 @@ const Orders = () => {
   )}
 </div>
 
-              <div className="ecom-delivery-details">
+              {/* <div className="ecom-delivery-details">
                 <p>
                   Delivery By{" "}
                   {new Date(order.expectedDeliveryDate).toLocaleDateString()}
                 </p>
 
-                {order.products && order.products.length > 0 ? (
-                  order.products.map((product) => (
-                    <p key={product.productName} className="ecom-product-name">
-                      {product.productName}
-                    </p>
-                  ))
-                ) : (
-                  <p>No products in this order</p>
-                )}
-                <div key={order._id} className="ecom-buttons">
-               
-                    <button className="ecom-view-items-btn">
-                      <Link
-                        to={`/products/${order.products[0]?.productId}`}
-                        className="ecom-link-a"
-                      >
-                        View Your Item
-                      </Link>
-                    </button>
-                  
-
-                  <button className="ecom-delivery-status-btn">
+                
+                <div  className="ecom-buttons">
+               <button className="ecom-delivery-status-btn">
                     Delivery Status
                   </button>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         ))}
       </div>
+
     </div>
   );
 };
-
 export default Orders;

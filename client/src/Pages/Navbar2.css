@@ -1,9 +1,8 @@
 .navvik-right{
     display: flex;
-    
     gap: 2rem;
     margin-top: 1.4rem;
-margin-left: 2rem;
+    margin-left: 2rem;
 }
 
 .navvik-right *{
@@ -163,3 +162,37 @@ border-radius: 5px;
     position: relative;
     top: -0.1rem;
 }
+/* Your existing styles... */
+
+/* For screens with a width of 425px or less */
+@media (max-width: 425px) {
+    .nav1 {
+      padding: 0.5rem; /* Adjust padding for smaller screens */
+    }
+  
+    .navvik-right {
+      flex-direction: column; /* Stack icons vertically */
+      align-items: center; /* Center the icons */
+      margin-left: 0; /* Remove the left margin */
+    }
+  
+    .navvik-right * {
+      margin: 0.5rem; /* Add some margin between icons */
+    }
+  
+    .navLink {
+      margin: 0.5rem 0; /* Adjust spacing for navigation links */
+      text-align: center; /* Center the navigation links */
+    }
+  
+    .logovik {
+      margin-left: 0; /* Adjust margin for the logo */
+      text-align: center; /* Center the logo */
+    }
+  
+    .navbar-h3 {
+      margin-left: 0.5rem; /* Adjust margin for the heading */
+    }
+  }
+  
+  

@@ -181,11 +181,11 @@ height: 18vh;
   
 }
 .product-imgvik-profile2 {
-  width: 150px;
-  height: 20vh;
+   /* width: 150px; */
+   height: 20vh; 
     margin-right: 20px;
-    width: fit-content;
-    
+     width: fit-content; 
+     
   }
 
 .product-details1 {

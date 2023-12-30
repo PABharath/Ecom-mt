@@ -127,8 +127,8 @@ const [patients, setPatients] = useState([]);
 
   return (
     <>
-    <Navbar2 onSearch={handleSearch}/>
-    <div className="home-main-body">
+    <Navbar2 onSearch={handleSearch} className="navbar-position" />
+    <div className="home-main-body" >
       <section>
         <ImageCarousel />
         

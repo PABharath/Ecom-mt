@@ -64,7 +64,9 @@ const Profile = () => {
 
   return (
     <div>
+      
       <Navbar2 />
+      
       <div>
         {Object.keys(profile).length > 0 ? (
           <>
