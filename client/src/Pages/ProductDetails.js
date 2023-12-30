@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from "react-modal";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { Carousel } from "react-responsive-carousel";
+// import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./ProductDetails.css";
 import { useCart } from "./CreateContext";
@@ -10,8 +10,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Navbar2 from "./Navbar2";
-import { FaStar, FaThumbsUp, FaThumbsDown } from "react-icons/fa";
-import StarRating from "react-rating-stars-component";
+import { FaStar } from "react-icons/fa";
+// import StarRating from "react-rating-stars-component";
 
 const ProductDetails = () => {
   const { productId } = useParams();

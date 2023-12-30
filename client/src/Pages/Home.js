@@ -4,10 +4,10 @@ import ImageCarousel from "./ImageCarousel";
 import ProductList from "./ProductList";
 import "./Home.css";
 // import { CiSearch } from "react-icons/ci";
-import Navbar from "../Pages/Navbar";
+
 import { Link } from "react-router-dom";
 import { FaTruck, FaMoneyBillAlt, FaStar, FaTags } from "react-icons/fa";
-import { FaTelegramPlane } from "react-icons/fa";
+
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar2 from "./Navbar2";
@@ -19,7 +19,7 @@ import SareeShopCarousel from "./SareeShopCarousel";
 
 function Home() {
 
-  const [filteredPatients, setFilteredPatients] = useState([]);
+  
   const [searchQuery, setSearchQuery] = useState("");
 const [patients, setPatients] = useState([]);
   
