@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Orders.css";
 import Navbar2 from "./Navbar2";
-import { jsPDF } from "jspdf";
+
 import html2pdf from "html2pdf.js";
 import { BASE_URL } from "../services/Helpers";
 

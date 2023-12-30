@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { useCart } from "./CreateContext"; 
 import { toast } from "react-toastify";
 import { scrollToTop } from "./scrollUtils";
-import Navbar2 from "./Navbar2";
+import { BASE_URL } from "../services/Helpers";
+
 
 
 const Seller = ({ searchQuery }) => {
@@ -14,7 +15,7 @@ const Seller = ({ searchQuery }) => {
 
   const fetchProducts = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:5555/api/products");
+      const response = await axios.get(`${BASE_URL}/api/products`);
       console.log("API response:", response.data);
       const filteredProducts = filterProducts(response.data, searchQuery);
       console.log("Filtered products:", filteredProducts);
@@ -83,7 +84,7 @@ const Seller = ({ searchQuery }) => {
                 >
                   <img
                     className='product-imgvik'
-                    src={`http://127.0.0.1:5555/api/uploads/${product.productImages[0]}`}
+                    src={`${BASE_URL}/api/uploads/${product.productImages[0]}`}
                     alt={product.productName}
                   />
                   <div className='productnamevik'>{product.productName}</div>

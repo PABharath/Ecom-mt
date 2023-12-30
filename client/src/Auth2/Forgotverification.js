@@ -8,7 +8,7 @@ import Navbar2 from "../Pages/Navbar2";
 
 
 function Forgotverification() {
-  const [verificationCode, setVerificationCode] = useState('');
+  const [verificationCode, ] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
   const [message, setMessage] = useState('');
