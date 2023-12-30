@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast,  } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const AddAddressPage = ({onClose, onSelectAddress}) => {
@@ -17,11 +17,11 @@ const AddAddressPage = ({onClose, onSelectAddress}) => {
   };
 
   
-
+  
   const [formData, setFormData] = useState(initialFormData);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
-  const [selectedAddress, setSelectedAddress] = useState(null);
+  const [selectedAddress,] = useState(null);
 
   // State and country options
   const stateOptions = ['State 1', 'State 2', 'State 3']; // Replace with actual state options
