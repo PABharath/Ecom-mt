@@ -66,7 +66,7 @@ const Seller = ({ searchQuery }) => {
 
   return (
     <>
-    <Navbar2/>
+  
     <div>
       <div className='Product-List-convik'>
         {loading ? (

@@ -8,9 +8,9 @@
     border: 1px solid rgb(152, 152, 152);
     border-radius: 5px;
     position: relative;
-    top: -1rem;
+    top: 0.5rem;
 
-    margin-top: 0.5rem;
+    
   }
   .form-control1 {
    width: 360px !important;
@@ -27,9 +27,7 @@
     border-radius: var(--bs-border-radius);
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; */
 }
-  .form-group1{
-    margin-left: 2rem;
-  }
+ 
   
   
 
