@@ -7,8 +7,8 @@ import { jsPDF } from "jspdf";
 import html2pdf from "html2pdf.js";
 
 const Orders = () => {
-  const [orders, setOrders] = useState([]);
-  const [currentOrder, setCurrentOrder] = useState(null);
+  const [orders, setOrders] = useState([]); 
+  const [, setCurrentOrder] = useState(null);
   const [token] = useState(localStorage.getItem('token'));
   
   useEffect(() => {

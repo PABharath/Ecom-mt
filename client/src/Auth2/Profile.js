@@ -118,12 +118,14 @@ const Profile = () => {
                           onClick={() => handleTabClick("wishlist")}
                         >
                           wishlist
+                          
                         </button>
+
                         <hr className="hr"></hr>
                         <button
                           className="wish"
                           onClick={() => handleTabClick("orders")}
-                        >
+                        >  
                           Orders
                         </button>
                         <hr className="hr"></hr>
