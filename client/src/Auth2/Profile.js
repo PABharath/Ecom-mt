@@ -28,7 +28,7 @@ const Profile = () => {
         setProfile(res.data.user);
       })
       .catch((err) => console.log(err));
-  }, [token]);
+  }, [token,setProfile]);
 
   const handleLogout = () => {
     logout();
