@@ -44,7 +44,6 @@ const AddressView = ({ onAddressSelection }) => {
         <div style={{ display: 'flex', gap: '20px' }}>
           <div>
             <div style={{ display: 'flex', gap: '20px', position: 'relative', left: '400px', top: '25px' }}>
-              {/* <button onClick={handleShowPopup}>Add Address</button> */}
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
               <h3 style={{ marginBottom: '10px', marginTop: '7%' }}>Addresses</h3>

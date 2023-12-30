@@ -27,8 +27,6 @@
       removeFromCart,
       handleDecrement,
       handleIncrement,
-      setCartItems,
-      addToCart,
     } = useContext(CartContext);
     const [inputValue, setInputValue] = useState("");
     const [token] = useState(localStorage.getItem("token"));
@@ -204,7 +202,6 @@
                 </tfoot>
               </table>
             </form>
-            {/* Additional table for cart total */}
             <div className="cart-total-table">
               <form>
                 <table className="table">

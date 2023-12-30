@@ -169,14 +169,9 @@ const Orders = () => {
               <thead>
                 <tr>
                   <th>Order Placed</th>
-                  <th>Total</th>  `1  1q
-                  
-                  
-                  
-                  `
+                  <th>Total</th>
                   <th>Ship To</th>
-                  <th>Order ID</th>
-                 
+                  <th>Order ID</th>                 
                   <th>Delivery By</th>
                   <th>Delivery Status</th>
                   <th>View Order Details</th>
@@ -202,7 +197,7 @@ const Orders = () => {
                     >
                       View Invoice
                     </button>
-                  </td>``
+                  </td>
                 </tr>
               </tbody>
             </table>
