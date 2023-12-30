@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
 import Navbar2 from "../Pages/Navbar2";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Profile.css";
 import ProfileOrders from "../Pages/ProfileOrders";
@@ -208,7 +208,7 @@ const Profile = () => {
                             <h3 className="addresses">Addresses</h3>
                             <div className="address-list">
                               {profile.address.map((address) => (
-                                <div className="liiii" key={address._id["$oid"]}>
+                                <div className="liiiii" key={address._id["$oid"]}>
                                   <div className="address-details">
                                   
                                     <p>
@@ -271,7 +271,7 @@ const Profile = () => {
         ) : (
           <p>Loading profile...</p>
         )}
-        <ToastContainer position="top-center" autoClose={3000} />
+        {/* <ToastContainer position="top-center" autoClose={3000} /> */}
       </div>
     </div>
   );

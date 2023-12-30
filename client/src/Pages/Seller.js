@@ -29,7 +29,7 @@ const Seller = ({ searchQuery }) => {
   }, [searchQuery]);
 
   useEffect(() => {
-    console.log("Component mounted with searchQuery:", searchQuery);
+    // console.log("Component mounted with searchQuery:", searchQuery);
     fetchProducts();
   }, [fetchProducts]);
 
