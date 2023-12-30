@@ -7,7 +7,7 @@ import { jsPDF } from "jspdf";
 import html2pdf from "html2pdf.js";
 
 const Orders = () => {
-  const [orders, setOrders] = useState([]); 
+  const [orders, setOrders] = useState([]);
   const [, setCurrentOrder] = useState(null);
   const [token] = useState(localStorage.getItem('token'));
   
@@ -70,7 +70,6 @@ const Orders = () => {
     `;
   
     // Create a new jsPDF instance
-    const pdf = new jsPDF();
   
     // Convert the HTML content to PDF
     html2pdf(pdfContent, {

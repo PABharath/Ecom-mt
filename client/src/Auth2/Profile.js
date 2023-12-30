@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
 import Navbar2 from "../Pages/Navbar2";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Profile.css";
 import ProfileOrders from "../Pages/ProfileOrders";
@@ -42,17 +42,18 @@ const Profile = () => {
   if (!token) {
     navigate("/Login");
   }
-  const handleDeleteAddress = async ( addressId) => {
+
+  const handleDeleteAddress = async (addressId) => {
     try {
       // Send a DELETE request to the server with both user ID and address ID
-      await axios.delete(
-        `http://localhost:5555/api/address/${email}/${addressId}`,
-       
-      );
-
+      await axios.delete(`http://localhost:5555/api/address/${email}/${addressId}`);
+  
       // Update the state to reflect the deleted address
-      
-
+      setProfile((prevProfile) => ({
+        ...prevProfile,
+        address: prevProfile.address.filter((address) => address._id !== addressId),
+      }));
+  
       // Display a success toast
       toast.success("Address deleted successfully!");
     } catch (error) {
@@ -61,7 +62,7 @@ const Profile = () => {
       toast.error(`Error deleting address: ${error.message}`);
     }
   };
-
+  
   return (
     <div>
       
@@ -209,7 +210,7 @@ const Profile = () => {
                             <h3 className="addresses">Addresses</h3>
                             <div className="address-list">
                               {profile.address.map((address) => (
-                                <div className="liiii" key={address._id["$oid"]}>
+                                <div className="liiiii" key={address._id["$oid"]}>
                                   <div className="address-details">
                                   
                                     <p>
@@ -272,7 +273,7 @@ const Profile = () => {
         ) : (
           <p>Loading profile...</p>
         )}
-        <ToastContainer position="top-center" autoClose={3000} />
+        {/* <ToastContainer position="top-center" autoClose={3000} /> */}
       </div>
     </div>
   );
