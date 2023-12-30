@@ -69,6 +69,7 @@ function Home() {
         
           window.alert(err.response.data.message);
         } else {
+          
          
           window.alert('An error occurred');
         }
