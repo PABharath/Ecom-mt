@@ -1,8 +1,8 @@
 .navvik-right{
     display: flex;
-    gap: 2rem;
-    margin-top: 1.4rem;
-    margin-left: 2rem;
+    gap: 1.8rem;
+    margin-top: 0.9rem;
+    margin-left: 1.8rem;
 }
 
 .navvik-right *{
@@ -80,7 +80,7 @@
 	  box-sizing: border-box;
   }
   .navbar-h3{
-    margin-left: 1rem;
+    margin-left: 0rem;
   }
   .navLink{
     margin-left: 5px;
@@ -114,11 +114,12 @@
 .me-autovik{
     display: flex;
     justify-content: space-between;
-    gap: 1.5rem;
+    gap: 1.1rem;
     
     color: black;
     font-weight: 500;
-    margin-top: .3rem;
+  position: relative;
+  top: -0.5rem;
 }
 
 
@@ -154,8 +155,8 @@ border-radius: 5px;
 }
 .pop2{
     position: relative;
-    top: -0.9rem;
-    font-size: 1.2rem;
+    top: -0.2rem;
+    font-size: 1.1rem;
     left: -0.3rem;
 }
 .pop3{
@@ -189,6 +190,13 @@ border-radius: 5px;
       margin-left: 0; /* Adjust margin for the logo */
       text-align: center; /* Center the logo */
     }
+
+    .pop2{
+      position: relative;
+    
+      font-size: 1.2rem;
+      left: -0.3rem;
+  }
   
     .navbar-h3 {
       margin-left: 0.5rem; /* Adjust margin for the heading */
