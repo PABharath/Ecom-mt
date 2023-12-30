@@ -219,7 +219,7 @@ const ProductDetails = () => {
 
     addToCart(product);
     console.log("Adding to cart:", product);
-    navigate("/Cart");
+    navigate("/IntegratedAddressPage");
   };
 
   const handleSubmitReview = async (event) => {
@@ -261,20 +261,6 @@ const ProductDetails = () => {
     }
   };
 
-  const handleLikeDislike = async (reviewId, action) => {
-    try {
-      const response = await axios.post(
-        `http://127.0.0.1:5555/api/reviews/${reviewId}/${action}`
-      );
-      console.log("Updated review response:", response.data);
-      const updatedReviews = reviews.map((review) =>
-        review._id === reviewId ? response.data : review
-      );
-      setReviews(updatedReviews);
-    } catch (error) {
-      console.error("Error updating like/dislike:", error);
-    }
-  };
 
   const openReviewModal = () => {
     setIsReviewModalOpen(true);
@@ -398,7 +384,7 @@ const ProductDetails = () => {
                     Add to Cart
                   </button>
 
-                  <Link to="/Cart">
+                  <Link to="/IntegratedAddressPage">
                     <button
                       className="buy-now-button"
                       onClick={(event) => handleBuyNow(event, productDetails)}

@@ -3,7 +3,7 @@ import AddAddressPage from './AddAddressPage';
 import axios from 'axios';
 
 const AddressView = ({ onAddressSelection }) => {
-  const [error, setError] = useState(null);
+  const [error,] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [data, setData] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
@@ -28,10 +28,6 @@ const AddressView = ({ onAddressSelection }) => {
 
   const handleAddressSelection = (user) => {
     onAddressSelection(user);
-  };
-
-  const handleShowPopup = () => {
-    setShowPopup(true);
   };
 
   const handleHidePopup = () => {
