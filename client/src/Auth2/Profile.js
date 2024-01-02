@@ -46,13 +46,57 @@ const Profile = () => {
 
   const handleDeleteAddress = async (addressId) => {
     try {
-      // Send a DELETE request to the server with both user ID and address ID
+      // Display a confirmation toast with custom JSX content
+      const confirmToastId = toast(
+        <div>
+          <p>Are you sure you want to delete this address?</p>
+          <button
+            className="confirm-btn confirm-yes"
+            onClick={() => {
+              handleConfirmDeleteAddress(confirmToastId, addressId);
+            }}
+          >
+            Yes
+          </button>
+          <button
+            className="confirm-btn confirm-no"
+            onClick={() => {
+              handleCancelDeleteAddress(confirmToastId);
+            }}
+          >
+            No
+          </button>
+        </div>,
+        {
+          autoClose: 8000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }
+      );
+    } catch (error) {
+      console.error("Error displaying confirmation toast:", error);
+      // Display an error toast with the specific error message
+      toast.error(`Error deleting address: ${error.message}`);
+    }
+  };
+  
+  const handleConfirmDeleteAddress = async (confirmToastId, addressId) => {
+    try {
+      // Close the confirmation toast
+      toast.dismiss(confirmToastId);
+  
+      // Send a DELETE request to the server with the address ID
       await axios.delete(`http://localhost:5555/api/address/${email}/${addressId}`);
   
       // Update the state to reflect the deleted address
       setProfile((prevProfile) => ({
         ...prevProfile,
-        address: prevProfile.address.filter((address) => address._id !== addressId),
+        address: prevProfile.address.filter(
+          (address) => address._id !== addressId
+        ),
       }));
   
       // Display a success toast
@@ -63,6 +107,15 @@ const Profile = () => {
       toast.error(`Error deleting address: ${error.message}`);
     }
   };
+  
+  const handleCancelDeleteAddress = (confirmToastId) => {
+    // Close the confirmation toast
+    toast.dismiss(confirmToastId);
+  
+    // Display a cancellation toast
+    toast.info("Address deletion cancelled.");
+  };
+  
   
   return (
     <div>
@@ -100,7 +153,7 @@ const Profile = () => {
               </div>
             </div>
             <div>
-              {profile.cart && profile.cart.length > 0 && (
+              {  token && (
                 <>
                   <div className="second">
                     <div className="third">
@@ -241,7 +294,9 @@ const Profile = () => {
                                     <p>
                                       <strong>pincode</strong> {address.pincode}
                                     </p>
-                                    <div>
+                                    <div className="buttons-div">
+
+                                      {/* <button className="address-edit">Edit</button> */}
                                       <button
                                         className="wishes"
                                         onClick={() => {

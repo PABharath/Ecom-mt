@@ -124,7 +124,9 @@ function Home() {
 
   return (
     <>
-    <Navbar2 onSearch={handleSearch} className="navbar-position" />
+    <div className="navbar-position">
+    <Navbar2 onSearch={handleSearch}  />
+    </div>
     <div className="home-main-body" >
       <section>
         <ImageCarousel />

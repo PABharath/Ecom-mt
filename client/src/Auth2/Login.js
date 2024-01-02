@@ -47,7 +47,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();  
     try {
-      const response = await axios.post(`${ BASE_URL } /api/login`,data);
+      const response = await axios.post(`${ BASE_URL }/api/login`,data);
       const email = data.email;
     
       if (response.status === 200) {  
@@ -56,7 +56,7 @@ const Login = () => {
         localStorage.setItem('email' , email)
 
         // Display success message using toast.success
-        toast.success('Login successful', { position: 'top-center', autoClose: 3000 });
+        toast.success('Login successful', { position: 'top-center', autoClose: 1000 });
   
         // Set the user data using the login function
         // login({ token, email }); 
@@ -185,7 +185,7 @@ const Login = () => {
           </div>
         </section>
       </div>
-      <ToastContainer position="top-center" autoClose={3000} />
+      <ToastContainer  />
     </div>
    </div>
   );
