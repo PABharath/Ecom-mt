@@ -1,12 +1,14 @@
-import React, { useState ,useContext} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import './Payment.css';
 import blue from '../Assets/blue.jpg';
 import { useCart } from "./CreateContext";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar2 from "./Navbar2";
+import { BASE_URL } from "../services/Helpers";
+
 
 const PaymentPage = () => {
   const location = useLocation();
@@ -26,7 +28,7 @@ const PaymentPage = () => {
       const calculatedAmount = Math.max(minimumAmount, totalAmount);
 
       const response = await axios.post(
-        "http://localhost:5555/api/checkout",
+        `${ BASE_URL }/api/checkout`,
         { totalAmount: calculatedAmount,
           }
       );
@@ -45,12 +47,7 @@ const PaymentPage = () => {
     }
   };
 
-   const handlePaymentError = (error) => {
-    console.error("Payment error:", error);
-     // Handle the payment error, display an error message, etc.
-   };
-
-  const openRazorpayModal = () => {
+    const openRazorpayModal = () => {
     console.log("Button clicked.");
     if (window.Razorpay) {
       try {
@@ -84,7 +81,7 @@ const PaymentPage = () => {
   const handleCreateOrder = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:5555/api/users/${email}/orders/create`,
+        `${ BASE_URL }/api/users/${email}/orders/create`,
         { cartItems, totalAmount ,address}
       );
 
@@ -128,7 +125,6 @@ const PaymentPage = () => {
           {/* Display other order details as needed */}
         </div>
       )}
-      {<ToastContainer position="top-center" autoClose={2000} />}
     </center>
     </div>
   );

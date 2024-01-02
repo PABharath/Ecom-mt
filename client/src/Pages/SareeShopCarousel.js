@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import "./SareeShopCarousel.css";
 import { IoChevronForwardCircle } from "react-icons/io5";
 import { AiFillStepBackward } from "react-icons/ai";
-import { TfiLayoutSlider } from "react-icons/tfi";
+
 
 const SareeShopCarousel = () => {
   const sliderRef = useRef(null);
@@ -35,7 +35,7 @@ const SareeShopCarousel = () => {
 
   return (
     <div className="saree-shop-carousel">
-       <Slider {...settings}ref={sliderRef}> 
+       <Slider {...settings}ref={sliderRef}>
         {/* Add your saree shop items here */}
         <div className="columb65">
         <div className="carousel-item flexchange231">

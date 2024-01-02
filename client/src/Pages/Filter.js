@@ -1,24 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useCallback } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useCart } from "./CreateContext"; 
 import { toast } from "react-toastify";
 import { scrollToTop } from "./scrollUtils";
 import Navbar2 from "./Navbar2";
+import { BASE_URL } from "../services/Helpers";
 
 const Filter = ({ searchQuery }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const { addToCart } = useCart();
 
-  useEffect(() => {
-    console.log("Component mounted with searchQuery:", searchQuery);
-    fetchProducts();
-  }, [searchQuery]);
-
-  const fetchProducts = async () => {
+  
+  const fetchProducts = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:5555/api/products");
+      const response = await axios.get(`${BASE_URL}/api/products`);
       console.log("API response:", response.data);
       const filteredProducts = filterProducts(response.data, searchQuery);
       console.log("Filtered products:", filteredProducts);
@@ -32,7 +29,14 @@ const Filter = ({ searchQuery }) => {
       console.error("Error fetching products:", error.message);
       console.log("Error details:", error.response);
     }
-  };
+  },[searchQuery]);
+
+  useEffect(() => {
+    console.log("Component mounted with searchQuery:", searchQuery);
+    fetchProducts();
+  }, [searchQuery,fetchProducts]);
+
+
 
   const filterProducts = (allProducts, query) => {
     if (!query) {
@@ -83,7 +87,7 @@ const Filter = ({ searchQuery }) => {
                 >
                   <img
                     className='product-imgvik'
-                    src={`http://127.0.0.1:5555/api/uploads/${product.productImages[0]}`}
+                    src={`${BASE_URL}/api/uploads/${product.productImages[0]}`}
                     alt={product.productName}
                   />
                   <div className='productnamevik'>{product.productName}</div>

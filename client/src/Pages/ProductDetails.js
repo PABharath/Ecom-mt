@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useCallback} from "react";
 import axios from "axios";
 import Modal from "react-modal";
 import { useParams, Link, useNavigate } from "react-router-dom";
@@ -11,6 +11,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Navbar2 from "./Navbar2";
 import { FaStar } from "react-icons/fa";
+import { BASE_URL } from "../services/Helpers";
+
 // import StarRating from "react-rating-stars-component";
 
 const ProductDetails = () => {
@@ -130,26 +132,16 @@ const ProductDetails = () => {
     return `rgb(${color.join(",")})`;
   };
 
-  useEffect(() => {
-    fetchProductDetails();
-    fetchReviewData();
-  }, []);
-
-  useEffect(() => {
-    console.log("Product ID:", productId);
-    if (productId) {
-      fetchProductDetails(productId);
-    }
-  }, [productId]);
+ 
 
   const handleThumbnailClick = (index) => {
     setMainImage(index);
   };
 
-  const fetchReviewData = async () => {
+  const fetchReviewData = useCallback(async () => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5555/api/product-reviews?productId=${productId}`
+        `${ BASE_URL }/api/product-reviews?productId=${productId}`
       );
       const data = await response.json();
       setReviews(data);
@@ -162,12 +154,12 @@ const ProductDetails = () => {
     } catch (error) {
       console.error("Error fetching review data:", error);
     }
-  };
+  },[productId]);
 
-  const fetchProductDetails = async () => {
+  const fetchProductDetails = useCallback(async () => {
     try {
       const response = await axios.get(
-        `http://127.0.0.1:5555/api/products/${productId}`
+        `${ BASE_URL }/api/products/${productId}`
       );
       console.log("Response:", response.data);
       setProductDetails(response.data);
@@ -175,7 +167,21 @@ const ProductDetails = () => {
       console.error("Error fetching product details:", error);
       setError("Error fetching product details");
     }
-  };
+  },[setProductDetails,productId]);
+
+
+  useEffect(() => {
+    fetchProductDetails();
+    fetchReviewData();
+  }, [fetchProductDetails,fetchReviewData]);
+
+  useEffect(() => {
+    console.log("Product ID:", productId);
+    if (productId) {
+      fetchProductDetails(productId);
+    }
+  }, [productId,fetchProductDetails]);
+
   const calculateOffer = () => {
     const mrp = parseFloat(productDetails.mrp);
     const sp = parseFloat(productDetails.sp);
@@ -242,7 +248,7 @@ const ProductDetails = () => {
     try {
       // Post the review based on the productId
       await axios.post(
-        `http://127.0.0.1:5555/api/products/${productId}/reviews`,
+        `${ BASE_URL }/api/products/${productId}/reviews`,
         formData
       );
 
@@ -261,7 +267,7 @@ const ProductDetails = () => {
     }
   };
 
-
+  
   const openReviewModal = () => {
     setIsReviewModalOpen(true);
   };
@@ -298,7 +304,7 @@ const ProductDetails = () => {
                 <div className="images-container">
                   <img
                     className="main-image"
-                    src={`http://127.0.0.1:5555/api/uploads/${productDetails.productImages[mainImage]}`}
+                    src={`${ BASE_URL }/api/uploads/${productDetails.productImages[mainImage]}`}
                     alt={`Product ${mainImage}`}
                     width="1000"
                     height="1200"
@@ -310,7 +316,7 @@ const ProductDetails = () => {
                         className={`thumbnail ${
                           index === mainImage ? "active" : ""
                         }`}
-                        src={`http://127.0.0.1:5555/api/uploads/${image}`}
+                        src={`${ BASE_URL }/api/uploads/${image}`}
                         alt={`Product ${index}`}
                         width="50"
                         height="75"

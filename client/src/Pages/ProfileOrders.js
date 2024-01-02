@@ -2,19 +2,17 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Orders.css";
+import { BASE_URL } from "../services/Helpers";
 
-import { jsPDF } from "jspdf";
+// import { jsPDF } from "jspdf";
 import html2pdf from "html2pdf.js";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
-  const [currentOrder, setCurrentOrder] = useState(null);
+  const [, setCurrentOrder] = useState(null);
   const [token] = useState(localStorage.getItem('token'));
   
-  useEffect(() => {
-    fetchOrders();
-  }, []);
-
+ 
 
   const handleViewInvoice = (order) => {
     setCurrentOrder(order);
@@ -72,7 +70,7 @@ const Orders = () => {
     `;
   
     // Create a new jsPDF instance
-    const pdf = new jsPDF();
+    // const pdf = new jsPDF();
   
     // Convert the HTML content to PDF
     html2pdf(pdfContent, {
@@ -88,7 +86,7 @@ const Orders = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5555/api/profile', {
+      .get(`${ BASE_URL }/api/profile`, {
         headers: {
           'x-token': token,
         },
@@ -103,46 +101,14 @@ const Orders = () => {
 
 
 
-  const fetchOrders = async () => {
-    try {
-      const response = await axios.get("http://localhost:5555/");
-      console.log("API Response:", response);
-  
-      const data = response.data.orders;
-
-  
-      const ordersWithFormattedData = data.map((order) => {
-        return {
-          orderId: order.orderId,
-          orderDate: new Date(order.orderDate).toLocaleDateString(),
-          totalAmount: order.totalAmount,
-          expectedDeliveryDate: order.expectedDeliveryDate,
-          products: order.products.map((product) => {
-            return {
-              productName: product.productName,
-              productImages: product.productImages,
-              productId: product.productId,
-            };
-          }),
-        };
-      });
-  
-      console.log("Formatted Orders:", ordersWithFormattedData);
-  
-      setOrders(ordersWithFormattedData);
-    } catch (error) {
-      console.error("Error fetching orders:", error);
-    }
-  };
-  
-
   // const fetchOrders = async () => {
   //   try {
-  //     const response = await axios.get("http://localhost:5555/api/orders");
+  //     const response = await axios.get("http://localhost:5555/");
   //     console.log("API Response:", response);
-
+  
   //     const data = response.data.orders;
 
+  
   //     const ordersWithFormattedData = data.map((order) => {
   //       return {
   //         orderId: order.orderId,
@@ -153,19 +119,22 @@ const Orders = () => {
   //           return {
   //             productName: product.productName,
   //             productImages: product.productImages,
-  //             productId: product.productId, // Make sure productId is available
+  //             productId: product.productId,
   //           };
   //         }),
   //       };
   //     });
-
+  
   //     console.log("Formatted Orders:", ordersWithFormattedData);
-
+  
   //     setOrders(ordersWithFormattedData);
   //   } catch (error) {
   //     console.error("Error fetching orders:", error);
   //   }
   // };
+  
+
+ 
 
   return (
     <div>
@@ -220,7 +189,7 @@ const Orders = () => {
       <div key={index} className="ecom-product-item">
       <img
         
-        src={`http://127.0.0.1:5555/api/uploads/${product.productImages?.[0] || "default-image.jpg"}`}
+        src={`${ BASE_URL }/api/uploads/${product.productImages?.[0] || "default-image.jpg"}`}
         alt={`Product ${index + 1}`}
         className="ecom-image"
         onLoad={() => console.log(`Image ${index + 1} loaded successfully`)}

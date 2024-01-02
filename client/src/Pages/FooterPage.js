@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { scrollToTop } from "./scrollUtils";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineMailOutline } from "react-icons/md";
-import { FaPhoneAlt } from "react-icons/fa";
 import { FaCcVisa } from "react-icons/fa";
 import { FaCcMastercard } from "react-icons/fa";
 import { FaCcPaypal } from "react-icons/fa";
@@ -15,18 +14,10 @@ import { BsTwitterX } from "react-icons/bs";
 
 
 
-
 const Footer = () => {
   return (
     <div className="footer-container ">
       <div className="footer-wrapper">
-
-
-      
-
-
-
-
         <div className="footer-section">
         <Link to="/information" onClick={scrollToTop}><h3 className='text12765'>INFORMATION</h3>
        
