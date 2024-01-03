@@ -71,6 +71,7 @@ function Home() {
         
           window.alert(err.response.data.message);
         } else {
+          
          
           window.alert('An error occurred');
         }
@@ -124,7 +125,9 @@ function Home() {
 
   return (
     <>
-    <Navbar2 onSearch={handleSearch} className="navbar-position" />
+    <div className="navbar-position">
+    <Navbar2 onSearch={handleSearch}  />
+    </div>
     <div className="home-main-body" >
       <section>
         <ImageCarousel />

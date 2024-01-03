@@ -25,13 +25,7 @@ const Navbar2 = ({ onSearch }) => {
     0
   );
 
-  // const target = useRef(null);
-
-  // const handleSearch = () => {
-  //   console.log("Search query:", searchQuery);
-  //   onSearch(searchQuery);
-  // };
-
+  
   const handleLogout = () => {
     // Clear the token
 
@@ -42,8 +36,8 @@ const Navbar2 = ({ onSearch }) => {
   };
 
   return (
-    <div className="nav1">
-      <Navbar expand="lg" className={styles.navbara}>
+    <div className="nav1" style={{ zIndex: 1000 }}>
+      <Navbar expand="lg" className={`${styles.navbara} fixed-top`}>
         <Container className={styles.navbarContainera}>
           <Navbar.Brand as={NavLink} to="/" className="logovik">
             <h3 className="navbar-h3">E-Saree</h3>
@@ -120,42 +114,7 @@ const Navbar2 = ({ onSearch }) => {
 
                 
 
-                {/* {token ? (
-                  <div onClick={() => navigate("/Profile")}>
-                    <FontAwesomeIcon icon={faUser} className="menu-icon" />
-                  </div>
-                ) : (
-                  <Link to="/Login">
-                    <FontAwesomeIcon icon={faUser} className="menu-icon1" />
-                  </Link>
-                )} */}
-
-                {/* <Button  ref={target} style={{backgroundColor:'white',color:'white',border:'none'}}  onClick={() => setShow(!show)}>
-           
-           <FaUserCircle style={{fontSize:'1.2rem' , marginTop:'-1rem',marginLeft:'-0.8rem'}}/>
-       
-         </Button>
-         
-         <Overlay target={target.current} show={show}   placement="bottom">
-           {(props) => (
-             
-             <Tooltip id="overlay-example"  {...props}>
-               <div >
-               <h4>Profile</h4>
-               <FaUserCircle style={{fontSize:'2rem'}}/><br/>
-                <b>Username:</b><br/>
-              <input type="text" placeholder="Username"/><br/><br/>
-                <Link to='/Login'>         
-                {/* <button onClick={handleLogout}>Logout</button> */}
-                {/* {/* </Link> */}
-                {/* <button className="bg-button1" onClick={handleLogout}>logout</button><br/><br/>
-                <button className="bg-button2"><PiSignOutBold/>Profile</button> 
-                 <br/>
-               </div>
-             </Tooltip>
-             
-           )}
-         </Overlay> */}
+                
 
                 {/* <h4>Popup - GeeksforGeeks</h4> */}
                 <Popup
